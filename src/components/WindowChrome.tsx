@@ -9,6 +9,7 @@ import { IconButton, cx } from '../primitives';
 
 export interface TitleBarProps {
   chrome: 'windows' | 'macos';
+  nativeMac?: boolean;
   center?: React.ReactNode;
   /** place the center slot in flow (narrow windows) instead of true-centering it */
   centerInline?: boolean;
@@ -30,11 +31,13 @@ export function AppMark({ size = 14 }: { size?: number }) {
   );
 }
 
-export function TitleBar({ chrome, center, centerInline, actions, onMinimize, onMaximize, onClose, onCompact }: TitleBarProps) {
+export function TitleBar({ chrome, nativeMac, center, centerInline, actions, onMinimize, onMaximize, onClose, onCompact }: TitleBarProps) {
   const mac = chrome === 'macos';
   return (
     <header data-tauri-drag-region className="relative flex h-10 shrink-0 items-center border-b border-line" onDoubleClick={(e) => e.target === e.currentTarget && onMaximize()}>
-      {mac ? (
+      {mac && nativeMac ? (
+        <div data-tauri-drag-region aria-hidden="true" className="h-full w-[80px] shrink-0" />
+      ) : mac ? (
         <div className="flex items-center gap-2 pl-3.5 pr-3" aria-label="Window controls">
           <button aria-label="Close" onClick={onClose} className="h-3 w-3 rounded-full bg-[#ff5f57] shadow-[inset_0_0_0_0.5px_rgba(0,0,0,.25)]" />
           <button aria-label="Minimize" onClick={onMinimize} className="h-3 w-3 rounded-full bg-[#febc2e] shadow-[inset_0_0_0_0.5px_rgba(0,0,0,.25)]" />

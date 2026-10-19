@@ -12,6 +12,8 @@ export interface SettingsPanelProps {
   settings: Settings;
   onChange(patch: Partial<Settings>): void;
   platformSupportsAutostart: boolean;
+  desktop?: boolean;
+  desktopOS?: 'windows' | 'macos' | 'linux';
   onReplayOnboarding?(): void;
 }
 
@@ -38,7 +40,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 const DAYS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
-export function SettingsPanel({ settings: s, onChange, platformSupportsAutostart, onReplayOnboarding }: SettingsPanelProps) {
+export function SettingsPanel({ settings: s, onChange, platformSupportsAutostart, desktop, desktopOS, onReplayOnboarding }: SettingsPanelProps) {
   const [work, setWorkDraft] = useState(s.defaultWork);
   const [workError, setWorkError] = useState('');
   useEffect(() => { setWorkDraft(s.defaultWork); }, [s.defaultWork]);
@@ -93,10 +95,10 @@ export function SettingsPanel({ settings: s, onChange, platformSupportsAutostart
         <Row label="Show timeline on Clock" hint="The 24-hour strip under the comparison rows.">
           <Switch label="Show timeline" checked={s.showTimeline} onChange={(v) => onChange({ showTimeline: v })} />
         </Row>
-        <Row label="Window style preview" hint="Prototype only: shows the macOS title bar adaptation.">
+        {!desktop && <Row label="Window style preview" hint="Prototype only: shows the macOS title bar adaptation.">
           <Segmented label="Window style" value={s.chrome} onChange={(v) => onChange({ chrome: v })}
             options={[{ value: 'windows', label: 'Windows' }, { value: 'macos', label: 'macOS' }]} />
-        </Row>
+        </Row>}
       </Section>
 
       <Section title="Compact widget">
@@ -112,15 +114,18 @@ export function SettingsPanel({ settings: s, onChange, platformSupportsAutostart
       </Section>
 
       <Section title="System">
-        <Row label="Show in system tray" hint="Left-click opens the widget; right-click for groups and Quit.">
+        <Row label={desktopOS === 'macos' ? 'Show in menu bar' : 'Show in system tray'} hint={desktopOS === 'macos' ? 'Click for the widget, groups and Quit.' : 'Left-click opens the widget; right-click for groups and Quit.'}>
           <Switch label="Tray icon" checked={s.trayIcon} onChange={(v) => onChange({ trayIcon: v })} />
         </Row>
         <Row label="Launch at sign-in" hint={platformSupportsAutostart ? undefined : 'Available in the desktop build.'} disabled={!platformSupportsAutostart}>
-          <Switch label="Launch at sign-in" checked={false} onChange={() => {}} disabled={!platformSupportsAutostart} />
+          <Switch label="Launch at sign-in" checked={desktop ? s.launchAtSignIn : false} onChange={value => onChange({ launchAtSignIn: value })} disabled={!platformSupportsAutostart} />
         </Row>
         <Row label="Global shortcut" hint="Show or hide the compact widget from anywhere.">
-          <span className="rounded-md border border-line px-2 py-0.5 text-label text-ink-muted">{s.chrome === 'macos' ? '⌥⌘T' : 'Ctrl+Alt+T'}</span>
+          {desktop ? <ShortcutInput value={s.globalShortcut} onChange={value => onChange({ globalShortcut: value })} /> : <span className="rounded-md border border-line px-2 py-0.5 text-label text-ink-muted">{s.chrome === 'macos' ? '⌥⌘T' : 'Ctrl+Alt+T'}</span>}
         </Row>
+        {desktop && <Row label="When the main window closes" hint={desktopOS === 'macos' ? 'Hide keeps Longitude running; reopen from the Dock or menu bar.' : 'Hide requires a tray icon; otherwise Longitude quits.'}>
+          <Segmented label="Close behavior" value={s.closeBehavior} onChange={value => onChange({ closeBehavior: value })} options={[{ value: 'hide', label: 'Hide' }, { value: 'quit', label: 'Quit' }]} />
+        </Row>}
         {onReplayOnboarding && (
           <Row label="Welcome tour">
             <button onClick={onReplayOnboarding} className="text-label text-ink underline decoration-line-strong underline-offset-2 hover:decoration-ink">Show again</button>
@@ -130,4 +135,13 @@ export function SettingsPanel({ settings: s, onChange, platformSupportsAutostart
       <p className="pb-4 text-caption text-ink-faint">Time zone rules come from your system’s IANA database (via ICU). Longitude stores no offsets.</p>
     </div>
   );
+}
+
+function ShortcutInput({ value, onChange }: { value: string; onChange(value: string): void }) {
+  const [draft, setDraft] = useState(value);
+  useEffect(() => setDraft(value), [value]);
+  return <form className="flex items-center gap-2" onSubmit={event => { event.preventDefault(); if (draft.trim()) onChange(draft.trim()); }}>
+    <input aria-label="Global shortcut" className="w-32 rounded-md border border-line bg-field px-2 py-1 text-label text-ink" maxLength={100} value={draft} onChange={event => setDraft(event.target.value)} />
+    <button className="text-label underline" type="submit">Apply</button>
+  </form>;
 }

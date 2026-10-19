@@ -3,8 +3,10 @@ import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 const out = process.argv[2] || 'dist';
 fs.mkdirSync(out, { recursive: true });
+await esbuild.build({ entryPoints: ['src/scheduling/search.worker.ts'], bundle: true, format: 'esm', minify: true, target: 'es2020', outfile: `${out}/search-worker.js` });
 await esbuild.build({
   entryPoints: ['src/index.tsx'], bundle: true, format: 'iife', globalName: 'Longitude', minify: true, target: 'es2020',
+  define: { 'import.meta.url': 'undefined' },
   jsx: 'transform', jsxFactory: 'React.createElement', jsxFragment: 'React.Fragment',
   alias: { react: './src/shims/react.js', 'react-dom': './src/shims/react-dom.js' },
   outfile: `${out}/bundle.raw.js`, legalComments: 'none', charset: 'utf8',

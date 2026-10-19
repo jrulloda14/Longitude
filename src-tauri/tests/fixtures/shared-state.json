@@ -1,0 +1,500 @@
+{
+  "groups": [
+    {
+      "id": "grp-mveyf9yj-4",
+      "name": "My Team",
+      "locations": [
+        {
+          "id": "loc-mveyf9yj-0",
+          "name": "Singapore",
+          "country": "Singapore",
+          "zone": "Asia/Singapore",
+          "lat": 1.29,
+          "lon": 103.85,
+          "favorite": true,
+          "work": {
+            "start": 540,
+            "end": 1050,
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "sleep": {
+            "start": 1380,
+            "end": 420
+          }
+        },
+        {
+          "id": "loc-mveyf9yj-1",
+          "name": "Manila",
+          "country": "Philippines",
+          "zone": "Asia/Manila",
+          "lat": 14.6,
+          "lon": 121,
+          "favorite": true,
+          "work": {
+            "start": 540,
+            "end": 1050,
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "sleep": {
+            "start": 1380,
+            "end": 420
+          }
+        },
+        {
+          "id": "loc-mveyf9yj-2",
+          "name": "New York",
+          "country": "United States",
+          "zone": "America/New_York",
+          "lat": 40.71,
+          "lon": -74.01,
+          "favorite": true,
+          "work": {
+            "start": 540,
+            "end": 1050,
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "sleep": {
+            "start": 1380,
+            "end": 420
+          }
+        },
+        {
+          "id": "loc-mveyf9yj-3",
+          "name": "London",
+          "country": "United Kingdom",
+          "zone": "Europe/London",
+          "lat": 51.51,
+          "lon": -0.13,
+          "favorite": true,
+          "work": {
+            "start": 540,
+            "end": 1050,
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "sleep": {
+            "start": 1380,
+            "end": 420
+          }
+        }
+      ],
+      "referenceId": "loc-mveyf9yj-0"
+    },
+    {
+      "id": "grp-mveyf9yj-a",
+      "name": "US Clients",
+      "locations": [
+        {
+          "id": "loc-mveyf9yj-5",
+          "name": "Singapore",
+          "country": "Singapore",
+          "zone": "Asia/Singapore",
+          "lat": 1.29,
+          "lon": 103.85,
+          "favorite": true,
+          "work": {
+            "start": 540,
+            "end": 1050,
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "sleep": {
+            "start": 1380,
+            "end": 420
+          }
+        },
+        {
+          "id": "loc-mveyf9yj-6",
+          "name": "New York",
+          "country": "United States",
+          "zone": "America/New_York",
+          "lat": 40.71,
+          "lon": -74.01,
+          "favorite": true,
+          "work": {
+            "start": 540,
+            "end": 1050,
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "sleep": {
+            "start": 1380,
+            "end": 420
+          }
+        },
+        {
+          "id": "loc-mveyf9yj-7",
+          "name": "Chicago",
+          "country": "United States",
+          "zone": "America/Chicago",
+          "lat": 41.88,
+          "lon": -87.63,
+          "favorite": true,
+          "work": {
+            "start": 540,
+            "end": 1050,
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "sleep": {
+            "start": 1380,
+            "end": 420
+          }
+        },
+        {
+          "id": "loc-mveyf9yj-8",
+          "name": "Denver",
+          "country": "United States",
+          "zone": "America/Denver",
+          "lat": 39.74,
+          "lon": -104.99,
+          "favorite": true,
+          "work": {
+            "start": 540,
+            "end": 1050,
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "sleep": {
+            "start": 1380,
+            "end": 420
+          }
+        },
+        {
+          "id": "loc-mveyf9yj-9",
+          "name": "Los Angeles",
+          "country": "United States",
+          "zone": "America/Los_Angeles",
+          "lat": 34.05,
+          "lon": -118.24,
+          "favorite": true,
+          "work": {
+            "start": 540,
+            "end": 1050,
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "sleep": {
+            "start": 1380,
+            "end": 420
+          }
+        }
+      ],
+      "referenceId": "loc-mveyf9yj-5"
+    },
+    {
+      "id": "grp-mveyf9yj-h",
+      "name": "APAC",
+      "locations": [
+        {
+          "id": "loc-mveyf9yj-b",
+          "name": "Singapore",
+          "country": "Singapore",
+          "zone": "Asia/Singapore",
+          "lat": 1.29,
+          "lon": 103.85,
+          "favorite": true,
+          "work": {
+            "start": 540,
+            "end": 1050,
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "sleep": {
+            "start": 1380,
+            "end": 420
+          }
+        },
+        {
+          "id": "loc-mveyf9yj-c",
+          "name": "Manila",
+          "country": "Philippines",
+          "zone": "Asia/Manila",
+          "lat": 14.6,
+          "lon": 121,
+          "favorite": true,
+          "work": {
+            "start": 540,
+            "end": 1050,
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "sleep": {
+            "start": 1380,
+            "end": 420
+          }
+        },
+        {
+          "id": "loc-mveyf9yj-d",
+          "name": "Mumbai",
+          "country": "India",
+          "zone": "Asia/Kolkata",
+          "lat": 19.08,
+          "lon": 72.88,
+          "favorite": true,
+          "work": {
+            "start": 540,
+            "end": 1050,
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "sleep": {
+            "start": 1380,
+            "end": 420
+          }
+        },
+        {
+          "id": "loc-mveyf9yj-e",
+          "name": "Kathmandu",
+          "country": "Nepal",
+          "zone": "Asia/Kathmandu",
+          "lat": 27.72,
+          "lon": 85.32,
+          "favorite": true,
+          "work": {
+            "start": 540,
+            "end": 1050,
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "sleep": {
+            "start": 1380,
+            "end": 420
+          }
+        },
+        {
+          "id": "loc-mveyf9yj-f",
+          "name": "Tokyo",
+          "country": "Japan",
+          "zone": "Asia/Tokyo",
+          "lat": 35.68,
+          "lon": 139.69,
+          "favorite": true,
+          "work": {
+            "start": 540,
+            "end": 1050,
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "sleep": {
+            "start": 1380,
+            "end": 420
+          }
+        },
+        {
+          "id": "loc-mveyf9yj-g",
+          "name": "Adelaide",
+          "country": "Australia",
+          "zone": "Australia/Adelaide",
+          "lat": -34.93,
+          "lon": 138.6,
+          "favorite": true,
+          "work": {
+            "start": 540,
+            "end": 1050,
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "sleep": {
+            "start": 1380,
+            "end": 420
+          }
+        }
+      ],
+      "referenceId": "loc-mveyf9yj-b"
+    },
+    {
+      "id": "grp-mveyf9yj-l",
+      "name": "Family",
+      "locations": [
+        {
+          "id": "loc-mveyf9yj-i",
+          "name": "Singapore",
+          "country": "Singapore",
+          "zone": "Asia/Singapore",
+          "lat": 1.29,
+          "lon": 103.85,
+          "favorite": true,
+          "work": {
+            "start": 540,
+            "end": 1050,
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "sleep": {
+            "start": 1380,
+            "end": 420
+          }
+        },
+        {
+          "id": "loc-mveyf9yj-j",
+          "name": "Dubai",
+          "country": "United Arab Emirates",
+          "zone": "Asia/Dubai",
+          "lat": 25.2,
+          "lon": 55.27,
+          "favorite": true,
+          "work": {
+            "start": 540,
+            "end": 1050,
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "sleep": {
+            "start": 1380,
+            "end": 420
+          }
+        },
+        {
+          "id": "loc-mveyf9yj-k",
+          "name": "Toronto",
+          "country": "Canada",
+          "zone": "America/Toronto",
+          "lat": 43.65,
+          "lon": -79.38,
+          "favorite": true,
+          "work": {
+            "start": 540,
+            "end": 1050,
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "sleep": {
+            "start": 1380,
+            "end": 420
+          }
+        }
+      ],
+      "referenceId": "loc-mveyf9yj-i"
+    }
+  ],
+  "activeGroupId": "grp-mveyf9yj-4",
+  "selected": null,
+  "view": "clock",
+  "mode": "full",
+  "onboarded": true,
+  "coach": false,
+  "settings": {
+    "hour12": true,
+    "step": 5,
+    "theme": "dark",
+    "chrome": "windows",
+    "reducedMotion": "system",
+    "showTimeline": true,
+    "defaultWork": {
+      "start": 540,
+      "end": 1050,
+      "days": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "widgetOpacity": 0.96,
+    "widgetPinned": true,
+    "trayIcon": true,
+    "closeBehavior": "hide",
+    "globalShortcut": "Ctrl+Alt+T",
+    "launchAtSignIn": false
+  },
+  "meeting": {
+    "title": "Weekly sync",
+    "durationMin": 30,
+    "weekly": false
+  }
+}

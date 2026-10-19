@@ -1,20 +1,18 @@
 /**
- * Platform adapter — the ONLY module that touches OS/window APIs.
- * The prototype ships a web implementation; production swaps in Tauri.
- *
- * Tauri 2 mapping (see HANDOFF.md §Platform):
- *   copyText        → @tauri-apps/plugin-clipboard-manager  writeText
- *   saveFile        → @tauri-apps/plugin-dialog save() + @tauri-apps/plugin-fs writeTextFile
- *   window.*        → @tauri-apps/api/window getCurrentWindow()
- *   setAlwaysOnTop  → win.setAlwaysOnTop(b)
- *   setMode         → win.setSize(LogicalSize) + setDecorations/setResizable
- *   autostart       → @tauri-apps/plugin-autostart
- *   storage         → @tauri-apps/plugin-store (JSON in app config dir)
+ * Portable platform port with a browser preview adapter. Milestone 5A's
+ * desktop/platform.tauri.ts implements native state/window/storage integration.
+ * Rust owns tray, shortcuts, autostart and conditional filesystem writes.
+ * Native clipboard/export dialogs remain Milestone 6; existing browser
+ * copy/save behavior is retained until that separately approved integration.
  */
+import type { ConfigurationStorage } from './persistence/storage';
+import { createWebStorage } from './persistence/web-storage';
+import type { DesktopPort } from './desktop/state-client';
 
 export interface Platform {
   readonly kind: 'web-prototype' | 'tauri';
   readonly os: 'windows' | 'macos' | 'linux';
+  readonly desktop?: DesktopPort;
   copyText(text: string): Promise<boolean>;
   saveFile(name: string, contents: string, mime: string): Promise<boolean>;
   window: {
@@ -24,10 +22,7 @@ export interface Platform {
     setAlwaysOnTop(on: boolean): void;
     setMode(mode: 'full' | 'compact'): void;
   };
-  storage: {
-    load<T>(key: string): T | null;
-    save<T>(key: string, value: T): void;
-  };
+  storage: ConfigurationStorage;
   /** Not available in the prototype — UI shows these controls disabled. */
   autostart: { supported: boolean };
 }
@@ -76,22 +71,6 @@ export const webPlatform: Platform = {
   copyText: webCopy,
   saveFile: webSave,
   window: { minimize: noop, toggleMaximize: noop, close: noop, setAlwaysOnTop: noop, setMode: noop },
-  storage: {
-    load<T>(key: string): T | null {
-      try {
-        const raw = localStorage.getItem(key);
-        return raw ? (JSON.parse(raw) as T) : null;
-      } catch {
-        return null;
-      }
-    },
-    save<T>(key: string, value: T) {
-      try {
-        localStorage.setItem(key, JSON.stringify(value));
-      } catch {
-        /* storage unavailable (private window, sandbox) — state stays in memory */
-      }
-    },
-  },
+  storage: createWebStorage(),
   autostart: { supported: false },
 };

@@ -7,7 +7,7 @@ type Instant = number;
 
 interface WorkingHours { /** minutes after local midnight */ start: number; end: number; /** Shift-start weekday, 0 = Sunday */ days: number[]; intervals?: { start: number; end: number }[] }
 interface SleepHours { start: number; end: number }
-interface Location { id: string; name: string; country: string; zone: string; lat: number; lon: number; coordsApprox?: boolean; note?: string; work: WorkingHours; sleep: SleepHours }
+interface Location { id: string; name: string; country: string; zone: string; lat: number; lon: number; coordsApprox?: boolean; note?: string; favorite?: boolean; work: WorkingHours; sleep: SleepHours }
 type DayState = 'work' | 'edge' | 'off' | 'sleep';
 interface OverlapVerdict { level: 'good' | 'partial' | 'poor' | 'none'; headline: string; people: { id: string; label: string; state: DayState; workingMin: number; sleepingMin: number; burden: number }[]; cost: number }
 interface Range { start: Instant; end: Instant }
@@ -15,7 +15,7 @@ interface City { id: string; name: string; country: string; zone: string; lat: n
 interface TimeFormat { hour12: boolean }
 interface SummaryPlace { label: string; zone: string }
 interface SummaryInput { title: string; start: Instant; durationMin: number; reference: SummaryPlace; places: SummaryPlace[]; format: TimeFormat }
-interface Settings { hour12: boolean; step: 1 | 5; theme: 'system' | 'dark' | 'light'; chrome: 'windows' | 'macos'; reducedMotion: 'system' | 'on' | 'off'; showTimeline: boolean; defaultWork: WorkingHours; widgetOpacity: number; widgetPinned: boolean; trayIcon: boolean }
+interface Settings { hour12: boolean; step: 1 | 5; theme: 'system' | 'dark' | 'light'; chrome: 'windows' | 'macos'; reducedMotion: 'system' | 'on' | 'off'; showTimeline: boolean; defaultWork: WorkingHours; widgetOpacity: number; widgetPinned: boolean; trayIcon: boolean; closeBehavior: 'hide' | 'quit'; globalShortcut: string; launchAtSignIn: boolean }
 interface GroupSummary { id: string; name: string; count: number }
 type ChangeSource = 'drag' | 'wheel' | 'key' | 'input' | 'reset';
 
@@ -185,6 +185,8 @@ interface SettingsPanelProps {
   settings: Settings;
   onChange(patch: Partial<Settings>): void;
   platformSupportsAutostart: boolean;
+  desktop?: boolean;
+  desktopOS?: 'windows' | 'macos' | 'linux';
   onReplayOnboarding?(): void;
 }
 
@@ -196,6 +198,7 @@ interface OnboardingProps {
 
 interface TitleBarProps {
   chrome: 'windows' | 'macos';
+  nativeMac?: boolean;
   center?: React.ReactNode;
   /** place the center slot in flow (narrow windows) instead of true-centering it */
   centerInline?: boolean;

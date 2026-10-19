@@ -1,0 +1,12 @@
+# Preserve binary deliverables even when their content is ASCII-compatible.
+*.pdf binary
+*.png binary
+*.ico binary
+*.icns binary
+*.woff2 binary
+*.zip binary
+
+# Test logs and license extracts are verbatim evidence, not authored formatting.
+docs/evidence/** -text -whitespace
+docs/NATIVE_THIRD_PARTY_NOTICES.txt -text -whitespace
+docs/THIRD_PARTY_NOTICES.txt -text -whitespace

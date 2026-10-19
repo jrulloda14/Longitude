@@ -1,0 +1,69 @@
+# Milestone 5B — macOS Desktop Integration
+
+October 19, 2026 (Asia/Singapore). The user explicitly authorized 5B while reviewing Windows and Mac work together. **Mac implementation/configuration is available for review; macOS compilation, packaging and physical-runtime acceptance remain unverified.** This Windows host cannot complete that acceptance. No release-ready `.app`/DMG or successful Mac CI run is claimed. Stop before Milestone 6.
+
+## Changes delivered
+
+- Added a macOS Tauri override with declared macOS 12.0 deployment target, separate Apple Silicon/Intel build targets, native overlay title bar/traffic lights, transparent floating widget and Retina ICNS icon from the existing artwork. The same React/component tree, typography, colors, animations and interaction engine are reused. The existing title bar reserves native control space; HTML traffic lights remain only in the browser preview.
+- Added native application menus for About/Settings/Services/Hide/Quit, standard Edit operations and Window actions. A monochrome status-item template adapts to system appearance. Mac primary status-item click opens its menu; Windows left-click widget toggle is unchanged. Groups/Now/settings/widget commands use the existing canonical authority. Prefixed application-menu IDs prevent duplicate tray dispatch and retain existing group-switch keyboard shortcuts.
+- Added regular Dock lifecycle behavior: hide with a Dock entry even without the status item; reopen/second launch unhide/focus main; explicit close=Quit and Cmd+Q/OS Quit go through the shared client-flush barrier. Fullscreen bounds are not saved/clamped as ordinary placement. Floating pinning, opacity and all-Spaces configuration reuse the existing widget; actual fullscreen/Spaces/Stage Manager/focus behavior requires Mac hardware verification.
+- Fresh Mac profiles default to Option+Command+T (`Alt+Super+T`). Saved/imported shortcuts and preferences remain authoritative. Existing registration failure/conflict rollback and ownership cleanup are reused. Native settings describe Mac menu-bar/Dock behavior without Windows-specific instructions. Login remains opt-in through the existing LaunchAgent-capable plugin.
+- Reused fixed-key Tauri application-directory storage, schema/migrations/recovery, file locks and atomic CAS. No alternate timezone/scheduling engine, server, telemetry, account, cloud sync, separate frontend or notification plugin was introduced. Automatic appearance remains in the existing media-query/theme implementation; logical bounds, scale-aware placement and vector/font assets remain shared.
+- Configured pinned, read-only GitHub Actions development jobs for native Apple Silicon and Intel runners. Shared unit/Rust tests, actual macOS filesystem tests, Playwright WebKit interactions and ad-hoc `.app`/DMG packaging are prepared. The artifact inspection script records hashes, real signatures/Gatekeeper, app metadata/architecture and host information. The workflow has not been pushed, dispatched or executed from this task.
+
+## Windows/shared verification actually executed
+
+| Check | Result and evidence |
+| --- | --- |
+| TypeScript | Strict typecheck exit 0, [log](evidence/milestone-5b/typecheck.txt). |
+| Unit/shared regression | **692 passed, 0 failed**, ten files; includes three Mac-default tests plus every prior timezone/scheduling/persistence/bridge test. [Raw results](evidence/milestone-5b/unit-results.json). |
+| Browser regression | **81 passed, 0 skipped/flaky/unexpected**, one Edge worker, no retries, **97859.574 ms**. Includes original 79 and two chrome/preview component cases. [Results](evidence/milestone-5b/browser-results.json), [log](evidence/milestone-5b/browser-tests.txt). |
+| Native Rust | **26 passed, 0 failed/ignored/filtered**, **0.11 s** test execution; shared authority/storage/placement plus Dock/tray policy, both merged configs through Tauri's parser, ICNS container and template icon. [Log](evidence/milestone-5b/rust-tests.txt). Formatting check exit 0. Mac menu construction is compiled on Windows too; AppKit execution is not exercised. |
+| Actual Windows application/WebView2 | **27 passed, 0 failed/page exceptions**; cumulative individual checks **20136.0891 ms** (not whole harness wall time). [Results](evidence/milestone-5b/native-results.json), [log](evidence/milestone-5b/native-tests.txt). Preserved offline startup, windows/captions/placement, captured planning state, widget preview ownership/pin/restart, settings/immediate reload, sign-in registration restoration, shortcut conflicts/rollback, capability denial, close/quit/single-instance, corruption/future-schema protection. |
+| Debug desktop build | Exit 0, native Windows executable generated, Rust **12.19 s**. [Build log](evidence/milestone-5b/debug-build.txt). |
+| Release desktop/package | Exit 0, optimized Rust build **2m 36s** and unsigned Windows x64 NSIS installer generated. [Build log](evidence/milestone-5b/release-build.txt), [hashes/sizes/signatures](evidence/milestone-5b/artifacts.json). No Mac package is inferred. |
+| Final Windows release smoke | **5 passed, 0 failed**, actual final optimized executable; startup, shared planning state, independent widget show/hide and clean flush/Quit. SHA-256 matches the artifact manifest. [Results](evidence/milestone-5b/release-smoke.json), [log](evidence/milestone-5b/release-smoke.txt). |
+| Visual regression | All nine existing strict screenshot assertions pass; separate RGBA comparison reports **0 changed pixels in all nine**. [Gallery](evidence/milestone-5b/visual/index.html), [comparison](evidence/milestone-5b/visual/comparison.json), [provenance](evidence/milestone-5b/visual/provenance.json). Before-images are approved 5A after-images reused as baseline, not fresh captures. |
+| Workflow/static checks | YAML parses; official action revisions resolved from upstream tags; target configs deserialize via Tauri. These are configuration checks, not a CI success. |
+
+The initial browser run was 80 passed/one failed: the new test expected an empty drag-region attribute, while React correctly emits `data-tauri-drag-region="true"`. The test expectation was corrected, and the complete final suite passed with no retries or baseline replacement. Initial [results](evidence/milestone-5b/browser-initial-results.json)/[log](evidence/milestone-5b/browser-initial-tests.txt) are retained. This was a test assertion defect, not a waived functional failure.
+
+Native clock/settings captures were inspected and preserve the existing layout. Evidence from the current Windows build is retained under [clock](evidence/milestone-5b/visual/native/clock.png), [widget](evidence/milestone-5b/visual/native/widget.png) and [settings](evidence/milestone-5b/visual/native/settings.png). The HTML native-Mac inset tests do not render actual traffic lights or certify AppKit layout. No actual Mac before/after screenshot exists.
+
+## macOS verification and packaging status
+
+| Area | Status |
+| --- | --- |
+| Actual Apple Silicon / Intel compile | **Not executed**; both are configured targets, not verified architectures. |
+| GitHub Actions | Workflow configured locally, **not run**. No Mac run URL/artifact exists. |
+| Mac Rust/filesystem and WebKit browser suites | Prepared in CI, **not executed on macOS**. Windows policy/parser tests are separate evidence. |
+| Native title bar/menu bar/Dock/shortcuts/persistence/login | Implemented code, **no actual Mac runtime verification**. |
+| `.app` and DMG | Build configuration/inspection prepared; **no Mac artifact generated** on this Windows host. |
+| Signing | No credentials configured. CI requests ad-hoc signing; actual signature must be inspected when it runs. No trusted Developer ID signature is claimed. |
+| Notarization / stapling / Gatekeeper / clean installation | **Not performed**. No release-ready DMG or distribution approval. |
+| Appearance, Retina/mixed displays, physical input, Spaces/fullscreen | **Not verified**. See [Mac acceptance matrix](MACOS_ACCEPTANCE.md). |
+| Mac performance/hardware | **Unavailable**. No physical Mac/device or WKWebView result was supplied. |
+
+The minimum OS is configured as 12.0; compatibility at that minimum requires separate testing. System ICU/tzdb/WKWebView differences must be measured with the same shared fixtures. Playwright WebKit is a separate test browser, not the native application's exact system WKWebView. Its nine Edge screenshot goldens are explicitly excluded in Mac CI rather than silently accepted with looser thresholds. Runtime acceptance remains open even if future CI compilation and DMG generation succeed.
+
+## Performance and remaining limitations
+
+Windows 5B regression testing used the same development host as 5A: Intel i5-6500 @ 3.20 GHz, four cores/threads, 15.90 GiB RAM, Windows 10 Pro 19045, Intel HD Graphics 530; Node 24.15.0/Rust 1.99.0 and Edge/WebView2 155.0.4283.62. Native resource performance was **not remeasured for 5B**. The historical [5A measurements](MILESTONE_5A.md#performance-and-hardware) remain evidence for their recorded executable only: live CPU 9.0599%, planning 1.7754%, peak private memory 213.6445/217.8398 MiB and event→frame p95 2.5 ms. Both CPU budgets failed; they remain open in Milestone 7 rather than being reclassified or inferred fixed. No Mac performance result is available.
+
+Outstanding acceptance includes actual Mac compilation and hardware testing for native controls, menu/status behavior, login-item approval/relocation, shortcut permissions/conflicts, Dock/OS lifecycle and failed-quit recovery, APFS/interrupted writes, appearance/Retina/IME/a11y, mixed/removed monitors and Spaces/fullscreen/opacity compositing. The complete [acceptance checklist](MACOS_ACCEPTANCE.md) records every item as unavailable. Existing Windows physical tray/caption/mouse, mixed-DPI, Windows 11, real logoff/sign-in and installer certification remain open from 5A.
+
+Existing transport limitation remains: if an IPC response is lost after a committed non-idempotent edit, canonical reload may be needed rather than replay; duplicate IDs cannot silently pass validation. Uncommitted frontend edits can be lost on a forced kill; neither platform claims physical power-loss certification. Geometry remains a best-effort cache, separate from the versioned canonical schema. Native clipboard/export dialogs remain the unchanged Milestone 6 scope. WebView2 debug shutdown still logs `Chrome_WidgetWin_0` error 1412 with successful exit/no page exceptions; it has not been hidden or interpreted as a Mac result.
+
+## Dependency and security status
+
+No npm package/Rust crate or version changed. Both lockfiles and capabilities are byte-identical to the pre-5B working snapshot. The existing Tauri crate adds the **Mac-target-only `macos-private-api` feature** for widget transparency; no generic filesystem, shell, network, notification or frontend plugin permission is added. This explicitly excludes Mac App Store distribution. Developer ID signing/notarization remains unverified. No speculative JIT, camera/microphone, Apple Events or accessibility entitlement is requested. Details, necessity, maintenance, licenses and official sources are in [dependency review](DESKTOP_DEPENDENCIES.md) and [build/signing instructions](BUILD_AND_RELEASE.md).
+
+Fresh npm audits: **0 production vulnerabilities**, **5 high inherited development-only advisories**. [Production](evidence/milestone-5b/npm-audit-production.json), [full](evidence/milestone-5b/npm-audit-all.json), [exploit conditions/remediation](BUILD_ADVISORIES.md). Fresh RustSec: **0 vulnerability entries, 4 unmaintained and 1 unsoundness informational warnings** in the all-target lock graph. [Audit](evidence/milestone-5b/cargo-audit.json). The five warned packages are absent from the resolved [Mac ARM64](evidence/milestone-5b/macos-arm64-dependencies.txt), [Mac Intel](evidence/milestone-5b/macos-intel-dependencies.txt) and [Windows](evidence/milestone-5b/windows-dependencies.txt) normal/build trees. Warnings are retained, not suppressed. Existing third-party notices are regenerated for the same 477 resolved native entries/10 JS runtime packages. Audits do not establish absence of undisclosed defects.
+
+## Modified files and documentation
+
+The [preservation manifest](evidence/milestone-5b/preservation.json) records unchanged shared engines, persistence modules, styling/assets and lockfiles. Its Milestone 6/7 text hash remains `38aeefc73544b11dd9580a870fa638fcfd74ef6c379013d7211a845878e9c25e`. The [pre-5B source manifest](evidence/milestone-5b/baseline.json) records the already modified working tree, including approved M4/5A work, separately from Git HEAD. [Modified-file inventory](evidence/milestone-5b/modified-files.json) identifies only 5B source changes plus documentation/evidence. Existing changes were preserved, and previous Windows development artifacts are retained in ignored `performance-results/milestone-5a-artifacts/` before rebuilding. Nothing was committed, pushed or published in this phase.
+
+Primary additions are the Mac override/plist/ICNS, native menu/template/lifecycle modules, platform defaults/tests, two chrome browser tests, Mac CI workflow/artifact inspector and [Mac acceptance checklist](MACOS_ACCEPTANCE.md). Shared host/provider/chrome/settings changes are narrow; browser tooling routes evidence without overwriting historical reports. Architecture, readiness, testing, dependency/build/signing guidance, README and the implementation plan/audit now reflect this authorization and verification boundary. Source hashes preserve the shared engines, persistence implementation, style/font assets and lockfiles; Milestones 6 and 7 retain their approved text/scope.
+
+**5B implementation is ready for code review, not complete macOS runtime acceptance. Stop here; do not begin Milestone 6.**

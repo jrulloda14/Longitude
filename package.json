@@ -9,6 +9,11 @@
     "npm": ">=11"
   },
   "scripts": {
+    "desktop:dev": "tauri dev",
+    "desktop:build": "tauri build",
+    "desktop:test": "cargo test --manifest-path src-tauri/Cargo.toml --locked",
+    "desktop:frontend": "node scripts/prepare-desktop.mjs",
+    "desktop:devfrontend": "node scripts/write-native-notices.mjs && npm run dev",
     "dev": "vite --host 127.0.0.1",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
@@ -24,12 +29,14 @@
   "dependencies": {
     "@fontsource-variable/geist": "5.3.0",
     "@js-temporal/polyfill": "0.5.1",
+    "@tauri-apps/api": "2.12.4",
     "lucide-react": "0.441.0",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1",
+    "@tauri-apps/cli": "2.12.3",
     "@types/node": "24.19.2",
     "@types/react": "18.3.31",
     "@types/react-dom": "18.3.7",

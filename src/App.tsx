@@ -6,7 +6,8 @@
 import { CalendarRange, GanttChart, Plus, Share2, Sparkles } from 'lucide-react';
 import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { City } from './lib/cities';
-import { commonWorkingRanges, evaluate, suggestTimes } from './lib/schedule';
+import { commonWorkingRanges, evaluate } from './lib/schedule';
+import { useSchedulingSearch } from './scheduling/use-search';
 import { SummaryInput } from './lib/share';
 import { Instant, MS, dayNumber, formatTimeString, systemZone } from './lib/time';
 import { localDayBounds } from './lib/time-axis';
@@ -74,7 +75,7 @@ export function LongitudeApp(props: LongitudeAppProps) {
 }
 
 function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
-  const { state, dispatch, platform, now } = useStore();
+  const { state, dispatch, platform, now, persistence, retryPersistence, discardPending } = useStore();
   const s = state.settings;
   const theme = useResolvedTheme(s.theme);
   const group = activeGroup(state);
@@ -88,7 +89,21 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
   const [layer, setLayer] = useState<null | 'search' | 'share'>(openLayer);
   const [toast, setToast] = useState<string | null>(null);
   const [draggingDial, setDraggingDial] = useState(false);
+  const [dismissedStorageMessage, setDismissedStorageMessage] = useState('');
+  const storageNotice = persistence.message && dismissedStorageMessage !== persistence.message ? <div role={persistence.phase === 'error' || persistence.phase === 'blocked' ? 'alert' : 'status'} className="absolute bottom-3 left-3 right-3 z-50 rounded-md border border-line bg-surface p-3 text-caption text-ink shadow-pop">
+    {persistence.message} {persistence.phase === 'error' && <button className="ml-2 underline" onClick={retryPersistence}>Retry</button>}
+    {persistence.phase === 'error' && discardPending && <button className="ml-2 underline" onClick={discardPending}>Discard pending changes</button>}
+    <button aria-label="Dismiss storage message" className="ml-2 underline" onClick={() => setDismissedStorageMessage(persistence.message)}>Dismiss</button>
+  </div> : null;
   const reduced = s.reducedMotion === 'on' || (s.reducedMotion === 'system' && typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const chrome = platform.kind === 'tauri' ? (platform.os === 'macos' ? 'macos' : 'windows') : s.chrome;
+  useEffect(() => {
+    if (platform.desktop?.label !== 'widget') return;
+    const element = rootRef.current?.querySelector('[aria-label$="— compact clock"]');
+    if (!element) return;
+    const observer = new ResizeObserver(() => { void platform.desktop!.control(`widget-height:${Math.ceil(element.getBoundingClientRect().height)}`).catch(error => setToast(String(error))); });
+    observer.observe(element); return () => observer.disconnect();
+  }, [platform, state.mode]);
 
   const select = useCallback((t: Instant | null) => {
     dispatch({ type: 'select', at: t });
@@ -153,7 +168,7 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
         )}
         <CompactWidget
           title={group.name}
-          locations={group.locations}
+          locations={group.locations.filter(l => l.favorite !== false)}
           referenceZone={refZone}
           now={now}
           value={at}
@@ -163,12 +178,13 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
           hour12={s.hour12}
           pinned={s.widgetPinned}
           opacity={s.widgetOpacity}
-          chrome={s.chrome}
+          chrome={chrome}
           onTogglePin={() => dispatch({ type: 'settings', patch: { widgetPinned: !s.widgetPinned } })}
           onExpand={() => dispatch({ type: 'mode', mode: 'full' })}
-          onClose={() => dispatch({ type: 'mode', mode: 'full' })}
+          onClose={() => { if (platform.desktop) void platform.desktop.control('hide-widget').catch(error => notify(String(error))); else dispatch({ type: 'mode', mode: 'full' }); }}
           onOpacity={(v) => dispatch({ type: 'settings', patch: { widgetOpacity: v } })}
         />
+        {storageNotice}
       </div>
     );
   }
@@ -209,7 +225,8 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
   return (
     <div ref={rootRef} data-theme={theme} className={rootClass}>
       <TitleBar
-        chrome={s.chrome}
+        chrome={chrome}
+        nativeMac={platform.kind === 'tauri' && platform.os === 'macos'}
         centerInline={width < 720}
         center={
           <Segmented label="View" value={state.view} onChange={(v) => dispatch({ type: 'view', view: v })}
@@ -283,7 +300,7 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
 
       {state.view === 'settings' && (
         <main className="lg-scroll min-h-0 flex-1 px-6 pt-5">
-          <SettingsPanel settings={s} onChange={(patch) => dispatch({ type: 'settings', patch })} platformSupportsAutostart={platform.autostart.supported}
+          <SettingsPanel settings={s} desktop={!!platform.desktop} desktopOS={platform.desktop ? platform.os : undefined} onChange={(patch) => dispatch({ type: 'settings', patch })} platformSupportsAutostart={platform.autostart.supported}
             onReplayOnboarding={() => dispatch({ type: 'onboard/replay' })} />
         </main>
       )}
@@ -330,6 +347,7 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
       {toast && (
         <div role="status" className="lg-pop-in pointer-events-none absolute bottom-3 left-1/2 z-50 -translate-x-1/2 rounded-md bg-surface px-3 py-1.5 text-label text-ink shadow-pop">{toast}</div>
       )}
+      {storageNotice}
     </div>
   );
 }
@@ -351,12 +369,9 @@ function PlannerView(p: {
   const [customDuration, setCustomDuration] = useState(false);
   // Custom searches retain the selection at Search; live ticks never rerank them.
   const near = request?.near ?? Math.floor(p.at / MS.MIN) * MS.MIN;
-  const search = useMemo(() => {
-    try {
-      const options = request ? { ...request.options, participantIds: request.options.participantIds?.filter(id => people.some(person => person.id === id)) } : {};
-      return { suggestions: suggestTimes(people, request?.from ?? dayStart, request?.to ?? dayEnd, p.durationMin, near, 3, 30, options), error: '' };
-    } catch (e) { return { suggestions: [], error: (e as Error).message }; }
-  }, [people, dayStart, dayEnd, p.durationMin, near, request]);
+  const searchInput = useMemo(() => ({ people, from: request?.from ?? dayStart, to: request?.to ?? dayEnd, duration: p.durationMin, near,
+    options: request ? { ...request.options, participantIds: request.options.participantIds?.filter(id => people.some(person => person.id === id)) } : {} }), [people, dayStart, dayEnd, p.durationMin, near, request]);
+  const search = useSchedulingSearch(searchInput);
   const suggestions = search.suggestions;
   const times = Object.fromEntries(p.group.locations.map((l) => [l.id, formatTimeString(l.zone, p.at, p.fmt)]));
   const fmtRange = (r: { start: Instant; end: Instant }) => `${formatTimeString(p.refZone, r.start, p.fmt)}–${formatTimeString(p.refZone, r.end, p.fmt)}`;
@@ -426,7 +441,7 @@ function PlannerView(p: {
             <span className="text-ink-faint">{sg.verdict.people.filter((x) => x.state === 'work').length}/{sg.verdict.people.length}</span>
           </button>
         ))}
-        {!suggestions.length && <span role="status" className="text-caption text-ink-muted">{search.error || 'No times meet these filters.'}</span>}
+        {!suggestions.length && <span role="status" className="text-caption text-ink-muted">{search.pending ? 'Searching configured hours…' : search.error || 'No times meet these filters.'}</span>}
         {p.dstNotes.length > 0 && (
           <div className="ml-auto"><DstNotice>{p.dstNotes[0]}{p.dstNotes.length > 1 ? ` (+${p.dstNotes.length - 1} more)` : ''}</DstNotice></div>
         )}

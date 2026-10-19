@@ -1,4 +1,20 @@
-# Testing — Milestone 3
+# Testing — Milestone 5B
+
+Current results are separated in [MILESTONE_5B.md](MILESTONE_5B.md). New defaults tests preserve saved Mac shortcuts; Rust policy tests cover Dock/tray close and recovery reachability, and Tauri's own parser validates both merged target configurations. Menu construction type-checks on Windows, but actual AppKit execution still requires Mac. Browser header tests reserve native-traffic-light space and preserve the existing HTML preview; they do not simulate native controls.
+
+Browser output defaults to `docs/evidence/milestone-5b/`. Set `LONGITUDE_EVIDENCE_ROOT` to a relative output directory for browser/native checks without overwriting historical evidence. Mac CI uses `LONGITUDE_BROWSER=webkit`: shared interactions/persistence/restart run in Playwright WebKit while the nine Edge screenshot baselines are explicitly excluded. This is separate from system WKWebView/native acceptance. See [MACOS_ACCEPTANCE.md](MACOS_ACCEPTANCE.md) for hardware, physical input, lifecycle, permissions, Retina/Spaces, performance and distribution requirements. CI configuration is not an executed test result.
+
+Current Windows integration results are in [MILESTONE_5A.md](MILESTONE_5A.md): shared/bridge unit tests, 79 retained browser regressions, Rust authority/storage/placement tests and actual executable/WebView2 tests. `npm run desktop:test` exercises temporary native files; `node scripts/test-native.mjs` requires a freshly built debug executable and an unused loopback port 9224. It runs isolated native/WebView profiles. `node scripts/measure-native.mjs` measures the release executable with a 60-second warmup and 120-second live/planning windows; run it after builds/tests stop. Native helper capture/input limitations and physical tray/monitor checks are disclosed separately.
+
+The Milestone 4 counts and methods below are retained as historical results, not the current total. Shared timezone, scheduling, persistence and browser interaction checks remain required on Windows and future macOS integration. No macOS runtime claim follows from Windows or CI tests.
+
+Current result: **676 unit tests in eight files passed; 79 browser tests passed, zero skipped/flaky/unexpected**. The Milestone 3 counts below remain historical. [Raw unit results](evidence/milestone-4/unit-results.json), [browser results](evidence/milestone-4/browser-results.json) and [complete report](MILESTONE_4.md).
+
+Persistence adds schema roundtrips/migrations, invalid versions/JSON/zones, duplicate IDs, partial settings/metadata repair, read/commit failures, interrupted commits, retained recovery, revision limits, conditional-write conflicts, ordered in-flight updates and adapter boundaries. Browser tests cover preferences, full schedules/groups, favorites, delayed hydration/StrictMode, rapid and immediate-reload updates, fail/retry/session-only flows, stale tabs, legacy bytes and a real isolated Edge profile restart. A maximum-workload browser test compares worker results against the synchronous reference. Original timezone, drag capture/accessibility and exact scheduling checks remain passing.
+
+Run `npm test`, `npm run test:browser`, `npm run build`, `npm run build:prototype`. Regenerate stress measurements with `node scripts/stress-scheduling.mjs` then `node scripts/stress-scheduling-worker.mjs`; production frontend measurements use `node scripts/measure-performance.mjs --site=milestone-4 --out=docs/evidence/milestone-4/frontend-performance.json`. Run measurements without concurrent builds/tests. These scripts measure browser implementations, not native filesystem crash guarantees.
+
+Milestone 4 visual baseline reuses the nine committed approved Milestone 3 after-images rather than claiming a fresh before capture. All nine strict screenshot assertions pass with zero permitted differing pixels; the separate RGBA comparison also reports zero changes. [Gallery](evidence/milestone-4/visual/index.html), [provenance](evidence/milestone-4/visual/provenance.json). Never replace goldens merely to make a failure pass.
 
 Requires Node 24/npm 11 and installed Microsoft Edge. `npm ci --ignore-scripts` restores the pinned dependencies. No browser download is needed. Use:
 

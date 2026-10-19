@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "desktop",
+  "description": "Local main/widget state and narrow window controls; no filesystem, shell or remote access",
+  "windows": ["main", "widget"],
+  "permissions": ["core:event:allow-listen", "core:event:allow-unlisten", "core:window:allow-start-dragging", "allow-longitude-snapshot", "allow-longitude-apply-state", "allow-longitude-window", "allow-longitude-environment", "allow-longitude-quit-ready"]
+}

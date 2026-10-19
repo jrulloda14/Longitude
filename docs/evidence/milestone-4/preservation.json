@@ -1,0 +1,34 @@
+{
+  "baselineCommit": "8dda477cc7ca46aca6b58abc5b0f672e1906eaa6",
+  "method": "Text compared with CRLF normalized",
+  "checks": [
+    {
+      "path": "package.json",
+      "unchanged": true
+    },
+    {
+      "path": "package-lock.json",
+      "unchanged": true
+    },
+    {
+      "path": "src/lib/time.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/components/InteractiveClock.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "src/components/TimeReadout.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "src/styles.css",
+      "unchanged": true
+    },
+    {
+      "path": "docs/THIRD_PARTY_NOTICES.txt",
+      "unchanged": true
+    }
+  ]
+}

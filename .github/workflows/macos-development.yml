@@ -1,0 +1,76 @@
+name: macOS development verification
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['src/**', 'src-tauri/**', 'scripts/**', 'tests/**', 'package*.json', '*config*', '.github/workflows/macos-development.yml']
+permissions:
+  contents: read
+concurrency:
+  group: macos-dev-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-15
+            target: aarch64-apple-darwin
+          - runner: macos-15-intel
+            target: x86_64-apple-darwin
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 60
+    env:
+      CARGO_TERM_COLOR: never
+      MACOSX_DEPLOYMENT_TARGET: '12.0'
+      LONGITUDE_BROWSER: webkit
+      LONGITUDE_EVIDENCE_ROOT: ci-results
+      APPLE_SIGNING_IDENTITY: '-'
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version: '24.15.0'
+      - name: Toolchain and host evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ci-results
+          rustup toolchain install 1.99.0 --profile minimal --component rustfmt
+          rustup override set 1.99.0
+          rustup target add '${{ matrix.target }}'
+          { sw_vers; uname -m; xcodebuild -version; node --version; cargo --version; rustc --version; } > ci-results/toolchain.txt
+      - run: npm ci
+      - name: Shared checks and macOS filesystem/Rust tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run typecheck 2>&1 | tee ci-results/typecheck.txt
+          npm test -- --reporter=json --outputFile=ci-results/unit-results.json
+          npm run desktop:frontend 2>&1 | tee ci-results/frontend-build.txt
+          cargo fmt --manifest-path src-tauri/Cargo.toml --check
+          cargo test --manifest-path src-tauri/Cargo.toml --locked --target '${{ matrix.target }}' --features macos-transparency 2>&1 | tee ci-results/rust-tests.txt
+      - name: WebKit shared browser interactions (not native WKWebView acceptance)
+        shell: bash
+        run: |
+          set -euo pipefail
+          npx playwright install webkit
+          npm run test:browser 2>&1 | tee ci-results/browser-tests.txt
+      - name: Ad-hoc development application and DMG
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run desktop:build -- --target '${{ matrix.target }}' 2>&1 | tee ci-results/build.txt
+          node scripts/inspect-macos-artifacts.mjs '${{ matrix.target }}'
+      - name: Retain development artifacts and evidence (no release publication)
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: Longitude-${{ matrix.target }}-development-unnotarized
+          retention-days: 14
+          if-no-files-found: error
+          path: |
+            ci-results/
+            src-tauri/target/${{ matrix.target }}/release/bundle/dmg/*.dmg

@@ -5,7 +5,7 @@ import { scenarios } from '../tests/browser/scenarios.mjs';
 const phase = process.argv[2];
 if (!['before', 'after'].includes(phase)) throw new Error('Specify before or after');
 const milestone = process.argv[3] ?? 'milestone-2';
-if (!/^milestone-[23]$/.test(milestone)) throw new Error('Unsupported milestone');
+if (!/^milestone-[234]$/.test(milestone)) throw new Error('Unsupported milestone');
 const directory = `docs/evidence/${milestone}/visual/${phase}`;
 await mkdir(directory, { recursive: true });
 await build({ configFile: 'tests/browser/vite.config.ts' });

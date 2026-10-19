@@ -1,4 +1,8 @@
-# Development dependency advisories — Milestone 3 status
+# Development dependency advisories — Milestone 4 status
+
+Milestone 5A recheck: [npm full audit](evidence/milestone-5a/npm-audit-all.json) retains the same five high development-only findings; [production](evidence/milestone-5a/npm-audit-production.json) remains zero. Tauri/native dependency additions and RustSec maintenance/unsoundness warnings are reviewed separately in [DESKTOP_DEPENDENCIES.md](DESKTOP_DEPENDENCIES.md). Existing conditions/remediation options below remain applicable.
+
+Milestone 4 recheck October 19, 2026: unchanged package/lockfile, [full audit](evidence/milestone-4/npm-audit-all.json) five high development-only affected packages, [production audit](evidence/milestone-4/npm-audit-production.json) zero. All five package names, exploit prerequisites and remediation options below remain applicable. No forced Tailwind migration or dependency addition was made. Built-in browser storage/worker APIs add no package advisory or license dependency.
 
 Rechecked October 19, 2026 in Milestone 3: manifest/lockfile unchanged; fresh [full audit](evidence/milestone-3/npm-audit-all.json) still reports the same five high affected development packages, and [production audit](evidence/milestone-3/npm-audit-production.json) reports zero. The Milestone 2 analysis below remains applicable. No new dependency or forced styling migration was introduced.
 

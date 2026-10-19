@@ -14,7 +14,7 @@ const exec = promisify(execFile);
 const options = Object.fromEntries(process.argv.slice(2).map((arg) => arg.replace(/^--/, '').split('=')));
 const legacy = options.site === 'prototype';
 const milestoneOne = options.site === 'milestone-1';
-const label = legacy ? 'original-prebuilt-prototype' : milestoneOne ? 'milestone-1-saved-production-frontend' : options.site === 'milestone-3' ? 'milestone-3-production-frontend' : 'milestone-2-production-frontend';
+const label = legacy ? 'original-prebuilt-prototype' : milestoneOne ? 'milestone-1-saved-production-frontend' : options.site === 'milestone-4' ? 'milestone-4-production-frontend' : options.site === 'milestone-3' ? 'milestone-3-production-frontend' : 'milestone-2-production-frontend';
 const seconds = Number(options.seconds ?? 20);
 if (!Number.isInteger(seconds) || seconds < 10 || seconds > 120) throw new Error('Use --seconds=10 through 120');
 const root = resolve(legacy ? 'prototype' : milestoneOne ? 'performance-results/milestone-1-dist' : 'dist');

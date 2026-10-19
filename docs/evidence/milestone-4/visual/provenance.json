@@ -1,0 +1,42 @@
+{
+  "baselineCommit": "8dda477cc7ca46aca6b58abc5b0f672e1906eaa6",
+  "source": "Approved committed Milestone 3 after-images reused as Milestone 4 before baseline; not a fresh before capture",
+  "images": [
+    {
+      "name": "clock-dark.png",
+      "sha256": "c7d694d853cb9abfab64f0ec3940ec4cc3670e89b9c4af379e47368043ee2017"
+    },
+    {
+      "name": "clock-light.png",
+      "sha256": "5da6cf874f6302d50e248e8b6cca41662000d0f266bee05a05ab9dbcb0b0118f"
+    },
+    {
+      "name": "clock-narrow.png",
+      "sha256": "9d630271cb86da00ea7f1723344d7f605a88fac8470bd17cfccae6ec82514dcf"
+    },
+    {
+      "name": "clock-planning.png",
+      "sha256": "9de0fa08361815d371d3869e582fa523ca3a078a569ec3717d3bc2164e5ea6e3"
+    },
+    {
+      "name": "compact-live.png",
+      "sha256": "bab2d11c961d5529bfd1cd00768e5429dd25c7347f80dc65a00f017627a5d8b6"
+    },
+    {
+      "name": "kathmandu.png",
+      "sha256": "45a0fbe234751e8375907a99f0d488f42294581ff2b952eb7b52a9b176a2a976"
+    },
+    {
+      "name": "london-fall.png",
+      "sha256": "b88057279d4774d7cbbbf563b76f883de809e47ff7a1ebd6e2dfaad87ad0661d"
+    },
+    {
+      "name": "planner-dark.png",
+      "sha256": "9864967a7001da7db344d2ff23a207aa49bf65bd31dd7e5bae51e95129198705"
+    },
+    {
+      "name": "settings-dark.png",
+      "sha256": "7d073eb9454c87ba14e5a4fe8eb480a9dc564f893682c195b9f9c4ede6caa5da"
+    }
+  ]
+}

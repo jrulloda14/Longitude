@@ -1,0 +1,147 @@
+{
+  "note": "Only 5B changes are listed here. The pre-5B working tree already included uncommitted M4/5A changes; Git HEAD is not the 5B baseline. Hashes refer to current files, not compiled artifact hashes.",
+  "sourceBaseline": "baseline.json",
+  "source": [
+    {
+      "path": "src/App.tsx",
+      "status": "modified",
+      "bytes": 28169,
+      "sha256": "1f4e57a1a3a150848b3c6700ae1553fab1ad3a05880a651bb434df783a2c8ddc"
+    },
+    {
+      "path": "src/components/SettingsPanel.tsx",
+      "status": "modified",
+      "bytes": 8792,
+      "sha256": "f670cb50132cb9235f9c6468b99c3909305a536212cd27b6a3c3848b1392f922"
+    },
+    {
+      "path": "src/components/WindowChrome.tsx",
+      "status": "modified",
+      "bytes": 3741,
+      "sha256": "194e41793b465ed494be74767f18f1782fa8f67736badcf3f1774ba93bb3fa5f"
+    },
+    {
+      "path": "src/desktop/defaults.test.ts",
+      "status": "added",
+      "bytes": 1096,
+      "sha256": "d35c4bb7c0ec2e0bc377c8e8cd49325b0f36b7041d5606bf362421ee01dc285e"
+    },
+    {
+      "path": "src/desktop/defaults.ts",
+      "status": "added",
+      "bytes": 470,
+      "sha256": "a58b288ef6f1475dafcf7d8c06725373de8cfbce183d99b4d81150d5d7455dc6"
+    },
+    {
+      "path": "src/desktop/NativeStoreProvider.tsx",
+      "status": "modified",
+      "bytes": 4111,
+      "sha256": "aee3cf0dd2bf0d7b6e3135f0538f18d6823cbba68a0d6c1446a0b2532477aa03"
+    },
+    {
+      "path": "src-tauri/Cargo.toml",
+      "status": "modified",
+      "bytes": 797,
+      "sha256": "b613ec21ad04c1825be828db7f2b54e4859a80fe49cf15865a7de561293510d0"
+    },
+    {
+      "path": "src-tauri/icons/icon.icns",
+      "status": "added",
+      "bytes": 83240,
+      "sha256": "906b1cfb6da5ec0dd02c3e0610478f8879c7123b3d7f4e075aacb7b752dc0a92"
+    },
+    {
+      "path": "src-tauri/macos/Info.plist",
+      "status": "added",
+      "bytes": 315,
+      "sha256": "a10bbaee6a479e2feaf8fa10d68ced8f97a8275b9b18d8643705a606da236767"
+    },
+    {
+      "path": "src-tauri/src/lifecycle.rs",
+      "status": "added",
+      "bytes": 939,
+      "sha256": "1b6b3bcb6f4a09c63d5027f3f426d46fe2a721f3673e3382c0938c03568ebf6b"
+    },
+    {
+      "path": "src-tauri/src/macos.rs",
+      "status": "added",
+      "bytes": 5816,
+      "sha256": "883132a8f31b4e5c66ffb2021d3ff6123d278908aac7fa9de6c8ac9b69842e6c"
+    },
+    {
+      "path": "src-tauri/src/main.rs",
+      "status": "modified",
+      "bytes": 30590,
+      "sha256": "b0f00f48431b2b850d91e5969b7eda5ccf28098c80841691649c01c6e5d4bf36"
+    },
+    {
+      "path": "src-tauri/tauri.macos.conf.json",
+      "status": "added",
+      "bytes": 1071,
+      "sha256": "4b19aa40bc56c55eec764cbb8da60b0c5574c1f06dcf8ddc5123d2e6243c69e6"
+    },
+    {
+      "path": "scripts/compare-visual.mjs",
+      "status": "modified",
+      "bytes": 3740,
+      "sha256": "6c51873cee8c974c82553ab0f35d5958e2dc4febc9126456c086ca954ec58ef8"
+    },
+    {
+      "path": "scripts/inspect-macos-artifacts.mjs",
+      "status": "added",
+      "bytes": 2984,
+      "sha256": "f2a18c9cc5437d32cd3574bf4e6fad85a35d9de5ca661254a02028dc185791aa"
+    },
+    {
+      "path": "scripts/measure-native.mjs",
+      "status": "modified",
+      "bytes": 8062,
+      "sha256": "8f570643594be6c6435b84053edb1af554a3ba961a39c7523aaad58ee197e698"
+    },
+    {
+      "path": "scripts/smoke-release.mjs",
+      "status": "modified",
+      "bytes": 3438,
+      "sha256": "fc92a2f31d79ffd2fcf9f1199b1d3bebe0994b4bfe6afaf61092032258c31811"
+    },
+    {
+      "path": "scripts/test-native.mjs",
+      "status": "modified",
+      "bytes": 15525,
+      "sha256": "0ac372789a68933c0113cbcb1be9537aa2d108e10de4467b2c63487bb1f939c0"
+    }
+  ],
+  "testsAndConfiguration": [
+    ".gitignore",
+    ".github/workflows/macos-development.yml",
+    "playwright.config.ts",
+    "tests/browser/fixture.tsx",
+    "tests/browser/interactions.spec.ts",
+    "tests/browser/scheduling.spec.ts",
+    "tests/browser/restart.spec.ts",
+    "tests/browser/visual.spec.ts",
+    "tests/browser/macos-chrome.spec.ts"
+  ],
+  "documentation": [
+    "README.md",
+    "docs-index.d.ts",
+    "docs/IMPLEMENTATION_PLAN.md",
+    "docs/IMPLEMENTATION_AUDIT.md",
+    "docs/MACOS_READINESS.md",
+    "docs/DESKTOP_ARCHITECTURE.md",
+    "docs/DESKTOP_DEPENDENCIES.md",
+    "docs/BUILD_AND_RELEASE.md",
+    "docs/TESTING.md",
+    "docs/MILESTONE_5B.md",
+    "docs/MACOS_ACCEPTANCE.md"
+  ],
+  "evidenceDirectory": "docs/evidence/milestone-5b/",
+  "unchangedLockfiles": [
+    "package-lock.json",
+    "src-tauri/Cargo.lock"
+  ],
+  "unchangedCapabilities": [
+    "src-tauri/capabilities/configuration.json",
+    "src-tauri/capabilities/desktop.json"
+  ]
+}

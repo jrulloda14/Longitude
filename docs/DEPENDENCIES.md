@@ -1,5 +1,13 @@
 # Dependency review
 
+## Milestone 5A desktop additions
+
+The pre-installation [desktop dependency review](DESKTOP_DEPENDENCIES.md) records pinned Tauri 2, official native plugins, serialization and tempfile additions, necessity, maintenance, licensing and portability. Fresh [npm full](evidence/milestone-5a/npm-audit-all.json)/[production](evidence/milestone-5a/npm-audit-production.json) audits remain five high development-only findings / zero production vulnerabilities. [RustSec evidence](evidence/milestone-5a/cargo-audit.json) reports zero vulnerability entries plus four unmaintained and one unsoundness warning in the all-target lockfile. Those warning packages are absent from the resolved Windows target tree; they are not silently ignored. See the 5A report for affected packages and review decisions. Generated native notices include all 477 resolved dependency entries, including build/platform-specific packages.
+
+## Milestone 4 resolved status
+
+No dependency was added, removed or upgraded; manifest, lockfile and nine-package runtime notices are unchanged from approved Milestone 3. Storage uses browser Web Locks/localStorage and an injected native command contract; scheduling uses the built-in Worker API. No Tauri/storage/worker library, server, authentication or telemetry was added. Fresh October 19 audits: [production](evidence/milestone-4/npm-audit-production.json) exit 0, zero vulnerabilities; [full](evidence/milestone-4/npm-audit-all.json) exit 1, the same five high development-only affected packages. Necessity/maintenance/security/license decisions and remediation options below remain applicable. Audit evidence is time-specific, not a guarantee against undisclosed defects.
+
 ## Milestone 3 resolved status
 
 No runtime or development dependency was added, removed or upgraded. `package.json` and `package-lock.json` match approved baseline commit `f8edbc1`. Scheduling reuses the established timezone engine, bounded LRU helper and existing test/browser tools. Fresh audits on October 19, 2026 remain **zero production vulnerabilities** and **five high development-only findings**, with no moderate/critical findings. Raw [full](evidence/milestone-3/npm-audit-all.json) and [production](evidence/milestone-3/npm-audit-production.json) reports are retained. Existing nine-package runtime notices are regenerated unchanged. No server, authentication, telemetry, worker or native dependency was introduced.

@@ -1,0 +1,12 @@
+[
+  "src/App.tsx",
+  "src/main.tsx",
+  "src/platform.ts",
+  "src/components/CompactWidget.tsx",
+  "src/components/SettingsPanel.tsx",
+  "src/persistence/schema.ts",
+  "src/persistence/tauri-storage.ts",
+  "src/state/store.tsx",
+  "package.json",
+  "package-lock.json"
+]

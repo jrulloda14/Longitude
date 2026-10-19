@@ -1,0 +1,37 @@
+tauri v2.12.4
+├── tauri-plugin-autostart v2.7.0
+│   └── tauri-plugin-autostart feature "default"
+│       └── longitude v0.1.0 (H:\Projects\Longitude\src-tauri)
+│           └── longitude feature "default" (command-line)
+├── tauri-plugin-global-shortcut v2.4.1
+│   └── tauri-plugin-global-shortcut feature "default"
+│       └── longitude v0.1.0 (H:\Projects\Longitude\src-tauri) (*)
+└── tauri-plugin-single-instance v2.5.4
+    └── tauri-plugin-single-instance feature "default"
+        └── longitude v0.1.0 (H:\Projects\Longitude\src-tauri) (*)
+├── tauri feature "common-controls-v6"
+│   └── tauri feature "default"
+│       └── longitude v0.1.0 (H:\Projects\Longitude\src-tauri) (*)
+├── tauri feature "compression"
+│   └── tauri feature "default" (*)
+├── tauri feature "dbus"
+│   └── tauri feature "default" (*)
+├── tauri feature "default" (*)
+├── tauri feature "dynamic-acl"
+│   └── tauri feature "default" (*)
+├── tauri feature "image"
+│   └── tauri feature "image-png"
+│       └── longitude v0.1.0 (H:\Projects\Longitude\src-tauri) (*)
+├── tauri feature "image-png" (*)
+├── tauri feature "tauri-runtime-wry"
+│   └── tauri feature "wry"
+│       └── tauri feature "default" (*)
+├── tauri feature "tray-icon"
+│   └── longitude v0.1.0 (H:\Projects\Longitude\src-tauri) (*)
+├── tauri feature "webkit2gtk"
+│   └── tauri feature "wry" (*)
+├── tauri feature "webview2-com"
+│   └── tauri feature "wry" (*)
+├── tauri feature "wry" (*)
+└── tauri feature "x11"
+    └── tauri feature "default" (*)

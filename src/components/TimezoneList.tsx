@@ -2,7 +2,7 @@
  * TimezoneList — ordered rows with reorder (drag the grip, or Alt+↑/↓),
  * a context menu (right-click, ⋯, Shift+F10) and the working-hours editor.
  */
-import { Anchor, ArrowDown, ArrowUp, Clock, Copy, Trash2 } from 'lucide-react';
+import { Anchor, ArrowDown, ArrowUp, Clock, Copy, Star, Trash2 } from 'lucide-react';
 import React, { useRef, useState } from 'react';
 import { WorkingHours, SleepHours, validateHours, workIntervals, workSleepConflict } from '../lib/schedule';
 import { Instant, TimeFormat, formatTimeString } from '../lib/time';
@@ -38,6 +38,7 @@ export function TimezoneList({ locations, at, referenceId, format, onReorder, on
   const items = (loc: Location, i: number): MenuItem[] => [
     { id: 'ref', label: 'Set as reference', icon: <Anchor size={13} />, disabled: loc.id === ref?.id, onSelect: () => onSetReference(loc.id) },
     { id: 'hours', label: 'Working hours…', icon: <Clock size={13} />, onSelect: () => setEditing(loc.id) },
+    { id: 'favorite', label: loc.favorite !== false ? 'Remove from favorites' : 'Add to favorites', icon: <Star size={13} />, onSelect: () => onUpdate(loc.id, { favorite: loc.favorite === false }) },
     { id: 'copy', label: 'Copy local time', icon: <Copy size={13} />, onSelect: () => onCopy(`${loc.name} — ${formatTimeString(loc.zone, at, format)}`) },
     { id: 'up', label: 'Move up', icon: <ArrowUp size={13} />, shortcut: 'Alt+↑', disabled: i === 0, separatorBefore: true, onSelect: () => onReorder(loc.id, i - 1) },
     { id: 'down', label: 'Move down', icon: <ArrowDown size={13} />, shortcut: 'Alt+↓', disabled: i === locations.length - 1, onSelect: () => onReorder(loc.id, i + 1) },

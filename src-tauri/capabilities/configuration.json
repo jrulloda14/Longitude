@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "configuration",
+  "description": "Main window alone hydrates/migrates the fixed configuration before authority initialization",
+  "windows": ["main"],
+  "permissions": ["allow-longitude-read-configuration", "allow-longitude-commit-configuration", "allow-longitude-initialize"]
+}

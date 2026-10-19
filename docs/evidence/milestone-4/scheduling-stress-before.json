@@ -1,0 +1,145 @@
+{
+  "measuredAt": "2026-10-19T04:58:20.832Z",
+  "browser": "155.0.4283.62",
+  "cpu": "Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz",
+  "logicalProcessors": 4,
+  "ramBytes": 17067753472,
+  "os": "Windows_NT 10.0.19045",
+  "method": "Headless Edge main thread; exact production domain; 32 distinct configurations, 8 intervals each, exactly 5000 starts; first + 2 cached runs; heap samples approximate and include GC; timer delay and Long Tasks observed",
+  "participants": 32,
+  "intervals": 8,
+  "candidateStarts": 5000,
+  "stepMin": 8,
+  "durationMin": 47,
+  "elapsedSearchMinutes": 40039,
+  "longTasksMs": [
+    287,
+    146,
+    119
+  ],
+  "runs": [
+    {
+      "latencyMs": 287.20000000298023,
+      "eventLoopDelayMs": 287.59999999403954,
+      "heapBefore": 1856235,
+      "heapAfter": 20622795,
+      "results": [
+        {
+          "start": 1793582400000,
+          "score": [
+            188,
+            898,
+            188,
+            8,
+            782400000,
+            1793582400000
+          ]
+        },
+        {
+          "start": 1793668800000,
+          "score": [
+            188,
+            898,
+            188,
+            8,
+            868800000,
+            1793668800000
+          ]
+        },
+        {
+          "start": 1793755200000,
+          "score": [
+            188,
+            898,
+            188,
+            8,
+            955200000,
+            1793755200000
+          ]
+        }
+      ]
+    },
+    {
+      "latencyMs": 145.8999999910593,
+      "eventLoopDelayMs": 145.8999999910593,
+      "heapBefore": 20623715,
+      "heapAfter": 36309391,
+      "results": [
+        {
+          "start": 1793582400000,
+          "score": [
+            188,
+            898,
+            188,
+            8,
+            782400000,
+            1793582400000
+          ]
+        },
+        {
+          "start": 1793668800000,
+          "score": [
+            188,
+            898,
+            188,
+            8,
+            868800000,
+            1793668800000
+          ]
+        },
+        {
+          "start": 1793755200000,
+          "score": [
+            188,
+            898,
+            188,
+            8,
+            955200000,
+            1793755200000
+          ]
+        }
+      ]
+    },
+    {
+      "latencyMs": 119.5,
+      "eventLoopDelayMs": 119.59999999403954,
+      "heapBefore": 36310015,
+      "heapAfter": 51851243,
+      "results": [
+        {
+          "start": 1793582400000,
+          "score": [
+            188,
+            898,
+            188,
+            8,
+            782400000,
+            1793582400000
+          ]
+        },
+        {
+          "start": 1793668800000,
+          "score": [
+            188,
+            898,
+            188,
+            8,
+            868800000,
+            1793668800000
+          ]
+        },
+        {
+          "start": 1793755200000,
+          "score": [
+            188,
+            898,
+            188,
+            8,
+            955200000,
+            1793755200000
+          ]
+        }
+      ]
+    }
+  ]
+}

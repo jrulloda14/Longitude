@@ -8,15 +8,20 @@ import { TimeReadout } from '../../src/components/TimeReadout';
 import { CITIES, cityFromZone } from '../../src/lib/cities';
 import { DEFAULT_SETTINGS, StoreProvider, locationFromCity, useStore } from '../../src/state/store';
 import type { WorkingHours, SleepHours } from '../../src/lib/schedule';
+import { webPlatform } from '../../src/platform';
+import { TitleBar } from '../../src/components/WindowChrome';
+import { runSchedulingSearch, type SearchInput } from '../../src/scheduling/search-client';
 
 export interface Options {
   zone?: string; now?: number; selected?: number | null; view?: 'clock' | 'planner' | 'settings';
   mode?: 'full' | 'compact'; theme?: 'dark' | 'light'; step?: 1 | 5; hour12?: boolean;
   reducedMotion?: 'system' | 'on' | 'off'; realtime?: boolean;
   zones?: string[]; work?: WorkingHours; sleep?: SleepHours; durationMin?: number;
+  persist?: boolean; storageDelay?: number; failReads?: boolean; failWrites?: boolean; strict?: boolean;
 }
 const root = createRoot(document.getElementById('root')!);
 let sequence = 0;
+let lastOptions: Options = {};
 const defaultNow = Date.parse('2026-10-20T13:00:00Z');
 function initial(options: Options) {
   const zones = [...new Set(options.zones ?? [options.zone ?? 'Asia/Manila', 'America/New_York', 'Europe/London', 'Australia/Sydney'])];
@@ -46,16 +51,33 @@ function ClockHarness({ options }: { options: Options }) {
   </div>;
 }
 window.longitudeTest = {
+  mountChrome(nativeMac = true) {
+    root.render(<div className="lg-root" data-theme="dark"><TitleBar chrome="macos" nativeMac={nativeMac} center={<span>Clock</span>}
+      onMinimize={() => {}} onMaximize={() => {}} onClose={() => {}} onCompact={() => {}} /></div>);
+  },
   mount(options = {}) {
-    root.render(<LongitudeApp key={++sequence} initial={initial(options)} fixedNow={options.realtime ? undefined : options.now ?? defaultNow} />);
+    lastOptions = options;
+    const platform = { ...webPlatform, storage: {
+      async read(key: Parameters<typeof webPlatform.storage.read>[0]) {
+        if (options.storageDelay) await new Promise(r => setTimeout(r, options.storageDelay));
+        if (options.failReads) throw new Error('Test read failure'); return webPlatform.storage.read(key);
+      },
+      async compareAndSwap(...args: Parameters<typeof webPlatform.storage.compareAndSwap>) {
+        if (options.failWrites) throw new Error('Test storage full'); return webPlatform.storage.compareAndSwap(...args);
+      },
+    } };
+    const app = <LongitudeApp key={++sequence} initial={initial(options)} platform={platform} persist={options.persist} fixedNow={options.realtime ? undefined : options.now ?? defaultNow} />;
+    root.render(options.strict ? <React.StrictMode>{app}</React.StrictMode> : app);
   },
   mountClock(options = {}) {
     root.render(<StoreProvider key={++sequence} initial={initial(options)} fixedNow={options.realtime ? undefined : options.now ?? defaultNow}>
       <ClockHarness options={options} />
     </StoreProvider>);
   },
+  search(input: SearchInput) { return runSchedulingSearch(input).promise; },
+  storageFailure(reads: boolean, writes: boolean) { lastOptions.failReads = reads; lastOptions.failWrites = writes; },
 };
-window.longitudeTest.mount();
+window.longitudeTest.mount({ persist: new URLSearchParams(location.search).has('persist') });
 declare global {
-  interface Window { longitudeTest: { mount(options?: Options): void; mountClock(options?: Options): void } }
+  interface Window { longitudeTest: { mountChrome(nativeMac?: boolean): void; mount(options?: Options): void; mountClock(options?: Options): void; search(input: SearchInput): Promise<import('../../src/lib/schedule').Suggestion[]>; storageFailure(reads: boolean, writes: boolean): void } }
 }

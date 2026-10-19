@@ -1,0 +1,56 @@
+{
+  "unit": {
+    "passed": 692,
+    "failed": 0,
+    "files": 10
+  },
+  "browser": {
+    "startTime": "2026-10-19T13:11:23.086Z",
+    "duration": 97859.57400000001,
+    "expected": 81,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "rust": {
+    "passed": 26,
+    "failed": 0,
+    "source": "rust-tests.txt"
+  },
+  "native": {
+    "passed": 27,
+    "failed": 0,
+    "executableSha256": "c37ab66747867e30c8dbaa12eb6b6d8e7cee2beb2c1b3633f71b51662594e31c"
+  },
+  "finalWindowsRelease": {
+    "passed": 5,
+    "failed": 0,
+    "sha256": "7613ff9f382164b3e0cb9df91fec39eb67c4fabcc49016bca3986f8869ae4334"
+  },
+  "visual": {
+    "comparisons": 9,
+    "changedPixels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "macos": {
+    "buildExecuted": false,
+    "workflowExecuted": false,
+    "physicalRuntimeVerified": false,
+    "artifactGenerated": false,
+    "notarized": false,
+    "releaseReady": false
+  },
+  "localDocumentationLinks": {
+    "broken": 0
+  },
+  "laterMilestonesUnchangedSha256": "38aeefc73544b11dd9580a870fa638fcfd74ef6c379013d7211a845878e9c25e"
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "path": "H:\\Projects\\Longitude\\src-tauri\\target\\release\\longitude.exe",
+    "bytes": 9040384,
+    "sha256": "3cb781cc4006127a44fc8bd8c6a16904cdb64904bc64707eeceabb25c86c705d",
+    "signatureStatus": "NotSigned",
+    "classification": "Unsigned Windows x64 development artifact; no clean-install or release certification"
+  },
+  {
+    "path": "H:\\Projects\\Longitude\\src-tauri\\target\\release\\bundle\\nsis\\Longitude_0.1.0_x64-setup.exe",
+    "bytes": 2354057,
+    "sha256": "3dba7e6343f51726586b12d81446695bd74d95fe6c0e4336b9783dd2f50c09ee",
+    "signatureStatus": "NotSigned",
+    "classification": "Unsigned Windows x64 development artifact; no clean-install or release certification"
+  }
+]

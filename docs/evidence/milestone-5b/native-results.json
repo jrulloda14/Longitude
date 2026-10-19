@@ -1,0 +1,147 @@
+{
+  "measuredAt": "2026-10-19T13:18:09.813Z",
+  "executable": "H:\\Projects\\Longitude\\src-tauri\\target\\debug\\longitude.exe",
+  "executableSha256": "c37ab66747867e30c8dbaa12eb6b6d8e7cee2beb2c1b3633f71b51662594e31c",
+  "profile": "H:\\Projects\\Longitude\\performance-results\\native-1792415866438",
+  "method": "Actual Windows debug executable and WebView2; Playwright CDP frontend input plus real Rust commands/window-state queries. Not physical mouse/monitor or tray hit-testing certification.",
+  "passed": 27,
+  "failed": 0,
+  "results": [
+    {
+      "name": "native offline asset startup and independent windows",
+      "status": "passed",
+      "durationMs": 413.29890000000023
+    },
+    {
+      "name": "native assets and IPC work with browser network offline",
+      "status": "passed",
+      "durationMs": 248.0907000000002
+    },
+    {
+      "name": "native caption maximize, restore and minimize",
+      "status": "passed",
+      "durationMs": 558.5806999999995
+    },
+    {
+      "name": "show and hide do not grow the native content size",
+      "status": "passed",
+      "durationMs": 55.30329999999958
+    },
+    {
+      "name": "widget opens without hiding main and shares manual selection",
+      "status": "passed",
+      "durationMs": 283.5596999999998
+    },
+    {
+      "name": "widget pin and opacity use shared durable settings",
+      "status": "passed",
+      "durationMs": 171.39219999999932
+    },
+    {
+      "name": "widget preview timeout cannot reset a newer main-window planning selection",
+      "status": "passed",
+      "durationMs": 8408.0292
+    },
+    {
+      "name": "widget expands and closes independently",
+      "status": "passed",
+      "durationMs": 157.00900000000001
+    },
+    {
+      "name": "stale cross-window transaction is rejected without lost edit",
+      "status": "passed",
+      "durationMs": 120.871000000001
+    },
+    {
+      "name": "native preferences UI and durable time format",
+      "status": "passed",
+      "durationMs": 367.78570000000036
+    },
+    {
+      "name": "immediate native WebView reload does not lose the last preference",
+      "status": "passed",
+      "durationMs": 278.02689999999893
+    },
+    {
+      "name": "native sign-in registration can enable and disable with its original state restored",
+      "status": "passed",
+      "durationMs": 97.41430000000037
+    },
+    {
+      "name": "invalid shortcut reports failure and retains the owned shortcut",
+      "status": "passed",
+      "durationMs": 38.82290000000103
+    },
+    {
+      "name": "native occupied-shortcut registration is rejected with rollback",
+      "status": "passed",
+      "durationMs": 35.8770999999997
+    },
+    {
+      "name": "shortcut rebind releases prior ownership",
+      "status": "passed",
+      "durationMs": 79.04730000000018
+    },
+    {
+      "name": "widget has no hydration/file-write capability",
+      "status": "passed",
+      "durationMs": 11.35319999999956
+    },
+    {
+      "name": "main cannot bypass authority with a raw file commit",
+      "status": "passed",
+      "durationMs": 4.485099999999875
+    },
+    {
+      "name": "native close hides with tray; reopen preserves selection",
+      "status": "passed",
+      "durationMs": 157.2506000000012
+    },
+    {
+      "name": "window refresh rehydrates the canonical selected instant",
+      "status": "passed",
+      "durationMs": 195.02609999999913
+    },
+    {
+      "name": "real native process quit flushes pending settings",
+      "status": "passed",
+      "durationMs": 345.8713000000007
+    },
+    {
+      "name": "native restart restores saved configuration and resets live session",
+      "status": "passed",
+      "durationMs": 1553.063299999998
+    },
+    {
+      "name": "single-instance launch reopens existing authority",
+      "status": "passed",
+      "durationMs": 142.12419999999838
+    },
+    {
+      "name": "Close with tray disabled exits without an inaccessible background process",
+      "status": "passed",
+      "durationMs": 1500.4112999999998
+    },
+    {
+      "name": "explicit Quit close preference exits even with a tray icon",
+      "status": "passed",
+      "durationMs": 1672.0771999999997
+    },
+    {
+      "name": "native malformed head recovers previous configuration and retains bytes",
+      "status": "passed",
+      "durationMs": 1590.2616000000016
+    },
+    {
+      "name": "native future schema cannot be overwritten",
+      "status": "passed",
+      "durationMs": 1650.948199999999
+    },
+    {
+      "name": "no WebView page exceptions",
+      "status": "passed",
+      "durationMs": 0.10809999999764841
+    }
+  ],
+  "pageErrors": []
+}

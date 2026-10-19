@@ -7,7 +7,7 @@ import { Check, Search } from 'lucide-react';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { City, cityById } from '../lib/cities';
 import { SearchResult, describeMatch, searchCities } from '../lib/search';
-import { Instant, MS, formatOffset, formatTimeString, offsetMinutes } from '../lib/time';
+import { Instant, MS, formatOffset, formatTimeString, normalizeZone, offsetMinutes } from '../lib/time';
 import { Dialog, Kbd, Spinner, cx } from '../primitives';
 
 export interface TimezoneSearchProps {
@@ -38,7 +38,7 @@ export function TimezoneSearch({ open, onClose, onPick, existingZones, existingN
     return searchCities(q, searchAt, 30);
   }, [q, searchAt, open]);
 
-  const isAdded = (c: City) => existingNames.includes(c.name) && existingZones.includes(c.zone);
+  const isAdded = (c: City) => existingNames.some((name, i) => name === c.name && existingZones[i] !== undefined && normalizeZone(existingZones[i]) === normalizeZone(c.zone));
   useEffect(() => { setActive(Math.max(0, results.findIndex((r) => !isAdded(r.city)))); }, [results]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { listRef.current?.querySelector(`[data-i="${active}"]`)?.scrollIntoView({ block: 'nearest' }); }, [active]);
 

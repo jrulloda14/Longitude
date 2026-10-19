@@ -3,11 +3,14 @@
  * the selected instant, view, settings. Components below receive plain props;
  * only container components (App, *Container) read the store.
  */
-import React, { createContext, useContext, useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useLayoutEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { CITIES, City, cityById } from '../lib/cities';
 import { DEFAULT_SLEEP, DEFAULT_WORK, Participant, SleepHours, WorkingHours } from '../lib/schedule';
 import { Instant, systemZone } from '../lib/time';
 import { Platform, webPlatform } from '../platform';
+import { ConfigurationRepository, type PersistenceStatus } from '../persistence/repository';
+import { durable } from '../persistence/schema';
+import { NativeStoreProvider } from '../desktop/NativeStoreProvider';
 
 export interface Location {
   id: string;
@@ -19,6 +22,8 @@ export interface Location {
   coordsApprox?: boolean;
   /** optional person/team label, e.g. "Priya" or "Design" */
   note?: string;
+  /** Missing in legacy data means favorite, preserving original widget rows. */
+  favorite?: boolean;
   work: WorkingHours;
   sleep: SleepHours;
 }
@@ -41,6 +46,9 @@ export interface Settings {
   widgetOpacity: number; // 0.6–1
   widgetPinned: boolean;
   trayIcon: boolean;
+  closeBehavior: 'hide' | 'quit';
+  globalShortcut: string;
+  launchAtSignIn: boolean;
 }
 
 export type View = 'clock' | 'planner' | 'settings';
@@ -64,7 +72,7 @@ let idSeq = 0;
 export const uid = (p = 'id') => `${p}-${Date.now().toString(36)}-${(idSeq++).toString(36)}`;
 
 export function locationFromCity(c: City, work: WorkingHours = DEFAULT_WORK): Location {
-  return { id: uid('loc'), name: c.name, country: c.country, zone: c.zone, lat: c.lat, lon: c.lon, coordsApprox: c.coordsApprox, work: { ...work }, sleep: { ...DEFAULT_SLEEP } };
+  return { id: uid('loc'), name: c.name, country: c.country, zone: c.zone, lat: c.lat, lon: c.lon, coordsApprox: c.coordsApprox, favorite: true, work: structuredClone(work), sleep: { ...DEFAULT_SLEEP } };
 }
 
 const fromIds = (ids: string[]) => ids.map((id) => cityById(id)).filter(Boolean).map((c) => locationFromCity(c!));
@@ -100,6 +108,9 @@ export const DEFAULT_SETTINGS: Settings = {
   widgetOpacity: 0.96,
   widgetPinned: true,
   trayIcon: true,
+  closeBehavior: 'hide',
+  globalShortcut: 'Ctrl+Alt+T',
+  launchAtSignIn: false,
 };
 
 export function initialState(overrides: Partial<AppState> = {}): AppState {
@@ -112,7 +123,7 @@ export function initialState(overrides: Partial<AppState> = {}): AppState {
     mode: 'full',
     onboarded: true,
     coach: false,
-    settings: DEFAULT_SETTINGS,
+    settings: structuredClone(DEFAULT_SETTINGS),
     meeting: { title: 'Weekly sync', durationMin: 30, weekly: false },
     ...overrides,
   };
@@ -123,9 +134,9 @@ export type Action =
   | { type: 'view'; view: View }
   | { type: 'mode'; mode: Mode }
   | { type: 'group/switch'; id: string }
-  | { type: 'group/create'; name: string; locations?: Location[] }
+  | { type: 'group/create'; name: string; locations?: Location[]; id?: string }
   | { type: 'group/rename'; id: string; name: string }
-  | { type: 'group/duplicate'; id: string }
+  | { type: 'group/duplicate'; id: string; copyId?: string; locationIds?: Record<string, string> }
   | { type: 'group/delete'; id: string }
   | { type: 'loc/add'; location: Location }
   | { type: 'loc/remove'; id: string }
@@ -148,19 +159,21 @@ export function reducer(s: AppState, a: Action): AppState {
     case 'select': return { ...s, selected: a.at };
     case 'view': return { ...s, view: a.view };
     case 'mode': return { ...s, mode: a.mode };
-    case 'group/switch': return { ...s, activeGroupId: a.id };
+    case 'group/switch': return s.groups.some(g => g.id === a.id) ? { ...s, activeGroupId: a.id } : s;
     case 'group/create': {
+      if (s.groups.length >= 32) return s;
       const locs = a.locations ?? [];
-      const g: Group = { id: uid('grp'), name: a.name, locations: locs, referenceId: locs[0]?.id ?? null };
+      const g: Group = { id: a.id ?? uid('grp'), name: a.name, locations: locs, referenceId: locs[0]?.id ?? null };
       return { ...s, groups: [...s.groups, g], activeGroupId: g.id };
     }
     case 'group/rename': return { ...s, groups: s.groups.map((g) => (g.id === a.id ? { ...g, name: a.name } : g)) };
     case 'group/duplicate': {
+      if (s.groups.length >= 32) return s;
       const src = s.groups.find((g) => g.id === a.id);
       if (!src) return s;
-      const locs = src.locations.map((l) => ({ ...l, id: uid('loc') }));
+      const locs = src.locations.map((l) => ({ ...l, id: a.locationIds?.[l.id] ?? uid('loc') }));
       const refIdx = src.locations.findIndex((l) => l.id === src.referenceId);
-      const g: Group = { id: uid('grp'), name: `${src.name} copy`, locations: locs, referenceId: locs[refIdx]?.id ?? locs[0]?.id ?? null };
+      const g: Group = { id: a.copyId ?? uid('grp'), name: `${src.name} copy`, locations: locs, referenceId: locs[refIdx]?.id ?? locs[0]?.id ?? null };
       return { ...s, groups: [...s.groups, g], activeGroupId: g.id };
     }
     case 'group/delete': {
@@ -186,7 +199,7 @@ export function reducer(s: AppState, a: Action): AppState {
       });
     case 'loc/update':
       return mapActive(s, (g) => ({ ...g, locations: g.locations.map((l) => (l.id === a.id ? { ...l, ...a.patch } : l)) }));
-    case 'loc/reference': return mapActive(s, (g) => ({ ...g, referenceId: a.id }));
+    case 'loc/reference': return mapActive(s, (g) => g.locations.some(l => l.id === a.id) ? { ...g, referenceId: a.id } : g);
     case 'settings': return { ...s, settings: { ...s.settings, ...a.patch } };
     case 'meeting': return { ...s, meeting: { ...s.meeting, ...a.patch } };
     case 'onboard/done': {
@@ -201,17 +214,22 @@ export function reducer(s: AppState, a: Action): AppState {
 
 // ── Context ────────────────────────────────────────────────────────────────
 
-interface Ctx {
+export interface Ctx {
   state: AppState;
   dispatch: React.Dispatch<Action>;
   platform: Platform;
   now: Instant;
+  persistence: PersistenceStatus;
+  retryPersistence(): void;
+  discardPending?(): void;
 }
-const StoreCtx = createContext<Ctx | null>(null);
+export const StoreCtx = createContext<Ctx | null>(null);
 
-const STORAGE_KEY = 'longitude.v1';
-
-export function StoreProvider(props: {
+export function StoreProvider(props: StoreProviderProps) {
+  if (props.platform?.desktop) return <NativeStoreProvider {...props} platform={props.platform} />;
+  return <BrowserStoreProvider {...props} />;
+}
+export interface StoreProviderProps {
   children: React.ReactNode;
   initial?: Partial<AppState>;
   platform?: Platform;
@@ -219,20 +237,48 @@ export function StoreProvider(props: {
   persist?: boolean;
   /** freeze "now" for deterministic previews */
   fixedNow?: Instant;
-}) {
+}
+function BrowserStoreProvider(props: StoreProviderProps) {
   const platform = props.platform ?? webPlatform;
   const persist = props.persist ?? false;
-  const [state, dispatch] = useReducer(reducer, undefined, () => {
-    const saved = persist ? platform.storage.load<AppState>(STORAGE_KEY) : null;
-    return saved && saved.groups?.length ? { ...initialState(), ...saved, selected: null, mode: 'full' as Mode } : initialState(props.initial);
-  });
+  const [state, rawDispatch] = useReducer(reducer, undefined, () => initialState(props.initial));
+  const defaults = useRef(state);
+  const [persistence, setPersistence] = useState<PersistenceStatus>({ phase: persist ? 'loading' : 'disabled', message: '' });
+  const [hydrated, setHydrated] = useState(!persist);
+  const [inMemory, setInMemory] = useState(false);
+  const ready = useRef(!persist);
+  const queued = useRef<Action[]>([]);
+  const repo = useMemo(() => new ConfigurationRepository(platform.storage, durable(defaults.current), setPersistence), [platform]);
+  const dispatch = useCallback((action: Action) => {
+    if (!ready.current) queued.current.push(action);
+    rawDispatch(action);
+  }, []);
+  const hydrate = useCallback(async (active: () => boolean = () => true) => {
+    const data = await repo.load();
+    if (!active()) return;
+    if (repo.needsReadRetry) { setHydrated(false); return; }
+    let next: AppState = { ...defaults.current, ...data, selected: null, mode: 'full', view: 'clock' };
+    for (const action of queued.current) next = reducer(next, action);
+    queued.current = []; ready.current = true;
+    rawDispatch({ type: 'replace', state: next }); setHydrated(true);
+  }, [repo]);
+  useEffect(() => { let active = true; repo.subscribe(setPersistence); if (persist) void hydrate(() => active); return () => { active = false; repo.close(); }; }, [persist, hydrate, repo]);
   const now = useNow(props.fixedNow);
-  const first = useRef(true);
+  useLayoutEffect(() => {
+    if (persist && hydrated && !inMemory) repo.update(durable(state));
+  }, [state.groups, state.activeGroupId, state.settings, state.meeting, state.onboarded, state.coach, persist, hydrated, inMemory, repo]);
   useEffect(() => {
-    if (first.current) { first.current = false; return; }
-    if (persist) platform.storage.save(STORAGE_KEY, { ...state, selected: null });
-  }, [state, persist, platform]);
-  const value = useMemo(() => ({ state, dispatch, platform, now }), [state, platform, now]);
+    if (!persist) return;
+    const flush = () => { void repo.flush(); };
+    document.addEventListener('visibilitychange', flush); window.addEventListener('pagehide', flush);
+    return () => { document.removeEventListener('visibilitychange', flush); window.removeEventListener('pagehide', flush); };
+  }, [persist, repo]);
+  const retryPersistence = useCallback(() => { if (!repo.canSave && persistence.phase === 'error') void hydrate(); else void repo.retry(); }, [repo, persistence.phase, hydrate]);
+  const value = useMemo(() => ({ state, dispatch, platform, now, persistence, retryPersistence }), [state, dispatch, platform, now, persistence, retryPersistence]);
+  if (persist && !hydrated) return <div className="lg-root flex h-full flex-col items-center justify-center gap-3 p-6" role={persistence.phase === 'error' ? 'alert' : 'status'}>
+    {persistence.phase === 'error' ? <><p>{persistence.message}</p><p className="text-caption text-ink-muted">Saved settings have not been replaced. Retry loading, or use temporary settings without saving this session.</p>
+      <div className="flex gap-3"><button className="underline" onClick={() => void hydrate()}>Retry</button><button className="underline" onClick={() => { ready.current = true; queued.current = []; setInMemory(true); setHydrated(true); setPersistence({ phase: 'blocked', message: 'Saving is disabled for this session. Existing saved configuration is unchanged.' }); }}>Continue without saving</button></div></> : 'Loading saved configuration…'}
+  </div>;
   return <StoreCtx.Provider value={value}>{props.children}</StoreCtx.Provider>;
 }
 
@@ -243,18 +289,21 @@ export function useStore(): Ctx {
 }
 
 /** Wall-clock "now", re-rendering on each second boundary. */
-export function useNow(fixed?: Instant): Instant {
+export function useNow(fixed?: Instant, pauseWhenHidden = false): Instant {
   const [now, setNow] = useState(() => fixed ?? Date.now());
   useEffect(() => {
     if (fixed !== undefined) return;
     let t: ReturnType<typeof setTimeout>;
     const tick = () => {
+      if (pauseWhenHidden && document.hidden) return;
       setNow(Date.now());
       t = setTimeout(tick, 1000 - (Date.now() % 1000) + 5);
     };
     t = setTimeout(tick, 1000 - (Date.now() % 1000) + 5);
-    return () => clearTimeout(t);
-  }, [fixed]);
+    const visibility = () => { clearTimeout(t); if (!document.hidden) tick(); };
+    if (pauseWhenHidden) document.addEventListener('visibilitychange', visibility);
+    return () => { clearTimeout(t); if (pauseWhenHidden) document.removeEventListener('visibilitychange', visibility); };
+  }, [fixed, pauseWhenHidden]);
   return now;
 }
 

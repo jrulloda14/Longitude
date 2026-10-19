@@ -207,6 +207,7 @@ describe('bounded configurable deterministic search', () => {
     () => suggestTimes(Array.from({ length: 33 }, (_, n) => person({ id: String(n) })), from, to, 30, from),
     () => suggestTimes([person()], from, to, 30, from, 3, 30, { participantIds: ['missing'] }),
     () => suggestTimes([person()], from, to, 30, from, 3, 30, { participantIds: ['p', 'p'] }),
+    () => suggestTimes([person()], from, to, 30, from, 3, 30, { participantIds: Array(1) }),
     () => suggestTimes([person()], from, to, 30, from, 3, 30, { minParticipants: 2 }),
     () => suggestTimes([person()], from, to, 30, from, 3, 30, { minOverlapMin: 31 }),
     () => suggestTimes([person()], from, to, 30, from, 3, 30, { preferred: { zone: 'UTC', start: 1, end: 1 } }),

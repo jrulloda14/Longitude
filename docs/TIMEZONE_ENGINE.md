@@ -1,5 +1,7 @@
 # Timezone engine — Milestone 1
 
+Milestone 4 retains this engine and all foundation tests. Persistence validates/canonicalizes saved zones using its existing `normalizeZone` API; it does not introduce another timezone system. The scheduling worker imports the same domain modules. See [PERSISTENCE.md](PERSISTENCE.md) and [Milestone 4 verification](MILESTONE_4.md).
+
 Milestone 3 scheduling consumes this unchanged facade for offsets, transition boundaries and civil-date existence. It compiles exact absolute state ranges from participant-local schedules; it does not introduce a second timezone resolver. See [SCHEDULING_ENGINE.md](SCHEDULING_ENGINE.md) for fold/gap/overnight policy and full-duration coverage.
 
 Longitude stores selected time as integer epoch milliseconds. `null` in application state still means live time; this milestone does not alter that store or its interactions. Domain code has no Tauri, Windows, filesystem, storage, React, DOM or network imports. Its only external runtime import is `@js-temporal/polyfill`.

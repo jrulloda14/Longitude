@@ -2,9 +2,10 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { chromium } from '@playwright/test';
 import { scenarios } from '../tests/browser/scenarios.mjs';
 const milestone = process.argv[2] ?? 'milestone-2';
-if (!/^milestone-[23]$/.test(milestone)) throw new Error('Unsupported milestone');
+if (!/^milestone-(?:[234]|5[ab])$/.test(milestone)) throw new Error('Unsupported milestone');
 const root = `docs/evidence/${milestone}/visual`;
-const number = Number(milestone.at(-1));
+const number = milestone.endsWith('5b') ? '5B' : milestone.endsWith('5a') ? '5A' : Number(milestone.at(-1));
+const previous = number === '5B' ? '5A' : number === '5A' ? 4 : number - 1;
 const browser = await chromium.launch({ channel: 'msedge', headless: true });
 const page = await browser.newPage();
 const comparisons = [];
@@ -34,7 +35,7 @@ try {
     comparisons.push({ name: scenario.name, ...result });
   }
   await writeFile(`${root}/comparison.json`, JSON.stringify({ browser: browser.version(), method: 'Canvas decoded RGBA; any channel difference >16. Strict Playwright perceptual assertions are separate.', comparisons }, null, 2) + '\n');
-  const content = comparisons.map(c => `<section><h2>${c.name}</h2><p>${c.changedPixels} changed pixels (${c.changedPercent.toFixed(4)}%); bounds ${JSON.stringify(c.bounds)}</p><div><figure><figcaption>Before — Milestone ${number - 1}</figcaption><img src="before/${c.name}.png" alt="Before ${c.name}"></figure><figure><figcaption>After — Milestone ${number}</figcaption><img src="after/${c.name}.png" alt="After ${c.name}"></figure></div></section>`).join('\n');
+  const content = comparisons.map(c => `<section><h2>${c.name}</h2><p>${c.changedPixels} changed pixels (${c.changedPercent.toFixed(4)}%); bounds ${JSON.stringify(c.bounds)}</p><div><figure><figcaption>Before — Milestone ${previous}</figcaption><img src="before/${c.name}.png" alt="Before ${c.name}"></figure><figure><figcaption>After — Milestone ${number}</figcaption><img src="after/${c.name}.png" alt="After ${c.name}"></figure></div></section>`).join('\n');
   await writeFile(`${root}/index.html`, `<!doctype html><html lang="en"><meta charset="UTF-8"><title>Longitude Milestone ${number} visual comparisons</title><style>body{font:14px system-ui;background:#ddd;color:#222;margin:24px}section{margin-bottom:32px}section>div{display:flex;gap:16px;flex-wrap:wrap}figure{margin:0}img{max-width:100%;border:1px solid #888}figcaption{padding:8px 0}</style><h1>Longitude Milestone ${number} visual comparisons</h1><p>Fixed instants, viewports and fonts; same installed Edge. See docs/MILESTONE_${number}.md for intended correctness/control changes and review.</p>${content}</html>`);
   console.log(JSON.stringify(comparisons, null, 2));
 } finally { await browser.close(); }

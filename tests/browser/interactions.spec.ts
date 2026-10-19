@@ -371,6 +371,7 @@ for (const viewport of [{ width: 380, height: 600 }, { width: 850, height: 560 }
   const box = (await popup.boundingBox())!;
   expect(box.x).toBeGreaterThanOrEqual(0); expect(box.y).toBeGreaterThanOrEqual(0);
   expect(box.x + box.width).toBeLessThanOrEqual(viewport.width); expect(box.y + box.height).toBeLessThanOrEqual(viewport.height);
-  await mkdir('docs/evidence/milestone-3/visual/after', { recursive: true });
-  await page.screenshot({ path: `docs/evidence/milestone-3/visual/after/date-picker-${viewport.width}.png`, animations: 'disabled' });
+  const evidence = process.env.LONGITUDE_EVIDENCE_ROOT ?? 'docs/evidence/milestone-5b';
+  await mkdir(`${evidence}/visual/after`, { recursive: true });
+  await page.screenshot({ path: `${evidence}/visual/after/date-picker-${viewport.width}.png`, animations: 'disabled' });
 });

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Longitude",
+  "version": "0.1.0",
+  "identifier": "app.longitude.desktop",
+  "build": {
+    "beforeDevCommand": "npm run desktop:devfrontend",
+    "devUrl": "http://127.0.0.1:5173",
+    "beforeBuildCommand": "npm run desktop:frontend",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      { "label": "main", "create": false, "title": "Longitude", "width": 850, "height": 560, "minWidth": 380, "minHeight": 480, "center": true, "visible": false, "decorations": false },
+      { "label": "widget", "create": false, "title": "Longitude Widget", "width": 264, "height": 248, "minWidth": 264, "maxWidth": 264, "visible": false, "decorations": false, "transparent": true, "shadow": false, "resizable": false, "skipTaskbar": true, "alwaysOnTop": true }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src ipc: http://ipc.localhost; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'",
+      "devCsp": "default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src ipc: http://ipc.localhost http://127.0.0.1:5173 ws://127.0.0.1:5173; worker-src 'self' blob:; object-src 'none'"
+    }
+  },
+  "bundle": { "active": true, "targets": ["nsis"], "icon": ["icons/icon.png", "icons/icon.ico"], "resources": ["../docs/THIRD_PARTY_NOTICES.txt", "../docs/NATIVE_THIRD_PARTY_NOTICES.txt"] }
+}

@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-19",
+  "build": "Unsigned release executable, Windows 10 Pro 19045",
+  "executableSha256": "b20851f9ea7de927df596de196a52f7aef9adf3f04517daf4b8cd73950baf99c",
+  "provenance": "Pre-hardening release; final build separately passed native integration and release smoke checks. Physical keyboard injection was not repeated on the final executable.",
+  "method": "Computer-use skill @oai/sky: returned native release window, accessibility observation, Windows Control_L+Alt_L+t key input; real Rust longitude_environment queries checked resulting native visibility.",
+  "checks": [
+    { "action": "Ctrl+Alt+T", "mainVisible": true, "widgetVisible": true, "result": "passed" },
+    { "action": "Ctrl+Alt+T again", "mainVisible": true, "widgetVisible": false, "result": "passed" }
+  ],
+  "limitations": [
+    "Native accessibility tree was readable.",
+    "Graphics capture timed out and coordinate click geometry was unavailable in the computer-use helper; no physical pointer or tray hit-testing pass is claimed.",
+    "Caption controls and other window behavior were separately exercised through actual WebView2 frontend inputs and native window-property checks."
+  ]
+}

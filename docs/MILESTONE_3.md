@@ -31,7 +31,7 @@ Permanent regressions also detect a one-millisecond crossing past work end and a
 
 Lexicographic ranking: sleeping person-minutes, outside-work person-minutes, off-hours person-minutes, optional maximum individual prior+current burden, distance from the selected search instant, then earlier instant. Burden weights are work/edge/off/sleep = 0/1/3/8, normalized by duration. Canonical participant ordering prevents input-order differences in aggregation. UI fairness starts equally and tracks no history.
 
-Results expose numeric scores, complete-duration working counts, shared minutes and reasons via existing suggestion buttons and “Why these times.” Search subsets affect recommendations; group-wide timeline/suitability/share remains whole-group, disclosed in the dialog. Custom requests retain the selection at Search and do not rerank on live ticks. Sleep overrides overlapping work, with an editor warning. Invalid defaults remain a draft and cannot enter app state.
+The domain API returns numeric scores. Existing suggestion buttons and “Why these times” expose complete-duration working counts, shared minutes and reasons; the numeric score vector is not rendered. Search subsets affect recommendations; group-wide timeline/suitability/share remains whole-group, disclosed in the dialog. Custom requests retain the selection at Search and do not rerank on live ticks. Sleep overrides overlapping work, with an editor warning. Invalid defaults remain a draft and cannot enter app state.
 
 ## Exact verification
 

@@ -1,5 +1,7 @@
 # Scheduling engine
 
+Milestone 4 execution update: searches above 8000 participant/candidate evaluations run in a disposable local worker importing this same engine. Completion, failure and cancellation terminate it; stale results are ignored. Small searches remain synchronous. The 5000-start/32-participant/eight-interval benchmark demonstrated blocking before this change; measured results and tradeoffs are in [MILESTONE_4.md](MILESTONE_4.md). A sparse participant-subset validation gap also has a regression fix. Algorithm/ranking semantics remain unchanged. Participant schedules now persist through [PERSISTENCE.md](PERSISTENCE.md); temporary search filters do not.
+
 Milestone 3 uses configured hours to judge suitability. It never reads calendars or claims confirmed availability. All timezone offsets, transitions and civil resolution come from the established `lib/time.ts` facade. No new dependency, server, worker, network call or platform API is introduced.
 
 ## Configuration and semantics
@@ -45,7 +47,7 @@ Candidates are ranked lexicographically, ascending:
 
 Current burden weights work=0, edge=1, off=3, sleep=8, weighted by exact elapsed coverage and divided by meeting duration. Prior burden must be an explicit finite nonnegative bounded record keyed by selected IDs. The UI starts all participants equally and tracks no history. Fairness only breaks ties after aggregate sleep/outside/off penalties; it never improves one person's share by accepting more aggregate sleep time. Participant IDs are canonically sorted before aggregation so input ordering cannot change floating-point ties. No randomness or current-time read occurs inside search.
 
-Every result includes its numeric score, full-work participant count, simultaneous shared minutes and plain-language reasons. Existing suggestion buttons expose these through accessible names/tooltips; “Why these times” expands them visibly. Results remain in ranked order rather than chronological order. These scores are an explicit suitability policy, not a probability of attendance or a calendar booking guarantee.
+Every domain result includes its numeric score, full-work participant count, simultaneous shared minutes and plain-language reasons. Existing suggestion buttons expose counts/minutes/reasons through accessible names/tooltips; “Why these times” expands them visibly. The score vector is API data, not rendered UI. Results remain in ranked order rather than chronological order. These scores are an explicit suitability policy, not a probability of attendance or a calendar booking guarantee.
 
 ## Validation, bounds and caching
 
@@ -61,4 +63,4 @@ With E state boundaries, C candidate starts and P participants, query coverage i
 
 Permanent tests cover both original defects, a one-millisecond end crossing and a one-minute sleep interval hidden between old samples. An independent slow wall-minute oracle checks full-day state partitions at every minute in ten zone/date scenarios, including modern DST, fractional offsets and Apia. A brute-force oracle separately compares all candidate scores/order for a 47-minute meeting. Exact historical-second and millisecond fixtures supplement the minute oracle; the oracle is not an independent tzdb implementation.
 
-See [TESTING.md](TESTING.md), [MILESTONE_3.md](MILESTONE_3.md) and raw evidence. Timezone transitions retain the Milestone 1 six-hour separation assumption and installed ICU/tzdb limits. No per-date exceptions, per-interval weekday sets, public holiday database, calendar busy/free data or recurring-meeting fairness history is inferred. Native delivery and validated durable configuration remain later milestones.
+See [TESTING.md](TESTING.md), [MILESTONE_3.md](MILESTONE_3.md), [MILESTONE_4.md](MILESTONE_4.md) and raw evidence. Timezone transitions retain the Milestone 1 six-hour separation assumption and installed ICU/tzdb limits. No per-date exceptions, per-interval weekday sets, public holiday database, calendar busy/free data or recurring-meeting fairness history is inferred. Validated durable configuration is implemented in Milestone 4; native delivery remains later work.

@@ -1,0 +1,516 @@
+{
+  "measuredAt": "2026-10-19T07:19:24.434Z",
+  "browser": "155.0.4283.62",
+  "cpu": "Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz",
+  "logicalProcessors": 4,
+  "ramBytes": 17067753472,
+  "os": "Windows_NT 10.0.19045",
+  "participants": 32,
+  "intervals": 8,
+  "candidateStarts": 5000,
+  "resultsMatch": true,
+  "method": "Actual Vite production worker/client through isolated browser fixture; three new-worker runs; 10ms main-thread timer drift and Long Tasks; performance.memory covers MAIN heap only. Separate browser-process private/working-set snapshots include the worker but are sampled, not continuous peaks or native app memory.",
+  "longTasksMs": [],
+  "runs": [
+    {
+      "latencyMs": 487.8999999910593,
+      "maxTimerDriftMs": 15.5,
+      "timerTicksWhileSearching": 47,
+      "mainHeapBefore": 5282679,
+      "mainHeapAfter": 5324164,
+      "results": [
+        {
+          "start": 1793582400000,
+          "score": [
+            188,
+            898,
+            188,
+            8,
+            782400000,
+            1793582400000
+          ]
+        },
+        {
+          "start": 1793668800000,
+          "score": [
+            188,
+            898,
+            188,
+            8,
+            868800000,
+            1793668800000
+          ]
+        },
+        {
+          "start": 1793755200000,
+          "score": [
+            188,
+            898,
+            188,
+            8,
+            955200000,
+            1793755200000
+          ]
+        }
+      ]
+    },
+    {
+      "latencyMs": 319.20000000298023,
+      "maxTimerDriftMs": 1.5999999940395355,
+      "timerTicksWhileSearching": 31,
+      "mainHeapBefore": 5324956,
+      "mainHeapAfter": 5347312,
+      "results": [
+        {
+          "start": 1793582400000,
+          "score": [
+            188,
+            898,
+            188,
+            8,
+            782400000,
+            1793582400000
+          ]
+        },
+        {
+          "start": 1793668800000,
+          "score": [
+            188,
+            898,
+            188,
+            8,
+            868800000,
+            1793668800000
+          ]
+        },
+        {
+          "start": 1793755200000,
+          "score": [
+            188,
+            898,
+            188,
+            8,
+            955200000,
+            1793755200000
+          ]
+        }
+      ]
+    },
+    {
+      "latencyMs": 306.90000000596046,
+      "maxTimerDriftMs": 1.5,
+      "timerTicksWhileSearching": 30,
+      "mainHeapBefore": 5348112,
+      "mainHeapAfter": 5380952,
+      "results": [
+        {
+          "start": 1793582400000,
+          "score": [
+            188,
+            898,
+            188,
+            8,
+            782400000,
+            1793582400000
+          ]
+        },
+        {
+          "start": 1793668800000,
+          "score": [
+            188,
+            898,
+            188,
+            8,
+            868800000,
+            1793668800000
+          ]
+        },
+        {
+          "start": 1793755200000,
+          "score": [
+            188,
+            898,
+            188,
+            8,
+            955200000,
+            1793755200000
+          ]
+        }
+      ]
+    }
+  ],
+  "memory": {
+    "before": {
+      "privateBytes": 270307328,
+      "workingSetBytes": 518651904,
+      "processes": 8
+    },
+    "during": [
+      {
+        "privateBytes": 275890176,
+        "workingSetBytes": 522883072,
+        "processes": 8,
+        "workerObservedAlive": true
+      },
+      {
+        "privateBytes": 272359424,
+        "workingSetBytes": 521015296,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272347136,
+        "workingSetBytes": 520638464,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272347136,
+        "workingSetBytes": 520970240,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272347136,
+        "workingSetBytes": 520970240,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272347136,
+        "workingSetBytes": 520970240,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272347136,
+        "workingSetBytes": 520990720,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272347136,
+        "workingSetBytes": 521035776,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272347136,
+        "workingSetBytes": 521035776,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272347136,
+        "workingSetBytes": 521035776,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272347136,
+        "workingSetBytes": 521035776,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272347136,
+        "workingSetBytes": 521035776,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272347136,
+        "workingSetBytes": 521035776,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272347136,
+        "workingSetBytes": 521035776,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272347136,
+        "workingSetBytes": 521035776,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272347136,
+        "workingSetBytes": 521052160,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272347136,
+        "workingSetBytes": 521056256,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272359424,
+        "workingSetBytes": 521093120,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272355328,
+        "workingSetBytes": 521093120,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272355328,
+        "workingSetBytes": 521097216,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272355328,
+        "workingSetBytes": 521101312,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272355328,
+        "workingSetBytes": 521125888,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272355328,
+        "workingSetBytes": 521138176,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272355328,
+        "workingSetBytes": 521138176,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272355328,
+        "workingSetBytes": 521138176,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272355328,
+        "workingSetBytes": 521138176,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272355328,
+        "workingSetBytes": 521138176,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272355328,
+        "workingSetBytes": 521138176,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272355328,
+        "workingSetBytes": 521138176,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272359424,
+        "workingSetBytes": 521146368,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272359424,
+        "workingSetBytes": 521146368,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272363520,
+        "workingSetBytes": 521162752,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272367616,
+        "workingSetBytes": 521191424,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272367616,
+        "workingSetBytes": 521256960,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272367616,
+        "workingSetBytes": 521256960,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272367616,
+        "workingSetBytes": 521256960,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272367616,
+        "workingSetBytes": 521256960,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272367616,
+        "workingSetBytes": 521256960,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272367616,
+        "workingSetBytes": 521256960,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272367616,
+        "workingSetBytes": 521256960,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272367616,
+        "workingSetBytes": 521261056,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272367616,
+        "workingSetBytes": 521261056,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 272441344,
+        "workingSetBytes": 521355264,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 258551808,
+        "workingSetBytes": 507674624,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 258551808,
+        "workingSetBytes": 507674624,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 258551808,
+        "workingSetBytes": 507674624,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 258551808,
+        "workingSetBytes": 507678720,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 258551808,
+        "workingSetBytes": 507678720,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 258551808,
+        "workingSetBytes": 507678720,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 258551808,
+        "workingSetBytes": 507678720,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 258551808,
+        "workingSetBytes": 507682816,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 258551808,
+        "workingSetBytes": 507682816,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 258551808,
+        "workingSetBytes": 507682816,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 258560000,
+        "workingSetBytes": 507691008,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 258605056,
+        "workingSetBytes": 507740160,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 258605056,
+        "workingSetBytes": 507744256,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 258609152,
+        "workingSetBytes": 507785216,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 258609152,
+        "workingSetBytes": 507785216,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 258609152,
+        "workingSetBytes": 507785216,
+        "processes": 8,
+        "workerObservedAlive": false
+      },
+      {
+        "privateBytes": 258609152,
+        "workingSetBytes": 507785216,
+        "processes": 8,
+        "workerObservedAlive": false
+      }
+    ],
+    "after": {
+      "privateBytes": 258609152,
+      "workingSetBytes": 507785216,
+      "processes": 8
+    }
+  }
+}

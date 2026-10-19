@@ -70,8 +70,9 @@ test('custom duration, subset, date range, preference, minimum overlap and fairn
   await dialog.getByLabel('Preferred starts', { exact: true }).selectOption('540'); await dialog.getByLabel('Preferred ends', { exact: true }).selectOption('1020');
   await dialog.getByLabel('Minimum fully working locations').fill('1'); await dialog.getByLabel('Minimum shared working minutes').fill('47');
   await dialog.getByLabel(/Balance the worst/).check();
-  await mkdir('docs/evidence/milestone-3/visual/after', { recursive: true });
-  await page.screenshot({ path: 'docs/evidence/milestone-3/visual/after/search-controls.png', animations: 'disabled' });
+  const evidence = process.env.LONGITUDE_EVIDENCE_ROOT ?? 'docs/evidence/milestone-5b';
+  await mkdir(`${evidence}/visual/after`, { recursive: true });
+  await page.screenshot({ path: `${evidence}/visual/after/search-controls.png`, animations: 'disabled' });
   await dialog.getByRole('button', { name: 'Search', exact: true }).click();
   await expect(dialog).not.toBeVisible();
   const recommendations = page.getByRole('button', { name: /within working hours for the full 47 min/ });

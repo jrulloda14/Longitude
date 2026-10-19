@@ -1,0 +1,5 @@
+{
+  "before": "Approved Milestone 5A after-images copied as the pre-5B browser baseline; not a fresh pre-change capture.",
+  "after": "Current Milestone 5B browser build, matching scenarios and fixed instants. Native macOS visual acceptance requires actual Mac hardware.",
+  "source": "docs/evidence/milestone-5a/visual/after"
+}

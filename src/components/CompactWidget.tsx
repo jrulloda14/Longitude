@@ -40,9 +40,10 @@ export function CompactWidget({ title, locations, referenceZone, now, value: at,
   latest.current = { at, referenceZone, onChange, onReset };
   const preview = (direction: 1 | -1, minutes = 15) => {
     const current = latest.current;
-    current.onChange(stepInstant(current.at, direction, minutes, current.referenceZone));
+    const previewAt = stepInstant(current.at, direction, minutes, current.referenceZone);
+    current.onChange(previewAt);
     clearTimeout(idle.current);
-    idle.current = setTimeout(() => latest.current.onReset(), 8000);
+    idle.current = setTimeout(() => { if (latest.current.at === previewAt) latest.current.onReset(); }, 8000);
   };
   const shown = locations.slice(0, 5);
 
@@ -54,7 +55,9 @@ export function CompactWidget({ title, locations, referenceZone, now, value: at,
       e.preventDefault(); preview(e.deltaY < 0 ? 1 : -1);
     };
     element?.addEventListener('wheel', wheel, { passive: false });
-    return () => { element?.removeEventListener('wheel', wheel); clearTimeout(idle.current); };
+    const visibility = () => { if (document.hidden) clearTimeout(idle.current); };
+    document.addEventListener('visibilitychange', visibility);
+    return () => { element?.removeEventListener('wheel', wheel); document.removeEventListener('visibilitychange', visibility); clearTimeout(idle.current); };
   }, []);
 
   return (

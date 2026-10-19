@@ -1,6 +1,8 @@
 # Longitude implementation audit
 
-Current follow-up: [Milestone 1](MILESTONE_1.md) establishes the timezone foundation; [Milestone 2](MILESTONE_2.md) integrates the existing interactive frontend; [Milestone 3](MILESTONE_3.md) fixes both scheduling defects with exact interval coverage and baseline-comparison evidence. The findings below remain audit history; references to open scheduling work describe that historical state. Stop before Milestone 4.
+Milestone 5B follow-up: the user authorized Mac implementation for joint review with Windows. [5B report](MILESTONE_5B.md) and [desktop architecture](DESKTOP_ARCHITECTURE.md) supersede historical statements below about absent native integration. Windows/shared verification and Mac build/runtime acceptance are separate. Outstanding 5A manual/performance items remain open; no Mac build, physical-runtime or release-ready artifact is claimed. Stop before Milestone 6.
+
+Current follow-up: [Milestone 1](MILESTONE_1.md) establishes the timezone foundation; [Milestone 2](MILESTONE_2.md) integrates the existing interactive frontend; [Milestone 3](MILESTONE_3.md) fixes both scheduling defects; [Milestone 4](MILESTONE_4.md) adds validated durable configuration, recovery, ordered writes and measured large-search worker execution. The findings below remain audit history. Native storage implementation, window integration and release budgets remain open. Stop before Milestone 5.
 
 Audit date: October 19, 2026 (Asia/Singapore).
 

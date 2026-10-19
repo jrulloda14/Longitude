@@ -220,7 +220,7 @@ export function suggestTimes(people: Participant[], from: Instant, to: Instant, 
   assertInteger(count, 1, 50, 'Count'); assertInteger(step, 1, 1440, 'Step');
   if (typeof options !== 'object' || options === null || Array.isArray(options)) throw new TypeError('Search options must be an object');
   if (options.participantIds !== undefined) {
-    if (!Array.isArray(options.participantIds) || new Set(options.participantIds).size !== options.participantIds.length || options.participantIds.some(id => !people.some(p => p.id === id))) throw new RangeError('Select unique known participant IDs');
+    if (!Array.isArray(options.participantIds) || new Set(options.participantIds).size !== options.participantIds.length || [...options.participantIds].some(id => !people.some(p => p.id === id))) throw new RangeError('Select unique known participant IDs');
     people = people.filter(p => options.participantIds!.includes(p.id));
   }
   const minParticipants = options.minParticipants === undefined ? 0 : options.minParticipants;
