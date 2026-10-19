@@ -1,6 +1,8 @@
 # Shared desktop architecture — Milestones 5A/5B
 
-The Tauri 2 application embeds the existing Vite/React frontend. `main` and `widget` use WebView2 on Windows and system WKWebView on macOS, running the same entry/component tree. The platform adapter derives its label/OS from native APIs; it does not select macOS chrome from a saved Windows preview preference. No second frontend or timezone/scheduling implementation exists. Actual Mac compilation/runtime acceptance remains pending; the code/configuration below describes intended host behavior, not a Mac test result.
+Verification follow-up: [NATIVE_ARCHITECTURE.md](NATIVE_ARCHITECTURE.md) is the current platform-contract entry point. Native Mac appearance now follows saved theme preferences, shortcut ownership uses parsed chord equivalence, and normal typing/standard Mac app/input-source chords are protected before registration. Windows native conflict testing now uses an independent process rather than the earlier alias-only case. Actual CI results and the physical-hardware boundary are recorded in [MILESTONE_5B.md](MILESTONE_5B.md); original unverified-build wording below is historical where superseded there.
+
+The Tauri 2 application embeds the existing Vite/React frontend. `main` and `widget` use WebView2 on Windows and system WKWebView on macOS, running the same entry/component tree. The platform adapter derives its label/OS from native APIs; it does not select macOS chrome from a saved Windows preview preference. No second frontend or timezone/scheduling implementation exists. Actual hosted Mac compilation/test/package outcomes are recorded in the current 5B report. Physical Mac runtime acceptance remains Blocked; implementation descriptions below are not physical-device results.
 
 ## macOS host integration
 

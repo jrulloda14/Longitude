@@ -1,0 +1,1522 @@
+2026-10-19T14:17:22.9932540Z Current runner version: '2.337.0'
+2026-10-19T14:17:22.9966380Z ##[group]Runner Image Provisioner
+2026-10-19T14:17:22.9967660Z Hosted Compute Agent
+2026-10-19T14:17:22.9968440Z Version: 20260819.586
+2026-10-19T14:17:22.9969300Z Commit: 3cc4a88dfa507ef76119ad1bb3eccc6378bb2b76
+2026-10-19T14:17:22.9970320Z Build Date: 2026-08-18T23:20:18Z
+2026-10-19T14:17:22.9971520Z Worker ID: {3ebc3662-6e55-4d1c-8fb2-05c2fc3e05ec}
+2026-10-19T14:17:22.9972630Z Azure Region: westus
+2026-10-19T14:17:22.9973400Z ##[endgroup]
+2026-10-19T14:17:22.9975690Z ##[group]Operating System
+2026-10-19T14:17:22.9976530Z macOS
+2026-10-19T14:17:22.9977200Z 15.7.9
+2026-10-19T14:17:22.9977870Z 24G830
+2026-10-19T14:17:22.9978540Z ##[endgroup]
+2026-10-19T14:17:22.9979270Z ##[group]Runner Image
+2026-10-19T14:17:22.9980050Z Image: macos-15
+2026-10-19T14:17:22.9980780Z Version: 20260824.0482.1
+2026-10-19T14:17:22.9982590Z Included Software: https://github.com/actions/runner-images/blob/macos-15/20260824.0482/images/macos/macos-15-Readme.md
+2026-10-19T14:17:22.9985030Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-15%2F20260824.0482
+2026-10-19T14:17:22.9986560Z ##[endgroup]
+2026-10-19T14:17:22.9988210Z ##[group]GITHUB_TOKEN Permissions
+2026-10-19T14:17:22.9992070Z Contents: read
+2026-10-19T14:17:22.9992860Z Metadata: read
+2026-10-19T14:17:22.9993590Z ##[endgroup]
+2026-10-19T14:17:22.9996780Z Secret source: Actions
+2026-10-19T14:17:22.9998040Z Cache mode: write
+2026-10-19T14:17:22.9999380Z Prepare workflow directory
+2026-10-19T14:17:23.0660400Z Prepare all required actions
+2026-10-19T14:17:23.0734850Z Getting action download info
+2026-10-19T14:17:23.4208700Z Download action repository 'actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd' (SHA:de0fac2e4500dabe0009e67214ff5f5447ce83dd)
+2026-10-19T14:17:23.8740280Z Download action repository 'actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f' (SHA:53b83947a5a98c8d113130e565377fae1a50d02f)
+2026-10-19T14:17:24.3874680Z Download action repository 'actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f' (SHA:b7c566a772e6b6bfb58ed0dc250532a479d7789f)
+2026-10-19T14:17:24.9084160Z Complete job name: build (macos-15-intel, x86_64-apple-darwin)
+2026-10-19T14:17:25.0705730Z ##[group]Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+2026-10-19T14:17:25.0707760Z with:
+2026-10-19T14:17:25.0708550Z   persist-credentials: false
+2026-10-19T14:17:25.0709480Z   repository: jrulloda14/Longitude
+2026-10-19T14:17:25.0716840Z   token: ***
+2026-10-19T14:17:25.0717630Z   ssh-strict: true
+2026-10-19T14:17:25.0718390Z   ssh-user: git
+2026-10-19T14:17:25.0719130Z   clean: true
+2026-10-19T14:17:25.0719910Z   sparse-checkout-cone-mode: true
+2026-10-19T14:17:25.0720840Z   fetch-depth: 1
+2026-10-19T14:17:25.0721760Z   fetch-tags: false
+2026-10-19T14:17:25.0722580Z   show-progress: true
+2026-10-19T14:17:25.0723700Z   lfs: false
+2026-10-19T14:17:25.0725270Z   submodules: false
+2026-10-19T14:17:25.0726670Z   set-safe-directory: true
+2026-10-19T14:17:25.0728410Z env:
+2026-10-19T14:17:25.0729390Z   CARGO_TERM_COLOR: never
+2026-10-19T14:17:25.0730430Z   MACOSX_DEPLOYMENT_TARGET: 12.0
+2026-10-19T14:17:25.0731480Z   LONGITUDE_BROWSER: webkit
+2026-10-19T14:17:25.0732660Z   LONGITUDE_EVIDENCE_ROOT: ci-results
+2026-10-19T14:17:25.0802440Z   APPLE_SIGNING_IDENTITY: -
+2026-10-19T14:17:25.0806220Z ##[endgroup]
+2026-10-19T14:17:25.8640920Z Syncing repository: jrulloda14/Longitude
+2026-10-19T14:17:25.8647010Z ##[group]Getting Git version info
+2026-10-19T14:17:25.8650210Z Working directory is '/Users/runner/work/Longitude/Longitude'
+2026-10-19T14:17:25.8653300Z [command]/usr/local/bin/git version
+2026-10-19T14:17:25.8916470Z git version 2.55.0
+2026-10-19T14:17:25.8954020Z ##[endgroup]
+2026-10-19T14:17:25.8974480Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/fde9ce66-3350-40d1-bc99-8f31032e2e4d/.gitconfig'
+2026-10-19T14:17:25.8998960Z Temporarily overriding HOME='/Users/runner/work/_temp/fde9ce66-3350-40d1-bc99-8f31032e2e4d' before making global git config changes
+2026-10-19T14:17:25.9003250Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-19T14:17:25.9007370Z [command]/usr/local/bin/git config --global --add safe.directory /Users/runner/work/Longitude/Longitude
+2026-10-19T14:17:25.9179850Z Deleting the contents of '/Users/runner/work/Longitude/Longitude'
+2026-10-19T14:17:25.9189980Z ##[group]Initializing the repository
+2026-10-19T14:17:25.9199750Z [command]/usr/local/bin/git init /Users/runner/work/Longitude/Longitude
+2026-10-19T14:17:25.9701510Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-19T14:17:25.9704280Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-19T14:17:25.9706830Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-19T14:17:25.9709330Z hint: call:
+2026-10-19T14:17:25.9710680Z hint:
+2026-10-19T14:17:25.9712370Z hint: 	git config --global init.defaultBranch <name>
+2026-10-19T14:17:25.9714440Z hint:
+2026-10-19T14:17:25.9716410Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-19T14:17:25.9719230Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-19T14:17:25.9721100Z hint:
+2026-10-19T14:17:25.9722210Z hint: 	git branch -m <name>
+2026-10-19T14:17:25.9723260Z hint:
+2026-10-19T14:17:25.9724730Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-19T14:17:25.9727380Z Initialized empty Git repository in /Users/runner/work/Longitude/Longitude/.git/
+2026-10-19T14:17:25.9732060Z [command]/usr/local/bin/git remote add origin https://github.com/jrulloda14/Longitude
+2026-10-19T14:17:25.9900680Z ##[endgroup]
+2026-10-19T14:17:25.9902980Z ##[group]Disabling automatic garbage collection
+2026-10-19T14:17:25.9909570Z [command]/usr/local/bin/git config --local gc.auto 0
+2026-10-19T14:17:26.0048300Z ##[endgroup]
+2026-10-19T14:17:26.0050510Z ##[group]Setting up auth
+2026-10-19T14:17:26.0052570Z Removing SSH command configuration
+2026-10-19T14:17:26.0061890Z [command]/usr/local/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-19T14:17:26.0200550Z [command]/usr/local/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-19T14:17:26.2057510Z Removing HTTP extra header
+2026-10-19T14:17:26.2065870Z [command]/usr/local/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-19T14:17:26.2203380Z [command]/usr/local/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-19T14:17:26.4319370Z Removing includeIf entries pointing to credentials config files
+2026-10-19T14:17:26.4322310Z [command]/usr/local/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-19T14:17:26.4329060Z [command]/usr/local/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-19T14:17:26.6806260Z [command]/usr/local/bin/git config --file /Users/runner/work/_temp/git-credentials-0ea99154-913b-4129-96c7-cbd024db9ef1.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-19T14:17:26.6838690Z [command]/usr/local/bin/git config --local includeIf.gitdir:/Users/runner/work/Longitude/Longitude/.git.path /Users/runner/work/_temp/git-credentials-0ea99154-913b-4129-96c7-cbd024db9ef1.config
+2026-10-19T14:17:26.7013990Z [command]/usr/local/bin/git config --local includeIf.gitdir:/Users/runner/work/Longitude/Longitude/.git/worktrees/*.path /Users/runner/work/_temp/git-credentials-0ea99154-913b-4129-96c7-cbd024db9ef1.config
+2026-10-19T14:17:26.7157540Z [command]/usr/local/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-0ea99154-913b-4129-96c7-cbd024db9ef1.config
+2026-10-19T14:17:26.7316840Z [command]/usr/local/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-0ea99154-913b-4129-96c7-cbd024db9ef1.config
+2026-10-19T14:17:26.7486120Z ##[endgroup]
+2026-10-19T14:17:26.7489580Z ##[group]Fetching the repository
+2026-10-19T14:17:26.7507560Z [command]/usr/local/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +09ea9ef47bdcdde34dbe0809addea7d3d6d922aa:refs/remotes/origin/codex/m5b-native-verification
+2026-10-19T14:17:27.5659030Z From https://github.com/jrulloda14/Longitude
+2026-10-19T14:17:27.5675700Z  * [new ref]         09ea9ef47bdcdde34dbe0809addea7d3d6d922aa -> origin/codex/m5b-native-verification
+2026-10-19T14:17:27.5695210Z [command]/usr/local/bin/git branch --list --remote origin/codex/m5b-native-verification
+2026-10-19T14:17:27.5884990Z   origin/codex/m5b-native-verification
+2026-10-19T14:17:27.5913110Z [command]/usr/local/bin/git rev-parse refs/remotes/origin/codex/m5b-native-verification
+2026-10-19T14:17:27.6086590Z 09ea9ef47bdcdde34dbe0809addea7d3d6d922aa
+2026-10-19T14:17:27.6102030Z ##[endgroup]
+2026-10-19T14:17:27.6109040Z ##[group]Determining the checkout info
+2026-10-19T14:17:27.6115010Z ##[endgroup]
+2026-10-19T14:17:27.6118260Z [command]/usr/local/bin/git sparse-checkout disable
+2026-10-19T14:17:27.6411720Z [command]/usr/local/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-19T14:17:27.6604530Z ##[group]Checking out the ref
+2026-10-19T14:17:27.6615060Z [command]/usr/local/bin/git checkout --progress --force -B codex/m5b-native-verification refs/remotes/origin/codex/m5b-native-verification
+2026-10-19T14:17:28.0175490Z Switched to a new branch 'codex/m5b-native-verification'
+2026-10-19T14:17:28.0203710Z branch 'codex/m5b-native-verification' set up to track 'origin/codex/m5b-native-verification'.
+2026-10-19T14:17:28.0227060Z ##[endgroup]
+2026-10-19T14:17:28.0426000Z [command]/usr/local/bin/git log -1 --format=%H
+2026-10-19T14:17:28.0611120Z 09ea9ef47bdcdde34dbe0809addea7d3d6d922aa
+2026-10-19T14:17:28.0634750Z ##[group]Removing auth
+2026-10-19T14:17:28.0641160Z Removing SSH command configuration
+2026-10-19T14:17:28.0648760Z [command]/usr/local/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-19T14:17:28.0820840Z [command]/usr/local/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-19T14:17:28.3643420Z Removing HTTP extra header
+2026-10-19T14:17:28.4663500Z [command]/usr/local/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-19T14:17:28.5818450Z [command]/usr/local/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-19T14:17:28.5852490Z Removing includeIf entries pointing to credentials config files
+2026-10-19T14:17:28.5862490Z [command]/usr/local/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-19T14:17:28.6032650Z includeif.gitdir:/Users/runner/work/Longitude/Longitude/.git.path
+2026-10-19T14:17:28.6090430Z includeif.gitdir:/Users/runner/work/Longitude/Longitude/.git/worktrees/*.path
+2026-10-19T14:17:28.6200510Z includeif.gitdir:/github/workspace/.git.path
+2026-10-19T14:17:28.6254510Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-19T14:17:28.6319850Z [command]/usr/local/bin/git config --local --get-all includeif.gitdir:/Users/runner/work/Longitude/Longitude/.git.path
+2026-10-19T14:17:28.6332290Z /Users/runner/work/_temp/git-credentials-0ea99154-913b-4129-96c7-cbd024db9ef1.config
+2026-10-19T14:17:28.6354790Z [command]/usr/local/bin/git config --local --unset includeif.gitdir:/Users/runner/work/Longitude/Longitude/.git.path /Users/runner/work/_temp/git-credentials-0ea99154-913b-4129-96c7-cbd024db9ef1.config
+2026-10-19T14:17:28.6406490Z [command]/usr/local/bin/git config --local --get-all includeif.gitdir:/Users/runner/work/Longitude/Longitude/.git/worktrees/*.path
+2026-10-19T14:17:28.6640920Z /Users/runner/work/_temp/git-credentials-0ea99154-913b-4129-96c7-cbd024db9ef1.config
+2026-10-19T14:17:28.6759820Z [command]/usr/local/bin/git config --local --unset includeif.gitdir:/Users/runner/work/Longitude/Longitude/.git/worktrees/*.path /Users/runner/work/_temp/git-credentials-0ea99154-913b-4129-96c7-cbd024db9ef1.config
+2026-10-19T14:17:28.7033810Z [command]/usr/local/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-10-19T14:17:28.7042660Z /github/runner_temp/git-credentials-0ea99154-913b-4129-96c7-cbd024db9ef1.config
+2026-10-19T14:17:28.7096740Z [command]/usr/local/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-0ea99154-913b-4129-96c7-cbd024db9ef1.config
+2026-10-19T14:17:28.7152740Z [command]/usr/local/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-19T14:17:28.7275090Z /github/runner_temp/git-credentials-0ea99154-913b-4129-96c7-cbd024db9ef1.config
+2026-10-19T14:17:28.7340080Z [command]/usr/local/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-0ea99154-913b-4129-96c7-cbd024db9ef1.config
+2026-10-19T14:17:28.7468020Z [command]/usr/local/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-19T14:17:29.0387490Z Removing credentials config '/Users/runner/work/_temp/git-credentials-0ea99154-913b-4129-96c7-cbd024db9ef1.config'
+2026-10-19T14:17:29.0399180Z ##[endgroup]
+2026-10-19T14:17:29.1042690Z ##[group]Run actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f
+2026-10-19T14:17:29.1046180Z with:
+2026-10-19T14:17:29.1047940Z   node-version: 24.15.0
+2026-10-19T14:17:29.1050010Z   check-latest: false
+2026-10-19T14:17:29.1073160Z   token: ***
+2026-10-19T14:17:29.1075120Z   package-manager-cache: true
+2026-10-19T14:17:29.1077380Z env:
+2026-10-19T14:17:29.1079260Z   CARGO_TERM_COLOR: never
+2026-10-19T14:17:29.1081530Z   MACOSX_DEPLOYMENT_TARGET: 12.0
+2026-10-19T14:17:29.1083920Z   LONGITUDE_BROWSER: webkit
+2026-10-19T14:17:29.1086330Z   LONGITUDE_EVIDENCE_ROOT: ci-results
+2026-10-19T14:17:29.1088890Z   APPLE_SIGNING_IDENTITY: -
+2026-10-19T14:17:29.1091040Z ##[endgroup]
+2026-10-19T14:17:29.4338550Z Attempting to download 24.15.0...
+2026-10-19T14:17:30.2179730Z Acquiring 24.15.0 - x64 from https://github.com/actions/node-versions/releases/download/24.15.0-24511264946/node-24.15.0-darwin-x64.tar.gz
+2026-10-19T14:17:31.1842000Z Extracting ...
+2026-10-19T14:17:31.2008780Z [command]/usr/bin/tar xz --strip 1 -C /Users/runner/work/_temp/d80973c9-1ef0-40c3-b56e-819964ad9966 -f /Users/runner/work/_temp/0c1896fc-5483-4d7b-ac2f-e1776953e7df
+2026-10-19T14:17:34.6220140Z Adding to the cache ...
+2026-10-19T14:17:40.4600590Z ##[group]Environment details
+2026-10-19T14:17:41.2866490Z node: v24.15.0
+2026-10-19T14:17:41.2867520Z npm: 11.12.1
+2026-10-19T14:17:41.2868330Z yarn: 1.22.22
+2026-10-19T14:17:41.2870090Z ##[endgroup]
+2026-10-19T14:17:41.3129000Z ##[group]Run set -euo pipefail
+2026-10-19T14:17:41.3129800Z [36;1mset -euo pipefail[0m
+2026-10-19T14:17:41.3130480Z [36;1mmkdir -p ci-results[0m
+2026-10-19T14:17:41.3131380Z [36;1mrustup toolchain install 1.99.0 --profile minimal --component rustfmt[0m
+2026-10-19T14:17:41.3132450Z [36;1mrustup override set 1.99.0[0m
+2026-10-19T14:17:41.3133200Z [36;1mrustup target add 'x86_64-apple-darwin'[0m
+2026-10-19T14:17:41.3134620Z [36;1m{ sw_vers; uname -m; xcodebuild -version; node --version; cargo --version; rustc --version; } > ci-results/toolchain.txt[0m
+2026-10-19T14:17:41.3220570Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-19T14:17:41.3221430Z env:
+2026-10-19T14:17:41.3221920Z   CARGO_TERM_COLOR: never
+2026-10-19T14:17:41.3222500Z   MACOSX_DEPLOYMENT_TARGET: 12.0
+2026-10-19T14:17:41.3223180Z   LONGITUDE_BROWSER: webkit
+2026-10-19T14:17:41.3244430Z   LONGITUDE_EVIDENCE_ROOT: ci-results
+2026-10-19T14:17:41.3245100Z   APPLE_SIGNING_IDENTITY: -
+2026-10-19T14:17:41.3246110Z ##[endgroup]
+2026-10-19T14:17:41.4225410Z info: syncing channel updates for 1.99.0-x86_64-apple-darwin
+2026-10-19T14:17:41.7325440Z info: latest update on 2026-10-01 for version 1.99.0 (b940084d7 2026-09-28)
+2026-10-19T14:17:41.7392240Z info: downloading 4 components
+2026-10-19T14:17:56.8653500Z 
+2026-10-19T14:17:56.9333370Z info: self-update is disabled for this build of rustup
+2026-10-19T14:17:56.9335430Z   1.99.0-x86_64-apple-darwin installed - rustc 1.99.0 (b940084d7 2026-09-28)
+2026-10-19T14:17:56.9386670Z info: any updates to rustup will need to be fetched with your system package manager
+2026-10-19T14:17:56.9387650Z 
+2026-10-19T14:17:56.9909450Z info: override toolchain for /Users/runner/work/Longitude/Longitude set to 1.99.0-x86_64-apple-darwin
+2026-10-19T14:17:57.1645450Z info: component rust-std is up to date
+2026-10-19T14:17:57.6741830Z ##[group]Run npm ci
+2026-10-19T14:17:57.6742840Z [36;1mnpm ci[0m
+2026-10-19T14:17:57.6870230Z shell: /bin/bash -e {0}
+2026-10-19T14:17:57.6870920Z env:
+2026-10-19T14:17:57.6871400Z   CARGO_TERM_COLOR: never
+2026-10-19T14:17:57.6872050Z   MACOSX_DEPLOYMENT_TARGET: 12.0
+2026-10-19T14:17:57.6872820Z   LONGITUDE_BROWSER: webkit
+2026-10-19T14:17:57.6873440Z   LONGITUDE_EVIDENCE_ROOT: ci-results
+2026-10-19T14:17:57.6874090Z   APPLE_SIGNING_IDENTITY: -
+2026-10-19T14:17:57.6874730Z ##[endgroup]
+2026-10-19T14:18:13.9562630Z 
+2026-10-19T14:18:13.9624470Z added 134 packages, and audited 135 packages in 16s
+2026-10-19T14:18:13.9738330Z 
+2026-10-19T14:18:13.9814760Z 35 packages are looking for funding
+2026-10-19T14:18:13.9968780Z   run `npm fund` for details
+2026-10-19T14:18:13.9974170Z 
+2026-10-19T14:18:14.0828330Z 5 high severity vulnerabilities
+2026-10-19T14:18:14.1059850Z 
+2026-10-19T14:18:14.1148670Z To address issues that do not require attention, run:
+2026-10-19T14:18:14.1258360Z   npm audit fix
+2026-10-19T14:18:14.2260730Z 
+2026-10-19T14:18:14.3158820Z To address all issues (including breaking changes), run:
+2026-10-19T14:18:14.3265160Z   npm audit fix --force
+2026-10-19T14:18:14.3391170Z 
+2026-10-19T14:18:14.3478700Z Run `npm audit` for details.
+2026-10-19T14:18:14.3616850Z ##[group]Run set -euo pipefail
+2026-10-19T14:18:14.3617880Z [36;1mset -euo pipefail[0m
+2026-10-19T14:18:14.3618880Z [36;1mnpm run typecheck 2>&1 | tee ci-results/typecheck.txt[0m
+2026-10-19T14:18:14.3620380Z [36;1mnpm test -- --reporter=json --outputFile=ci-results/unit-results.json[0m
+2026-10-19T14:18:14.3621840Z [36;1mnpm run desktop:frontend 2>&1 | tee ci-results/frontend-build.txt[0m
+2026-10-19T14:18:14.3623380Z [36;1m# Tauri 2's build-script allowlist inspects direct dependency features,[0m
+2026-10-19T14:18:14.3624880Z [36;1m# not just resolved named Cargo features. Let the official CLI prepare[0m
+2026-10-19T14:18:14.3626320Z [36;1m# the host-specific manifest before invoking Cargo tests directly.[0m
+2026-10-19T14:18:14.3628220Z [36;1mnpm exec tauri build -- --debug --no-bundle --target 'x86_64-apple-darwin' 2>&1 | tee ci-results/debug-build.txt[0m
+2026-10-19T14:18:14.3630020Z [36;1mcargo fmt --manifest-path src-tauri/Cargo.toml --check[0m
+2026-10-19T14:18:14.3632370Z [36;1mcargo test --manifest-path src-tauri/Cargo.toml --locked --target 'x86_64-apple-darwin' --features macos-transparency 2>&1 | tee ci-results/rust-tests.txt[0m
+2026-10-19T14:18:14.3738050Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-19T14:18:14.3739080Z env:
+2026-10-19T14:18:14.3739740Z   CARGO_TERM_COLOR: never
+2026-10-19T14:18:14.3740510Z   MACOSX_DEPLOYMENT_TARGET: 12.0
+2026-10-19T14:18:14.3741400Z   LONGITUDE_BROWSER: webkit
+2026-10-19T14:18:14.3742420Z   LONGITUDE_EVIDENCE_ROOT: ci-results
+2026-10-19T14:18:14.3743640Z   APPLE_SIGNING_IDENTITY: -
+2026-10-19T14:18:14.3744630Z ##[endgroup]
+2026-10-19T14:18:14.7763630Z 
+2026-10-19T14:18:14.7765840Z > longitude@0.1.0 typecheck
+2026-10-19T14:18:14.7808430Z > tsc --noEmit
+2026-10-19T14:18:14.7845920Z 
+2026-10-19T14:18:22.7068840Z 
+2026-10-19T14:18:22.7096740Z > longitude@0.1.0 test
+2026-10-19T14:18:22.7108570Z > vitest run --reporter=json --outputFile=ci-results/unit-results.json
+2026-10-19T14:18:22.7129380Z 
+2026-10-19T14:18:29.7032850Z JSON report written to /Users/runner/work/Longitude/Longitude/ci-results/unit-results.json
+2026-10-19T14:18:30.1444610Z 
+2026-10-19T14:18:30.1469540Z > longitude@0.1.0 desktop:frontend
+2026-10-19T14:18:30.1492670Z > node scripts/prepare-desktop.mjs
+2026-10-19T14:18:30.1501340Z 
+2026-10-19T14:18:38.6635700Z [36mvite v8.3.4 [32mbuilding client environment for production...[36m[39m
+2026-10-19T14:18:38.6776710Z transforming...
+2026-10-19T14:18:40.4692560Z ✓ 1597 modules transformed.
+2026-10-19T14:18:40.5869010Z rendering chunks...
+2026-10-19T14:18:40.7675650Z computing gzip size...
+2026-10-19T14:18:40.7779620Z dist/assets/longitude-app-icon-CUZ1hnrO.svg                  0.42 kB │ gzip:   0.23 kB
+2026-10-19T14:18:40.7841450Z dist/index.html                                              0.62 kB │ gzip:   0.38 kB
+2026-10-19T14:18:40.7895740Z dist/assets/geist-cyrillic-ext-wght-normal-DjL33-gN.woff2    7.42 kB
+2026-10-19T14:18:40.7941990Z dist/assets/geist-vietnamese-wght-normal-6IgcOCM7.woff2      8.00 kB
+2026-10-19T14:18:40.7973240Z dist/assets/geist-cyrillic-wght-normal-BEAKL7Jp.woff2       15.08 kB
+2026-10-19T14:18:40.8026560Z dist/assets/geist-latin-ext-wght-normal-DC-KSUi6.woff2      16.51 kB
+2026-10-19T14:18:40.8063490Z dist/assets/geist-latin-wght-normal-BgDaEnEv.woff2          29.40 kB
+2026-10-19T14:18:40.8076390Z dist/assets/search.worker-C9L_NhDt.js                      171.90 kB
+2026-10-19T14:18:40.8108150Z dist/assets/index-0deuA9NT.css                              23.89 kB │ gzip:   6.01 kB
+2026-10-19T14:18:40.8149480Z dist/assets/platform.tauri-1pqNcf0f.js                      16.06 kB │ gzip:   4.15 kB
+2026-10-19T14:18:40.8190160Z dist/assets/index-BQJpxuyJ.js                              458.21 kB │ gzip: 142.87 kB
+2026-10-19T14:18:40.8212930Z 
+2026-10-19T14:18:40.8245430Z [32m✓ built in 2.11s[39m
+2026-10-19T14:18:41.2881060Z Wrote docs/THIRD_PARTY_NOTICES.txt (10 runtime packages)
+2026-10-19T14:19:03.3173220Z     Updating crates.io index
+2026-10-19T14:19:03.3235900Z  Downloading crates ...
+2026-10-19T14:19:03.3311760Z   Downloaded atk v0.18.2
+2026-10-19T14:19:03.3396190Z   Downloaded cairo-rs v0.18.5
+2026-10-19T14:19:03.3442210Z   Downloaded cargo_toml v1.0.1
+2026-10-19T14:19:03.3492400Z   Downloaded core-graphics-types v0.2.0
+2026-10-19T14:19:03.3522050Z   Downloaded android_system_properties v0.1.6
+2026-10-19T14:19:03.3575100Z   Downloaded adler2 v2.0.1
+2026-10-19T14:19:03.3637400Z   Downloaded alloc-stdlib v0.3.0
+2026-10-19T14:19:03.3676530Z   Downloaded auto-launch v0.6.0
+2026-10-19T14:19:03.3715280Z   Downloaded event-listener-strategy v0.5.4
+2026-10-19T14:19:03.3780580Z   Downloaded alloc-no-stdlib v3.0.0
+2026-10-19T14:19:03.3859200Z   Downloaded atomic-waker v1.1.2
+2026-10-19T14:19:03.3896180Z   Downloaded async-recursion v1.2.0
+2026-10-19T14:19:03.3949750Z   Downloaded block-buffer v0.10.4
+2026-10-19T14:19:03.4085250Z   Downloaded dirs v6.0.0
+2026-10-19T14:19:03.4148330Z   Downloaded dirs v7.0.0
+2026-10-19T14:19:03.4223660Z   Downloaded dlopen2_derive v0.4.3
+2026-10-19T14:19:03.4224970Z   Downloaded dtoa-short v0.3.5
+2026-10-19T14:19:03.4314890Z   Downloaded dunce v1.0.5
+2026-10-19T14:19:03.4381510Z   Downloaded equivalent v1.0.3
+2026-10-19T14:19:03.4427080Z   Downloaded bit-set v0.8.0
+2026-10-19T14:19:03.4465360Z   Downloaded cfg_aliases v0.2.2
+2026-10-19T14:19:03.4523630Z   Downloaded cssparser-macros v0.7.1
+2026-10-19T14:19:03.4575170Z   Downloaded autocfg v1.5.1
+2026-10-19T14:19:03.4626170Z   Downloaded cfg-if v1.0.5
+2026-10-19T14:19:03.4669490Z   Downloaded embed_plist v1.2.2
+2026-10-19T14:19:03.4722760Z   Downloaded enumflags2_derive v0.7.12
+2026-10-19T14:19:03.4833620Z   Downloaded memoffset v0.9.1
+2026-10-19T14:19:03.4915100Z   Downloaded async-channel v2.5.0
+2026-10-19T14:19:03.4957570Z   Downloaded crypto-common v0.1.7
+2026-10-19T14:19:03.5015180Z   Downloaded dirs-sys v0.5.0
+2026-10-19T14:19:03.5066070Z   Downloaded dpi v0.1.2
+2026-10-19T14:19:03.5134650Z   Downloaded dyn-clone v1.0.20
+2026-10-19T14:19:03.5275930Z   Downloaded ndk-context v0.1.1
+2026-10-19T14:19:03.5411280Z   Downloaded new_debug_unreachable v1.0.6
+2026-10-19T14:19:03.5585610Z   Downloaded num-conv v0.2.2
+2026-10-19T14:19:03.5628380Z   Downloaded async-broadcast v0.7.2
+2026-10-19T14:19:03.5700930Z   Downloaded async-executor v1.14.0
+2026-10-19T14:19:03.5770720Z   Downloaded async-process v2.5.0
+2026-10-19T14:19:03.5837780Z   Downloaded async-signal v0.2.14
+2026-10-19T14:19:03.5899720Z   Downloaded async-trait v0.1.92
+2026-10-19T14:19:03.5977110Z   Downloaded bit-vec v0.8.0
+2026-10-19T14:19:03.6068500Z   Downloaded bitflags v1.3.2
+2026-10-19T14:19:03.6164080Z   Downloaded blocking v1.7.0
+2026-10-19T14:19:03.6243760Z   Downloaded byteorder v1.5.0
+2026-10-19T14:19:03.6427970Z   Downloaded byteorder-lite v0.1.0
+2026-10-19T14:19:03.6674040Z   Downloaded cairo-sys-rs v0.18.2
+2026-10-19T14:19:03.6750240Z   Downloaded cargo-platform v0.1.9
+2026-10-19T14:19:03.7009530Z   Downloaded cesu8 v1.1.0
+2026-10-19T14:19:03.7087230Z   Downloaded concurrent-queue v2.5.0
+2026-10-19T14:19:03.7184870Z   Downloaded cpufeatures v0.2.17
+2026-10-19T14:19:03.7297500Z   Downloaded darling_macro v0.24.1
+2026-10-19T14:19:03.7449950Z   Downloaded displaydoc v0.2.7
+2026-10-19T14:19:03.7537540Z   Downloaded dtoa v1.0.11
+2026-10-19T14:19:03.7587210Z   Downloaded endi v1.1.1
+2026-10-19T14:19:03.7641630Z   Downloaded mime v0.3.17
+2026-10-19T14:19:03.7710560Z   Downloaded miniz_oxide v0.8.9
+2026-10-19T14:19:03.8855410Z   Downloaded async-io v2.6.0
+2026-10-19T14:19:03.8924470Z   Downloaded async-lock v3.4.2
+2026-10-19T14:19:03.9709630Z   Downloaded async-task v4.7.1
+2026-10-19T14:19:03.9833660Z   Downloaded atk-sys v0.18.2
+2026-10-19T14:19:03.9912610Z   Downloaded block2 v0.6.2
+2026-10-19T14:19:03.9955600Z   Downloaded bs58 v0.5.1
+2026-10-19T14:19:04.0154920Z   Downloaded bytemuck v1.25.2
+2026-10-19T14:19:04.0214860Z   Downloaded camino v1.2.6
+2026-10-19T14:19:04.0267160Z   Downloaded cargo_metadata v0.19.2
+2026-10-19T14:19:04.0322900Z   Downloaded cfg-expr v0.15.8
+2026-10-19T14:19:04.0385230Z   Downloaded cookie v0.18.2
+2026-10-19T14:19:04.0445250Z   Downloaded core-foundation v0.10.1
+2026-10-19T14:19:04.0535690Z   Downloaded core-graphics v0.25.0
+2026-10-19T14:19:04.0604640Z   Downloaded crc32fast v1.5.2
+2026-10-19T14:19:04.0719140Z   Downloaded crossbeam-utils v0.8.23
+2026-10-19T14:19:04.0784070Z   Downloaded cssparser v0.37.0
+2026-10-19T14:19:04.0869180Z   Downloaded defmt v1.2.0
+2026-10-19T14:19:04.0927070Z   Downloaded defmt-macros v1.2.0
+2026-10-19T14:19:04.1005500Z   Downloaded defmt-parser v1.1.0
+2026-10-19T14:19:04.1061190Z   Downloaded deranged v0.5.9
+2026-10-19T14:19:04.1113500Z   Downloaded digest v0.10.7
+2026-10-19T14:19:04.1193290Z   Downloaded dispatch2 v0.3.1
+2026-10-19T14:19:04.1278310Z   Downloaded dlopen2 v0.8.2
+2026-10-19T14:19:04.1391710Z   Downloaded embed-resource v3.0.12
+2026-10-19T14:19:04.1466200Z   Downloaded enumflags2 v0.7.12
+2026-10-19T14:19:04.1551750Z   Downloaded erased-serde v0.4.10
+2026-10-19T14:19:04.1610110Z   Downloaded errno v0.3.14
+2026-10-19T14:19:04.1689260Z   Downloaded event-listener v5.4.2
+2026-10-19T14:19:04.1738140Z   Downloaded num_enum v0.7.6
+2026-10-19T14:19:04.1816980Z   Downloaded num_enum_derive v0.7.6
+2026-10-19T14:19:04.1877010Z   Downloaded objc2-exception-helper v0.1.1
+2026-10-19T14:19:04.1947360Z   Downloaded objc2-io-surface v0.3.2
+2026-10-19T14:19:04.2031030Z   Downloaded objc2-service-management v0.3.2
+2026-10-19T14:19:04.2102730Z   Downloaded objc2-user-notifications v0.3.2
+2026-10-19T14:19:04.2140360Z   Downloaded option-ext v0.2.0
+2026-10-19T14:19:04.2197870Z   Downloaded parking v2.2.1
+2026-10-19T14:19:04.2269190Z   Downloaded percent-encoding v2.3.2
+2026-10-19T14:19:04.2313390Z   Downloaded phf v0.13.1
+2026-10-19T14:19:04.2356650Z   Downloaded phf_generator v0.13.1
+2026-10-19T14:19:04.2392950Z   Downloaded phf_shared v0.13.1
+2026-10-19T14:19:04.2453490Z   Downloaded pin-project-lite v0.2.17
+2026-10-19T14:19:04.2494970Z   Downloaded potential_utf v0.1.6
+2026-10-19T14:19:04.2532700Z   Downloaded powerfmt v0.2.1
+2026-10-19T14:19:04.2613490Z   Downloaded proc-macro-crate v2.0.2
+2026-10-19T14:19:04.2670520Z   Downloaded proc-macro-crate v3.5.0
+2026-10-19T14:19:04.2729980Z   Downloaded proc-macro-error-attr v1.0.4
+2026-10-19T14:19:04.3131450Z   Downloaded ref-cast-impl v1.0.27
+2026-10-19T14:19:04.3256630Z   Downloaded rustc-hash v2.1.3
+2026-10-19T14:19:04.3394960Z   Downloaded rustc_version v0.4.1
+2026-10-19T14:19:04.3515740Z   Downloaded same-file v1.0.6
+2026-10-19T14:19:04.3606480Z   Downloaded scopeguard v1.2.0
+2026-10-19T14:19:04.3674990Z   Downloaded web-time v1.1.0
+2026-10-19T14:19:04.3779270Z   Downloaded web_atoms v0.2.6
+2026-10-19T14:19:04.3880470Z   Downloaded windows-future v0.3.2
+2026-10-19T14:19:04.3976630Z   Downloaded windows-version v0.1.7
+2026-10-19T14:19:04.4012240Z   Downloaded anyhow v1.0.104
+2026-10-19T14:19:04.4573780Z   Downloaded base64 v0.21.7
+2026-10-19T14:19:04.4823490Z   Downloaded base64 v0.22.1
+2026-10-19T14:19:04.4880010Z   Downloaded base64 v0.23.1
+2026-10-19T14:19:04.4986650Z   Downloaded bitflags v2.13.2
+2026-10-19T14:19:04.5063900Z   Downloaded bumpalo v3.20.3
+2026-10-19T14:19:04.5136800Z   Downloaded bytes v1.12.1
+2026-10-19T14:19:04.5262890Z   Downloaded cfb v0.14.0
+2026-10-19T14:19:04.5311250Z   Downloaded combine v4.6.9
+2026-10-19T14:19:04.5379600Z   Downloaded core-foundation-sys v0.8.7
+2026-10-19T14:19:04.5438920Z   Downloaded crossbeam-channel v0.5.17
+2026-10-19T14:19:04.5489080Z   Downloaded ctor v1.0.13
+2026-10-19T14:19:04.5565140Z   Downloaded darling v0.24.1
+2026-10-19T14:19:04.5639230Z   Downloaded darling_core v0.24.1
+2026-10-19T14:19:04.5686400Z   Downloaded dbus v0.9.12
+2026-10-19T14:19:04.5735140Z   Downloaded derive_more v2.1.1
+2026-10-19T14:19:04.5782340Z   Downloaded derive_more-impl v2.1.1
+2026-10-19T14:19:04.5830290Z   Downloaded dom_query v0.28.0
+2026-10-19T14:19:04.5874930Z   Downloaded num-traits v0.2.19
+2026-10-19T14:19:04.5929660Z   Downloaded objc2-core-location v0.3.2
+2026-10-19T14:19:04.5972800Z   Downloaded objc2-encode v4.1.0
+2026-10-19T14:19:04.6023800Z   Downloaded objc2-quartz-core v0.3.2
+2026-10-19T14:19:04.6057770Z   Downloaded ordered-stream v0.2.0
+2026-10-19T14:19:04.6087040Z   Downloaded os_info v3.15.0
+2026-10-19T14:19:04.6118890Z   Downloaded pango v0.18.3
+2026-10-19T14:19:04.6154610Z   Downloaded pango-sys v0.18.0
+2026-10-19T14:19:04.6201010Z   Downloaded phf_codegen v0.13.1
+2026-10-19T14:19:04.6230890Z   Downloaded phf_macros v0.13.1
+2026-10-19T14:19:04.6247310Z   Downloaded piper v0.2.5
+2026-10-19T14:19:04.6272820Z   Downloaded pkg-config v0.3.34
+2026-10-19T14:19:04.6301900Z   Downloaded precomputed-hash v0.1.1
+2026-10-19T14:19:04.6347660Z   Downloaded proc-macro-crate v1.3.1
+2026-10-19T14:19:04.6377170Z   Downloaded proc-macro-error v1.0.4
+2026-10-19T14:19:04.6407970Z   Downloaded quote v1.0.47
+2026-10-19T14:19:04.6451470Z   Downloaded raw-window-handle v0.6.2
+2026-10-19T14:19:04.6471800Z   Downloaded redox_syscall v0.5.18
+2026-10-19T14:19:04.6505990Z   Downloaded redox_users v0.5.3
+2026-10-19T14:19:04.6773240Z   Downloaded ref-cast v1.0.27
+2026-10-19T14:19:04.6855920Z   Downloaded rustversion v1.0.23
+2026-10-19T14:19:04.6887290Z   Downloaded schemars_derive v0.8.22
+2026-10-19T14:19:04.6973170Z   Downloaded semver v1.0.28
+2026-10-19T14:19:04.7069320Z   Downloaded serde-untagged v0.1.9
+2026-10-19T14:19:04.7117390Z   Downloaded serde_derive_internals v0.29.1
+2026-10-19T14:19:04.7187790Z   Downloaded webkit2gtk v2.0.2
+2026-10-19T14:19:04.7223950Z   Downloaded x11-dl v2.21.0
+2026-10-19T14:19:04.7254170Z   Downloaded yoke v0.8.3
+2026-10-19T14:19:04.7289900Z   Downloaded yoke-derive v0.8.4
+2026-10-19T14:19:04.7330390Z   Downloaded zbus_macros v5.19.0
+2026-10-19T14:19:04.7387160Z   Downloaded futures-macro v0.3.34
+2026-10-19T14:19:04.7388440Z   Downloaded gobject-sys v0.18.0
+2026-10-19T14:19:04.7420710Z   Downloaded aho-corasick v1.1.5
+2026-10-19T14:19:04.7456430Z   Downloaded brotli-decompressor v6.0.1
+2026-10-19T14:19:04.7513530Z   Downloaded cc v1.9.0
+2026-10-19T14:19:04.7610130Z   Downloaded chrono v0.4.45
+2026-10-19T14:19:04.7642660Z   Downloaded miniz_oxide v0.9.1
+2026-10-19T14:19:04.7691550Z   Downloaded mio v1.2.4
+2026-10-19T14:19:04.7883010Z   Downloaded ndk v0.9.0
+2026-10-19T14:19:04.8153930Z   Downloaded objc2-cloud-kit v0.3.2
+2026-10-19T14:19:04.8331530Z   Downloaded objc2-core-data v0.3.2
+2026-10-19T14:19:04.8473010Z   Downloaded once_cell v1.21.4
+2026-10-19T14:19:04.8538600Z   Downloaded parking_lot v0.12.5
+2026-10-19T14:19:04.8598130Z   Downloaded parking_lot_core v0.9.12
+2026-10-19T14:19:04.8657520Z   Downloaded plist v1.10.1
+2026-10-19T14:19:04.8729210Z   Downloaded polling v3.11.0
+2026-10-19T14:19:04.8774990Z   Downloaded portable-atomic-util v0.2.8
+2026-10-19T14:19:04.8832990Z   Downloaded proc-macro2 v1.0.107
+2026-10-19T14:19:04.8876910Z   Downloaded r-efi v5.3.0
+2026-10-19T14:19:04.8903250Z   Downloaded r-efi v6.0.0
+2026-10-19T14:19:04.8929880Z   Downloaded schemars v0.8.22
+2026-10-19T14:19:04.8947820Z   Downloaded schemars v0.9.0
+2026-10-19T14:19:04.8983050Z   Downloaded selectors v0.38.0
+2026-10-19T14:19:04.9021430Z   Downloaded serde_core v1.0.229
+2026-10-19T14:19:04.9294880Z   Downloaded serde_derive v1.0.229
+2026-10-19T14:19:04.9348700Z   Downloaded x11rb v0.13.2
+2026-10-19T14:19:04.9387910Z   Downloaded xkeysym v0.2.1
+2026-10-19T14:19:04.9443980Z   Downloaded zbus v5.19.0
+2026-10-19T14:19:04.9498590Z   Downloaded futures-io v0.3.34
+2026-10-19T14:19:04.9615820Z   Downloaded futures-lite v2.6.1
+2026-10-19T14:19:04.9718230Z   Downloaded glib-macros v0.18.5
+2026-10-19T14:19:04.9767480Z   Downloaded glib-sys v0.18.1
+2026-10-19T14:19:04.9838590Z   Downloaded glob v0.3.4
+2026-10-19T14:19:04.9869320Z   Downloaded global-hotkey v0.8.0
+2026-10-19T14:19:04.9906740Z   Downloaded ico v0.5.0
+2026-10-19T14:19:04.9929160Z   Downloaded infer v0.22.0
+2026-10-19T14:19:05.0051590Z   Downloaded ipnet v2.12.2
+2026-10-19T14:19:05.0095190Z   Downloaded simd-adler32 v0.3.10
+2026-10-19T14:19:05.0096120Z   Downloaded muda v0.20.0
+2026-10-19T14:19:05.0097110Z   Downloaded objc2-core-graphics v0.3.2
+2026-10-19T14:19:05.0098090Z   Downloaded objc2-core-image v0.3.2
+2026-10-19T14:19:05.0099030Z   Downloaded objc2-core-text v0.3.2
+2026-10-19T14:19:05.0101020Z   Downloaded objc2-web-kit v0.3.2
+2026-10-19T14:19:05.0101910Z   Downloaded png v0.17.16
+2026-10-19T14:19:05.0102640Z   Downloaded png v0.18.1
+2026-10-19T14:19:05.0103370Z   Downloaded schemars v1.2.3
+2026-10-19T14:19:05.0104140Z   Downloaded serde v1.0.229
+2026-10-19T14:19:05.0105040Z   Downloaded windows_aarch64_gnullvm v0.42.2
+2026-10-19T14:19:05.0106070Z   Downloaded idna_adapter v1.2.2
+2026-10-19T14:19:05.0106890Z   Downloaded indexmap v2.14.2
+2026-10-19T14:19:05.0107730Z   Downloaded siphasher v1.0.4
+2026-10-19T14:19:05.0108480Z   Downloaded brotli v9.0.0
+2026-10-19T14:19:05.0109220Z   Downloaded moxcms v0.8.1
+2026-10-19T14:19:05.0110070Z   Downloaded ndk-sys v0.6.0+11769913
+2026-10-19T14:19:05.0110900Z   Downloaded objc2 v0.6.5
+2026-10-19T14:19:05.0111760Z   Downloaded objc2-core-foundation v0.3.2
+2026-10-19T14:19:05.0112810Z   Downloaded portable-atomic v1.15.0
+2026-10-19T14:19:05.0113760Z   Downloaded quick-xml v0.42.0
+2026-10-19T14:19:05.0114540Z   Downloaded regex v1.13.1
+2026-10-19T14:19:05.0115250Z   Downloaded reqwest v0.13.5
+2026-10-19T14:19:05.0116010Z   Downloaded web-sys v0.3.106
+2026-10-19T14:19:05.0116920Z   Downloaded windows_x86_64_msvc v0.42.2
+2026-10-19T14:19:05.0117920Z   Downloaded windows_x86_64_msvc v0.52.6
+2026-10-19T14:19:05.0119050Z   Downloaded x11rb-protocol v0.13.2
+2026-10-19T14:19:05.0126060Z   Downloaded idna v1.1.0
+2026-10-19T14:19:05.0160810Z   Downloaded image v0.25.10
+2026-10-19T14:19:05.0215070Z   Downloaded indexmap v1.9.3
+2026-10-19T14:19:05.0256800Z   Downloaded nix v0.31.3
+2026-10-19T14:19:05.0429540Z   Downloaded objc2-app-kit v0.3.2
+2026-10-19T14:19:05.0457560Z   Downloaded objc2-foundation v0.3.2
+2026-10-19T14:19:05.0577610Z   Downloaded objc2-security v0.3.2
+2026-10-19T14:19:05.0621750Z   Downloaded objc2-ui-kit v0.3.2
+2026-10-19T14:19:05.0714960Z   Downloaded regex-automata v0.4.18
+2026-10-19T14:19:05.0726220Z   Downloaded regex-syntax v0.8.11
+2026-10-19T14:19:05.0759850Z   Downloaded rustix v1.1.5
+2026-10-19T14:19:05.0795920Z   Downloaded windows-sys v0.45.0
+2026-10-19T14:19:05.0849070Z   Downloaded libredox v0.1.25
+2026-10-19T14:19:05.0887630Z   Downloaded lock_api v0.4.14
+2026-10-19T14:19:05.0920790Z   Downloaded serde_spanned v0.6.9
+2026-10-19T14:19:05.0950800Z   Downloaded serde_with_macros v3.24.0
+2026-10-19T14:19:05.0980220Z   Downloaded pxfm v0.1.30
+2026-10-19T14:19:05.1009680Z   Downloaded windows_x86_64_gnu v0.42.2
+2026-10-19T14:19:05.1052940Z   Downloaded litemap v0.8.3
+2026-10-19T14:19:05.1086240Z   Downloaded log v0.4.34
+2026-10-19T14:19:05.1117080Z   Downloaded markup5ever v0.39.0
+2026-10-19T14:19:05.1149170Z   Downloaded serde_json v1.0.154
+2026-10-19T14:19:05.1195960Z   Downloaded serde_repr v0.1.21
+2026-10-19T14:19:05.1226230Z   Downloaded serde_spanned v1.1.2
+2026-10-19T14:19:05.1240200Z   Downloaded serde_with v3.24.0
+2026-10-19T14:19:05.1255170Z   Downloaded serialize-to-javascript v0.1.2
+2026-10-19T14:19:05.1312850Z   Downloaded serialize-to-javascript-impl v0.1.2
+2026-10-19T14:19:05.1387540Z   Downloaded servo_arc v0.4.3
+2026-10-19T14:19:05.1418890Z   Downloaded sha2 v0.10.9
+2026-10-19T14:19:05.1456360Z   Downloaded shlex v2.0.1
+2026-10-19T14:19:05.1488150Z   Downloaded signal-hook-registry v1.4.8
+2026-10-19T14:19:05.1494740Z   Downloaded windows-link v0.2.1
+2026-10-19T14:19:05.1523540Z   Downloaded windows-numerics v0.3.1
+2026-10-19T14:19:05.1619140Z   Downloaded windows-registry v0.6.1
+2026-10-19T14:19:05.1714570Z   Downloaded windows-result v0.4.1
+2026-10-19T14:19:05.1759030Z   Downloaded windows-strings v0.5.1
+2026-10-19T14:19:05.1788820Z   Downloaded windows-targets v0.42.2
+2026-10-19T14:19:05.1817860Z   Downloaded windows-targets v0.52.6
+2026-10-19T14:19:05.1832080Z   Downloaded windows-threading v0.2.1
+2026-10-19T14:19:05.1862010Z   Downloaded windows_i686_gnu v0.52.6
+2026-10-19T14:19:05.1909600Z   Downloaded memchr v2.8.3
+2026-10-19T14:19:05.1938390Z   Downloaded webview2-com v0.39.1
+2026-10-19T14:19:05.1974600Z   Downloaded linux-raw-sys v0.12.1
+2026-10-19T14:19:05.2032670Z   Downloaded url v2.5.8
+2026-10-19T14:19:05.2114490Z   Downloaded urlpattern v0.6.0
+2026-10-19T14:19:05.2170360Z   Downloaded utf8_iter v1.0.4
+2026-10-19T14:19:05.2296720Z   Downloaded uuid v1.28.0
+2026-10-19T14:19:05.2337950Z   Downloaded version-compare v0.2.1
+2026-10-19T14:19:05.2358570Z   Downloaded version_check v0.9.5
+2026-10-19T14:19:05.2378230Z   Downloaded vswhom v0.1.0
+2026-10-19T14:19:05.2393580Z   Downloaded vswhom-sys v0.1.3
+2026-10-19T14:19:05.2450510Z   Downloaded walkdir v2.5.0
+2026-10-19T14:19:05.2466650Z   Downloaded want v0.3.2
+2026-10-19T14:19:05.2493140Z   Downloaded wasi v0.11.1+wasi-snapshot-preview1
+2026-10-19T14:19:05.2497120Z   Downloaded wasip2 v1.0.4+wasi-0.2.12
+2026-10-19T14:19:05.2528570Z   Downloaded wasm-bindgen v0.2.129
+2026-10-19T14:19:05.3531410Z   Downloaded wasm-bindgen-futures v0.4.79
+2026-10-19T14:19:05.3600340Z   Downloaded wasm-bindgen-macro v0.2.129
+2026-10-19T14:19:05.3601270Z   Downloaded wasm-bindgen-macro-support v0.2.129
+2026-10-19T14:19:05.3602400Z   Downloaded wasm-bindgen-shared v0.2.129
+2026-10-19T14:19:05.3603470Z   Downloaded webkit2gtk-sys v2.0.2
+2026-10-19T14:19:05.3605110Z   Downloaded webview2-com-macros v0.8.1
+2026-10-19T14:19:05.3606320Z   Downloaded windows-collections v0.3.2
+2026-10-19T14:19:05.3607400Z   Downloaded windows-core v0.62.2
+2026-10-19T14:19:05.3608550Z   Downloaded windows_aarch64_gnullvm v0.52.6
+2026-10-19T14:19:05.3609770Z   Downloaded windows_i686_gnullvm v0.52.6
+2026-10-19T14:19:05.3610840Z   Downloaded wasm-streams v0.5.0
+2026-10-19T14:19:05.3612200Z   Downloaded winapi-util v0.1.11
+2026-10-19T14:19:05.3613470Z   Downloaded windows-implement v0.60.2
+2026-10-19T14:19:05.3614740Z   Downloaded windows-interface v0.59.3
+2026-10-19T14:19:05.3616070Z   Downloaded windows_x86_64_gnullvm v0.42.2
+2026-10-19T14:19:05.3617190Z   Downloaded winnow v0.5.40
+2026-10-19T14:19:05.3618380Z   Downloaded winnow v1.0.4
+2026-10-19T14:19:05.3619770Z   Downloaded foreign-types v0.5.0
+2026-10-19T14:19:05.3620910Z   Downloaded foreign-types-macros v0.2.4
+2026-10-19T14:19:05.3622550Z   Downloaded foreign-types-shared v0.3.1
+2026-10-19T14:19:05.3625090Z   Downloaded form_urlencoded v1.2.2
+2026-10-19T14:19:05.3627780Z   Downloaded futures-channel v0.3.34
+2026-10-19T14:19:05.3630340Z   Downloaded futures-core v0.3.34
+2026-10-19T14:19:05.3631740Z   Downloaded futures-executor v0.3.34
+2026-10-19T14:19:05.3633060Z   Downloaded futures-sink v0.3.34
+2026-10-19T14:19:05.3633970Z   Downloaded futures-task v0.3.34
+2026-10-19T14:19:05.3634880Z   Downloaded gdk-pixbuf-sys v0.18.0
+2026-10-19T14:19:05.3636090Z   Downloaded gdkwayland-sys v0.18.2
+2026-10-19T14:19:05.3636930Z   Downloaded gdkx11 v0.18.2
+2026-10-19T14:19:05.3637730Z   Downloaded gdkx11-sys v0.18.2
+2026-10-19T14:19:05.3638560Z   Downloaded generic-array v0.14.7
+2026-10-19T14:19:05.3639440Z   Downloaded gethostname v1.1.0
+2026-10-19T14:19:05.3640290Z   Downloaded zbus_names v4.3.5
+2026-10-19T14:19:05.3641110Z   Downloaded zerofrom v0.1.8
+2026-10-19T14:19:05.3641950Z   Downloaded zerofrom-derive v0.1.8
+2026-10-19T14:19:05.3642880Z   Downloaded zvariant_derive v5.15.1
+2026-10-19T14:19:05.3643690Z   Downloaded fastrand v2.5.0
+2026-10-19T14:19:05.3644500Z   Downloaded field-offset v0.3.6
+2026-10-19T14:19:05.3645240Z   Downloaded fnv v1.0.7
+2026-10-19T14:19:05.3645940Z   Downloaded foldhash v0.2.0
+2026-10-19T14:19:05.3646690Z   Downloaded gdk v0.18.2
+2026-10-19T14:19:05.3647460Z   Downloaded gdk-pixbuf v0.18.5
+2026-10-19T14:19:05.3648220Z   Downloaded gdk-sys v0.18.2
+2026-10-19T14:19:05.3649030Z   Downloaded getrandom v0.3.4
+2026-10-19T14:19:05.3649760Z   Downloaded getrandom v0.4.3
+2026-10-19T14:19:05.3650500Z   Downloaded gio-sys v0.18.1
+2026-10-19T14:19:05.3651340Z   Downloaded iana-time-zone-haiku v0.1.2
+2026-10-19T14:19:05.3652270Z   Downloaded ident_case v1.0.1
+2026-10-19T14:19:05.3652990Z   Downloaded jni-sys v0.3.1
+2026-10-19T14:19:05.3653800Z   Downloaded jni-sys-macros v0.4.1
+2026-10-19T14:19:05.3654590Z   Downloaded winreg v0.56.0
+2026-10-19T14:19:05.3655360Z   Downloaded wit-bindgen v0.57.1
+2026-10-19T14:19:05.3656110Z   Downloaded writeable v0.6.4
+2026-10-19T14:19:05.3657810Z   Downloaded x11 v2.21.0
+2026-10-19T14:19:05.3658600Z   Downloaded zcheapstr v1.1.0
+2026-10-19T14:19:05.3659380Z   Downloaded zerotrie v0.2.5
+2026-10-19T14:19:05.3660230Z   Downloaded zerovec-derive v0.11.6
+2026-10-19T14:19:05.3661060Z   Downloaded zmij v1.0.23
+2026-10-19T14:19:05.3661800Z   Downloaded zvariant v5.15.1
+2026-10-19T14:19:05.3662660Z   Downloaded zvariant_utils v4.2.0
+2026-10-19T14:19:05.3663490Z   Downloaded fdeflate v0.3.7
+2026-10-19T14:19:05.3664380Z   Downloaded find-msvc-tools v0.1.15
+2026-10-19T14:19:05.3665210Z   Downloaded flate2 v1.1.10
+2026-10-19T14:19:05.3665970Z   Downloaded gtk-sys v0.18.2
+2026-10-19T14:19:05.3666830Z   Downloaded iana-time-zone v0.1.65
+2026-10-19T14:19:05.3667770Z   Downloaded icu_locale_core v2.3.0
+2026-10-19T14:19:05.3668680Z   Downloaded icu_provider v2.3.1
+2026-10-19T14:19:05.3669510Z   Downloaded itoa v1.0.18
+2026-10-19T14:19:05.3670370Z   Downloaded javascriptcore-rs v1.1.2
+2026-10-19T14:19:05.3671390Z   Downloaded javascriptcore-rs-sys v1.1.1
+2026-10-19T14:19:05.3672690Z   Downloaded jiff-static v0.2.38
+2026-10-19T14:19:05.3677500Z   Downloaded jiff-tzdb v0.1.9
+2026-10-19T14:19:05.3678170Z   Downloaded jiff-tzdb-platform v0.1.3
+2026-10-19T14:19:05.3678780Z   Downloaded jni-sys v0.4.1
+2026-10-19T14:19:05.3679500Z   Downloaded windows_x86_64_gnullvm v0.52.6
+2026-10-19T14:19:05.3680090Z   Downloaded wry v0.57.0
+2026-10-19T14:19:05.3680610Z   Downloaded zerovec v0.11.8
+2026-10-19T14:19:05.3681210Z   Downloaded zlib-rs v0.6.8
+2026-10-19T14:19:05.3681790Z   Downloaded futures-util v0.3.34
+2026-10-19T14:19:05.3682390Z   Downloaded gtk3-macros v0.18.2
+2026-10-19T14:19:05.3683140Z   Downloaded hex v0.4.3
+2026-10-19T14:19:05.3683910Z   Downloaded icu_normalizer_data v2.3.0
+2026-10-19T14:19:05.3684600Z   Downloaded keyboard-types v0.7.0
+2026-10-19T14:19:05.3685250Z   Downloaded libappindicator-sys v0.9.0
+2026-10-19T14:19:05.3687130Z   Downloaded libloading v0.7.4
+2026-10-19T14:19:05.3687640Z   Downloaded slab v0.4.12
+2026-10-19T14:19:05.3688120Z   Downloaded smallvec v1.16.3
+2026-10-19T14:19:05.3688900Z   Downloaded smappservice-rs v0.1.3
+2026-10-19T14:19:05.3689460Z   Downloaded gio v0.18.4
+2026-10-19T14:19:05.3689930Z   Downloaded heck v0.4.1
+2026-10-19T14:19:05.3690390Z   Downloaded heck v0.5.0
+2026-10-19T14:19:05.3691030Z   Downloaded hermit-abi v0.5.3
+2026-10-19T14:19:05.3694010Z   Downloaded http-body v1.1.0
+2026-10-19T14:19:05.3695080Z   Downloaded http-body-util v0.1.5
+2026-10-19T14:19:05.3695840Z   Downloaded httparse v1.10.1
+2026-10-19T14:19:05.3696660Z   Downloaded icu_collections v2.3.0
+2026-10-19T14:19:05.3697520Z   Downloaded icu_properties v2.3.0
+2026-10-19T14:19:05.3698320Z   Downloaded jiff-core v0.1.1
+2026-10-19T14:19:05.3699100Z   Downloaded jsonptr v0.7.1
+2026-10-19T14:19:05.3699940Z   Downloaded keyboard-types v0.8.3
+2026-10-19T14:19:05.3700860Z   Downloaded libappindicator v0.9.0
+2026-10-19T14:19:05.3701690Z   Downloaded glib v0.18.5
+2026-10-19T14:19:05.3702450Z   Downloaded hashbrown v0.12.3
+2026-10-19T14:19:05.3703280Z   Downloaded hashbrown v0.17.1
+2026-10-19T14:19:05.3704120Z   Downloaded html5ever v0.39.0
+2026-10-19T14:19:05.3704870Z   Downloaded http v1.5.0
+2026-10-19T14:19:05.3705660Z   Downloaded hyper v1.12.0
+2026-10-19T14:19:05.3706330Z   Downloaded hyper-util v0.1.21
+2026-10-19T14:19:05.3707090Z   Downloaded icu_properties_data v2.3.0
+2026-10-19T14:19:05.3707690Z   Downloaded jni v0.21.1
+2026-10-19T14:19:05.3708290Z   Downloaded strsim v0.11.1
+2026-10-19T14:19:05.3709040Z   Downloaded swift-rs v1.0.9
+2026-10-19T14:19:05.3709830Z   Downloaded sync_wrapper v1.0.2
+2026-10-19T14:19:05.3710740Z   Downloaded synstructure v0.14.0
+2026-10-19T14:19:05.3711660Z   Downloaded system-deps v6.2.2
+2026-10-19T14:19:05.3712600Z   Downloaded windows_aarch64_msvc v0.42.2
+2026-10-19T14:19:05.3713610Z   Downloaded windows_i686_gnu v0.42.2
+2026-10-19T14:19:05.3714400Z   Downloaded js-sys v0.3.106
+2026-10-19T14:19:05.3714990Z   Downloaded json-patch v4.2.0
+2026-10-19T14:19:05.3715570Z   Downloaded socket2 v0.6.5
+2026-10-19T14:19:05.3717270Z   Downloaded stable_deref_trait v1.2.1
+2026-10-19T14:19:05.3717990Z   Downloaded string_cache v0.9.0
+2026-10-19T14:19:05.3718610Z   Downloaded string_cache_codegen v0.6.1
+2026-10-19T14:19:05.3719250Z   Downloaded tauri-plugin v2.7.2
+2026-10-19T14:19:05.3738760Z   Downloaded windows_i686_msvc v0.42.2
+2026-10-19T14:19:05.3739500Z   Downloaded gtk v0.18.2
+2026-10-19T14:19:05.3740140Z   Downloaded softbuffer v0.4.8
+2026-10-19T14:19:05.3740860Z   Downloaded soup3 v0.5.0
+2026-10-19T14:19:05.3741570Z   Downloaded soup3-sys v0.5.0
+2026-10-19T14:19:05.3742290Z   Downloaded static_vcruntime v3.0.0
+2026-10-19T14:19:05.3742930Z   Downloaded tauri-codegen v2.7.3
+2026-10-19T14:19:05.3743690Z   Downloaded tauri-macros v2.7.3
+2026-10-19T14:19:05.3745000Z   Downloaded tauri-plugin-autostart v2.7.0
+2026-10-19T14:19:05.3746140Z   Downloaded tauri-plugin-global-shortcut v2.4.1
+2026-10-19T14:19:05.3747830Z   Downloaded tauri-plugin-single-instance v2.5.4
+2026-10-19T14:19:05.3748610Z   Downloaded tauri-runtime v2.12.2
+2026-10-19T14:19:05.3749250Z   Downloaded toml_datetime v0.6.3
+2026-10-19T14:19:05.3749890Z   Downloaded window-vibrancy v0.8.1
+2026-10-19T14:19:05.3750650Z   Downloaded windows_aarch64_msvc v0.52.6
+2026-10-19T14:19:05.3751590Z   Downloaded windows_x86_64_gnu v0.52.6
+2026-10-19T14:19:05.3752240Z   Downloaded tao-macros v0.1.4
+2026-10-19T14:19:05.3752840Z   Downloaded target-lexicon v0.12.16
+2026-10-19T14:19:05.3753530Z   Downloaded tauri-runtime-wry v2.12.2
+2026-10-19T14:19:05.3754230Z   Downloaded toml_datetime v1.1.2+spec-1.1.0
+2026-10-19T14:19:05.3755020Z   Downloaded toml_parser v1.1.5+spec-1.1.0
+2026-10-19T14:19:05.3755900Z   Downloaded tauri-build v2.7.3
+2026-10-19T14:19:05.3756530Z   Downloaded toml_writer v1.1.3+spec-1.1.0
+2026-10-19T14:19:05.3757180Z   Downloaded thiserror v1.0.69
+2026-10-19T14:19:05.3757790Z   Downloaded thiserror-impl v1.0.69
+2026-10-19T14:19:05.3759340Z   Downloaded time-core v0.1.9
+2026-10-19T14:19:05.3759850Z   Downloaded toml v0.8.2
+2026-10-19T14:19:05.3760420Z   Downloaded toml v1.1.8+spec-1.1.0
+2026-10-19T14:19:05.3761240Z   Downloaded toml_edit v0.25.17+spec-1.1.0
+2026-10-19T14:19:05.3762130Z   Downloaded tauri-winres v0.3.6
+2026-10-19T14:19:05.3762700Z   Downloaded tempfile v3.27.0
+2026-10-19T14:19:05.3763200Z   Downloaded tendril v0.5.1
+2026-10-19T14:19:05.3763750Z   Downloaded thiserror v2.0.21
+2026-10-19T14:19:05.3764340Z   Downloaded thiserror-impl v2.0.21
+2026-10-19T14:19:05.3764990Z   Downloaded time-macros v0.2.32
+2026-10-19T14:19:05.3765520Z   Downloaded tinystr v0.8.4
+2026-10-19T14:19:05.3766010Z   Downloaded tinyvec v1.13.3
+2026-10-19T14:19:05.3766700Z   Downloaded toml_edit v0.19.15
+2026-10-19T14:19:05.3767220Z   Downloaded winapi v0.3.9
+2026-10-19T14:19:05.3767710Z   Downloaded tao v0.37.1
+2026-10-19T14:19:05.3768260Z   Downloaded toml_edit v0.20.2
+2026-10-19T14:19:05.3768770Z   Downloaded syn v1.0.109
+2026-10-19T14:19:05.3769320Z   Downloaded tauri-utils v2.10.2
+2026-10-19T14:19:05.3769930Z   Downloaded tokio-util v0.7.20
+2026-10-19T14:19:05.3770440Z   Downloaded tower v0.5.3
+2026-10-19T14:19:05.3770910Z   Downloaded tauri v2.12.4
+2026-10-19T14:19:05.3771390Z   Downloaded time v0.3.55
+2026-10-19T14:19:05.3771930Z   Downloaded tower-http v0.6.11
+2026-10-19T14:19:05.3772550Z   Downloaded windows_i686_msvc v0.52.6
+2026-10-19T14:19:05.3773100Z   Downloaded syn v2.0.119
+2026-10-19T14:19:05.3773570Z   Downloaded syn v3.0.9
+2026-10-19T14:19:05.3774110Z   Downloaded icu_normalizer v2.3.0
+2026-10-19T14:19:05.3774650Z   Downloaded try-lock v0.2.5
+2026-10-19T14:19:05.3775180Z   Downloaded typeid v1.0.3
+2026-10-19T14:19:05.3775740Z   Downloaded tower-layer v0.3.3
+2026-10-19T14:19:05.3776340Z   Downloaded tower-service v0.3.3
+2026-10-19T14:19:05.3776960Z   Downloaded uds_windows v1.2.1
+2026-10-19T14:19:05.3777570Z   Downloaded tracing-attributes v0.1.31
+2026-10-19T14:19:05.3778220Z   Downloaded tracing-core v0.1.36
+2026-10-19T14:19:05.3778860Z   Downloaded unicode-ident v1.0.27
+2026-10-19T14:19:05.3779460Z   Downloaded tray-icon v0.25.1
+2026-10-19T14:19:05.3780080Z   Downloaded unicode-segmentation v1.13.3
+2026-10-19T14:19:05.3781280Z   Downloaded jiff v0.2.38
+2026-10-19T14:19:05.3781810Z   Downloaded typenum v1.20.1
+2026-10-19T14:19:05.3782320Z   Downloaded libc v0.2.191
+2026-10-19T14:19:05.3782810Z   Downloaded tracing v0.1.44
+2026-10-19T14:19:05.3783530Z   Downloaded winapi-i686-pc-windows-gnu v0.4.0
+2026-10-19T14:19:05.3784450Z   Downloaded libdbus-sys v0.2.7
+2026-10-19T14:19:05.3785090Z   Downloaded tokio v1.53.3
+2026-10-19T14:19:05.3785640Z   Downloaded windows-sys v0.61.2
+2026-10-19T14:19:05.3786310Z   Downloaded winapi-x86_64-pc-windows-gnu v0.4.0
+2026-10-19T14:19:05.3787040Z   Downloaded windows-sys v0.59.0
+2026-10-19T14:19:05.3787680Z   Downloaded webview2-com-sys v0.39.1
+2026-10-19T14:19:05.3788240Z   Downloaded windows v0.62.2
+2026-10-19T14:19:05.3789280Z Wrote native notices for 477 resolved package entries
+2026-10-19T14:19:06.2185670Z         Info Looking up installed tauri packages to check mismatched versions...
+2026-10-19T14:19:07.1166010Z      Running beforeBuildCommand `npm run desktop:frontend`
+2026-10-19T14:19:07.5315720Z 
+2026-10-19T14:19:07.5363630Z > longitude@0.1.0 desktop:frontend
+2026-10-19T14:19:07.5408460Z > node scripts/prepare-desktop.mjs
+2026-10-19T14:19:07.5444550Z 
+2026-10-19T14:19:16.5651830Z [36mvite v8.3.4 [32mbuilding client environment for production...[36m[39m
+2026-10-19T14:19:16.6631820Z transforming...
+2026-10-19T14:19:18.1617770Z ✓ 1597 modules transformed.
+2026-10-19T14:19:18.2281170Z rendering chunks...
+2026-10-19T14:19:18.3751840Z computing gzip size...
+2026-10-19T14:19:18.4705680Z dist/assets/longitude-app-icon-CUZ1hnrO.svg                  0.42 kB │ gzip:   0.23 kB
+2026-10-19T14:19:18.5710200Z dist/index.html                                              0.62 kB │ gzip:   0.38 kB
+2026-10-19T14:19:18.5850010Z dist/assets/geist-cyrillic-ext-wght-normal-DjL33-gN.woff2    7.42 kB
+2026-10-19T14:19:18.5963400Z dist/assets/geist-vietnamese-wght-normal-6IgcOCM7.woff2      8.00 kB
+2026-10-19T14:19:18.5997300Z dist/assets/geist-cyrillic-wght-normal-BEAKL7Jp.woff2       15.08 kB
+2026-10-19T14:19:18.6017570Z dist/assets/geist-latin-ext-wght-normal-DC-KSUi6.woff2      16.51 kB
+2026-10-19T14:19:18.6027190Z dist/assets/geist-latin-wght-normal-BgDaEnEv.woff2          29.40 kB
+2026-10-19T14:19:18.6090180Z dist/assets/search.worker-C9L_NhDt.js                      171.90 kB
+2026-10-19T14:19:18.6146520Z dist/assets/index-0deuA9NT.css                              23.89 kB │ gzip:   6.01 kB
+2026-10-19T14:19:18.6177390Z dist/assets/platform.tauri-1pqNcf0f.js                      16.06 kB │ gzip:   4.15 kB
+2026-10-19T14:19:18.6179820Z dist/assets/index-BQJpxuyJ.js                              458.21 kB │ gzip: 142.87 kB
+2026-10-19T14:19:18.6180850Z 
+2026-10-19T14:19:18.6181350Z [32m✓ built in 1.96s[39m
+2026-10-19T14:19:18.6182600Z Wrote docs/THIRD_PARTY_NOTICES.txt (10 runtime packages)
+2026-10-19T14:19:19.7674690Z Wrote native notices for 477 resolved package entries
+2026-10-19T14:19:20.8188230Z    Compiling proc-macro2 v1.0.107
+2026-10-19T14:19:20.9230370Z    Compiling unicode-ident v1.0.27
+2026-10-19T14:19:21.0235060Z    Compiling quote v1.0.47
+2026-10-19T14:19:21.1237800Z    Compiling serde_core v1.0.229
+2026-10-19T14:19:31.3938590Z    Compiling shlex v2.0.1
+2026-10-19T14:19:32.0222550Z    Compiling find-msvc-tools v0.1.15
+2026-10-19T14:19:32.7332910Z    Compiling cc v1.9.0
+2026-10-19T14:19:36.6794670Z    Compiling syn v3.0.9
+2026-10-19T14:19:42.0428610Z    Compiling syn v2.0.119
+2026-10-19T14:19:45.8439060Z    Compiling libc v0.2.191
+2026-10-19T14:19:46.0447260Z    Compiling siphasher v1.0.4
+2026-10-19T14:19:46.4085320Z    Compiling phf_shared v0.13.1
+2026-10-19T14:19:47.5910590Z    Compiling icu_properties_data v2.3.0
+2026-10-19T14:19:47.8938750Z    Compiling icu_normalizer_data v2.3.0
+2026-10-19T14:19:49.1209720Z    Compiling zmij v1.0.23
+2026-10-19T14:19:50.0007940Z    Compiling fastrand v2.5.0
+2026-10-19T14:19:50.5011710Z    Compiling phf_generator v0.13.1
+2026-10-19T14:19:51.0894990Z    Compiling cfg-if v1.0.5
+2026-10-19T14:19:51.2899440Z    Compiling stable_deref_trait v1.2.1
+2026-10-19T14:19:51.3301260Z    Compiling bitflags v2.13.2
+2026-10-19T14:19:52.0976430Z    Compiling thiserror v2.0.21
+2026-10-19T14:19:56.8031670Z    Compiling memchr v2.8.3
+2026-10-19T14:19:58.4667250Z    Compiling smallvec v1.16.3
+2026-10-19T14:19:59.6833130Z    Compiling serde v1.0.229
+2026-10-19T14:20:00.7804230Z    Compiling objc2-exception-helper v0.1.1
+2026-10-19T14:20:01.2817080Z    Compiling itoa v1.0.18
+2026-10-19T14:20:01.5391940Z    Compiling synstructure v0.14.0
+2026-10-19T14:20:03.4135080Z    Compiling typeid v1.0.3
+2026-10-19T14:20:04.5768910Z    Compiling num-conv v0.2.2
+2026-10-19T14:20:05.0593750Z    Compiling objc2 v0.6.5
+2026-10-19T14:20:05.4332860Z    Compiling time-core v0.1.9
+2026-10-19T14:20:06.3927230Z    Compiling phf_codegen v0.13.1
+2026-10-19T14:20:07.3447240Z    Compiling autocfg v1.5.1
+2026-10-19T14:20:10.1895790Z    Compiling litemap v0.8.3
+2026-10-19T14:20:11.3278070Z    Compiling serde_json v1.0.154
+2026-10-19T14:20:11.7830630Z    Compiling erased-serde v0.4.10
+2026-10-19T14:20:12.9593800Z    Compiling getrandom v0.4.3
+2026-10-19T14:20:14.0661860Z    Compiling writeable v0.6.4
+2026-10-19T14:20:14.4184440Z    Compiling zerofrom-derive v0.1.8
+2026-10-19T14:20:15.4038120Z    Compiling yoke-derive v0.8.4
+2026-10-19T14:20:15.6048120Z    Compiling serde_derive v1.0.229
+2026-10-19T14:20:21.3667190Z    Compiling zerovec-derive v0.11.6
+2026-10-19T14:20:22.1989450Z    Compiling displaydoc v0.2.7
+2026-10-19T14:20:22.7737250Z    Compiling zerofrom v0.1.8
+2026-10-19T14:20:23.0332080Z    Compiling yoke v0.8.3
+2026-10-19T14:20:24.6012250Z    Compiling thiserror-impl v2.0.21
+2026-10-19T14:20:25.8019560Z    Compiling phf_macros v0.13.1
+2026-10-19T14:20:27.5196510Z    Compiling zerovec v0.11.8
+2026-10-19T14:20:30.2782600Z    Compiling strsim v0.11.1
+2026-10-19T14:20:31.3578490Z    Compiling tinystr v0.8.4
+2026-10-19T14:20:31.5583810Z    Compiling ident_case v1.0.1
+2026-10-19T14:20:31.6527950Z    Compiling objc2-encode v4.1.0
+2026-10-19T14:20:31.7529190Z    Compiling darling_core v0.24.1
+2026-10-19T14:20:32.0535780Z    Compiling icu_locale_core v2.3.0
+2026-10-19T14:20:37.4641550Z    Compiling potential_utf v0.1.6
+2026-10-19T14:20:37.9657530Z    Compiling zerotrie v0.2.5
+2026-10-19T14:20:38.7496760Z    Compiling parking_lot_core v0.9.12
+2026-10-19T14:20:39.1275710Z    Compiling utf8_iter v1.0.4
+2026-10-19T14:20:39.5749430Z    Compiling icu_collections v2.3.0
+2026-10-19T14:20:40.1758650Z    Compiling icu_provider v2.3.1
+2026-10-19T14:20:41.3402010Z    Compiling anyhow v1.0.104
+2026-10-19T14:20:41.6406350Z    Compiling new_debug_unreachable v1.0.6
+2026-10-19T14:20:41.8409480Z    Compiling scopeguard v1.2.0
+2026-10-19T14:20:42.0412220Z    Compiling lock_api v0.4.14
+2026-10-19T14:20:43.1428510Z    Compiling phf v0.13.1
+2026-10-19T14:20:43.9753330Z    Compiling string_cache_codegen v0.6.1
+2026-10-19T14:20:44.2224030Z    Compiling precomputed-hash v0.1.1
+2026-10-19T14:20:45.6250510Z    Compiling web_atoms v0.2.6
+2026-10-19T14:20:45.9253680Z    Compiling parking_lot v0.12.5
+2026-10-19T14:20:46.2258450Z    Compiling icu_normalizer v2.3.0
+2026-10-19T14:20:47.3332120Z    Compiling icu_properties v2.3.0
+2026-10-19T14:20:47.5338840Z    Compiling objc2-core-foundation v0.3.2
+2026-10-19T14:20:48.6928590Z    Compiling semver v1.0.28
+2026-10-19T14:20:49.8294610Z    Compiling winnow v1.0.4
+2026-10-19T14:20:52.0670940Z    Compiling toml_parser v1.1.5+spec-1.1.0
+2026-10-19T14:20:53.2847890Z    Compiling darling_macro v0.24.1
+2026-10-19T14:20:54.9820510Z    Compiling darling v0.24.1
+2026-10-19T14:20:55.1816810Z    Compiling serde_with_macros v3.24.0
+2026-10-19T14:20:55.5873830Z    Compiling idna_adapter v1.2.2
+2026-10-19T14:20:56.3891730Z    Compiling string_cache v0.9.0
+2026-10-19T14:20:56.9455260Z    Compiling block2 v0.6.2
+2026-10-19T14:20:57.5593760Z    Compiling serde_spanned v1.1.2
+2026-10-19T14:20:58.0827230Z    Compiling toml_datetime v1.1.2+spec-1.1.0
+2026-10-19T14:20:58.2537440Z    Compiling log v0.4.34
+2026-10-19T14:20:59.0568980Z    Compiling toml_writer v1.1.3+spec-1.1.0
+2026-10-19T14:20:59.4542550Z    Compiling dtoa v1.0.11
+2026-10-19T14:20:59.8155450Z    Compiling percent-encoding v2.3.2
+2026-10-19T14:20:59.9158540Z    Compiling dtoa-short v0.3.5
+2026-10-19T14:21:00.0162310Z    Compiling toml v1.1.8+spec-1.1.0
+2026-10-19T14:21:00.1250120Z    Compiling form_urlencoded v1.2.2
+2026-10-19T14:21:00.4305280Z    Compiling idna v1.1.0
+2026-10-19T14:21:01.1323010Z    Compiling uuid v1.28.0
+2026-10-19T14:21:03.0274860Z    Compiling tendril v0.5.1
+2026-10-19T14:21:03.7284870Z    Compiling derive_more-impl v2.1.1
+2026-10-19T14:21:04.0417120Z    Compiling cssparser-macros v0.7.1
+2026-10-19T14:21:05.3114830Z    Compiling indexmap v1.9.3
+2026-10-19T14:21:05.7126270Z    Compiling selectors v0.38.0
+2026-10-19T14:21:06.0438710Z    Compiling aho-corasick v1.1.5
+2026-10-19T14:21:07.2658710Z    Compiling camino v1.2.6
+2026-10-19T14:21:07.4339450Z    Compiling regex-syntax v0.8.11
+2026-10-19T14:21:08.4305690Z    Compiling alloc-no-stdlib v3.0.0
+2026-10-19T14:21:08.5937260Z    Compiling alloc-stdlib v0.3.0
+2026-10-19T14:21:08.8848190Z    Compiling derive_more v2.1.1
+2026-10-19T14:21:09.3381950Z    Compiling cssparser v0.37.0
+2026-10-19T14:21:09.5391020Z    Compiling markup5ever v0.39.0
+2026-10-19T14:21:10.1885880Z    Compiling url v2.5.8
+2026-10-19T14:21:14.0925880Z    Compiling objc2-foundation v0.3.2
+2026-10-19T14:21:14.9672540Z    Compiling swift-rs v1.0.9
+2026-10-19T14:21:18.9479600Z    Compiling serde_derive_internals v0.29.1
+2026-10-19T14:21:19.0483710Z    Compiling servo_arc v0.4.3
+2026-10-19T14:21:19.4056840Z    Compiling rustc-hash v2.1.3
+2026-10-19T14:21:19.5101000Z    Compiling regex-automata v0.4.18
+2026-10-19T14:21:23.7296270Z    Compiling equivalent v1.0.3
+2026-10-19T14:21:23.8965460Z    Compiling version_check v0.9.5
+2026-10-19T14:21:23.9968010Z    Compiling bit-vec v0.8.0
+2026-10-19T14:21:24.7291460Z    Compiling hashbrown v0.17.1
+2026-10-19T14:21:24.9914140Z    Compiling fnv v1.0.7
+2026-10-19T14:21:25.1079660Z    Compiling schemars v0.8.22
+2026-10-19T14:21:25.5929320Z    Compiling powerfmt v0.2.1
+2026-10-19T14:21:26.0045240Z    Compiling hashbrown v0.12.3
+2026-10-19T14:21:28.1660750Z    Compiling web-time v1.1.0
+2026-10-19T14:21:28.3663990Z    Compiling deranged v0.5.9
+2026-10-19T14:21:29.3839120Z    Compiling crc32fast v1.5.2
+2026-10-19T14:21:32.9058030Z    Compiling regex v1.13.1
+2026-10-19T14:21:35.7087360Z    Compiling cfb v0.14.0
+2026-10-19T14:21:36.5230490Z    Compiling time v0.3.55
+2026-10-19T14:21:41.8492180Z    Compiling indexmap v2.14.2
+2026-10-19T14:21:43.2853810Z    Compiling bit-set v0.8.0
+2026-10-19T14:21:43.5902700Z    Compiling schemars_derive v0.8.22
+2026-10-19T14:21:52.2998650Z    Compiling html5ever v0.39.0
+2026-10-19T14:21:52.4001930Z    Compiling brotli-decompressor v6.0.1
+2026-10-19T14:21:53.9037680Z    Compiling jsonptr v0.7.1
+2026-10-19T14:21:55.9691060Z    Compiling cargo-platform v0.1.9
+2026-10-19T14:21:56.1705310Z    Compiling quick-xml v0.42.0
+2026-10-19T14:21:57.4172610Z    Compiling foldhash v0.2.0
+2026-10-19T14:21:57.7081520Z    Compiling tauri-utils v2.10.2
+2026-10-19T14:21:57.7972800Z    Compiling base64 v0.23.1
+2026-10-19T14:21:58.0237070Z    Compiling dunce v1.0.5
+2026-10-19T14:21:58.1481800Z    Compiling bytes v1.12.1
+2026-10-19T14:21:59.0516650Z    Compiling same-file v1.0.6
+2026-10-19T14:21:59.2548840Z    Compiling dyn-clone v1.0.20
+2026-10-19T14:21:59.5900430Z    Compiling base64 v0.21.7
+2026-10-19T14:22:00.5884500Z    Compiling http v1.5.0
+2026-10-19T14:22:04.6131530Z    Compiling walkdir v2.5.0
+2026-10-19T14:22:06.8258620Z    Compiling plist v1.10.1
+2026-10-19T14:22:08.7014150Z    Compiling dom_query v0.28.0
+2026-10-19T14:22:12.1011350Z    Compiling cargo_metadata v0.19.2
+2026-10-19T14:22:14.2131180Z    Compiling brotli v9.0.0
+2026-10-19T14:22:17.1035940Z    Compiling json-patch v4.2.0
+2026-10-19T14:22:18.6373510Z    Compiling serde-untagged v0.1.9
+2026-10-19T14:22:19.6397720Z    Compiling infer v0.22.0
+2026-10-19T14:22:20.3097980Z    Compiling urlpattern v0.6.0
+2026-10-19T14:22:22.9404070Z    Compiling serde_with v3.24.0
+2026-10-19T14:22:25.6798450Z    Compiling ctor v1.0.13
+2026-10-19T14:22:30.7874560Z    Compiling glob v0.3.4
+2026-10-19T14:22:39.3806880Z    Compiling rustc_version v0.4.1
+2026-10-19T14:22:40.0526040Z    Compiling option-ext v0.2.0
+2026-10-19T14:22:40.4693560Z    Compiling simd-adler32 v0.3.10
+2026-10-19T14:22:41.2382030Z    Compiling dirs-sys v0.5.0
+2026-10-19T14:22:41.5002260Z    Compiling embed-resource v3.0.12
+2026-10-19T14:22:41.5332710Z    Compiling generic-array v0.14.7
+2026-10-19T14:22:42.2576820Z    Compiling heck v0.5.0
+2026-10-19T14:22:42.4755090Z    Compiling once_cell v1.21.4
+2026-10-19T14:22:42.7524830Z    Compiling adler2 v2.0.1
+2026-10-19T14:22:42.8720550Z    Compiling crossbeam-utils v0.8.23
+2026-10-19T14:22:43.4857130Z    Compiling tauri-winres v0.3.6
+2026-10-19T14:22:43.8168290Z    Compiling dirs v7.0.0
+2026-10-19T14:22:44.3798830Z    Compiling cargo_toml v1.0.1
+2026-10-19T14:22:45.4751470Z    Compiling time-macros v0.2.32
+2026-10-19T14:22:48.4761100Z    Compiling objc2-quartz-core v0.3.2
+2026-10-19T14:22:49.6454890Z    Compiling objc2-app-kit v0.3.2
+2026-10-19T14:22:51.8815330Z    Compiling static_vcruntime v3.0.0
+2026-10-19T14:22:54.8157680Z    Compiling typenum v1.20.1
+2026-10-19T14:22:57.4996000Z    Compiling tauri-build v2.7.3
+2026-10-19T14:23:03.7100890Z    Compiling miniz_oxide v0.9.1
+2026-10-19T14:23:05.3276420Z    Compiling dpi v0.1.2
+2026-10-19T14:23:13.2407240Z    Compiling flate2 v1.1.10
+2026-10-19T14:23:13.6135370Z    Compiling crossbeam-channel v0.5.17
+2026-10-19T14:23:14.6999860Z    Compiling miniz_oxide v0.8.9
+2026-10-19T14:23:15.8727620Z    Compiling fdeflate v0.3.7
+2026-10-19T14:23:16.3660480Z    Compiling cookie v0.18.2
+2026-10-19T14:23:18.1973800Z    Compiling core-foundation-sys v0.8.7
+2026-10-19T14:23:18.9377810Z    Compiling raw-window-handle v0.6.2
+2026-10-19T14:23:20.0470610Z    Compiling core-foundation v0.10.1
+2026-10-19T14:23:21.0437480Z    Compiling tauri v2.12.4
+2026-10-19T14:23:24.1075840Z    Compiling block-buffer v0.10.4
+2026-10-19T14:23:24.3192090Z    Compiling crypto-common v0.1.7
+2026-10-19T14:23:26.1422050Z    Compiling foreign-types-macros v0.2.4
+2026-10-19T14:23:26.3217820Z    Compiling num-traits v0.2.19
+2026-10-19T14:23:26.6531930Z    Compiling foreign-types-shared v0.3.1
+2026-10-19T14:23:27.3054720Z    Compiling bitflags v1.3.2
+2026-10-19T14:23:27.5803260Z    Compiling png v0.17.16
+2026-10-19T14:23:29.0944820Z    Compiling foreign-types v0.5.0
+2026-10-19T14:23:30.5752570Z    Compiling png v0.18.1
+2026-10-19T14:23:32.0841810Z    Compiling digest v0.10.7
+2026-10-19T14:23:32.3712380Z    Compiling wry v0.57.0
+2026-10-19T14:23:36.1332010Z    Compiling core-graphics-types v0.2.0
+2026-10-19T14:23:36.3586820Z    Compiling objc2-web-kit v0.3.2
+2026-10-19T14:23:36.7519040Z    Compiling tauri-plugin v2.7.2
+2026-10-19T14:23:39.1325080Z    Compiling byteorder v1.5.0
+2026-10-19T14:23:39.5436840Z    Compiling cpufeatures v0.2.17
+2026-10-19T14:23:39.5449050Z    Compiling tauri-runtime v2.12.2
+2026-10-19T14:23:39.6415420Z    Compiling muda v0.20.0
+2026-10-19T14:23:40.1887470Z    Compiling sha2 v0.10.9
+2026-10-19T14:23:40.3196230Z    Compiling ico v0.5.0
+2026-10-19T14:23:40.5166090Z    Compiling core-graphics v0.25.0
+2026-10-19T14:23:42.2806360Z    Compiling keyboard-types v0.8.3
+2026-10-19T14:23:43.0970440Z    Compiling dispatch2 v0.3.1
+2026-10-19T14:23:44.1674980Z    Compiling pin-project-lite v0.2.17
+2026-10-19T14:23:44.2502930Z    Compiling pxfm v0.1.30
+2026-10-19T14:23:44.8543050Z    Compiling tray-icon v0.25.1
+2026-10-19T14:23:45.2319180Z    Compiling tauri-runtime-wry v2.12.2
+2026-10-19T14:23:45.3648700Z    Compiling getrandom v0.3.4
+2026-10-19T14:23:45.5721810Z    Compiling cfg_aliases v0.2.2
+2026-10-19T14:23:45.7576170Z    Compiling nix v0.31.3
+2026-10-19T14:23:46.4847750Z    Compiling tao v0.37.1
+2026-10-19T14:23:51.8663720Z    Compiling moxcms v0.8.1
+2026-10-19T14:23:53.3083670Z    Compiling tauri-codegen v2.7.3
+2026-10-19T14:23:59.7977050Z    Compiling objc2-core-graphics v0.3.2
+2026-10-19T14:24:00.0668350Z    Compiling serialize-to-javascript-impl v0.1.2
+2026-10-19T14:24:00.3973380Z    Compiling socket2 v0.6.5
+2026-10-19T14:24:00.8977110Z    Compiling mio v1.2.4
+2026-10-19T14:24:01.5025120Z    Compiling bytemuck v1.25.2
+2026-10-19T14:24:02.0507690Z    Compiling byteorder-lite v0.1.0
+2026-10-19T14:24:02.2438110Z    Compiling tokio v1.53.3
+2026-10-19T14:24:02.6418560Z    Compiling image v0.25.10
+2026-10-19T14:24:13.9691170Z    Compiling serialize-to-javascript v0.1.2
+2026-10-19T14:24:15.7067590Z    Compiling tauri-macros v2.7.3
+2026-10-19T14:24:16.5439200Z    Compiling window-vibrancy v0.8.1
+2026-10-19T14:24:16.7761920Z    Compiling objc2-security v0.3.2
+2026-10-19T14:24:17.1038820Z    Compiling serde_repr v0.1.21
+2026-10-19T14:24:17.1133170Z    Compiling embed_plist v1.2.2
+2026-10-19T14:24:17.2969480Z    Compiling mime v0.3.17
+2026-10-19T14:24:18.1155560Z    Compiling objc2-service-management v0.3.2
+2026-10-19T14:24:18.5999460Z    Compiling tauri-plugin-global-shortcut v2.4.1
+2026-10-19T14:24:19.5837920Z    Compiling tauri-plugin-autostart v2.7.0
+2026-10-19T14:24:19.6945860Z    Compiling unicode-segmentation v1.13.3
+2026-10-19T14:24:20.2236460Z    Compiling rustix v1.1.5
+2026-10-19T14:24:21.1283130Z    Compiling os_info v3.15.0
+2026-10-19T14:24:21.4014450Z    Compiling keyboard-types v0.7.0
+2026-10-19T14:24:21.8269240Z    Compiling smappservice-rs v0.1.3
+2026-10-19T14:24:22.0073410Z    Compiling dirs v6.0.0
+2026-10-19T14:24:22.1151800Z    Compiling tracing-core v0.1.36
+2026-10-19T14:24:22.1674900Z    Compiling tracing-attributes v0.1.31
+2026-10-19T14:24:23.5292720Z    Compiling errno v0.3.14
+2026-10-19T14:24:24.3562700Z    Compiling global-hotkey v0.8.0
+2026-10-19T14:24:25.9066950Z    Compiling tracing v0.1.44
+2026-10-19T14:24:26.3247230Z    Compiling auto-launch v0.6.0
+2026-10-19T14:24:26.3651650Z    Compiling longitude v0.1.0 (/Users/runner/work/Longitude/Longitude/src-tauri)
+2026-10-19T14:24:27.4661230Z    Compiling tempfile v3.27.0
+2026-10-19T14:24:33.5512420Z    Compiling tauri-plugin-single-instance v2.5.4
+2026-10-19T14:24:50.1547160Z     Finished `dev` profile [unoptimized + debuginfo] target(s) in 5m 29s
+2026-10-19T14:24:50.4571850Z        Built application at: /Users/runner/work/Longitude/Longitude/src-tauri/target/x86_64-apple-darwin/debug/longitude
+2026-10-19T14:24:52.2816460Z    Compiling tauri v2.12.4
+2026-10-19T14:24:52.2998780Z    Compiling tauri-macros v2.7.3
+2026-10-19T14:24:53.7762020Z    Compiling tauri-plugin-autostart v2.7.0
+2026-10-19T14:24:53.7769070Z    Compiling tauri-plugin-global-shortcut v2.4.1
+2026-10-19T14:24:53.8168810Z    Compiling longitude v0.1.0 (/Users/runner/work/Longitude/Longitude/src-tauri)
+2026-10-19T14:25:07.7520160Z    Compiling tauri-plugin-single-instance v2.5.4
+2026-10-19T14:25:16.4167860Z     Finished `test` profile [unoptimized + debuginfo] target(s) in 25.40s
+2026-10-19T14:25:16.5388200Z      Running unittests src/main.rs (src-tauri/target/x86_64-apple-darwin/debug/deps/longitude-c004c44f7dd6c826)
+2026-10-19T14:25:16.5598630Z 
+2026-10-19T14:25:16.5659660Z running 33 tests
+2026-10-19T14:25:16.5662420Z test authority::tests::accepts_shared_typescript_fixture ... ok
+2026-10-19T14:25:16.6921190Z test authority::tests::duplicate_ids_invalid_refs_and_intervals_rejected ... ok
+2026-10-19T14:25:16.7254390Z test authority::tests::failed_storage_never_advances_canonical_revision ... ok
+2026-10-19T14:25:16.7309350Z test authority::tests::latest_session_state_is_shared_with_late_subscribers ... ok
+2026-10-19T14:25:16.7343120Z test authority::tests::durable_commit_preserves_recovery_and_backup ... ok
+2026-10-19T14:25:16.7413920Z test authority::tests::external_edit_is_never_silently_overwritten ... ok
+2026-10-19T14:25:16.7451770Z test lifecycle::tests::hide_requires_reachable_native_entry_point ... ok
+2026-10-19T14:25:16.7460180Z test lifecycle::tests::rescue_does_not_undo_mac_dock_hide ... ok
+2026-10-19T14:25:16.7461580Z test macos::tests::app_icon_has_a_valid_icns_container_header ... ok
+2026-10-19T14:25:16.7462870Z test macos::tests::native_appearance_follows_system_or_explicit_preference ... ok
+2026-10-19T14:25:16.7464340Z test macos::tests::platform_overrides_merge_and_deserialize_with_tauris_parser ... ok
+2026-10-19T14:25:16.7496640Z test macos::tests::template_has_retina_dimensions_and_transparent_background ... ok
+2026-10-19T14:25:16.7499310Z test placement::tests::absent_displays_do_not_panic ... ok
+2026-10-19T14:25:16.7501210Z test placement::tests::fractional_scale_minimums ... ok
+2026-10-19T14:25:16.7502200Z test placement::tests::negative_display_is_preserved ... ok
+2026-10-19T14:25:16.7503390Z test placement::tests::removed_display_and_oversized_window_are_clamped ... ok
+2026-10-19T14:25:16.7504460Z test placement::tests::tiny_window_gets_minimum ... ok
+2026-10-19T14:25:16.7506190Z test shortcuts::tests::aliases_do_not_attempt_to_register_an_already_owned_chord ... ok
+2026-10-19T14:25:16.7508990Z test shortcuts::tests::bare_typing_and_shift_typing_cannot_capture_normal_input ... ok
+2026-10-19T14:25:16.7511300Z test shortcuts::tests::explicit_option_command_and_other_modified_chords_remain_configurable ... ok
+2026-10-19T14:25:16.7512790Z test shortcuts::tests::malformed_shortcuts_fail_before_os_changes ... ok
+2026-10-19T14:25:16.7514500Z test shortcuts::tests::platform_defaults_are_valid ... ok
+2026-10-19T14:25:16.7515820Z test shortcuts::tests::standard_mac_application_and_input_source_chords_are_preserved ... ok
+2026-10-19T14:25:16.7517420Z test authority::tests::readonly_future_data_allows_session_actions_but_no_durable_edits ... ok
+2026-10-19T14:25:16.7518700Z test authority::tests::selection_and_view_never_write_disk ... ok
+2026-10-19T14:25:16.7584510Z test authority::tests::stale_transaction_cannot_overwrite_current ... ok
+2026-10-19T14:25:16.7588680Z test storage::tests::held_lock_fails_visibly_instead_of_blocking_the_ui ... ok
+2026-10-19T14:25:16.7591160Z test storage::tests::failed_replace_keeps_original ... ok
+2026-10-19T14:25:16.7623230Z test storage::tests::path_and_legacy_restrictions ... ok
+2026-10-19T14:25:16.7640350Z test storage::tests::concurrent_writers_cannot_both_win ... ok
+2026-10-19T14:25:16.7728380Z test storage::tests::malformed_data_is_returned_intact_for_shared_recovery ... ok
+2026-10-19T14:25:16.7794570Z test storage::tests::interrupted_prepared_file_does_not_replace_head ... ok
+2026-10-19T14:25:16.7845720Z test storage::tests::restart_and_conditional_replacement ... ok
+2026-10-19T14:25:16.7846280Z 
+2026-10-19T14:25:16.7847070Z test result: ok. 33 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.23s
+2026-10-19T14:25:16.7847780Z 
+2026-10-19T14:25:16.8722330Z ##[group]Run set -euo pipefail
+2026-10-19T14:25:16.8722880Z [36;1mset -euo pipefail[0m
+2026-10-19T14:25:16.8723350Z [36;1mnpx playwright install webkit[0m
+2026-10-19T14:25:16.8724150Z [36;1mnpm run test:browser 2>&1 | tee ci-results/browser-tests.txt[0m
+2026-10-19T14:25:16.8928660Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-19T14:25:16.8929800Z env:
+2026-10-19T14:25:16.8930660Z   CARGO_TERM_COLOR: never
+2026-10-19T14:25:16.8931240Z   MACOSX_DEPLOYMENT_TARGET: 12.0
+2026-10-19T14:25:16.8931710Z   LONGITUDE_BROWSER: webkit
+2026-10-19T14:25:16.8932170Z   LONGITUDE_EVIDENCE_ROOT: ci-results
+2026-10-19T14:25:16.8932660Z   APPLE_SIGNING_IDENTITY: -
+2026-10-19T14:25:16.8933080Z ##[endgroup]
+2026-10-19T14:25:21.0044680Z Downloading WebKit 27.2 (playwright webkit v2370) from https://cdn.playwright.dev/dbazure/download/playwright/builds/webkit/2370/webkit-mac-15.zip
+2026-10-19T14:25:21.7150340Z |                                                                                |   0% of 84.5 MiB
+2026-10-19T14:25:21.8593240Z |■■■■■■■■                                                                        |  10% of 84.5 MiB
+2026-10-19T14:25:21.9810810Z |■■■■■■■■■■■■■■■■                                                                |  20% of 84.5 MiB
+2026-10-19T14:25:22.0880780Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 84.5 MiB
+2026-10-19T14:25:22.5606530Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 84.5 MiB
+2026-10-19T14:25:22.8198800Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 84.5 MiB
+2026-10-19T14:25:23.2025770Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 84.5 MiB
+2026-10-19T14:25:23.3782330Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 84.5 MiB
+2026-10-19T14:25:23.5131430Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 84.5 MiB
+2026-10-19T14:25:23.6495780Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 84.5 MiB
+2026-10-19T14:25:23.7876980Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 84.5 MiB
+2026-10-19T14:25:45.1764900Z WebKit 27.2 (playwright webkit v2370) downloaded to /Users/runner/Library/Caches/ms-playwright/webkit-2370
+2026-10-19T14:25:45.1773330Z Downloading FFmpeg (playwright ffmpeg v1013) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1013/ffmpeg-mac.zip
+2026-10-19T14:25:45.8637680Z |                                                                                |   1% of 1.5 MiB
+2026-10-19T14:25:45.8784320Z |■■■■■■■■                                                                        |  10% of 1.5 MiB
+2026-10-19T14:25:45.8883340Z |■■■■■■■■■■■■■■■■                                                                |  20% of 1.5 MiB
+2026-10-19T14:25:45.8956240Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  31% of 1.5 MiB
+2026-10-19T14:25:45.8988700Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  41% of 1.5 MiB
+2026-10-19T14:25:45.9036420Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 1.5 MiB
+2026-10-19T14:25:45.9085720Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 1.5 MiB
+2026-10-19T14:25:45.9114330Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 1.5 MiB
+2026-10-19T14:25:45.9135330Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 1.5 MiB
+2026-10-19T14:25:45.9183020Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 1.5 MiB
+2026-10-19T14:25:45.9195590Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 1.5 MiB
+2026-10-19T14:25:46.0231400Z FFmpeg (playwright ffmpeg v1013) downloaded to /Users/runner/Library/Caches/ms-playwright/ffmpeg-1013
+2026-10-19T14:25:46.3566070Z 
+2026-10-19T14:25:46.3567110Z > longitude@0.1.0 test:browser
+2026-10-19T14:25:46.3567810Z > playwright test
+2026-10-19T14:25:46.3568130Z 
+2026-10-19T14:25:55.6484420Z 
+2026-10-19T14:25:55.6487150Z Running 74 tests using 1 worker
+2026-10-19T14:25:55.6488130Z 
+2026-10-19T14:26:15.0122740Z   ✓   1 tests/browser/interactions.spec.ts:34:1 › all surfaces follow one selection and changing reference preserves the instant (8.1s)
+2026-10-19T14:26:18.3625710Z   ✓   2 tests/browser/interactions.spec.ts:49:1 › planning time survives live ticks; Home returns to the current instant (3.3s)
+2026-10-19T14:26:20.1870950Z   ✓   3 tests/browser/interactions.spec.ts:63:1 › live time advances across local midnight without becoming a planning selection (1.8s)
+2026-10-19T14:26:22.3347330Z   ✓   4 tests/browser/interactions.spec.ts:74:1 › minute-hand drag crosses midnight while captured outside the dial (2.1s)
+2026-10-19T14:26:28.6967410Z   ✓   5 tests/browser/interactions.spec.ts:87:1 › multiple revolutions and reverse midnight carry remain continuous (6.3s)
+2026-10-19T14:26:30.4279650Z   ✓   6 tests/browser/interactions.spec.ts:101:1 › hour-hand drag retains twelve-hour revolution scale (1.7s)
+2026-10-19T14:26:31.7734580Z   ✓   7 tests/browser/interactions.spec.ts:109:62 › pointercancel ends drag without a stuck capture (1.3s)
+2026-10-19T14:26:33.1506410Z   ✓   8 tests/browser/interactions.spec.ts:109:62 › lostpointercapture ends drag without a stuck capture (1.4s)
+2026-10-19T14:26:34.4422120Z   ✓   9 tests/browser/interactions.spec.ts:121:1 › dial click selects a snapped minute and double click resets (1.3s)
+2026-10-19T14:26:35.9785810Z   ✓  10 tests/browser/interactions.spec.ts:129:37 › 1-minute precision works for drag, wheel and keyboard (1.5s)
+2026-10-19T14:26:37.6299410Z   ✓  11 tests/browser/interactions.spec.ts:129:37 › 5-minute precision works for drag, wheel and keyboard (1.6s)
+2026-10-19T14:26:39.2322520Z   ✓  12 tests/browser/interactions.spec.ts:141:1 › wheel modifiers retain one-minute and one-hour alternatives (1.6s)
+2026-10-19T14:26:40.5995690Z   ✓  13 tests/browser/interactions.spec.ts:149:52 › day key BracketRight preserves civil hour through DST (1.3s)
+2026-10-19T14:26:41.7441490Z   ✓  14 tests/browser/interactions.spec.ts:149:52 › day key BracketLeft preserves civil hour through DST (1.1s)
+2026-10-19T14:26:43.0256470Z   ✓  15 tests/browser/interactions.spec.ts:156:1 › PageUp/PageDown and N retain keyboard time/reset alternatives (1.3s)
+2026-10-19T14:26:44.9419990Z   ✓  16 tests/browser/interactions.spec.ts:163:1 › date arrows preserve noon through DST and leap dates (1.9s)
+2026-10-19T14:26:46.6473510Z   ✓  17 tests/browser/interactions.spec.ts:174:1 › direct entry validates, reverts with Escape and supports AM/PM keyboard selection (1.7s)
+2026-10-19T14:26:48.8588000Z   ✓  18 tests/browser/interactions.spec.ts:188:1 › date entry is accessible, resolves a DST gap and restores focus on Escape (2.2s)
+2026-10-19T14:26:50.5803030Z   ✓  19 tests/browser/interactions.spec.ts:199:1 › ambiguous input offers both absolute occurrences and timeline distinguishes their offsets (1.7s)
+2026-10-19T14:26:52.2629340Z   ✓  20 tests/browser/interactions.spec.ts:208:1 › timeline drag and keyboard update the clock and all participant readings (1.6s)
+2026-10-19T14:26:53.6028790Z   ✓  21 tests/browser/interactions.spec.ts:219:1 › DST timeline exposes 25 hours, repeated cells and correctly positioned noon (1.3s)
+2026-10-19T14:26:54.8094550Z   ✓  22 tests/browser/interactions.spec.ts:228:104 › Asia/Kathmandu stays synchronized on a fractional offset (1.2s)
+2026-10-19T14:26:56.1679110Z   ✓  23 tests/browser/interactions.spec.ts:228:104 › Australia/Adelaide stays synchronized on a fractional offset (1.3s)
+2026-10-19T14:26:57.1745000Z   ✓  24 tests/browser/interactions.spec.ts:228:104 › Pacific/Chatham stays synchronized on a fractional offset (985ms)
+2026-10-19T14:26:58.3748440Z   ✓  25 tests/browser/interactions.spec.ts:228:104 › Australia/Lord_Howe stays synchronized on a fractional offset (1.2s)
+2026-10-19T14:27:00.6176480Z   ✓  26 tests/browser/interactions.spec.ts:236:1 › widget inherits planning selection and returns its preview to live only on explicit reset or timeout (2.2s)
+2026-10-19T14:27:04.6840990Z   ✓  27 tests/browser/interactions.spec.ts:255:1 › share title focus survives live ticks and Tab remains inside the dialog (3.8s)
+2026-10-19T14:27:07.6491820Z   ✓  28 tests/browser/interactions.spec.ts:269:1 › search input focus and result keyboard position survive live ticks (2.8s)
+2026-10-19T14:27:08.9786370Z   ✓  29 tests/browser/interactions.spec.ts:280:1 › reduced motion keeps the dial keyboard-accessible without hand easing (1.3s)
+2026-10-19T14:27:10.5120650Z   ✓  30 tests/browser/interactions.spec.ts:288:1 › fractional DST timeline splits Lord Howe at 02:30 and typing a gap updates every row (1.5s)
+2026-10-19T14:27:12.6259920Z   ✓  31 tests/browser/interactions.spec.ts:298:1 › dragging through a fold keeps chronological movement and announces the changed offset (2.1s)
+2026-10-19T14:27:14.5226800Z   ✓  32 tests/browser/interactions.spec.ts:310:1 › row keyboard navigation/reorder work and child menu Enter does not change reference (1.9s)
+2026-10-19T14:27:15.9355870Z   ✓  33 tests/browser/interactions.spec.ts:325:1 › groups menu opens and navigates using keyboard arrows (1.4s)
+2026-10-19T14:27:17.9077900Z   ✓  34 tests/browser/interactions.spec.ts:333:1 › 24-hour direct entry stays controlled and keyboard can replace the whole focused input (1.9s)
+2026-10-19T14:27:19.4857230Z   ✓  35 tests/browser/interactions.spec.ts:345:1 › OS reduced-motion preference suppresses easing while planning survives input focus (1.5s)
+2026-10-19T14:27:21.1619500Z   ✓  36 tests/browser/interactions.spec.ts:354:1 › first pointer focus selects the readout while later clicks retain caret editing (1.6s)
+2026-10-19T14:27:23.3620060Z   ✓  37 tests/browser/interactions.spec.ts:362:1 › mouse-focus direct entry replaces the old time and modal close restores the editable field (2.2s)
+2026-10-19T14:27:25.1561360Z   ✓  38 tests/browser/interactions.spec.ts:374:84 › date popup stays inside 380px window (1.8s)
+2026-10-19T14:27:26.7927060Z   ✓  39 tests/browser/interactions.spec.ts:374:84 › date popup stays inside 850px window (1.6s)
+2026-10-19T14:27:27.9898720Z   ✓  40 tests/browser/macos-chrome.spec.ts:5:1 › native Mac chrome reserves traffic-light space without duplicate HTML controls (1.2s)
+2026-10-19T14:27:29.0603760Z   ✓  41 tests/browser/macos-chrome.spec.ts:17:1 › browser Mac preview retains the original traffic-light interactions (1.0s)
+2026-10-19T14:27:32.1104950Z   ✓  42 tests/browser/persistence.spec.ts:12:1 › theme, time format and precision survive reload; live/session state does not (3.0s)
+2026-10-19T14:27:37.3763890Z   ✓  43 tests/browser/persistence.spec.ts:20:1 › saved labels, split/overnight shifts, sleep, favorites, ordering and reference survive reload (5.2s)
+2026-10-19T14:27:40.5791170Z   ✓  44 tests/browser/persistence.spec.ts:27:1 › create, rename, duplicate and active-group selection persist (3.2s)
+2026-10-19T14:27:42.9253320Z   ✓  45 tests/browser/persistence.spec.ts:34:1 › asynchronous hydration never writes defaults over existing preferences (2.3s)
+2026-10-19T14:27:44.6320660Z   ✓  46 tests/browser/persistence.spec.ts:38:1 › strict-mode hydration is idempotent and can save after effect replay (1.7s)
+2026-10-19T14:27:46.3776060Z   ✓  47 tests/browser/persistence.spec.ts:41:1 › malformed JSON recovers with a retained copy and visible notice (1.7s)
+2026-10-19T14:27:48.5563970Z   ✓  48 tests/browser/persistence.spec.ts:44:1 › future schema blocks writes and preserves original bytes (2.2s)
+2026-10-19T14:27:49.9599000Z   ✓  49 tests/browser/persistence.spec.ts:47:1 › write failure is visible; retry commits the newest in-memory changes (1.4s)
+2026-10-19T14:27:51.4538530Z   ✓  50 tests/browser/persistence.spec.ts:50:1 › read failure retry loads saved preferences before enabling edits (1.5s)
+2026-10-19T14:27:53.8125850Z   ✓  51 tests/browser/persistence.spec.ts:53:1 › two windows detect stale writes instead of losing newer configuration (2.3s)
+2026-10-19T14:27:55.7192830Z   ✓  52 tests/browser/persistence.spec.ts:57:1 › rapid preference changes finish with the latest snapshot (1.9s)
+2026-10-19T14:27:57.2811450Z   ✓  53 tests/browser/persistence.spec.ts:61:1 › an immediate normal reload flushes the latest durable edit (1.5s)
+2026-10-19T14:27:58.3168910Z   ✓  54 tests/browser/persistence.spec.ts:64:1 › legacy partial configuration migrates without changing the legacy recovery source (1.0s)
+2026-10-19T14:28:00.4060110Z   ✓  55 tests/browser/persistence.spec.ts:67:1 › a fresh browser page reads persisted configuration from the same profile (2.1s)
+2026-10-19T14:28:02.4379130Z   ✓  56 tests/browser/persistence.spec.ts:71:1 › favorites control the compact widget and survive reload (2.0s)
+2026-10-19T14:28:04.1750310Z   ✓  57 tests/browser/persistence.spec.ts:74:1 › different cities sharing a zone can both be added and restored (1.7s)
+2026-10-19T14:28:06.5817320Z   ✓  58 tests/browser/persistence.spec.ts:77:1 › temporary recommendation filters never enter the saved configuration (2.4s)
+2026-10-19T14:28:08.6396060Z   ✓  59 tests/browser/persistence.spec.ts:81:1 › continuing after read failure explicitly disables saves for the whole session (2.0s)
+2026-10-19T14:28:15.4566570Z   ✓  60 tests/browser/restart.spec.ts:4:1 › configuration survives a real browser process restart using an isolated saved profile (6.8s)
+2026-10-19T14:28:16.7941600Z   ✓  61 tests/browser/scheduling.spec.ts:20:1 › overnight Friday ownership is reflected in the actual row and overlap indicator on Saturday (1.3s)
+2026-10-19T14:28:17.9852330Z   ✓  62 tests/browser/scheduling.spec.ts:25:1 › full meeting duration changes suitability when only the final minutes cross work end (1.2s)
+2026-10-19T14:28:21.2968830Z   ✓  63 tests/browser/scheduling.spec.ts:32:1 › working editor saves split overnight intervals, supports days off and validates equal endpoints (3.3s)
+2026-10-19T14:28:24.4184860Z   ✓  64 tests/browser/scheduling.spec.ts:50:1 › sleep conflicts are explained and eight-interval editor stays scrollable (3.1s)
+2026-10-19T14:28:27.3362100Z   ✓  65 tests/browser/scheduling.spec.ts:62:1 › custom duration, subset, date range, preference, minimum overlap and fairness drive real results (2.9s)
+2026-10-19T14:28:29.5954840Z   ✓  66 tests/browser/scheduling.spec.ts:85:1 › search validates ranges and empty subsets without fabricating recommendations (2.2s)
+2026-10-19T14:28:31.0632840Z   ✓  67 tests/browser/scheduling.spec.ts:95:1 › planner modal retains Tab and Escape handling when pointer input leaves body focused (1.4s)
+2026-10-19T14:28:33.0063480Z   ✓  68 tests/browser/scheduling.spec.ts:104:1 › no feasible minimum returns explicit empty state and filters survive live ticks (1.9s)
+2026-10-19T14:28:34.5222180Z   ✓  69 tests/browser/scheduling.spec.ts:112:1 › invalid default hours never enter application state (1.5s)
+2026-10-19T14:28:35.8918480Z   ✓  70 tests/browser/scheduling.spec.ts:117:1 › fractional DST full-duration verdict reflects the repeated working interval gap (1.3s)
+2026-10-19T14:28:37.6405730Z   ✓  71 tests/browser/scheduling.spec.ts:122:33 › search dialog fits 380px and keeps keyboard focus (1.7s)
+2026-10-19T14:28:39.3910510Z   ✓  72 tests/browser/scheduling.spec.ts:122:33 › search dialog fits 850px and keeps keyboard focus (1.7s)
+2026-10-19T14:28:40.6408740Z   ✓  73 tests/browser/scheduling.spec.ts:130:1 › timeline and day strip retain exact sub-hour work boundaries (1.2s)
+2026-10-19T14:28:42.3992130Z   ✓  74 tests/browser/worker.spec.ts:8:1 › maximum workload runs in the production worker and matches the synchronous reference (1.7s)
+2026-10-19T14:28:42.8459120Z 
+2026-10-19T14:28:42.8473600Z   74 passed (2.9m)
+2026-10-19T14:28:42.9697200Z ##[group]Run set -euo pipefail
+2026-10-19T14:28:42.9699430Z [36;1mset -euo pipefail[0m
+2026-10-19T14:28:42.9701330Z [36;1mnpm run desktop:build -- --target 'x86_64-apple-darwin' 2>&1 | tee ci-results/build.txt[0m
+2026-10-19T14:28:42.9704080Z [36;1mnode scripts/inspect-macos-artifacts.mjs 'x86_64-apple-darwin'[0m
+2026-10-19T14:28:42.9834970Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-19T14:28:42.9836580Z env:
+2026-10-19T14:28:42.9838150Z   CARGO_TERM_COLOR: never
+2026-10-19T14:28:42.9839920Z   MACOSX_DEPLOYMENT_TARGET: 12.0
+2026-10-19T14:28:42.9841370Z   LONGITUDE_BROWSER: webkit
+2026-10-19T14:28:42.9842890Z   LONGITUDE_EVIDENCE_ROOT: ci-results
+2026-10-19T14:28:42.9845260Z   APPLE_SIGNING_IDENTITY: -
+2026-10-19T14:28:42.9846800Z ##[endgroup]
+2026-10-19T14:28:43.4504580Z 
+2026-10-19T14:28:43.4506230Z > longitude@0.1.0 desktop:build
+2026-10-19T14:28:43.4507450Z > tauri build --target x86_64-apple-darwin
+2026-10-19T14:28:43.4508170Z 
+2026-10-19T14:28:43.8236580Z         Info Looking up installed tauri packages to check mismatched versions...
+2026-10-19T14:28:44.8546880Z      Running beforeBuildCommand `npm run desktop:frontend`
+2026-10-19T14:28:45.2191380Z 
+2026-10-19T14:28:45.2192440Z > longitude@0.1.0 desktop:frontend
+2026-10-19T14:28:45.2193660Z > node scripts/prepare-desktop.mjs
+2026-10-19T14:28:45.2194230Z 
+2026-10-19T14:28:51.3022880Z [36mvite v8.3.4 [32mbuilding client environment for production...[36m[39m
+2026-10-19T14:28:51.3160170Z transforming...
+2026-10-19T14:28:52.4341480Z ✓ 1597 modules transformed.
+2026-10-19T14:28:52.4869180Z rendering chunks...
+2026-10-19T14:28:52.6095810Z computing gzip size...
+2026-10-19T14:28:52.6179200Z dist/assets/longitude-app-icon-CUZ1hnrO.svg                  0.42 kB │ gzip:   0.23 kB
+2026-10-19T14:28:52.6181680Z dist/index.html                                              0.62 kB │ gzip:   0.38 kB
+2026-10-19T14:28:52.6182990Z dist/assets/geist-cyrillic-ext-wght-normal-DjL33-gN.woff2    7.42 kB
+2026-10-19T14:28:52.6184360Z dist/assets/geist-vietnamese-wght-normal-6IgcOCM7.woff2      8.00 kB
+2026-10-19T14:28:52.6185960Z dist/assets/geist-cyrillic-wght-normal-BEAKL7Jp.woff2       15.08 kB
+2026-10-19T14:28:52.6187290Z dist/assets/geist-latin-ext-wght-normal-DC-KSUi6.woff2      16.51 kB
+2026-10-19T14:28:52.6188600Z dist/assets/geist-latin-wght-normal-BgDaEnEv.woff2          29.40 kB
+2026-10-19T14:28:52.6189870Z dist/assets/search.worker-C9L_NhDt.js                      171.90 kB
+2026-10-19T14:28:52.6191360Z dist/assets/index-0deuA9NT.css                              23.89 kB │ gzip:   6.01 kB
+2026-10-19T14:28:52.6193000Z dist/assets/platform.tauri-1pqNcf0f.js                      16.06 kB │ gzip:   4.15 kB
+2026-10-19T14:28:52.6194590Z dist/assets/index-BQJpxuyJ.js                              458.21 kB │ gzip: 142.87 kB
+2026-10-19T14:28:52.6195290Z 
+2026-10-19T14:28:52.6196190Z [32m✓ built in 1.31s[39m
+2026-10-19T14:28:52.7589810Z Wrote docs/THIRD_PARTY_NOTICES.txt (10 runtime packages)
+2026-10-19T14:28:54.1021160Z Wrote native notices for 477 resolved package entries
+2026-10-19T14:28:55.0223450Z    Compiling proc-macro2 v1.0.107
+2026-10-19T14:28:55.0336750Z    Compiling unicode-ident v1.0.27
+2026-10-19T14:28:55.0380520Z    Compiling quote v1.0.47
+2026-10-19T14:28:55.0386470Z    Compiling serde_core v1.0.229
+2026-10-19T14:28:55.8302920Z    Compiling find-msvc-tools v0.1.15
+2026-10-19T14:28:56.2019580Z    Compiling shlex v2.0.1
+2026-10-19T14:28:56.5536970Z    Compiling cc v1.9.0
+2026-10-19T14:28:58.5102880Z    Compiling syn v3.0.9
+2026-10-19T14:29:00.2019690Z    Compiling syn v2.0.119
+2026-10-19T14:29:02.0784310Z    Compiling siphasher v1.0.4
+2026-10-19T14:29:02.3825540Z    Compiling libc v0.2.191
+2026-10-19T14:29:02.5348500Z    Compiling phf_shared v0.13.1
+2026-10-19T14:29:03.0352650Z    Compiling icu_normalizer_data v2.3.0
+2026-10-19T14:29:03.1501890Z    Compiling icu_properties_data v2.3.0
+2026-10-19T14:29:03.5604170Z    Compiling zmij v1.0.23
+2026-10-19T14:29:03.9722730Z    Compiling fastrand v2.5.0
+2026-10-19T14:29:04.1720130Z    Compiling phf_generator v0.13.1
+2026-10-19T14:29:04.4397030Z    Compiling cfg-if v1.0.5
+2026-10-19T14:29:04.5661470Z    Compiling stable_deref_trait v1.2.1
+2026-10-19T14:29:04.6371160Z    Compiling bitflags v2.13.2
+2026-10-19T14:29:06.1335120Z    Compiling memchr v2.8.3
+2026-10-19T14:29:07.0451890Z    Compiling thiserror v2.0.21
+2026-10-19T14:29:07.5590840Z    Compiling synstructure v0.14.0
+2026-10-19T14:29:07.5722990Z    Compiling serde v1.0.229
+2026-10-19T14:29:08.0728410Z    Compiling smallvec v1.16.3
+2026-10-19T14:29:08.9243060Z    Compiling objc2-exception-helper v0.1.1
+2026-10-19T14:29:09.3043410Z    Compiling itoa v1.0.18
+2026-10-19T14:29:10.5098400Z    Compiling typeid v1.0.3
+2026-10-19T14:29:10.9528560Z    Compiling time-core v0.1.9
+2026-10-19T14:29:11.1801460Z    Compiling num-conv v0.2.2
+2026-10-19T14:29:11.3500270Z    Compiling objc2 v0.6.5
+2026-10-19T14:29:11.6398860Z    Compiling phf_codegen v0.13.1
+2026-10-19T14:29:11.7695910Z    Compiling writeable v0.6.4
+2026-10-19T14:29:11.7698730Z    Compiling strsim v0.11.1
+2026-10-19T14:29:11.7952060Z    Compiling zerofrom-derive v0.1.8
+2026-10-19T14:29:12.2614050Z    Compiling yoke-derive v0.8.4
+2026-10-19T14:29:12.3420060Z    Compiling serde_derive v1.0.229
+2026-10-19T14:29:13.2969600Z    Compiling zerovec-derive v0.11.6
+2026-10-19T14:29:14.0864970Z    Compiling displaydoc v0.2.7
+2026-10-19T14:29:14.1871790Z    Compiling zerofrom v0.1.8
+2026-10-19T14:29:14.3040840Z    Compiling yoke v0.8.3
+2026-10-19T14:29:14.6402130Z    Compiling thiserror-impl v2.0.21
+2026-10-19T14:29:15.2901410Z    Compiling phf_macros v0.13.1
+2026-10-19T14:29:15.5933020Z    Compiling zerovec v0.11.8
+2026-10-19T14:29:17.0071150Z    Compiling ident_case v1.0.1
+2026-10-19T14:29:17.2108910Z    Compiling objc2-encode v4.1.0
+2026-10-19T14:29:17.8757080Z    Compiling tinystr v0.8.4
+2026-10-19T14:29:17.8966940Z    Compiling autocfg v1.5.1
+2026-10-19T14:29:18.2969170Z    Compiling litemap v0.8.3
+2026-10-19T14:29:18.5317310Z    Compiling serde_json v1.0.154
+2026-10-19T14:29:18.7363910Z    Compiling erased-serde v0.4.10
+2026-10-19T14:29:18.8386940Z    Compiling getrandom v0.4.3
+2026-10-19T14:29:18.9592330Z    Compiling icu_locale_core v2.3.0
+2026-10-19T14:29:19.2712820Z    Compiling potential_utf v0.1.6
+2026-10-19T14:29:19.5627120Z    Compiling darling_core v0.24.1
+2026-10-19T14:29:21.3754910Z    Compiling zerotrie v0.2.5
+2026-10-19T14:29:21.8711380Z    Compiling parking_lot_core v0.9.12
+2026-10-19T14:29:22.0568850Z    Compiling utf8_iter v1.0.4
+2026-10-19T14:29:22.3487640Z    Compiling icu_collections v2.3.0
+2026-10-19T14:29:22.6834960Z    Compiling icu_provider v2.3.1
+2026-10-19T14:29:23.1419810Z    Compiling anyhow v1.0.104
+2026-10-19T14:29:23.1516260Z    Compiling new_debug_unreachable v1.0.6
+2026-10-19T14:29:23.2504410Z    Compiling scopeguard v1.2.0
+2026-10-19T14:29:23.3724770Z    Compiling lock_api v0.4.14
+2026-10-19T14:29:23.9736490Z    Compiling phf v0.13.1
+2026-10-19T14:29:24.2139630Z    Compiling string_cache_codegen v0.6.1
+2026-10-19T14:29:24.9446790Z    Compiling precomputed-hash v0.1.1
+2026-10-19T14:29:24.9641120Z    Compiling web_atoms v0.2.6
+2026-10-19T14:29:25.1988020Z    Compiling parking_lot v0.12.5
+2026-10-19T14:29:25.4696160Z    Compiling icu_properties v2.3.0
+2026-10-19T14:29:25.7828550Z    Compiling icu_normalizer v2.3.0
+2026-10-19T14:29:25.9678900Z    Compiling objc2-core-foundation v0.3.2
+2026-10-19T14:29:26.2563800Z    Compiling darling_macro v0.24.1
+2026-10-19T14:29:26.7741470Z    Compiling darling v0.24.1
+2026-10-19T14:29:26.8262870Z    Compiling semver v1.0.28
+2026-10-19T14:29:26.8743710Z    Compiling serde_with_macros v3.24.0
+2026-10-19T14:29:27.4069630Z    Compiling winnow v1.0.4
+2026-10-19T14:29:28.2361570Z    Compiling toml_parser v1.1.5+spec-1.1.0
+2026-10-19T14:29:28.8321350Z    Compiling idna_adapter v1.2.2
+2026-10-19T14:29:29.1138010Z    Compiling string_cache v0.9.0
+2026-10-19T14:29:29.4252170Z    Compiling block2 v0.6.2
+2026-10-19T14:29:29.9048270Z    Compiling serde_spanned v1.1.2
+2026-10-19T14:29:29.9417310Z    Compiling toml_datetime v1.1.2+spec-1.1.0
+2026-10-19T14:29:30.2159390Z    Compiling percent-encoding v2.3.2
+2026-10-19T14:29:30.4940820Z    Compiling log v0.4.34
+2026-10-19T14:29:30.5064080Z    Compiling toml_writer v1.1.3+spec-1.1.0
+2026-10-19T14:29:30.6343210Z    Compiling dtoa v1.0.11
+2026-10-19T14:29:30.7328750Z    Compiling dtoa-short v0.3.5
+2026-10-19T14:29:30.7434260Z    Compiling form_urlencoded v1.2.2
+2026-10-19T14:29:30.8610050Z    Compiling toml v1.1.8+spec-1.1.0
+2026-10-19T14:29:30.9703800Z    Compiling uuid v1.28.0
+2026-10-19T14:29:31.2722280Z    Compiling idna v1.1.0
+2026-10-19T14:29:32.2493150Z    Compiling tendril v0.5.1
+2026-10-19T14:29:32.3252340Z    Compiling indexmap v1.9.3
+2026-10-19T14:29:32.6449660Z    Compiling derive_more-impl v2.1.1
+2026-10-19T14:29:32.8169580Z    Compiling cssparser-macros v0.7.1
+2026-10-19T14:29:33.4185050Z    Compiling selectors v0.38.0
+2026-10-19T14:29:33.8347870Z    Compiling aho-corasick v1.1.5
+2026-10-19T14:29:33.9233300Z    Compiling camino v1.2.6
+2026-10-19T14:29:34.0666350Z    Compiling regex-syntax v0.8.11
+2026-10-19T14:29:34.4217020Z    Compiling alloc-no-stdlib v3.0.0
+2026-10-19T14:29:34.5002160Z    Compiling alloc-stdlib v0.3.0
+2026-10-19T14:29:34.7941270Z    Compiling derive_more v2.1.1
+2026-10-19T14:29:34.9318020Z    Compiling cssparser v0.37.0
+2026-10-19T14:29:34.9454100Z    Compiling markup5ever v0.39.0
+2026-10-19T14:29:35.4876280Z    Compiling url v2.5.8
+2026-10-19T14:29:36.3471440Z    Compiling objc2-foundation v0.3.2
+2026-10-19T14:29:36.9654200Z    Compiling swift-rs v1.0.9
+2026-10-19T14:29:37.7797330Z    Compiling serde_derive_internals v0.29.1
+2026-10-19T14:29:38.4661940Z    Compiling servo_arc v0.4.3
+2026-10-19T14:29:38.7384010Z    Compiling regex-automata v0.4.18
+2026-10-19T14:29:39.7748390Z    Compiling powerfmt v0.2.1
+2026-10-19T14:29:40.0552360Z    Compiling hashbrown v0.12.3
+2026-10-19T14:29:40.4332460Z    Compiling web-time v1.1.0
+2026-10-19T14:29:40.4774440Z    Compiling deranged v0.5.9
+2026-10-19T14:29:41.5543620Z    Compiling crc32fast v1.5.2
+2026-10-19T14:29:41.9163760Z    Compiling rustc-hash v2.1.3
+2026-10-19T14:29:42.0429780Z    Compiling equivalent v1.0.3
+2026-10-19T14:29:42.1431000Z    Compiling version_check v0.9.5
+2026-10-19T14:29:42.6960260Z    Compiling bit-vec v0.8.0
+2026-10-19T14:29:43.3859150Z    Compiling hashbrown v0.17.1
+2026-10-19T14:29:43.4529160Z    Compiling fnv v1.0.7
+2026-10-19T14:29:43.5623110Z    Compiling schemars v0.8.22
+2026-10-19T14:29:43.9355010Z    Compiling cfb v0.14.0
+2026-10-19T14:29:45.3707310Z    Compiling regex v1.13.1
+2026-10-19T14:29:46.5820640Z    Compiling indexmap v2.14.2
+2026-10-19T14:29:46.7614150Z    Compiling bit-set v0.8.0
+2026-10-19T14:29:46.9841850Z    Compiling time v0.3.55
+2026-10-19T14:29:52.1072260Z    Compiling schemars_derive v0.8.22
+2026-10-19T14:29:56.5835850Z    Compiling html5ever v0.39.0
+2026-10-19T14:29:59.3832030Z    Compiling brotli-decompressor v6.0.1
+2026-10-19T14:29:59.6563500Z    Compiling jsonptr v0.7.1
+2026-10-19T14:30:00.6759400Z    Compiling cargo-platform v0.1.9
+2026-10-19T14:30:00.9460420Z    Compiling quick-xml v0.42.0
+2026-10-19T14:30:01.3947860Z    Compiling dyn-clone v1.0.20
+2026-10-19T14:30:01.6350630Z    Compiling base64 v0.21.7
+2026-10-19T14:30:02.2681740Z    Compiling foldhash v0.2.0
+2026-10-19T14:30:02.4639630Z    Compiling tauri-utils v2.10.2
+2026-10-19T14:30:02.5633890Z    Compiling base64 v0.23.1
+2026-10-19T14:30:03.1156330Z    Compiling dunce v1.0.5
+2026-10-19T14:30:03.4869070Z    Compiling bytes v1.12.1
+2026-10-19T14:30:04.1654280Z    Compiling same-file v1.0.6
+2026-10-19T14:30:04.2788410Z    Compiling plist v1.10.1
+2026-10-19T14:30:04.3805890Z    Compiling walkdir v2.5.0
+2026-10-19T14:30:04.8386500Z    Compiling dom_query v0.28.0
+2026-10-19T14:30:05.2300720Z    Compiling http v1.5.0
+2026-10-19T14:30:07.0278070Z    Compiling brotli v9.0.0
+2026-10-19T14:30:07.6027930Z    Compiling cargo_metadata v0.19.2
+2026-10-19T14:30:16.1648650Z    Compiling json-patch v4.2.0
+2026-10-19T14:30:16.5013050Z    Compiling serde-untagged v0.1.9
+2026-10-19T14:30:16.8577010Z    Compiling urlpattern v0.6.0
+2026-10-19T14:30:16.9457600Z    Compiling infer v0.22.0
+2026-10-19T14:30:19.9371370Z    Compiling serde_with v3.24.0
+2026-10-19T14:30:22.1303770Z    Compiling glob v0.3.4
+2026-10-19T14:30:23.2836630Z    Compiling ctor v1.0.13
+2026-10-19T14:30:31.7194720Z    Compiling rustc_version v0.4.1
+2026-10-19T14:30:33.8137350Z    Compiling simd-adler32 v0.3.10
+2026-10-19T14:30:34.7549490Z    Compiling option-ext v0.2.0
+2026-10-19T14:30:35.9094390Z    Compiling dirs-sys v0.5.0
+2026-10-19T14:30:35.9868840Z    Compiling embed-resource v3.0.12
+2026-10-19T14:30:36.0716260Z    Compiling generic-array v0.14.7
+2026-10-19T14:30:36.4496820Z    Compiling adler2 v2.0.1
+2026-10-19T14:30:36.6415640Z    Compiling crossbeam-utils v0.8.23
+2026-10-19T14:30:37.3239090Z    Compiling heck v0.5.0
+2026-10-19T14:30:37.6630050Z    Compiling once_cell v1.21.4
+2026-10-19T14:30:38.1312580Z    Compiling tauri-winres v0.3.6
+2026-10-19T14:30:38.7546690Z    Compiling dirs v7.0.0
+2026-10-19T14:30:40.0148940Z    Compiling cargo_toml v1.0.1
+2026-10-19T14:30:47.5305060Z    Compiling time-macros v0.2.32
+2026-10-19T14:30:53.9652530Z    Compiling objc2-quartz-core v0.3.2
+2026-10-19T14:30:57.0264280Z    Compiling objc2-app-kit v0.3.2
+2026-10-19T14:30:57.8385320Z    Compiling typenum v1.20.1
+2026-10-19T14:31:02.6571310Z    Compiling static_vcruntime v3.0.0
+2026-10-19T14:31:14.3485420Z    Compiling tauri-build v2.7.3
+2026-10-19T14:31:22.4636950Z    Compiling miniz_oxide v0.9.1
+2026-10-19T14:31:24.1648360Z    Compiling dpi v0.1.2
+2026-10-19T14:31:27.0251580Z    Compiling flate2 v1.1.10
+2026-10-19T14:31:27.8720990Z    Compiling crossbeam-channel v0.5.17
+2026-10-19T14:31:29.1321620Z    Compiling miniz_oxide v0.8.9
+2026-10-19T14:31:30.9881750Z    Compiling fdeflate v0.3.7
+2026-10-19T14:31:31.3722850Z    Compiling cookie v0.18.2
+2026-10-19T14:31:31.9185390Z    Compiling core-foundation-sys v0.8.7
+2026-10-19T14:31:32.6354170Z    Compiling raw-window-handle v0.6.2
+2026-10-19T14:31:36.6707390Z    Compiling core-foundation v0.10.1
+2026-10-19T14:31:39.9994040Z    Compiling tauri v2.12.4
+2026-10-19T14:31:43.0580680Z    Compiling block-buffer v0.10.4
+2026-10-19T14:31:43.2462310Z    Compiling crypto-common v0.1.7
+2026-10-19T14:31:46.0839790Z    Compiling num-traits v0.2.19
+2026-10-19T14:31:46.1320970Z    Compiling foreign-types-macros v0.2.4
+2026-10-19T14:31:47.6142540Z    Compiling bitflags v1.3.2
+2026-10-19T14:31:48.2511280Z    Compiling foreign-types-shared v0.3.1
+2026-10-19T14:31:48.3082280Z    Compiling foreign-types v0.5.0
+2026-10-19T14:31:48.5069750Z    Compiling png v0.17.16
+2026-10-19T14:31:51.8987550Z    Compiling png v0.18.1
+2026-10-19T14:31:52.4677360Z    Compiling digest v0.10.7
+2026-10-19T14:31:55.1240400Z    Compiling wry v0.57.0
+2026-10-19T14:31:59.4800280Z    Compiling core-graphics-types v0.2.0
+2026-10-19T14:31:59.7412390Z    Compiling objc2-web-kit v0.3.2
+2026-10-19T14:31:59.8726930Z    Compiling tauri-plugin v2.7.2
+2026-10-19T14:32:00.4888340Z    Compiling muda v0.20.0
+2026-10-19T14:32:02.9242220Z    Compiling byteorder v1.5.0
+2026-10-19T14:32:03.1242180Z    Compiling cpufeatures v0.2.17
+2026-10-19T14:32:03.2068940Z    Compiling tauri-runtime v2.12.2
+2026-10-19T14:32:03.2571920Z    Compiling ico v0.5.0
+2026-10-19T14:32:03.9074300Z    Compiling sha2 v0.10.9
+2026-10-19T14:32:04.2126270Z    Compiling core-graphics v0.25.0
+2026-10-19T14:32:05.6299440Z    Compiling keyboard-types v0.8.3
+2026-10-19T14:32:06.9615720Z    Compiling dispatch2 v0.3.1
+2026-10-19T14:32:07.6827730Z    Compiling pin-project-lite v0.2.17
+2026-10-19T14:32:07.9129160Z    Compiling pxfm v0.1.30
+2026-10-19T14:32:09.1472700Z    Compiling tray-icon v0.25.1
+2026-10-19T14:32:09.4867700Z    Compiling tauri-runtime-wry v2.12.2
+2026-10-19T14:32:09.8408680Z    Compiling getrandom v0.3.4
+2026-10-19T14:32:10.3687050Z    Compiling cfg_aliases v0.2.2
+2026-10-19T14:32:10.4714380Z    Compiling nix v0.31.3
+2026-10-19T14:32:11.2854410Z    Compiling tao v0.37.1
+2026-10-19T14:32:19.1008340Z    Compiling moxcms v0.8.1
+2026-10-19T14:32:19.5745120Z    Compiling tauri-codegen v2.7.3
+2026-10-19T14:32:23.0540470Z    Compiling objc2-core-graphics v0.3.2
+2026-10-19T14:32:23.3169230Z    Compiling serialize-to-javascript-impl v0.1.2
+2026-10-19T14:32:24.9388110Z    Compiling mio v1.2.4
+2026-10-19T14:32:26.3958880Z    Compiling socket2 v0.6.5
+2026-10-19T14:32:27.6028380Z    Compiling bytemuck v1.25.2
+2026-10-19T14:32:28.1637070Z    Compiling byteorder-lite v0.1.0
+2026-10-19T14:32:28.9813690Z    Compiling image v0.25.10
+2026-10-19T14:32:29.9969340Z    Compiling tokio v1.53.3
+2026-10-19T14:32:37.3372510Z ##[error]The operation was canceled.
+2026-10-19T14:32:37.3783220Z ##[group]Run actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+2026-10-19T14:32:37.3784770Z with:
+2026-10-19T14:32:37.3785960Z   name: Longitude-x86_64-apple-darwin-development-unnotarized
+2026-10-19T14:32:37.3787130Z   retention-days: 14
+2026-10-19T14:32:37.3788500Z   if-no-files-found: error
+2026-10-19T14:32:37.3790010Z   path: ci-results/
+src-tauri/target/x86_64-apple-darwin/release/bundle/dmg/*.dmg
+
+2026-10-19T14:32:37.3791590Z   compression-level: 6
+2026-10-19T14:32:37.3792090Z   overwrite: false
+2026-10-19T14:32:37.3792770Z   include-hidden-files: false
+2026-10-19T14:32:37.3793450Z env:
+2026-10-19T14:32:37.3793890Z   CARGO_TERM_COLOR: never
+2026-10-19T14:32:37.3794360Z   MACOSX_DEPLOYMENT_TARGET: 12.0
+2026-10-19T14:32:37.3795030Z   LONGITUDE_BROWSER: webkit
+2026-10-19T14:32:37.3795570Z   LONGITUDE_EVIDENCE_ROOT: ci-results
+2026-10-19T14:32:37.3796580Z   APPLE_SIGNING_IDENTITY: -
+2026-10-19T14:32:37.3797750Z ##[endgroup]
+2026-10-19T14:32:39.5011540Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-19T14:32:39.5926450Z The least common ancestor is /Users/runner/work/Longitude/Longitude. This will be the root directory of the artifact
+2026-10-19T14:32:39.6147610Z With the provided path, there will be 12 files uploaded
+2026-10-19T14:32:39.6421320Z Artifact name is valid!
+2026-10-19T14:32:39.6637350Z Root directory input is valid!
+2026-10-19T14:32:40.0597300Z Beginning upload of artifact content to blob storage
+2026-10-19T14:32:40.1604720Z Uploaded bytes 316867
+2026-10-19T14:32:40.2032190Z Finished uploading artifact content to blob storage!
+2026-10-19T14:32:40.2179120Z SHA256 digest of uploaded artifact zip is d9f38867d17f13d6a3adc035df9d511759c450131b0c44c1d4f6c8f8dadf8075
+2026-10-19T14:32:40.2467390Z Finalizing artifact upload
+2026-10-19T14:32:40.3618780Z Artifact Longitude-x86_64-apple-darwin-development-unnotarized.zip successfully finalized. Artifact ID 12195326345
+2026-10-19T14:32:40.4076130Z Artifact Longitude-x86_64-apple-darwin-development-unnotarized has been successfully uploaded! Final size is 316867 bytes. Artifact ID is 12195326345
+2026-10-19T14:32:40.4195230Z Artifact download URL: https://github.com/jrulloda14/Longitude/actions/runs/39267581587/artifacts/12195326345
+2026-10-19T14:32:40.4779240Z Post job cleanup.
+2026-10-19T14:32:41.1906300Z [command]/usr/local/bin/git version
+2026-10-19T14:32:41.2338390Z git version 2.55.0
+2026-10-19T14:32:41.5121100Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/fad416f8-3edf-4d34-ad7a-5e4f30ab2ccc/.gitconfig'
+2026-10-19T14:32:41.5429430Z Temporarily overriding HOME='/Users/runner/work/_temp/fad416f8-3edf-4d34-ad7a-5e4f30ab2ccc' before making global git config changes
+2026-10-19T14:32:41.5497660Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-19T14:32:41.6051430Z [command]/usr/local/bin/git config --global --add safe.directory /Users/runner/work/Longitude/Longitude
+2026-10-19T14:32:41.8158730Z Removing SSH command configuration
+2026-10-19T14:32:41.8534160Z [command]/usr/local/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-19T14:32:41.9622700Z [command]/usr/local/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-19T14:32:42.0701070Z Removing HTTP extra header
+2026-10-19T14:32:42.0805090Z [command]/usr/local/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-19T14:32:42.1923730Z [command]/usr/local/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-19T14:32:42.2828750Z Removing includeIf entries pointing to credentials config files
+2026-10-19T14:32:42.3043260Z [command]/usr/local/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-19T14:32:42.4027180Z [command]/usr/local/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-19T14:32:42.5248930Z Cleaning up orphan processes
+2026-10-19T14:32:43.0488530Z Terminate orphan process: pid (22324) (rustc)
+2026-10-19T14:32:43.2082920Z Terminate orphan process: pid (22293) (rustc)
+2026-10-19T14:32:43.2356610Z Terminate orphan process: pid (22191) (rustc)
+2026-10-19T14:32:43.2831150Z Terminate orphan process: pid (21910) (rustc)

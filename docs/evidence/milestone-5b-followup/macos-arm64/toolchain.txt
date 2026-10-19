@@ -1,0 +1,9 @@
+ProductName:		macOS
+ProductVersion:		15.7.9
+BuildVersion:		24G830
+arm64
+Xcode 16.4
+Build version 16F6
+v24.15.0
+cargo 1.99.0 (5f94df478 2026-08-27)
+rustc 1.99.0 (b940084d7 2026-09-28)

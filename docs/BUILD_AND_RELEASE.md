@@ -26,7 +26,17 @@ The native harness runs the actual debug executable/WebView2 with isolated files
 
 ## macOS development builds — Milestone 5B
 
-5B is now authorized for joint review. Build **on macOS** with Xcode command-line tools, Node 24/npm 11 and Rust 1.99.0 (the tested Windows toolchain; Mac build verification pending). The configured minimum is macOS 12.0, a deployment target rather than a tested compatibility claim. Targets are separate `aarch64-apple-darwin` and `x86_64-apple-darwin`; no universal binary is configured or claimed.
+Verification follow-up: the first actual Mac CI run failed before Rust tests because Tauri's build-script allowlist checks the direct dependency feature list. A named feature forwarding to `tauri/macos-private-api` alone is insufficient on a fresh Mac checkout. Use the official CLI to prepare/build the debug target before running Cargo tests directly:
+
+```sh
+npm ci
+npm exec tauri build -- --debug --no-bundle --target aarch64-apple-darwin
+cargo test --manifest-path src-tauri/Cargo.toml --locked --target aarch64-apple-darwin --features macos-transparency
+```
+
+The workflow now includes this prerequisite. Do not disable the allowlist or add broad permissions to work around it. The [current 5B report](MILESTONE_5B.md) records actual architecture/run/artifact results; the original delivery had not run CI, but this follow-up executes both hosted targets. Physical Mac acceptance remains separate.
+
+5B is now authorized for joint review. Build **on macOS** with Xcode command-line tools, Node 24/npm 11 and Rust 1.99.0 (used by Windows and hosted Mac checks). The configured minimum is macOS 12.0, a deployment target rather than a tested compatibility claim. Targets are separate `aarch64-apple-darwin` and `x86_64-apple-darwin`; no universal binary is configured or claimed.
 
 ```sh
 npm ci
@@ -39,7 +49,7 @@ node scripts/inspect-macos-artifacts.mjs aarch64-apple-darwin
 
 Substitute `x86_64-apple-darwin` for Intel. Tauri merges `tauri.macos.conf.json` into the shared config; its complete windows array intentionally replaces the shared Windows-shaped array. Expected output is `src-tauri/target/<target>/release/bundle/macos/Longitude.app` and `bundle/dmg/*.dmg`. The inspection script archives the app with `ditto` (preserving bundle metadata), verifies the DMG structure, records hashes, actual signing/Gatekeeper output, host/architecture/toolchain and explicit `runtimeVerified: false`. Run the physical [Mac acceptance checklist](MACOS_ACCEPTANCE.md) separately. A generated DMG is not an installed, notarized or release-ready product.
 
-`.github/workflows/macos-development.yml` prepares native Apple Silicon (`macos-15`) and Intel (`macos-15-intel`) builds. Official actions are pinned to reviewed tag commits; contents permission is read-only and checkout credentials are not retained. No signing secrets, release publishing or accounts enter the app. CI retains logs and development artifacts for 14 days. The workflow is versioned in implementation checkpoint `a8c18e9`; the user has authorized pushing source and documentation to GitHub. It runs only for manual dispatch or matching pull requests, so a push to `main` alone does not launch Mac builds. No successful workflow execution is recorded in this report. WebKit browser checks deliberately exclude the nine Edge screenshot comparisons; they do not stand in for the actual system WKWebView/native app. Use the [printable checklist](../output/pdf/Longitude-Milestone-5B-Mac-Acceptance-Checklist.pdf) to record physical Mac acceptance after obtaining an actual build.
+`.github/workflows/macos-development.yml` prepares native Apple Silicon (`macos-15`) and Intel (`macos-15-intel`) builds. Official actions are pinned to reviewed tag commits; contents permission is read-only and checkout credentials are not retained. No signing secrets, release publishing or accounts enter the app. CI retains logs and development artifacts for 14 days. The workflow is versioned in implementation checkpoint `a8c18e9`; the user has authorized pushing source and documentation to GitHub. It runs only for manual dispatch or matching pull requests, so a push to `main` alone does not launch Mac builds. Actual final-source job outcomes and downloadable development artifacts are linked from [MILESTONE_5B.md](MILESTONE_5B.md). WebKit browser checks deliberately exclude the nine Edge screenshot comparisons; they do not stand in for the actual system WKWebView/native app. Use the [printable checklist](../output/pdf/Longitude-Milestone-5B-Mac-Acceptance-Checklist.pdf) as a blank worksheet; keep the authoritative Markdown checklist updated during physical Mac acceptance.
 
 ### Signing, notarization and security
 
@@ -60,3 +70,12 @@ spctl --assess --type open --context context:primary-signature -v Longitude.dmg
 ```
 
 These are future acceptance commands, not recorded successes. Ad-hoc/unsigned development packages have no trusted Developer ID or notarization ticket; Gatekeeper may reject them. Do not disable Gatekeeper or remove quarantine to manufacture a pass. Clean install/update/uninstall, signature/notarization, minimum-OS, architecture, offline operation and physical-hardware runtime results must be recorded separately. See [Tauri bundle guidance](https://v2.tauri.app/distribute/macos-application-bundle/), [signing guidance](https://v2.tauri.app/distribute/sign/macos/), [configuration restrictions](https://v2.tauri.app/reference/config/) and [GitHub runner reference](https://docs.github.com/en/actions/reference/runners/github-hosted-runners). Milestones 6 and 7 remain unchanged.
+
+### Clean installation and manual update acceptance
+
+The following is a procedure to execute on a test Mac, not a completed installation result. There is no automatic updater or update service in 5B.
+
+1. Use the matching architecture and a separately verified, trusted distribution artifact. Record its hash, signature, notarization and Gatekeeper outcome. Mount the DMG, copy Longitude.app into Applications, eject the image and launch that installed copy. The current ad-hoc CI packages do not satisfy the trusted-distribution prerequisite.
+2. On a clean test profile, confirm defaults and that launch at login remains off. Save groups/preferences, quit normally through the flush barrier, reopen and record the actual Tauri `app_config_dir` and retained files. Do not infer that path from a Windows location or create another schema.
+3. Before updating, quit both windows normally and back up the entire existing app-config directory. Replace the application bundle while preserving `app.longitude.desktop` and the configuration files. Verify labels/groups/schedules, native preferences, recovery and future-schema protection after relaunch. Test login-item relocation separately; do not silently enable or repair opt-in registration. Downgrade compatibility is not promised for unsupported future schemas.
+4. Before uninstalling, explicitly disable launch at login and quit. Removing the application bundle does not implement a user-data purge; retained configuration/backups need a separate, explicit user choice. Verify no orphaned process/login item remains. Record install/update/uninstall outcomes in [MACOS_ACCEPTANCE.md](MACOS_ACCEPTANCE.md); all remain Blocked until executed.

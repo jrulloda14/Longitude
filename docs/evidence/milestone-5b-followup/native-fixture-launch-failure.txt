@@ -1,0 +1,25 @@
+PASS native offline asset startup and independent windows
+PASS native assets and IPC work with browser network offline
+PASS native caption maximize, restore and minimize
+PASS show and hide do not grow the native content size
+PASS widget opens without hiding main and shares manual selection
+PASS widget pin and opacity use shared durable settings
+PASS widget preview timeout cannot reset a newer main-window planning selection
+PASS widget expands and closes independently
+PASS stale cross-window transaction is rejected without lost edit
+PASS native preferences UI and durable time format
+PASS immediate native WebView reload does not lose the last preference
+PASS native sign-in registration can enable and disable with its original state restored
+PASS invalid shortcut reports failure and retains the owned shortcut
+PASS bare typing shortcut is rejected without replacing the working binding
+PASS equivalent shortcut aliases preserve ownership without duplicate registration
+Error: spawn EPERM
+    at ChildProcess.spawn (node:internal/child_process:441:11)
+    at spawn (node:child_process:796:9)
+    at file:///H:/Projects/Longitude/scripts/test-native.mjs:129:19
+    at check (file:///H:/Projects/Longitude/scripts/test-native.mjs:50:13)
+    at file:///H:/Projects/Longitude/scripts/test-native.mjs:126:9 {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'spawn'
+}

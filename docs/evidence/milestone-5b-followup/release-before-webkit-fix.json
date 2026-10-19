@@ -1,0 +1,15 @@
+{
+  "measuredAt": "2026-10-19T14:12:14.985Z",
+  "executable": "H:\\Projects\\Longitude\\src-tauri\\target\\release\\longitude.exe",
+  "sha256": "0a4452a51252454fdcd9a00e3e68692178a93e333d1d9dd0ff224713bdfd8e4b",
+  "passed": 5,
+  "failed": 0,
+  "checks": [
+    "Final release launches the preserved clock",
+    "Main and widget share native planning state",
+    "Independent native widget shows",
+    "Widget hides while main remains visible",
+    "Flush handshake exits cleanly"
+  ],
+  "method": "Actual final unsigned optimized Windows executable; no durable application preferences changed; ordinary native app-config directory, CDP frontend/native API checks"
+}

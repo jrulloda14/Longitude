@@ -1,0 +1,45 @@
+{
+  "total_count": 2,
+  "artifacts": [
+    {
+      "id": 12195326345,
+      "node_id": "MDg6QXJ0aWZhY3QxMjE5NTMyNjM0NQ==",
+      "name": "Longitude-x86_64-apple-darwin-development-unnotarized",
+      "size_in_bytes": 316867,
+      "url": "https://api.github.com/repos/jrulloda14/Longitude/actions/artifacts/12195326345",
+      "archive_download_url": "https://api.github.com/repos/jrulloda14/Longitude/actions/artifacts/12195326345/zip",
+      "expired": false,
+      "digest": "sha256:d9f38867d17f13d6a3adc035df9d511759c450131b0c44c1d4f6c8f8dadf8075",
+      "created_at": "2026-10-19T14:32:39Z",
+      "updated_at": "2026-10-19T14:32:39Z",
+      "expires_at": "2026-11-02T14:32:38Z",
+      "workflow_run": {
+        "id": 39267581587,
+        "repository_id": 1425079336,
+        "head_repository_id": 1425079336,
+        "head_branch": "codex/m5b-native-verification",
+        "head_sha": "09ea9ef47bdcdde34dbe0809addea7d3d6d922aa"
+      }
+    },
+    {
+      "id": 12194830743,
+      "node_id": "MDg6QXJ0aWZhY3QxMjE5NDgzMDc0Mw==",
+      "name": "Longitude-aarch64-apple-darwin-development-unnotarized",
+      "size_in_bytes": 5925467,
+      "url": "https://api.github.com/repos/jrulloda14/Longitude/actions/artifacts/12194830743",
+      "archive_download_url": "https://api.github.com/repos/jrulloda14/Longitude/actions/artifacts/12194830743/zip",
+      "expired": false,
+      "digest": "sha256:a4871a362a44bf5e6cedc2d55697b164fa82854bc03ecad26ab95b032e37443d",
+      "created_at": "2026-10-19T14:26:46Z",
+      "updated_at": "2026-10-19T14:26:46Z",
+      "expires_at": "2026-11-02T14:26:42Z",
+      "workflow_run": {
+        "id": 39267581587,
+        "repository_id": 1425079336,
+        "head_repository_id": 1425079336,
+        "head_branch": "codex/m5b-native-verification",
+        "head_sha": "09ea9ef47bdcdde34dbe0809addea7d3d6d922aa"
+      }
+    }
+  ]
+}

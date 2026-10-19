@@ -1,5 +1,21 @@
 # Performance baselines and provisional targets
 
+## Milestone 5B - Mac hardware status
+
+**Blocked: no physical test Mac is available in this Windows task.** Hosted Mac CI validates builds/filesystem tests; it supplies no physical-device CPU, memory, display/input or startup measurement. Windows and headless-browser results are not substitutes. The native appearance/shortcut changes establish no performance improvement.
+
+| Mac measurement | Acceptance method / target | Result |
+| --- | --- | --- |
+| Live CPU | 60-second warmup, controlled repeated trials, <=1% total-machine CPU | Blocked - not measured |
+| Planning CPU | Same method, <=0.25% | Blocked - not measured |
+| Aggregate private memory | Native process tree, sampled peak <=250 MiB | Blocked - not measured |
+| Ten-minute growth | Record sample series, process set and growth | Blocked - not measured |
+| Visible-widget increment | Matched main-only and visible-widget workloads | Blocked - not measured |
+| Cold / warm startup | Record launch definition, trials, app/hash/host | Blocked - not measured |
+| Clock drag / frames | Actual input, outside capture, frame/Long Tasks; distinguish proxies from input-to-photon | Blocked - not measured |
+
+Record device/architecture/RAM/macOS/WebKit/displays/scales, source/executable and raw trials using [MACOS_ACCEPTANCE.md](MACOS_ACCEPTANCE.md). Preserve appearance/responsiveness while investigating failures. Windows CPU budget failures below remain open; follow-up regression checks do not remeasure them. No performance worker or domain rewrite was introduced for 5B.
+
 ## Milestone 5A — actual Windows release application
 
 Provenance: the raw JSON records the measured binary hash. Final read-only/native-preference guard and widget pin-on-connect/show fixes were built afterward without changing clock/rendering/idle paths. Final artifact hashes are separate; that build has not repeated this full resource trial. The final release smoke also captured [GPU diagnostics](evidence/milestone-5a/gpu-info.json): Intel HD Graphics 530 through ANGLE/Direct3D11, with GPU compositing and rasterization enabled. No software-renderer excuse is inferred for the observed high CPU.

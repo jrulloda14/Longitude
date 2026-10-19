@@ -1,0 +1,93 @@
+{
+  "measuredAt": "2026-10-19T14:19:53.240Z",
+  "executable": "H:\\Projects\\Longitude\\src-tauri\\target\\debug\\longitude.exe",
+  "executableSha256": "99f6063eafa95d495f1ff7017f8cef6405ce5aa6b32b18d5e51f7075ddab3c4a",
+  "profile": "H:\\Projects\\Longitude\\performance-results\\native-1792419578786",
+  "method": "Actual Windows debug executable and WebView2; Playwright CDP frontend input plus real Rust commands/window-state queries. Not physical mouse/monitor or tray hit-testing certification.",
+  "passed": 15,
+  "failed": 1,
+  "results": [
+    {
+      "name": "native offline asset startup and independent windows",
+      "status": "passed",
+      "durationMs": 420.6343999999999
+    },
+    {
+      "name": "native assets and IPC work with browser network offline",
+      "status": "passed",
+      "durationMs": 223.45280000000002
+    },
+    {
+      "name": "native caption maximize, restore and minimize",
+      "status": "passed",
+      "durationMs": 285.96439999999984
+    },
+    {
+      "name": "show and hide do not grow the native content size",
+      "status": "passed",
+      "durationMs": 49.564800000000105
+    },
+    {
+      "name": "widget opens without hiding main and shares manual selection",
+      "status": "passed",
+      "durationMs": 227.3822999999993
+    },
+    {
+      "name": "widget pin and opacity use shared durable settings",
+      "status": "passed",
+      "durationMs": 140.3073999999997
+    },
+    {
+      "name": "widget preview timeout cannot reset a newer main-window planning selection",
+      "status": "passed",
+      "durationMs": 8405.010600000001
+    },
+    {
+      "name": "widget expands and closes independently",
+      "status": "passed",
+      "durationMs": 147.26920000000064
+    },
+    {
+      "name": "stale cross-window transaction is rejected without lost edit",
+      "status": "passed",
+      "durationMs": 83.02980000000025
+    },
+    {
+      "name": "native preferences UI and durable time format",
+      "status": "passed",
+      "durationMs": 288.97989999999845
+    },
+    {
+      "name": "immediate native WebView reload does not lose the last preference",
+      "status": "passed",
+      "durationMs": 247.71630000000005
+    },
+    {
+      "name": "native sign-in registration can enable and disable with its original state restored",
+      "status": "passed",
+      "durationMs": 102.94400000000132
+    },
+    {
+      "name": "invalid shortcut reports failure and retains the owned shortcut",
+      "status": "passed",
+      "durationMs": 35.229300000000876
+    },
+    {
+      "name": "bare typing shortcut is rejected without replacing the working binding",
+      "status": "passed",
+      "durationMs": 32.17209999999977
+    },
+    {
+      "name": "equivalent shortcut aliases preserve ownership without duplicate registration",
+      "status": "passed",
+      "durationMs": 157.76980000000003
+    },
+    {
+      "name": "a shortcut occupied by another native process is rejected with rollback",
+      "status": "failed",
+      "message": "Error: spawn EPERM",
+      "durationMs": 378.6296000000002
+    }
+  ],
+  "pageErrors": []
+}

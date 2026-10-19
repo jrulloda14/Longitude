@@ -1,0 +1,78 @@
+{
+  "browser": "155.0.4283.62",
+  "method": "Canvas decoded RGBA; any channel difference >16. Strict Playwright perceptual assertions are separate.",
+  "comparisons": [
+    {
+      "name": "clock-dark",
+      "width": 850,
+      "height": 560,
+      "changedPixels": 0,
+      "changedPercent": 0,
+      "bounds": null
+    },
+    {
+      "name": "clock-light",
+      "width": 850,
+      "height": 560,
+      "changedPixels": 0,
+      "changedPercent": 0,
+      "bounds": null
+    },
+    {
+      "name": "clock-planning",
+      "width": 850,
+      "height": 560,
+      "changedPixels": 0,
+      "changedPercent": 0,
+      "bounds": null
+    },
+    {
+      "name": "planner-dark",
+      "width": 850,
+      "height": 560,
+      "changedPixels": 0,
+      "changedPercent": 0,
+      "bounds": null
+    },
+    {
+      "name": "settings-dark",
+      "width": 850,
+      "height": 560,
+      "changedPixels": 0,
+      "changedPercent": 0,
+      "bounds": null
+    },
+    {
+      "name": "clock-narrow",
+      "width": 380,
+      "height": 600,
+      "changedPixels": 0,
+      "changedPercent": 0,
+      "bounds": null
+    },
+    {
+      "name": "compact-live",
+      "width": 400,
+      "height": 400,
+      "changedPixels": 0,
+      "changedPercent": 0,
+      "bounds": null
+    },
+    {
+      "name": "london-fall",
+      "width": 850,
+      "height": 560,
+      "changedPixels": 0,
+      "changedPercent": 0,
+      "bounds": null
+    },
+    {
+      "name": "kathmandu",
+      "width": 850,
+      "height": 560,
+      "changedPixels": 0,
+      "changedPercent": 0,
+      "bounds": null
+    }
+  ]
+}

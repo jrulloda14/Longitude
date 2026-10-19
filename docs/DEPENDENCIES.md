@@ -1,5 +1,13 @@
 # Dependency review
 
+## Milestone 5B native-verification follow-up
+
+No npm package, Rust crate, plugin version or lockfile changed. Existing Tauri APIs implement native Mac appearance; the existing shortcut plugin's parser/modifier types implement validation and semantic alias comparison. The competing Windows hotkey test uses the OS `RegisterHotKey`/`UnregisterHotKey` API in an isolated helper process, with guaranteed cleanup; it adds no application dependency or keyboard-event monitor. Official plugin/platform maintenance, licensing and compatibility reviews remain in [DESKTOP_DEPENDENCIES.md](DESKTOP_DEPENDENCIES.md).
+
+Fresh [production npm audit](evidence/milestone-5b-followup/npm-audit-production.json) is **0**, [full npm audit](evidence/milestone-5b-followup/npm-audit-all.json) retains **5 high development-only findings**, and [RustSec](evidence/milestone-5b-followup/cargo-audit.json) has **0 vulnerability entries plus 4 unmaintained/1 unsoundness informational warnings** in the all-target graph. These are not remediated by the Mac integration. [BUILD_ADVISORIES.md](BUILD_ADVISORIES.md) retains exploit conditions and remediation choices; no forced Tailwind migration or new broad Tauri permission is introduced.
+
+The first real Mac CI run exposed a Tauri build-script feature-allowlist preparation issue. The fix uses the official CLI before direct Cargo tests; it does not disable validation, add a plugin or broaden capabilities. Named `macos-transparency` still selects the existing Mac-private-API feature, but forwarding it alone does not satisfy the static manifest allowlist on a fresh Mac checkout. Mac App Store limitations remain. The repository still declares `UNLICENSED`; choosing an application license is outside this native implementation and is not inferred from the task's open-source description.
+
 ## Milestone 5A desktop additions
 
 The pre-installation [desktop dependency review](DESKTOP_DEPENDENCIES.md) records pinned Tauri 2, official native plugins, serialization and tempfile additions, necessity, maintenance, licensing and portability. Fresh [npm full](evidence/milestone-5a/npm-audit-all.json)/[production](evidence/milestone-5a/npm-audit-production.json) audits remain five high development-only findings / zero production vulnerabilities. [RustSec evidence](evidence/milestone-5a/cargo-audit.json) reports zero vulnerability entries plus four unmaintained and one unsoundness warning in the all-target lockfile. Those warning packages are absent from the resolved Windows target tree; they are not silently ignored. See the 5A report for affected packages and review decisions. Generated native notices include all 477 resolved dependency entries, including build/platform-specific packages.

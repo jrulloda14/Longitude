@@ -1,0 +1,6 @@
+{
+  "before": "Reused approved 5B after-images, not fresh captures",
+  "after": "Nine final-source screenshots captured by the full Windows browser run at 8f81408, fixed instants and approved existing fixtures",
+  "nativeMac": "No physical Mac screenshots or runtime acceptance supplied",
+  "nativeWindows": "Actual final-source Windows debug executable captures; not Mac screenshots"
+}

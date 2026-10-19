@@ -1,0 +1,35 @@
+PASS native offline asset startup and independent windows
+PASS native assets and IPC work with browser network offline
+PASS native caption maximize, restore and minimize
+PASS show and hide do not grow the native content size
+PASS widget opens without hiding main and shares manual selection
+PASS widget pin and opacity use shared durable settings
+PASS widget preview timeout cannot reset a newer main-window planning selection
+PASS widget expands and closes independently
+PASS stale cross-window transaction is rejected without lost edit
+PASS native preferences UI and durable time format
+PASS immediate native WebView reload does not lose the last preference
+PASS native sign-in registration can enable and disable with its original state restored
+PASS invalid shortcut reports failure and retains the owned shortcut
+PASS bare typing shortcut is rejected without replacing the working binding
+PASS equivalent shortcut aliases preserve ownership without duplicate registration
+PASS a shortcut occupied by another native process is rejected with rollback
+PASS shortcut rebind releases prior ownership
+PASS widget has no hydration/file-write capability
+PASS main cannot bypass authority with a raw file commit
+PASS native close hides with tray; reopen preserves selection
+PASS window refresh rehydrates the canonical selected instant
+Native: [1019/223342.582:ERROR:ui\gfx\win\window_impl.cc:172] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+PASS real native process quit flushes pending settings
+PASS native restart restores saved configuration and resets live session
+PASS single-instance launch reopens existing authority
+Native: [1019/223406.790:ERROR:ui\gfx\win\window_impl.cc:172] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+PASS Close with tray disabled exits without an inaccessible background process
+Native: [1019/223409.526:ERROR:ui\gfx\win\window_impl.cc:172] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+PASS explicit Quit close preference exits even with a tray icon
+Native: [1019/223411.389:ERROR:ui\gfx\win\window_impl.cc:172] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+PASS native malformed head recovers previous configuration and retains bytes
+Native: [1019/223413.421:ERROR:ui\gfx\win\window_impl.cc:172] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+PASS native future schema cannot be overwritten
+PASS no WebView page exceptions
+Native: [1019/223416.455:ERROR:ui\gfx\win\window_impl.cc:172] Failed to unregister class Chrome_WidgetWin_0. Error = 1412

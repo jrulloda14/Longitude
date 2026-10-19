@@ -24,3 +24,14 @@ Audited October 19, 2026 before application code changes. Starting commit: b52dc
 ## Verification plan
 
 Run typecheck, all unit/browser regressions, production frontend, Rust tests/format, explicit capability guards and fresh Windows native tests. Execute Mac CI on actual source commits, recording each target's logs/test/artifact status separately from physical acceptance. Keep previous evidence immutable. No Milestone 6 work, forced push, release publication, signing secrets or system-security bypass is authorized.
+
+## Subsequent demonstrated findings
+
+- Baseline Mac run 39264501704 failed on both architectures at the static Tauri feature allowlist. CLI preparation was added in 658d6e9; validation and capabilities were not bypassed.
+- Run 39265526785 then compiled both native targets and passed their Rust suites, but each Mac WebKit suite had 68 passed / 4 failed: direct-entry pointer selection and modal keyboard/focus behavior. The failures are retained in architecture-specific logs.
+- The prior Windows occupied-shortcut case only attempted an alias of its own binding. It was replaced with a genuinely competing process, plus a passing alias-equivalence case and rejected-bare-typing case.
+- WebKit selection needed ownership of the first pointer default, while preserving later caret edits. Modal Escape/Tab handling needed document-level handling for the active modal when Safari leaves body focused, plus an explicit opener reference. These are interaction corrections in the existing components; classes/styles/layout and engines remain unchanged.
+
+- A final source review found a remaining HTML red close dot in the native Mac widget. It is now a neutral X in the same footprint; browser preview preserves the original dot. Main traffic lights remain native. Added a third browser regression; final application source is `8f81408`.
+
+- Final source `8f81408`, run 39269770931: both hosted Mac targets succeeded (696 unit / 33 Rust / 75 WebKit each, debug/release app/DMG builds). Downloaded artifact digests match GitHub. Strict ad-hoc signature verification passes; Gatekeeper rejects both (exit 3); physical Mac acceptance and performance remain Blocked.

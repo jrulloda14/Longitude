@@ -1,0 +1,25 @@
+{
+  "source": "8f81408311447f24f6cf2dd13a062083a541b312",
+  "platform": "Windows 10 Pro 19045 x64",
+  "artifacts": [
+    {
+      "path": "src-tauri/target/debug/longitude.exe",
+      "bytes": 14908928,
+      "sha256": "7c06db6e742619f90b64ea643f5f866d3f044364f73dda8f61eb1c11a1830214",
+      "signature": "NotSigned"
+    },
+    {
+      "path": "src-tauri/target/release/longitude.exe",
+      "bytes": 9043456,
+      "sha256": "d5d729feb3d43a08946b273a93457bf0f9c28c10ff6f576f9b3330911d405337",
+      "signature": "NotSigned"
+    },
+    {
+      "path": "src-tauri/target/release/bundle/nsis/Longitude_0.1.0_x64-setup.exe",
+      "bytes": 2353315,
+      "sha256": "3540db60a8a8ec9a6b39f0710601703fa9ce02cccc3295905809cb2948746f5d",
+      "signature": "NotSigned"
+    }
+  ],
+  "releaseReady": false
+}

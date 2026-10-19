@@ -1,0 +1,41 @@
+   Compiling longitude v0.1.0 (H:\Projects\Longitude\src-tauri)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.60s
+     Running unittests src\main.rs (src-tauri\target\debug\deps\longitude-a9cfba144d5ae914.exe)
+
+running 33 tests
+test authority::tests::accepts_shared_typescript_fixture ... ok
+test authority::tests::duplicate_ids_invalid_refs_and_intervals_rejected ... ok
+test authority::tests::durable_commit_preserves_recovery_and_backup ... ok
+test authority::tests::external_edit_is_never_silently_overwritten ... ok
+test authority::tests::failed_storage_never_advances_canonical_revision ... ok
+test authority::tests::latest_session_state_is_shared_with_late_subscribers ... ok
+test authority::tests::readonly_future_data_allows_session_actions_but_no_durable_edits ... ok
+test authority::tests::selection_and_view_never_write_disk ... ok
+test authority::tests::stale_transaction_cannot_overwrite_current ... ok
+test lifecycle::tests::hide_requires_reachable_native_entry_point ... ok
+test lifecycle::tests::rescue_does_not_undo_mac_dock_hide ... ok
+test macos::tests::app_icon_has_a_valid_icns_container_header ... ok
+test macos::tests::native_appearance_follows_system_or_explicit_preference ... ok
+test macos::tests::platform_overrides_merge_and_deserialize_with_tauris_parser ... ok
+test macos::tests::template_has_retina_dimensions_and_transparent_background ... ok
+test placement::tests::absent_displays_do_not_panic ... ok
+test placement::tests::fractional_scale_minimums ... ok
+test placement::tests::negative_display_is_preserved ... ok
+test placement::tests::removed_display_and_oversized_window_are_clamped ... ok
+test placement::tests::tiny_window_gets_minimum ... ok
+test shortcuts::tests::aliases_do_not_attempt_to_register_an_already_owned_chord ... ok
+test shortcuts::tests::bare_typing_and_shift_typing_cannot_capture_normal_input ... ok
+test shortcuts::tests::explicit_option_command_and_other_modified_chords_remain_configurable ... ok
+test shortcuts::tests::malformed_shortcuts_fail_before_os_changes ... ok
+test shortcuts::tests::platform_defaults_are_valid ... ok
+test shortcuts::tests::standard_mac_application_and_input_source_chords_are_preserved ... ok
+test storage::tests::failed_replace_keeps_original ... ok
+test storage::tests::held_lock_fails_visibly_instead_of_blocking_the_ui ... ok
+test storage::tests::interrupted_prepared_file_does_not_replace_head ... ok
+test storage::tests::malformed_data_is_returned_intact_for_shared_recovery ... ok
+test storage::tests::path_and_legacy_restrictions ... ok
+test storage::tests::concurrent_writers_cannot_both_win ... ok
+test storage::tests::restart_and_conditional_replacement ... ok
+
+test result: ok. 33 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.28s
+

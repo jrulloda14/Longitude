@@ -1,0 +1,93 @@
+{
+  "baseline": "b52dce4cb39d168ee4375b8ee020b07fb7d7338b",
+  "applicationAndTestSource": "8f81408311447f24f6cf2dd13a062083a541b312",
+  "milestone": "5B only; no Milestone 6",
+  "windows": {
+    "typecheck": "Pass (exit 0)",
+    "frontendBuild": "Pass (exit 0)",
+    "rustFormat": "Pass (exit 0)",
+    "unitPassed": 696,
+    "unitFiles": 11,
+    "browserPassed": 84,
+    "browserDurationMs": 125270.769,
+    "rustPassed": 33,
+    "nativePassed": 29,
+    "releaseSmokePassed": 5,
+    "visualComparisons": 9,
+    "changedPixels": 0,
+    "artifacts": "windows-artifacts.json",
+    "physicalAcceptanceComplete": false
+  },
+  "macOS": {
+    "run": 39269770931,
+    "source": "8f81408311447f24f6cf2dd13a062083a541b312",
+    "jobs": [
+      {
+        "id": 118119194606,
+        "name": "build (macos-15-intel, x86_64-apple-darwin)",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 118119195080,
+        "name": "build (macos-15, aarch64-apple-darwin)",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ],
+    "results": [
+      {
+        "architecture": "arm64",
+        "target": "aarch64-apple-darwin",
+        "unitPassed": 696,
+        "rustPassed": 33,
+        "browserPassed": 75,
+        "browserDurationMs": 97452.675,
+        "codesignVerifyExit": 0,
+        "gatekeeperExit": 3,
+        "notarized": false,
+        "runtimeVerified": false,
+        "releaseReady": false
+      },
+      {
+        "architecture": "intel",
+        "target": "x86_64-apple-darwin",
+        "unitPassed": 696,
+        "rustPassed": 33,
+        "browserPassed": 75,
+        "browserDurationMs": 169505.11200000002,
+        "codesignVerifyExit": 0,
+        "gatekeeperExit": 3,
+        "notarized": false,
+        "runtimeVerified": false,
+        "releaseReady": false
+      }
+    ],
+    "physicalHardware": "Blocked - no test device available",
+    "performance": "Blocked - not measured",
+    "distribution": "Blocked - no Developer ID/notarization/physical install acceptance"
+  },
+  "dependencies": {
+    "new": 0,
+    "lockfilesChanged": false,
+    "npmProductionFindings": 0,
+    "npmDevelopmentHighFindings": 5,
+    "rustVulnerabilities": 0,
+    "rustUnmaintainedWarnings": 4,
+    "rustUnsoundWarnings": 1
+  },
+  "preservation": {
+    "unchangedPaths": [
+      "src/lib",
+      "src/persistence",
+      "src/scheduling",
+      "src/styles.css",
+      "src/fonts.css",
+      "package-lock.json",
+      "src-tauri/Cargo.lock",
+      "src-tauri/capabilities"
+    ],
+    "milestone6and7PlanSHA256": "38aeefc73544b11dd9580a870fa638fcfd74ef6c379013d7211a845878e9c25e"
+  },
+  "overall": "Build-ready (Windows and both Mac CI targets); physical acceptance Blocked"
+}
