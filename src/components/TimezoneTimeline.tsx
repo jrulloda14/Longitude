@@ -8,7 +8,7 @@
  * the meeting start; the dial follows.
  */
 import React, { useMemo, useRef } from 'react';
-import { Range, dayState } from '../lib/schedule';
+import { Range, stateRanges } from '../lib/schedule';
 import { Instant, MS, dayNumber, dayShift, formatOffset, formatShortDate, formatTime, formatTimeString, offsetMinutes, wallTime } from '../lib/time';
 import { civilHourTicks, localDayBounds, localHourCells } from '../lib/time-axis';
 import { snapInstant, stepInstant } from '../lib/time-selection';
@@ -52,10 +52,19 @@ export function TimezoneTimeline({
   const roomy = trackW / (span / MS.HOUR) >= 30;
   const sparse = trackW / (span / MS.HOUR) < 19;
   const ticks = useMemo(() => civilHourTicks(referenceZone, dayStart), [referenceZone, dayStart]);
-  const rows = useMemo(() => locations.map(loc => ({ loc, cells: localHourCells(loc.zone, dayStart, dayEnd).map(c => ({
-    ...c, state: dayState(loc, c.start + (c.end - c.start) / 2),
-    description: `${formatShortDate(loc.zone, c.start)}, ${formatTimeString(loc.zone, c.start, { hour12 })} · ${formatOffset(offsetMinutes(loc.zone, c.start))}`,
-  })) })), [locations, dayStart, dayEnd, hour12]);
+  const rows = useMemo(() => locations.map(loc => {
+    const states = stateRanges(loc, dayStart, dayEnd);
+    return { loc, cells: localHourCells(loc.zone, dayStart, dayEnd).map(c => {
+      const bands = states.filter(s => s.end > c.start && s.start < c.end);
+      const stops = bands.flatMap(s => {
+        const a = Math.max(0, (s.start - c.start) / (c.end - c.start) * 100);
+        const b = Math.min(100, (s.end - c.start) / (c.end - c.start) * 100);
+        return [`${BAND[s.state]} ${a}%`, `${BAND[s.state]} ${b}%`];
+      });
+      return { ...c, background: bands.length === 1 ? BAND[bands[0].state] : `linear-gradient(to right, ${stops.join(', ')})`,
+        description: `${formatShortDate(loc.zone, c.start)}, ${formatTimeString(loc.zone, c.start, { hour12 })} · ${formatOffset(offsetMinutes(loc.zone, c.start))}` };
+    }) };
+  }), [locations, dayStart, dayEnd, hour12]);
 
   const setFromX = (clientX: number, fine: boolean) => {
     const r = trackRef.current!.getBoundingClientRect();
@@ -141,7 +150,7 @@ export function TimezoneTimeline({
                     title={c.description}
                     data-cell-start={c.start} data-cell-end={c.end} data-zone={loc.zone}
                     className={cx('tnum absolute bottom-[3px] top-[3px] flex items-center justify-center overflow-hidden text-[10px] leading-none', midnight ? 'font-semibold text-ink' : 'text-ink-muted')}
-                    style={{ left: pct(c.start), width: `max(0px, calc(${(((c.end - c.start) / span) * 100).toFixed(3)}% - 1px))`, background: BAND[c.state], borderRadius: 2, boxShadow: midnight ? 'inset 1.5px 0 0 var(--ink-muted)' : undefined }}
+                    style={{ left: pct(c.start), width: `max(0px, calc(${(((c.end - c.start) / span) * 100).toFixed(3)}% - 1px))`, background: c.background, borderRadius: 2, boxShadow: midnight ? 'inset 1.5px 0 0 var(--ink-muted)' : undefined }}
                   >
                     {full ? (midnight ? (roomy ? formatShortDate(loc.zone, c.start).slice(0, 3) : String(wallTime(loc.zone, c.start).day)) : sparse && c.hour % 3 ? '' : hourLabel(c.hour)) : c.transition && c.minute ? `${hourLabel(c.hour)}:${String(c.minute).padStart(2, '0')}` : ''}
                   </div>

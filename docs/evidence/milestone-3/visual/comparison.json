@@ -1,0 +1,103 @@
+{
+  "browser": "155.0.4283.62",
+  "method": "Canvas decoded RGBA; any channel difference >16. Strict Playwright perceptual assertions are separate.",
+  "comparisons": [
+    {
+      "name": "clock-dark",
+      "width": 850,
+      "height": 560,
+      "changedPixels": 860,
+      "changedPercent": 0.18067226890756302,
+      "bounds": {
+        "minX": 444,
+        "minY": 327,
+        "maxX": 746,
+        "maxY": 408
+      }
+    },
+    {
+      "name": "clock-light",
+      "width": 850,
+      "height": 560,
+      "changedPixels": 862,
+      "changedPercent": 0.1810924369747899,
+      "bounds": {
+        "minX": 444,
+        "minY": 327,
+        "maxX": 746,
+        "maxY": 408
+      }
+    },
+    {
+      "name": "clock-planning",
+      "width": 850,
+      "height": 560,
+      "changedPixels": 860,
+      "changedPercent": 0.18067226890756302,
+      "bounds": {
+        "minX": 444,
+        "minY": 327,
+        "maxX": 746,
+        "maxY": 408
+      }
+    },
+    {
+      "name": "planner-dark",
+      "width": 850,
+      "height": 560,
+      "changedPixels": 9368,
+      "changedPercent": 1.9680672268907562,
+      "bounds": {
+        "minX": 129,
+        "minY": 60,
+        "maxX": 728,
+        "maxY": 509
+      }
+    },
+    {
+      "name": "settings-dark",
+      "width": 850,
+      "height": 560,
+      "changedPixels": 0,
+      "changedPercent": 0,
+      "bounds": null
+    },
+    {
+      "name": "clock-narrow",
+      "width": 380,
+      "height": 600,
+      "changedPixels": 0,
+      "changedPercent": 0,
+      "bounds": null
+    },
+    {
+      "name": "compact-live",
+      "width": 400,
+      "height": 400,
+      "changedPixels": 0,
+      "changedPercent": 0,
+      "bounds": null
+    },
+    {
+      "name": "london-fall",
+      "width": 850,
+      "height": 560,
+      "changedPixels": 0,
+      "changedPercent": 0,
+      "bounds": null
+    },
+    {
+      "name": "kathmandu",
+      "width": 850,
+      "height": 560,
+      "changedPixels": 878,
+      "changedPercent": 0.18445378151260505,
+      "bounds": {
+        "minX": 489,
+        "minY": 327,
+        "maxX": 824,
+        "maxY": 408
+      }
+    }
+  ]
+}

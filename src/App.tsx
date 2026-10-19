@@ -28,6 +28,7 @@ import { TimezoneList } from './components/TimezoneList';
 import { TimezoneSearch } from './components/TimezoneSearch';
 import { TimezoneTimeline } from './components/TimezoneTimeline';
 import { TitleBar } from './components/WindowChrome';
+import { PlannerSearchControls, SearchRequest } from './components/PlannerSearchControls';
 
 function useElementWidth<T extends HTMLElement>(mode: string): [React.RefObject<T>, number] {
   const ref = useRef<T>(null);
@@ -99,6 +100,7 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
   const copy = async (text: string) => { const ok = await platform.copyText(text); notify(ok ? 'Copied to clipboard' : 'Couldn’t copy'); return ok; };
 
   const addCity = (c: City) => {
+    if (group.locations.length >= 32) { notify('A group supports up to 32 locations.'); return; }
     dispatch({ type: 'loc/add', location: locationFromCity(c, s.defaultWork) });
     notify(`Added ${c.name}`);
   };
@@ -271,6 +273,7 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
 
       {state.view === 'planner' && (
         <PlannerView
+          key={group.id}
           group={group} refZone={refZone} refLabel={refLabel} at={at} now={now} live={live} fmt={fmt} step={s.step} reduced={reduced} coords={coords}
           durationMin={state.meeting.durationMin} groupSelector={groupSelector}
           onSelect={select} onReset={reset} onShare={() => setLayer('share')} onAdd={() => setLayer('search')} dstNotes={dstNotes}
@@ -343,7 +346,18 @@ function PlannerView(p: {
   const { start: dayStart, end: dayEnd } = useMemo(() => localDayBounds(p.refZone, p.at), [p.refZone, civilDay]);
   const verdict = evaluate(people, p.at, p.durationMin);
   const overlap = useMemo(() => commonWorkingRanges(people, dayStart, dayEnd), [people, dayStart, dayEnd]);
-  const suggestions = useMemo(() => suggestTimes(people, dayStart, dayEnd, p.durationMin, p.at, 3), [people, dayStart, dayEnd, p.durationMin, p.at]);
+  const [request, setRequest] = useState<SearchRequest | null>(null);
+  const [showReasons, setShowReasons] = useState(false);
+  const [customDuration, setCustomDuration] = useState(false);
+  // Custom searches retain the selection at Search; live ticks never rerank them.
+  const near = request?.near ?? Math.floor(p.at / MS.MIN) * MS.MIN;
+  const search = useMemo(() => {
+    try {
+      const options = request ? { ...request.options, participantIds: request.options.participantIds?.filter(id => people.some(person => person.id === id)) } : {};
+      return { suggestions: suggestTimes(people, request?.from ?? dayStart, request?.to ?? dayEnd, p.durationMin, near, 3, 30, options), error: '' };
+    } catch (e) { return { suggestions: [], error: (e as Error).message }; }
+  }, [people, dayStart, dayEnd, p.durationMin, near, request]);
+  const suggestions = search.suggestions;
   const times = Object.fromEntries(p.group.locations.map((l) => [l.id, formatTimeString(l.zone, p.at, p.fmt)]));
   const fmtRange = (r: { start: Instant; end: Instant }) => `${formatTimeString(p.refZone, r.start, p.fmt)}–${formatTimeString(p.refZone, r.end, p.fmt)}`;
 
@@ -364,13 +378,19 @@ function PlannerView(p: {
             onChange={(v) => p.onSelect(v)} onReset={p.onReset} />
         </div>
         <div className="flex min-w-0 flex-1 flex-col gap-2">
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             {p.groupSelector}
+            <PlannerSearchControls key={p.group.id} locations={p.group.locations} zone={p.refZone} at={p.at} durationMin={p.durationMin} hour12={p.fmt.hour12} request={request} onSearch={setRequest} onClear={() => setRequest(null)} />
+            {!!suggestions.length && <button className="text-caption text-ink-muted underline decoration-line-strong underline-offset-2" aria-expanded={showReasons} onClick={() => setShowReasons(!showReasons)}>Why these times</button>}
             <div className="ml-auto flex items-center gap-1.5">
               <label className="sr-only" htmlFor="lg-plan-dur">Duration</label>
-              <select id="lg-plan-dur" className="lg-select tnum text-body" value={p.durationMin} onChange={(e) => p.onDuration(+e.target.value)}>
-                {[15, 30, 45, 60, 90].map((d) => <option key={d} value={d}>{d < 60 ? `${d} min` : `${d / 60}${d % 60 ? '.5' : ''} h`}</option>)}
+              <select id="lg-plan-dur" className="lg-select tnum w-[74px] text-body" value={customDuration ? 'custom' : p.durationMin} onChange={(e) => {
+                setCustomDuration(e.target.value === 'custom'); if (e.target.value !== 'custom') p.onDuration(+e.target.value);
+              }}>
+                {[...new Set([15, 30, 45, 60, 90, 120, 180, 240, 480, 1440, p.durationMin])].sort((a, b) => a - b).map((d) => <option key={d} value={d}>{d < 60 ? `${d} min` : `${d / 60} h`}</option>)}
+                <option value="custom">Custom minutes…</option>
               </select>
+              {customDuration && <input aria-label="Custom duration minutes" type="number" min={1} max={1440} value={p.durationMin} onChange={e => { const n = +e.target.value; if (Number.isInteger(n) && n >= 1 && n <= 1440) p.onDuration(n); }} className="tnum w-16 rounded-md border border-line bg-field px-2 py-1 text-body" />}
               <Button variant="primary" icon={<Share2 size={13} />} onClick={p.onShare}>Share</Button>
             </div>
           </div>
@@ -398,17 +418,20 @@ function PlannerView(p: {
       <div className="flex shrink-0 flex-wrap items-center gap-2 border-t border-line px-4 py-2.5">
         <span className="flex items-center gap-1.5 text-label text-ink-muted"><Sparkles size={13} aria-hidden /> Suggested</span>
         {suggestions.map((sg) => (
-          <button key={sg.start} onClick={() => p.onSelect(sg.start)}
+          <button key={sg.start} onClick={() => p.onSelect(sg.start)} title={sg.reasons.join('\n')} aria-label={`${formatTimeString(p.refZone, sg.start, p.fmt)}. ${sg.reasons.join('. ')}`}
             className={cx('tnum flex h-7 items-center gap-1.5 rounded-md border px-2.5 text-label', Math.abs(sg.start - p.at) < MS.MIN ? 'border-accent bg-accent-soft' : 'border-line hover:bg-field')}>
             <LevelGlyph level={sg.verdict.level} size={10} />
             {formatTimeString(p.refZone, sg.start, p.fmt)}
+            {request && request.to - request.from > 25 * MS.HOUR && <span className="text-ink-faint">{new Intl.DateTimeFormat('en-US', { timeZone: p.refZone, month: 'short', day: 'numeric' }).format(sg.start)}</span>}
             <span className="text-ink-faint">{sg.verdict.people.filter((x) => x.state === 'work').length}/{sg.verdict.people.length}</span>
           </button>
         ))}
+        {!suggestions.length && <span role="status" className="text-caption text-ink-muted">{search.error || 'No times meet these filters.'}</span>}
         {p.dstNotes.length > 0 && (
           <div className="ml-auto"><DstNotice>{p.dstNotes[0]}{p.dstNotes.length > 1 ? ` (+${p.dstNotes.length - 1} more)` : ''}</DstNotice></div>
         )}
       </div>
+      {showReasons && <ol aria-label="Recommendation reasons" className="border-t border-line px-4 py-2 text-caption text-ink-muted">{suggestions.map(sg => <li key={sg.start} className="py-1">{formatTimeString(p.refZone, sg.start, p.fmt)} · {sg.reasons.join(' · ')}</li>)}</ol>}
     </main>
   );
 }

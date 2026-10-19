@@ -1,6 +1,6 @@
 # Longitude implementation audit
 
-Current follow-up: [Milestone 1](MILESTONE_1.md) establishes the timezone foundation; [Milestone 2](MILESTONE_2.md) integrates the existing interactive frontend. The baseline findings below are retained as audit history. Scheduling defects remain open for Milestone 3, which is not authorized yet.
+Current follow-up: [Milestone 1](MILESTONE_1.md) establishes the timezone foundation; [Milestone 2](MILESTONE_2.md) integrates the existing interactive frontend; [Milestone 3](MILESTONE_3.md) fixes both scheduling defects with exact interval coverage and baseline-comparison evidence. The findings below remain audit history; references to open scheduling work describe that historical state. Stop before Milestone 4.
 
 Audit date: October 19, 2026 (Asia/Singapore).
 

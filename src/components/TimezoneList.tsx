@@ -4,7 +4,7 @@
  */
 import { Anchor, ArrowDown, ArrowUp, Clock, Copy, Trash2 } from 'lucide-react';
 import React, { useRef, useState } from 'react';
-import { WorkingHours, SleepHours } from '../lib/schedule';
+import { WorkingHours, SleepHours, validateHours, workIntervals, workSleepConflict } from '../lib/schedule';
 import { Instant, TimeFormat, formatTimeString } from '../lib/time';
 import { Button, ContextMenu, Dialog, MenuItem, cx } from '../primitives';
 import type { Location } from '../state/store';
@@ -148,8 +148,8 @@ function minutesLabel(m: number, hour12: boolean) {
 export function TimeSelect({ value, onChange, label, hour12 }: { value: number; onChange(v: number): void; label: string; hour12: boolean }) {
   return (
     <select aria-label={label} className="lg-select tnum text-body" value={value} onChange={(e) => onChange(+e.target.value)}>
-      {Array.from({ length: 48 }, (_, i) => i * 30).map((m) => (
-        <option key={m} value={m}>{minutesLabel(m, hour12)}</option>
+      {[...new Set([...Array.from({ length: 96 }, (_, i) => i * 15), value, ...(label.toLowerCase().includes('ends') ? [1440] : [])])].sort((a, b) => a - b).map((m) => (
+        <option key={m} value={m}>{m === 1440 ? 'Midnight (end of day)' : minutesLabel(m, hour12)}</option>
       ))}
     </select>
   );
@@ -164,9 +164,16 @@ export function WorkingHoursEditor({ location, onClose, onSave, format }: {
   const [work, setWork] = useState(location.work);
   const [sleep, setSleep] = useState(location.sleep);
   const [note, setNote] = useState(location.note ?? '');
-  const invalid = work.start === work.end || work.days.length === 0;
+  let validation = '';
+  try { validateHours(work, sleep); } catch (e) { validation = (e as Error).message; }
+  const invalid = !!validation;
+  const intervals = workIntervals(work);
+  const setInterval = (index: number, field: 'start' | 'end', value: number) => {
+    const next = intervals.map((item, i) => i === index ? { ...item, [field]: value } : item);
+    setWork({ ...work, ...next[0], ...(work.intervals || next.length > 1 ? { intervals: next } : {}) });
+  };
   return (
-    <Dialog open onClose={onClose} title={`Working hours — ${location.name}`} width={360}>
+    <Dialog open onClose={onClose} title={`Working hours — ${location.name}`} width={360} className="lg-scroll max-h-[calc(100vh-80px)] !overflow-y-auto">
       <div className="p-4">
         <h3 className="text-title font-semibold">{location.name}</h3>
         <p className="mt-0.5 text-caption text-ink-muted">Hours are local to {location.name}. Used only to judge meeting times — not anyone's calendar.</p>
@@ -176,11 +183,16 @@ export function WorkingHoursEditor({ location, onClose, onSave, format }: {
           className="mt-1 h-7 w-full rounded-md border border-line bg-field px-2 text-body outline-none placeholder:text-ink-faint focus:border-line-strong" />
 
         <div className="mt-4 text-label font-medium text-ink-muted">Working hours</div>
-        <div className="mt-1 flex items-center gap-2">
-          <TimeSelect label="Work starts" value={work.start} onChange={(v) => setWork({ ...work, start: v })} hour12={format.hour12} />
+        {intervals.map((item, index) => <div key={index} className="mt-1 flex items-center gap-2">
+          <TimeSelect label={index ? `Work ${index + 1} starts` : 'Work starts'} value={item.start} onChange={(v) => setInterval(index, 'start', v)} hour12={format.hour12} />
           <span className="text-ink-faint">to</span>
-          <TimeSelect label="Work ends" value={work.end} onChange={(v) => setWork({ ...work, end: v })} hour12={format.hour12} />
-        </div>
+          <TimeSelect label={index ? `Work ${index + 1} ends` : 'Work ends'} value={item.end} onChange={(v) => setInterval(index, 'end', v)} hour12={format.hour12} />
+          {intervals.length > 1 && <button aria-label={`Remove work interval ${index + 1}`} className="text-caption text-ink-muted" onClick={() => {
+            const next = intervals.filter((_, i) => i !== index); setWork({ ...work, ...next[0], intervals: next });
+          }}>×</button>}
+        </div>)}
+        <button className="mt-1 text-caption text-ink-muted underline decoration-line-strong underline-offset-2" disabled={intervals.length >= 8} onClick={() => setWork({ ...work, intervals: [...intervals, { start: 1080, end: 1200 }] })}>Add work interval</button>
+        {intervals.some(i => i.end < i.start) && <p className="mt-1 text-caption text-ink-faint">Overnight shifts belong to the day they start.</p>}
         <div role="group" aria-label="Working days" className="mt-2 flex gap-1">
           {DAY_LETTERS.map((d, i) => {
             const on = work.days.includes(i);
@@ -200,7 +212,9 @@ export function WorkingHoursEditor({ location, onClose, onSave, format }: {
           <span className="text-ink-faint">to</span>
           <TimeSelect label="Sleep ends" value={sleep.end} onChange={(v) => setSleep({ ...sleep, end: v })} hour12={format.hour12} />
         </div>
-        {invalid && <p role="alert" className="mt-3 text-caption text-danger">{work.days.length === 0 ? 'Pick at least one working day.' : 'Start and end can’t be the same.'}</p>}
+        {!work.days.length && <p className="mt-2 text-caption text-ink-faint">No working days selected. This location has no working hours.</p>}
+        {!invalid && workSleepConflict(work, sleep) && <p role="status" className="mt-2 text-caption text-edge">Work overlaps sleeping hours. Sleeping hours take priority; adjust them for overnight shifts.</p>}
+        {invalid && <p role="alert" className="mt-3 text-caption text-danger">{validation}</p>}
       </div>
       <div className="flex justify-end gap-2 border-t border-line px-4 py-3">
         <Button variant="ghost" onClick={onClose}>Cancel</Button>

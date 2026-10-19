@@ -5,11 +5,11 @@
 
 type Instant = number;
 
-interface WorkingHours { /** minutes after local midnight */ start: number; end: number; /** 0 = Sunday */ days: number[] }
+interface WorkingHours { /** minutes after local midnight */ start: number; end: number; /** Shift-start weekday, 0 = Sunday */ days: number[]; intervals?: { start: number; end: number }[] }
 interface SleepHours { start: number; end: number }
 interface Location { id: string; name: string; country: string; zone: string; lat: number; lon: number; coordsApprox?: boolean; note?: string; work: WorkingHours; sleep: SleepHours }
 type DayState = 'work' | 'edge' | 'off' | 'sleep';
-interface OverlapVerdict { level: 'good' | 'partial' | 'poor' | 'none'; headline: string; people: { id: string; label: string; state: DayState }[]; cost: number }
+interface OverlapVerdict { level: 'good' | 'partial' | 'poor' | 'none'; headline: string; people: { id: string; label: string; state: DayState; workingMin: number; sleepingMin: number; burden: number }[]; cost: number }
 interface Range { start: Instant; end: Instant }
 interface City { id: string; name: string; country: string; zone: string; lat: number; lon: number; aliases?: string[]; coordsApprox?: boolean }
 interface TimeFormat { hour12: boolean }

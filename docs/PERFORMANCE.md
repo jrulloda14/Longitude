@@ -111,3 +111,42 @@ The first command assumes the preserved Milestone 1 output is available; rebuild
 The observed live CPU estimate is higher and planning CPU/renderer task time lower; neither is a controlled steady-state result. Private memory is slightly higher. The measured interaction proxy passes the provisional p95 33.3 ms and frame p95 20 ms budgets, with no observed long task. CPU/memory budgets remain **unmet/unverified for native delivery**; they are not waived. Startup polling is too coarse to certify startup performance. No native WebView, 10-minute growth, 120 Hz or physical latency result is claimed.
 
 Final Milestone 2 production JS: **417.09 kB / 129.17 kB gzip**, CSS **23.40 / 5.87 kB** (Vite decimal kB), versus Milestone 1 JS 411.34 / 127.29 kB. Runtime dependencies are unchanged. Existing style files are unchanged; CSS output adds only utilities used by the accessible controls. The development browser fixture and Playwright are excluded from runtime output.
+
+## Milestone 3 scheduling profile
+
+`node scripts/measure-scheduling.mjs` bundles the production domain, executes the same workload in separate Node and installed headless Edge processes, and verifies identical result instants/numeric scores. [Raw evidence](evidence/milestone-3/scheduling-performance.json). Actual hardware remains the i5-6500 four-core host, 17,067,753,472 bytes RAM and Windows 10 Pro 19045 listed above. Runtime metadata is included in the evidence. Runs are sequential, after builds/tests stopped.
+
+Workload: two intervals per participant, eight zones including Kathmandu/Chatham/Adelaide/Lord Howe, London DST date range, 47-minute duration, 30-minute candidate step, fairness enabled. One first-query measurement and seven cached repeats; prior workloads can warm JIT/date caches, so 'first' is not a fully fresh-process measurement for every row. No statistical speed guarantee follows.
+
+| Participants / days / candidate starts | Node first / warm p50 / max | Edge first / warm p50 / max |
+| --- | ---: | ---: |
+| 4 / 1 / 47 | 25.28 / 0.45 / 0.68 ms | 21.70 / 0.60 / 1.20 ms |
+| 12 / 7 / 335 | 25.51 / 5.96 / 7.73 ms | 22.90 / 6.10 / 6.60 ms |
+| 24 / 14 / 671 | 46.92 / 12.51 / 14.24 ms | 31.70 / 13.80 / 16.40 ms |
+| 32 / 31 / 1487 | 81.18 / 45.53 / 53.28 ms | 73.00 / 36.40 / 45.90 ms |
+
+Provisional same-host query budgets: <=50 ms first query for 24 participants/14 days, <=100 ms for the 32/31 workload. These measured cases pass. The 73 ms browser maximum case can cause a brief main-thread pause; it is not certified smooth at 60 Hz. Typical requests are smaller and custom searches execute on explicit actions rather than live ticks, so a worker was not justified for this milestone. Eight-interval/5000-candidate worst-case timing, cancellation and repeated-query memory stabilization remain unprofiled. Add a worker only after a concrete target workload exceeds an agreed responsiveness budget. Raw Node heap deltas include GC noise; RSS is process memory, not native app memory.
+
+The profile cache is bounded to 64 entries and date-existence cache to 1024, in addition to the timezone engine's existing caps. Exact track/strip shading shares compiled daily ranges. Production JS is 433.48 kB / 134.40 kB gzip, CSS 23.66 / 5.94 kB; no dependency increase. Existing style files remain unchanged.
+
+## Milestone 3 frontend drag/idle check
+
+`npm run perf -- --site=milestone-3 --out=docs/evidence/milestone-3/frontend-performance.json` passes. [Raw final-build measurement](evidence/milestone-3/frontend-performance.json), same hardware/browser/process-snapshot method described above. Scheduling benchmark finished before this run; no builds/tests ran during measurement. This is one short run on a shared development host, not a controlled speed comparison with Milestone 2.
+
+| Metric | Milestone 3 |
+| --- | ---: |
+| Live / planning elapsed sample | 22.71 / 22.50 s |
+| Live CPU, total machine / one core, estimates | 7.98% / 31.92% |
+| Planning CPU, total machine / one core, estimates | 0.69% / 2.78% |
+| Live / planning peak sampled private memory | 352.69 / 247.08 MiB |
+| Live / planning summed working sets | 701.14 / 486.04 MiB |
+| Live / planning renderer heap end | 4.76 / 4.63 MiB |
+| Live / planning renderer task ms per second | 14.62 / 6.38 |
+| Event to committed-value next frame p50 / p95 / max | 16.8 / 16.9 / 17.0 ms |
+| Frame interval p95 / max | 16.8 / 17.0 ms |
+| Snapped commits / pointer moves | 36 / 120 |
+| Captured outside moves | 59 / 59 |
+| Drag long tasks >50 ms / page exceptions / external requests | 0 / 0 / 0 |
+| Browser domain probes | 428 / 428 passing |
+
+All mode samples have changing process sets, so CPU remains a lower-bound estimate. Working sets include shared pages, private memory is snapshot peak, and frame timing is a committed-DOM/frame proxy. Interaction budgets pass for this workload. Native idle CPU/private-memory and long-duration-growth budgets remain unmet/unverified, not waived; no Tauri/WebView2 resource result follows from headless Edge.

@@ -1,5 +1,9 @@
 # Dependency review
 
+## Milestone 3 resolved status
+
+No runtime or development dependency was added, removed or upgraded. `package.json` and `package-lock.json` match approved baseline commit `f8edbc1`. Scheduling reuses the established timezone engine, bounded LRU helper and existing test/browser tools. Fresh audits on October 19, 2026 remain **zero production vulnerabilities** and **five high development-only findings**, with no moderate/critical findings. Raw [full](evidence/milestone-3/npm-audit-all.json) and [production](evidence/milestone-3/npm-audit-production.json) reports are retained. Existing nine-package runtime notices are regenerated unchanged. No server, authentication, telemetry, worker or native dependency was introduced.
+
 ## Milestone 2 addition (review before installation)
 
 Playwright Test **1.64.1** is proposed as a development-only dependency: Apache-2.0, Microsoft-maintained repository, Node >=20 (compatible with Node 24). It supplies real pointer capture, keyboard, controllable clock and PNG comparison tests, which Node-only unit tests cannot verify. Use installed Microsoft Edge; do not download a browser or add any application runtime dependency. Reviewed npm metadata and the [official screenshot](https://playwright.dev/docs/test-snapshots), [clock](https://playwright.dev/docs/clock) and [Edge channel](https://playwright.dev/docs/browsers#google-chrome--microsoft-edge) documentation. Recheck the resolved npm audit after installation. Existing React, Tailwind, font and timezone versions remain pinned.

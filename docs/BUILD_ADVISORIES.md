@@ -1,4 +1,6 @@
-# Development dependency advisories — Milestone 2
+# Development dependency advisories — Milestone 3 status
+
+Rechecked October 19, 2026 in Milestone 3: manifest/lockfile unchanged; fresh [full audit](evidence/milestone-3/npm-audit-all.json) still reports the same five high affected development packages, and [production audit](evidence/milestone-3/npm-audit-production.json) reports zero. The Milestone 2 analysis below remains applicable. No new dependency or forced styling migration was introduced.
 
 Reviewed October 19, 2026. The resolved Milestone 2 install still reports **five high-severity affected packages, zero moderate, zero critical** in the full npm audit, and **zero known advisories in production dependencies**. Installing Playwright Test 1.64.1 added three Apache-2.0 development packages and no advisory finding. The five affected packages below trace to **one unpatched root advisory**, not five unrelated vulnerabilities.
 

@@ -5,9 +5,9 @@
  */
 import { Anchor, GripVertical, MoreHorizontal } from 'lucide-react';
 import React, { useMemo } from 'react';
-import { DayState, STATE_LABEL, dayState } from '../lib/schedule';
+import { DayState, STATE_LABEL, dayState, stateRanges } from '../lib/schedule';
 import {
-  Instant, MS, dayNumber, dayShift, formatDiff, formatOffset, formatShortDate, formatTime, offsetMinutes, zoneAbbreviation,
+  Instant, dayNumber, dayShift, formatDiff, formatOffset, formatShortDate, formatTime, offsetMinutes, zoneAbbreviation,
 } from '../lib/time';
 import { localDayBounds } from '../lib/time-axis';
 import { Tip, cx } from '../primitives';
@@ -24,11 +24,7 @@ export const BAND: Record<DayState, string> = {
 export function DayStrip({ location, at, width = 72, height = 6 }: { location: Location; at: Instant; width?: number; height?: number }) {
   const day = dayNumber(location.zone, at);
   const { start, end } = useMemo(() => localDayBounds(location.zone, at), [location.zone, day]);
-  const cells = useMemo(() => Array.from({ length: Math.ceil((end - start) / (30 * MS.MIN)) }, (_, i) => {
-    const from = start + i * 30 * MS.MIN;
-    const to = Math.min(end, from + 30 * MS.MIN);
-    return { from, to, state: dayState(location, from + (to - from) / 2) };
-  }), [location, start, end]);
+  const cells = useMemo(() => stateRanges(location, start, end), [location, start, end]);
   const pos = (at - start) / (end - start);
   return (
     <svg width={width} height={height + 6} viewBox={`0 0 ${width} ${height + 6}`} aria-hidden className="shrink-0">
@@ -37,7 +33,7 @@ export function DayStrip({ location, at, width = 72, height = 6 }: { location: L
       </defs>
       <g clipPath={`url(#clip-${location.id})`}>
         {cells.map(c => (
-          <rect key={c.from} x={((c.from - start) / (end - start)) * width} y={3} width={((c.to - c.from) / (end - start)) * width + 0.3} height={height} fill={BAND[c.state]} />
+          <rect key={c.start} data-strip-state={c.state} data-range-start={c.start} data-range-end={c.end} x={((c.start - start) / (end - start)) * width} y={3} width={((c.end - c.start) / (end - start)) * width + 0.3} height={height} fill={BAND[c.state]} />
         ))}
       </g>
       <rect x={Math.min(width - 2, Math.max(0, pos * width - 1))} y={0} width={2} height={height + 6} rx={1} fill="var(--ink)" />

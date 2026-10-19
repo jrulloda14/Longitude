@@ -1,0 +1,18 @@
+{
+  "baseline": "f8edbc157cfcf3a3f9f8cd877cedd3ed6e23b962",
+  "timezoneEngine": "Current unchanged Milestone 1 time.ts for both builds",
+  "probes": [
+    {
+      "defect": "Friday overnight tail on Saturday 02:00",
+      "expected": "work",
+      "before": "off",
+      "after": "work"
+    },
+    {
+      "defect": "14-minute meeting beginning 16:50 crosses 17:00 work end",
+      "expected": "edge",
+      "before": "work",
+      "after": "edge"
+    }
+  ]
+}

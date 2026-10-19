@@ -1,6 +1,6 @@
 # Longitude implementation plan
 
-Prepared October 19, 2026. **Overall plan approved; Milestone 1 provisionally approved; Milestone 2 authorized and implemented. Stop for review before Milestone 3.** See [MILESTONE_1.md](MILESTONE_1.md) and [MILESTONE_2.md](MILESTONE_2.md) for actual changes and verification. Milestones 3–7 remain plans, not implemented features.
+Prepared October 19, 2026. **Milestones 1 and 2 approved; Milestone 3 authorized and implemented. Stop for review before Milestone 4.** See [MILESTONE_1.md](MILESTONE_1.md), [MILESTONE_2.md](MILESTONE_2.md) and [MILESTONE_3.md](MILESTONE_3.md) for actual changes and verification. Milestones 4–7 remain plans, not implemented features.
 
 The baseline evidence and architecture tradeoffs are recorded in [IMPLEMENTATION_AUDIT.md](IMPLEMENTATION_AUDIT.md). Work in the root `src/` project and preserve existing presentation and tokens. No replacement UI or service backend is proposed.
 
@@ -82,4 +82,4 @@ Deliverables: audit, component/logic inventory, demonstrated defects, proposed a
 
 At each milestone, report changes, modified files, exact checks/results, failures and remaining issues, and update the implementation docs. Existing baseline defects are tracked until the owning milestone fixes them. A failing required test keeps its milestone gate open; do not substitute a successful type check for behavior verification.
 
-The user provisionally approved Milestone 1 and authorized Milestone 2 with timezone, interaction, visual, dependency and performance requirements. Milestone 2 is delivered for review. **Do not begin Milestone 3 without approval.** Known scheduling defects remain open in that milestone; no scheduling-engine rewrite was included in Milestone 2.
+The user approved Milestone 2 and authorized Milestone 3, including local Git baseline creation, then explicitly authorized commits/uploads to the Longitude GitHub repository. The overnight attribution and sampled-duration defects are fixed with permanent regressions and a baseline comparison. **Do not begin Milestone 4 without approval.**

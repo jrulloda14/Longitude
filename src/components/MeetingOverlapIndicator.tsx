@@ -57,7 +57,7 @@ export function MeetingOverlapIndicator({ verdict, times, defaultOpen = false, c
       {open && verdict.level !== 'none' && (
         <ul className="mt-0.5 flex flex-col px-2 pb-1">
           {(verdict.level === 'good' ? verdict.people : [...outside, ...verdict.people.filter((p) => p.state === 'work')]).map((p) => (
-            <li key={p.id} className="tnum flex h-6 items-center gap-2 text-caption">
+            <li key={p.id} title={`${p.workingMin.toFixed(1)} min within working hours; ${p.sleepingMin.toFixed(1)} min sleeping hours. State describes the worst part of the entire meeting.`} className="tnum flex h-6 items-center gap-2 text-caption">
               <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: STATE_DOT[p.state] }} />
               <span className="w-[112px] truncate text-ink">{p.label}</span>
               <span className="w-[72px] text-ink-muted">{times[p.id]}</span>

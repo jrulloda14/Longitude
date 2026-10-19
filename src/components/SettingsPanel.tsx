@@ -2,8 +2,8 @@
  * SettingsPanel — grouped preference rows, label left / control right.
  * Controls that need the OS (autostart) render disabled with a reason.
  */
-import React from 'react';
-import { WorkingHours } from '../lib/schedule';
+import React, { useEffect, useState } from 'react';
+import { WorkingHours, validateHours } from '../lib/schedule';
 import { Segmented, Switch, cx } from '../primitives';
 import type { Settings } from '../state/store';
 import { TimeSelect } from './TimezoneList';
@@ -39,7 +39,14 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 const DAYS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
 export function SettingsPanel({ settings: s, onChange, platformSupportsAutostart, onReplayOnboarding }: SettingsPanelProps) {
-  const setWork = (patch: Partial<WorkingHours>) => onChange({ defaultWork: { ...s.defaultWork, ...patch } });
+  const [work, setWorkDraft] = useState(s.defaultWork);
+  const [workError, setWorkError] = useState('');
+  useEffect(() => { setWorkDraft(s.defaultWork); }, [s.defaultWork]);
+  const setWork = (patch: Partial<WorkingHours>) => {
+    const next = { ...work, ...patch }; setWorkDraft(next);
+    try { validateHours(next, { start: 0, end: 0 }); setWorkError(''); onChange({ defaultWork: next }); }
+    catch (e) { setWorkError((e as Error).message); }
+  };
   return (
     <div className="mx-auto w-full max-w-[560px]">
       <Section title="Time">
@@ -53,17 +60,18 @@ export function SettingsPanel({ settings: s, onChange, platformSupportsAutostart
         </Row>
         <Row label="Default working hours" hint="Used for newly added locations. Edit any location from its ⋯ menu.">
           <div className="flex items-center gap-1.5">
-            <TimeSelect label="Default start" value={s.defaultWork.start} onChange={(v) => setWork({ start: v })} hour12={s.hour12} />
+            <TimeSelect label="Default start" value={work.start} onChange={(v) => setWork({ start: v })} hour12={s.hour12} />
             <span className="text-ink-faint">–</span>
-            <TimeSelect label="Default end" value={s.defaultWork.end} onChange={(v) => setWork({ end: v })} hour12={s.hour12} />
+            <TimeSelect label="Default end" value={work.end} onChange={(v) => setWork({ end: v })} hour12={s.hour12} />
           </div>
         </Row>
+        {workError && <p role="alert" className="text-caption text-danger">{workError} Defaults are unchanged until valid.</p>}
         <Row label="Working days">
           <div role="group" aria-label="Default working days" className="flex gap-1">
             {DAYS.map((d, i) => {
-              const on = s.defaultWork.days.includes(i);
+              const on = work.days.includes(i);
               return (
-                <button key={i} aria-pressed={on} onClick={() => setWork({ days: on ? s.defaultWork.days.filter((x) => x !== i) : [...s.defaultWork.days, i].sort() })}
+                <button key={i} aria-pressed={on} onClick={() => setWork({ days: on ? work.days.filter((x) => x !== i) : [...work.days, i].sort() })}
                   className={cx('h-6 w-6 rounded-md text-caption font-medium', on ? 'bg-work-band text-ink shadow-[inset_0_0_0_1px_var(--work)]' : 'bg-field text-ink-faint hover:text-ink')}>
                   {d}
                 </button>
