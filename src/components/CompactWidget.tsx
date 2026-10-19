@@ -24,6 +24,7 @@ export interface CompactWidgetProps {
   pinned: boolean;
   opacity: number; // 0.6–1
   chrome: 'windows' | 'macos';
+  nativeMac?: boolean;
   onTogglePin(): void;
   onExpand(): void;
   onClose(): void;
@@ -32,7 +33,7 @@ export interface CompactWidgetProps {
 
 const DOT = { work: 'var(--work)', edge: 'var(--edge)', off: 'var(--ink-faint)', sleep: 'var(--sleep)' } as const;
 
-export function CompactWidget({ title, locations, referenceZone, now, value: at, live, onChange, onReset, hour12, pinned, opacity, chrome, onTogglePin, onExpand, onClose, onOpacity }: CompactWidgetProps) {
+export function CompactWidget({ title, locations, referenceZone, now, value: at, live, onChange, onReset, hour12, pinned, opacity, chrome, nativeMac, onTogglePin, onExpand, onClose, onOpacity }: CompactWidgetProps) {
   const [showOpacity, setShowOpacity] = useState(false);
   const idle = useRef<ReturnType<typeof setTimeout>>();
   const rootRef = useRef<HTMLDivElement>(null);
@@ -79,7 +80,9 @@ export function CompactWidget({ title, locations, referenceZone, now, value: at,
       {/* drag region / mini title bar */}
       <div data-tauri-drag-region className={cx('flex h-8 items-center gap-1 pl-3 pr-1', chrome === 'macos' && 'pl-2')}>
         {chrome === 'macos' && (
-          <button aria-label="Close widget" onClick={onClose} className="mr-1.5 h-3 w-3 rounded-full bg-[#ff5f57] shadow-[inset_0_0_0_0.5px_rgba(0,0,0,.25)]" />
+          nativeMac
+            ? <button aria-label="Close widget" onClick={onClose} className="mr-1.5 flex h-3 w-3 items-center justify-center text-ink-muted hover:text-ink"><X size={12} /></button>
+            : <button aria-label="Close widget" onClick={onClose} className="mr-1.5 h-3 w-3 rounded-full bg-[#ff5f57] shadow-[inset_0_0_0_0.5px_rgba(0,0,0,.25)]" />
         )}
         <span data-tauri-drag-region className="flex-1 truncate text-caption font-medium text-ink-muted">{title}</span>
         <IconButton label="Window opacity" className="!h-6 !w-6" active={showOpacity} onClick={() => setShowOpacity(!showOpacity)}>

@@ -175,6 +175,7 @@ interface CompactWidgetProps {
   pinned: boolean;
   opacity: number; // 0.6–1
   chrome: 'windows' | 'macos';
+  nativeMac?: boolean;
   onTogglePin(): void;
   onExpand(): void;
   onClose(): void;

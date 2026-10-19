@@ -10,6 +10,7 @@ import { DEFAULT_SETTINGS, StoreProvider, locationFromCity, useStore } from '../
 import type { WorkingHours, SleepHours } from '../../src/lib/schedule';
 import { webPlatform } from '../../src/platform';
 import { TitleBar } from '../../src/components/WindowChrome';
+import { CompactWidget } from '../../src/components/CompactWidget';
 import { runSchedulingSearch, type SearchInput } from '../../src/scheduling/search-client';
 
 export interface Options {
@@ -51,6 +52,11 @@ function ClockHarness({ options }: { options: Options }) {
   </div>;
 }
 window.longitudeTest = {
+  mountWidgetChrome(nativeMac = true) {
+    root.render(<div data-theme="dark"><CompactWidget title="My Team" locations={[]} referenceZone="UTC" now={defaultNow} value={defaultNow}
+      live hour12 pinned opacity={1} chrome="macos" nativeMac={nativeMac} onChange={() => {}} onReset={() => {}} onTogglePin={() => {}}
+      onExpand={() => {}} onClose={() => {}} onOpacity={() => {}} /></div>);
+  },
   mountChrome(nativeMac = true) {
     root.render(<div className="lg-root" data-theme="dark"><TitleBar chrome="macos" nativeMac={nativeMac} center={<span>Clock</span>}
       onMinimize={() => {}} onMaximize={() => {}} onClose={() => {}} onCompact={() => {}} /></div>);
@@ -79,5 +85,5 @@ window.longitudeTest = {
 };
 window.longitudeTest.mount({ persist: new URLSearchParams(location.search).has('persist') });
 declare global {
-  interface Window { longitudeTest: { mountChrome(nativeMac?: boolean): void; mount(options?: Options): void; mountClock(options?: Options): void; search(input: SearchInput): Promise<import('../../src/lib/schedule').Suggestion[]>; storageFailure(reads: boolean, writes: boolean): void } }
+  interface Window { longitudeTest: { mountWidgetChrome(nativeMac?: boolean): void; mountChrome(nativeMac?: boolean): void; mount(options?: Options): void; mountClock(options?: Options): void; search(input: SearchInput): Promise<import('../../src/lib/schedule').Suggestion[]>; storageFailure(reads: boolean, writes: boolean): void } }
 }

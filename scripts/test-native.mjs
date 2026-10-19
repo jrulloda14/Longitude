@@ -50,6 +50,23 @@ async function check(name, body) {
   try{await body();results.push({name,status:'passed',durationMs:performance.now()-start});console.log('PASS',name);}
   catch(error){results.push({name,status:'failed',message:String(error),durationMs:performance.now()-start});throw error;}
 }
+async function startHotkeyFixture(script) {
+  // Some Windows hosts transiently reject child creation under process load.
+  // Retry only EPERM launch errors; fixture readiness/assertions never retry.
+  for(let attempt=0;attempt<3;attempt++) {
+    let fixture;
+    try {
+      fixture=spawn(`${globalThis.process.env.SystemRoot}/System32/WindowsPowerShell/v1.0/powershell.exe`,['-NoProfile','-NonInteractive','-EncodedCommand',Buffer.from(script,'utf16le').toString('base64')],{windowsHide:true});
+      const exited=new Promise(resolve=>fixture.once('exit',resolve));
+      await Promise.race([new Promise((resolve,reject)=>{fixture.stdout.on('data',data=>{if(data.toString().includes('READY'))resolve();});fixture.once('error',reject);fixture.once('exit',code=>reject(Error(`Hotkey fixture exited ${code}`)));}),delay(15000).then(()=>{throw Error('Competing hotkey fixture did not become ready');})]);
+      return {fixture,exited};
+    } catch(error) {
+      if(fixture?.pid&&fixture.exitCode===null)fixture.kill();
+      if(error.code!=='EPERM'||attempt===2)throw error;
+      console.log(`Hotkey fixture launch retry ${attempt+1}: Windows EPERM`);await delay(250);
+    }
+  }
+}
 try {
   const executableTime=(await stat(executable)).mtimeMs;
   executableSha256=createHash('sha256').update(await readFile(executable)).digest('hex');
@@ -126,10 +143,8 @@ try {
   await check('a shortcut occupied by another native process is rejected with rollback',async()=>{
     // Actual competing OS registration, not an alias of our own binding.
     const script = `Add-Type -TypeDefinition 'using System; using System.Runtime.InteropServices; public static class LongitudeHotkeyFixture { [DllImport("user32.dll", SetLastError=true)] public static extern bool RegisterHotKey(IntPtr window,int id,uint modifiers,uint key); [DllImport("user32.dll")] public static extern bool UnregisterHotKey(IntPtr window,int id); }'; if (-not [LongitudeHotkeyFixture]::RegisterHotKey([IntPtr]::Zero,941,16391,74)) { exit 2 }; try { [Console]::Out.WriteLine("READY"); [Console]::Out.Flush(); [Console]::ReadLine() | Out-Null } finally { [LongitudeHotkeyFixture]::UnregisterHotKey([IntPtr]::Zero,941) | Out-Null }`;
-    const fixture=spawn(`${globalThis.process.env.SystemRoot}/System32/WindowsPowerShell/v1.0/powershell.exe`,['-NoProfile','-NonInteractive','-EncodedCommand',Buffer.from(script,'utf16le').toString('base64')],{windowsHide:true});
-    const exited=new Promise(resolve=>fixture.once('exit',resolve));
+    const {fixture,exited}=await startHotkeyFixture(script);
     try {
-      await Promise.race([new Promise((resolve,reject)=>{fixture.stdout.on('data',data=>{if(data.toString().includes('READY'))resolve();});fixture.once('error',reject);fixture.once('exit',code=>reject(Error(`Hotkey fixture exited ${code}`)));}),delay(15000).then(()=>{throw Error('Competing hotkey fixture did not become ready');})]);
       await assert.rejects(()=>settings({globalShortcut:'Ctrl+Alt+Shift+J'}),/Could not register/);
       assert.equal((await environment()).shortcut,'Ctrl+Alt+T');
       assert.equal((await snapshot(main)).state.settings.globalShortcut,'Ctrl+Alt+T');

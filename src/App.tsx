@@ -179,6 +179,7 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
           pinned={s.widgetPinned}
           opacity={s.widgetOpacity}
           chrome={chrome}
+          nativeMac={platform.kind === 'tauri' && platform.os === 'macos'}
           onTogglePin={() => dispatch({ type: 'settings', patch: { widgetPinned: !s.widgetPinned } })}
           onExpand={() => dispatch({ type: 'mode', mode: 'full' })}
           onClose={() => { if (platform.desktop) void platform.desktop.control('hide-widget').catch(error => notify(String(error))); else dispatch({ type: 'mode', mode: 'full' }); }}
