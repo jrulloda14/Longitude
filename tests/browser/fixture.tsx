@@ -18,6 +18,7 @@ export interface Options {
   mode?: 'full' | 'compact'; theme?: 'dark' | 'light'; step?: 1 | 5; hour12?: boolean;
   reducedMotion?: 'system' | 'on' | 'off'; realtime?: boolean;
   zones?: string[]; work?: WorkingHours; sleep?: SleepHours; durationMin?: number;
+  sharing?: 'success' | 'copy-error' | 'copy-throw' | 'save-cancelled' | 'save-error' | 'save-throw';
   persist?: boolean; storageDelay?: number; failReads?: boolean; failWrites?: boolean; strict?: boolean;
 }
 const root = createRoot(document.getElementById('root')!);
@@ -63,7 +64,16 @@ window.longitudeTest = {
   },
   mount(options = {}) {
     lastOptions = options;
-    const platform = { ...webPlatform, storage: {
+    window.longitudeSharing = { copied: [], exported: [] };
+    const platform = { ...webPlatform, ...(options.sharing ? {
+      async copyText(text: string) { if (options.sharing === 'copy-throw') throw Error('Clipboard denied'); if (options.sharing === 'copy-error') return false; window.longitudeSharing.copied.push(text); return true; },
+      async saveFile(name: string, contents: string): Promise<import('../../src/platform').SaveResult> {
+        if (options.sharing === 'save-throw') throw Error('Disk full');
+        if (options.sharing === 'save-cancelled') return { status: 'cancelled' };
+        if (options.sharing === 'save-error') return { status: 'error', message: 'Disk full' };
+        window.longitudeSharing.exported.push({ name, contents }); return { status: 'saved' };
+      },
+    } : {}), storage: {
       async read(key: Parameters<typeof webPlatform.storage.read>[0]) {
         if (options.storageDelay) await new Promise(r => setTimeout(r, options.storageDelay));
         if (options.failReads) throw new Error('Test read failure'); return webPlatform.storage.read(key);
@@ -85,5 +95,5 @@ window.longitudeTest = {
 };
 window.longitudeTest.mount({ persist: new URLSearchParams(location.search).has('persist') });
 declare global {
-  interface Window { longitudeTest: { mountWidgetChrome(nativeMac?: boolean): void; mountChrome(nativeMac?: boolean): void; mount(options?: Options): void; mountClock(options?: Options): void; search(input: SearchInput): Promise<import('../../src/lib/schedule').Suggestion[]>; storageFailure(reads: boolean, writes: boolean): void } }
+  interface Window { longitudeSharing: { copied: string[]; exported: { name: string; contents: string }[] }; longitudeTest: { mountWidgetChrome(nativeMac?: boolean): void; mountChrome(nativeMac?: boolean): void; mount(options?: Options): void; mountClock(options?: Options): void; search(input: SearchInput): Promise<import('../../src/lib/schedule').Suggestion[]>; storageFailure(reads: boolean, writes: boolean): void } }
 }

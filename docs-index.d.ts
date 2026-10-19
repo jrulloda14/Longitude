@@ -159,7 +159,8 @@ interface MeetingSummaryProps {
   onWeekly(on: boolean): void;
   onHour12(on: boolean): void;
   onCopy(text: string): Promise<boolean>;
-  onExport(filename: string, ics: string): Promise<boolean>;
+  onExport(filename: string, ics: string): Promise<import('./src/platform').SaveResult>;
+  now?: number; session?: { uid: string; created: Instant }; onNewEvent?(): void;
 }
 
 interface CompactWidgetProps {

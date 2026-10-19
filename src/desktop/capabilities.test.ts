@@ -20,12 +20,17 @@ describe('native permission and offline boundaries', () => {
     ].sort());
   });
   it('does not grant remote origins, wildcard windows or generic OS plugins', () => {
-    for (const file of ['desktop', 'configuration']) {
+    for (const file of ['desktop', 'configuration', 'sharing']) {
       const c = read(`capabilities/${file}.json`);
       expect(c.remote).toBeUndefined();
       expect(c.windows.every((w: string) => ['main', 'widget'].includes(w))).toBe(true);
-      expect(c.permissions.every((p: unknown) => typeof p === 'string' && !/^(fs|shell|http|notification|global-shortcut|autostart):/.test(p))).toBe(true);
+      expect(c.permissions.every((p: unknown) => typeof p === 'string' && !/^(fs|shell|http|notification|global-shortcut|autostart|dialog|clipboard-manager):/.test(p))).toBe(true);
     }
+  });
+  it('restricts calendar and text-only clipboard operations to main, without arbitrary filesystem access', () => {
+    const c = read('capabilities/sharing.json');
+    expect(c.windows).toEqual(['main']);
+    expect(c.permissions).toEqual(['allow-longitude-copy-text', 'allow-longitude-save-calendar']);
   });
   it('restricts production resources and connections to local assets and IPC', () => {
     const csp = read('tauri.conf.json').app.security.csp as string;

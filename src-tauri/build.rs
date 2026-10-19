@@ -9,6 +9,8 @@ fn main() {
             "longitude_window",
             "longitude_environment",
             "longitude_quit_ready",
+            "longitude_copy_text",
+            "longitude_save_calendar",
         ]),
     ))
     .expect("Tauri build configuration failed");

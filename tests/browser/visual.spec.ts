@@ -10,10 +10,13 @@ for (const scenario of scenarios) test(`visual ${scenario.name}`, async ({ page 
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(500);
   await page.mouse.move(-1, -1);
-  const evidence = process.env.LONGITUDE_EVIDENCE_ROOT ?? 'docs/evidence/milestone-5b';
+  const evidence = process.env.LONGITUDE_EVIDENCE_ROOT ?? 'docs/evidence/milestone-6';
   await mkdir(`${evidence}/visual/after`, { recursive: true });
   const image = await page.screenshot({ path: `${evidence}/visual/after/${scenario.name}.png`, animations: 'disabled' });
-  expect(image).toMatchSnapshot(['before', `${scenario.name}.png`], {
+  // M6 intentionally removes the misleading 'now' label from selected-date DST copy.
+  // Keep immutable before/after evidence; only that reviewed note has a new expectation.
+  const baseline = evidence.endsWith('milestone-6') && scenario.name === 'planner-dark' ? 'expected' : 'before';
+  expect(image).toMatchSnapshot([baseline, `${scenario.name}.png`], {
     threshold: .1, maxDiffPixels: 0,
   });
 });

@@ -8,7 +8,7 @@ import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useSta
 import { City } from './lib/cities';
 import { commonWorkingRanges, evaluate } from './lib/schedule';
 import { useSchedulingSearch } from './scheduling/use-search';
-import { SummaryInput } from './lib/share';
+import { SummaryInput, createExportSession } from './lib/share';
 import { Instant, MS, dayNumber, formatTimeString, systemZone } from './lib/time';
 import { localDayBounds } from './lib/time-axis';
 import { Button, Dialog, IconButton, Segmented, cx } from './primitives';
@@ -87,6 +87,7 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
   const fmt = useMemo(() => ({ hour12: s.hour12 }), [s.hour12]);
   const [rootRef, width] = useElementWidth<HTMLDivElement>(state.mode);
   const [layer, setLayer] = useState<null | 'search' | 'share'>(openLayer);
+  const [exportSession, setExportSession] = useState(createExportSession);
   const [toast, setToast] = useState<string | null>(null);
   const [draggingDial, setDraggingDial] = useState(false);
   const [dismissedStorageMessage, setDismissedStorageMessage] = useState('');
@@ -147,14 +148,14 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
   const verdict = useMemo(() => evaluate(people, at, state.meeting.durationMin), [people, at, state.meeting.durationMin]);
   const times = useMemo(() => Object.fromEntries(group.locations.map((l) => [l.id, formatTimeString(l.zone, at, fmt)])), [group.locations, at, fmt]);
 
-  const summary: SummaryInput = {
+  const summary: SummaryInput = useMemo(() => ({
     title: state.meeting.title,
     start: at,
     durationMin: state.meeting.durationMin,
     reference: { label: refLabel, zone: refZone },
-    places: group.locations.map((l) => ({ label: l.name, zone: l.zone })),
+    places: group.locations.map((l) => ({ label: l.note ? `${l.note} (${l.name})` : l.name, zone: l.zone, work: l.work, sleep: l.sleep })),
     format: fmt,
-  };
+  }), [state.meeting.title, state.meeting.durationMin, at, refLabel, refZone, group.locations, fmt]);
 
   const rootClass = cx('lg-root relative flex h-full w-full flex-col overflow-hidden', reduced && 'lg-reduced', s.reducedMotion === 'off' && 'lg-motion-on');
 
@@ -316,7 +317,7 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
         hour12={s.hour12}
       />
 
-      <Dialog open={layer === 'share'} onClose={() => setLayer(null)} title="Share meeting time" width={420}>
+      <Dialog open={layer === 'share'} onClose={() => setLayer(null)} title="Share meeting time" width={420} className="lg-scroll max-h-[calc(100vh-80px)] !overflow-y-auto">
         <div className="flex items-center gap-2 border-b border-line px-4 py-3">
           <LevelGlyph level={verdict.level} />
           <h3 className="text-title font-semibold">Share this time</h3>
@@ -325,6 +326,9 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
         <div className="p-4">
           <MeetingSummary
             input={summary}
+            now={now}
+            session={exportSession}
+            onNewEvent={() => setExportSession(createExportSession())}
             weekly={state.meeting.weekly}
             onTitle={(title) => dispatch({ type: 'meeting', patch: { title } })}
             onDuration={(d) => dispatch({ type: 'meeting', patch: { durationMin: d } })}

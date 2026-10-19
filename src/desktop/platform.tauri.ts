@@ -3,6 +3,7 @@ import { listen } from '@tauri-apps/api/event';
 import { getCurrentWindow } from '@tauri-apps/api/window';
 import { createTauriStorage } from '../persistence/tauri-storage';
 import { webPlatform, type Platform } from '../platform';
+import { nativeSharing } from './sharing';
 import type { DesktopPort, DesktopSnapshot } from './state-client';
 
 export async function createNativePlatform(): Promise<Platform> {
@@ -26,7 +27,7 @@ export async function createNativePlatform(): Promise<Platform> {
     },
   };
   return {
-    ...webPlatform, kind: 'tauri', os: environment.os, desktop, storage: createTauriStorage(invoke), autostart: { supported: true },
+    ...webPlatform, ...nativeSharing(invoke), kind: 'tauri', os: environment.os, desktop, storage: createTauriStorage(invoke), autostart: { supported: true },
     window: {
       minimize: () => report(control('minimize')), toggleMaximize: () => report(control('maximize')), close: () => report(control('close')),
       setAlwaysOnTop: () => { if (label === 'widget') report(control('widget-pin')); },

@@ -3,6 +3,7 @@ mod authority;
 mod lifecycle;
 mod macos;
 mod placement;
+mod sharing;
 mod shortcuts;
 mod storage;
 use authority::{Authority, Reply, Snapshot};
@@ -416,6 +417,14 @@ fn finish_quit(app: &AppHandle) {
     app.exit(0);
 }
 fn quit(app: &AppHandle) {
+    if sharing::is_saving() {
+        emit_error(
+            app,
+            "Finish or cancel the calendar Save dialog before quitting".into(),
+        );
+        let _ = show(app, "main", true);
+        return;
+    }
     let host = app.state::<Host>();
     if host
         .authority
@@ -731,6 +740,8 @@ fn restore_window(app: &AppHandle, label: &str) {
 }
 fn main() {
     let app = tauri::Builder::default()
+        .plugin(tauri_plugin_dialog::init())
+        .plugin(tauri_plugin_clipboard_manager::init())
         .plugin(tauri_plugin_single_instance::init(|app, _, _| {
             if let Err(e) = show(app, "main", true) {
                 emit_error(app, e);
@@ -871,7 +882,9 @@ fn main() {
             longitude_initialize,
             longitude_apply_state,
             longitude_window,
-            longitude_quit_ready
+            longitude_quit_ready,
+            sharing::longitude_copy_text,
+            sharing::longitude_save_calendar
         ])
         .build(tauri::generate_context!())
         .expect("Could not start Longitude");

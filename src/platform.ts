@@ -2,19 +2,20 @@
  * Portable platform port with a browser preview adapter. Milestone 5A's
  * desktop/platform.tauri.ts implements native state/window/storage integration.
  * Rust owns tray, shortcuts, autostart and conditional filesystem writes.
- * Native clipboard/export dialogs remain Milestone 6; existing browser
- * copy/save behavior is retained until that separately approved integration.
+ * Native sharing is implemented through narrow main-window app commands.
  */
 import type { ConfigurationStorage } from './persistence/storage';
 import { createWebStorage } from './persistence/web-storage';
 import type { DesktopPort } from './desktop/state-client';
+
+export type SaveResult = { status: 'saved' } | { status: 'downloaded' } | { status: 'cancelled' } | { status: 'error'; message: string };
 
 export interface Platform {
   readonly kind: 'web-prototype' | 'tauri';
   readonly os: 'windows' | 'macos' | 'linux';
   readonly desktop?: DesktopPort;
   copyText(text: string): Promise<boolean>;
-  saveFile(name: string, contents: string, mime: string): Promise<boolean>;
+  saveFile(name: string, contents: string, mime: string): Promise<SaveResult>;
   window: {
     minimize(): void;
     toggleMaximize(): void;
@@ -32,22 +33,22 @@ async function webCopy(text: string): Promise<boolean> {
     await navigator.clipboard.writeText(text);
     return true;
   } catch {
+    const previous = document.activeElement as HTMLElement | null;
+    const ta = document.createElement('textarea');
     try {
-      const ta = document.createElement('textarea');
       ta.value = text;
       ta.style.cssText = 'position:fixed;opacity:0;left:-9999px';
       document.body.appendChild(ta);
       ta.select();
       const ok = document.execCommand('copy');
-      ta.remove();
       return ok;
     } catch {
       return false;
-    }
+    } finally { ta.remove(); previous?.focus(); }
   }
 }
 
-function webSave(name: string, contents: string, mime: string): Promise<boolean> {
+function webSave(name: string, contents: string, mime: string): Promise<SaveResult> {
   try {
     const url = URL.createObjectURL(new Blob([contents], { type: mime }));
     const a = document.createElement('a');
@@ -57,9 +58,9 @@ function webSave(name: string, contents: string, mime: string): Promise<boolean>
     a.click();
     a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 2000);
-    return Promise.resolve(true);
+    return Promise.resolve({ status: 'downloaded' });
   } catch {
-    return Promise.resolve(false);
+    return Promise.resolve({ status: 'error', message: 'Could not start the calendar download.' });
   }
 }
 

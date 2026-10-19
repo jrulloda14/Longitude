@@ -1,0 +1,11 @@
+# Milestone 6 mandatory audit
+
+Baseline: 935e67f92f55d9091b4bbea65015f723c319bd1d, clean main synchronized with origin/main on October 20, 2026. No AGENTS.md found. Read implementation plan (M6/M7 gates), M5A/M5B reports, native/platform contracts, persistence schema/repository documentation, testing notes and current share/clock/planner components before implementation.
+
+Existing implementation: lib/share.ts builds summaries/UTC ICS, MeetingSummary is the existing share dialog with title, duration, full/one-line format and fixed-UTC weekly option. DstNotice has transition/weekly explanations; TimeReadout already exposes explicit gap/fold resolution. Platform.copyText/saveFile currently use browser implementations even in native Tauri. Reuse these boundaries and components; no second frontend/timezone/scheduling/schema engine.
+
+Gaps: summaries omit explicit participant dates, IANA IDs/offsets/end times and full-duration work compatibility; ICS uses Math.random and regenerates UID per export, accepts unchecked input, misses lone CR escaping and has no independent parser coverage. Save returns only boolean (cancellation indistinguishable from failure). Weekly behavior is only fixed UTC and presentation owns occurrence arithmetic. DST note says 'now' for selected-date transitions. Native export/clipboard and permission/error coverage are absent. Existing clock drag/planning/widget and persistence semantics must remain intact.
+
+Baseline known limitations: physical Mac acceptance/performance, trusted signing/notarization and installer/manual calendar imports remain unverified. Windows 5A CPU trial 9.0599% live / 1.7754% planning exceeds provisional limits; this is historical, not a measurement of new M6 code. Repository metadata remains UNLICENSED. Five high npm development findings and RustSec maintenance/unsoundness warnings remain disclosed.
+
+Verification: fresh baseline unit/browser/Rust/typecheck evidence under baseline/; preserve the baseline optimized executable and actual before captures. Profile Windows process tree/renderers under controlled conditions before low-risk changes, then repeat. Validate ICS independently, actual Windows clipboard and native Save acceptance/cancel/error, both Mac CI targets, shared regressions and visual evidence. Physical Mac tests remain Blocked without a device. No M7 or release publication.

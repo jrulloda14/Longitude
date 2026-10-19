@@ -1,5 +1,5 @@
 import { defineConfig } from '@playwright/test';
-const evidence = process.env.LONGITUDE_EVIDENCE_ROOT ?? 'docs/evidence/milestone-5b';
+const evidence = process.env.LONGITUDE_EVIDENCE_ROOT ?? 'docs/evidence/milestone-6';
 const webkit = process.env.LONGITUDE_BROWSER === 'webkit';
 export default defineConfig({
   testDir: './tests/browser', testMatch: '**/*.spec.ts', workers: 1, retries: 0,
