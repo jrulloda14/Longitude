@@ -1,0 +1,32 @@
+Native mounted; warming for 60 seconds
+Live measurement complete
+Planning measurement complete
+{
+  "liveCpu": 0.8393069425712173,
+  "planningCpu": 0.239452278491817,
+  "livePrivateMiB": 215.6875,
+  "planningPrivateMiB": 218.671875,
+  "drag": {
+    "eventToFrameMs": {
+      "count": 120,
+      "p50": 0.3999999985098839,
+      "p95": 1.6000000014901161,
+      "max": 2.199999999254942
+    },
+    "commitToFrameProxyMs": {
+      "count": 36,
+      "p50": 23.100000001490116,
+      "p95": 27.5,
+      "max": 28.5
+    },
+    "frameIntervalMs": {
+      "count": 293,
+      "p50": 17.800000000046566,
+      "p95": 18.100000000034925,
+      "max": 18.29999999998836
+    },
+    "longTasksMs": [],
+    "outsideMoves": 59,
+    "capturedOutsideMoves": 59
+  }
+}

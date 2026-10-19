@@ -1,0 +1,55 @@
+PASS Actual OS clipboard: Full
+PASS Actual OS clipboard: One line
+PASS Actual OS clipboard: Local times
+PASS Actual OS clipboard: UTC
+WAIT_NATIVE_CANCEL: use the actual native dialog Cancel button.
+Native: Finish or cancel the calendar Save dialog before quitting
+PASS Quit is deferred while the native Save operation is active
+PASS Actual native Save dialog cancellation is neutral
+WAIT_NATIVE_SAVE: save to H:\Projects\Longitude\performance-results\m6-sharing-1792433854547\meeting.ics
+ExpectError: expect(locator).toHaveText(expected) failed
+
+Locator:  getByRole('dialog', { name: 'Share meeting time' }).getByRole('status')
+Expected: "Calendar file saved."
+Received: "Sharing…"
+Timeout:  180000ms
+
+Call log:
+  - Expect "toHaveText" getByRole('dialog', { name: 'Share meeting time' }).getByRole('status') with timeout 180000ms
+  - waiting for getByRole('dialog', { name: 'Share meeting time' }).getByRole('status')
+    352 × locator resolved to <p role="status" class="text-caption text-ink-muted">Sharing…</p>
+        - unexpected value "Sharing…"
+
+    at captureRawStack (H:\Projects\Longitude\node_modules\playwright-core\lib\coreBundle.js:9282:17)
+    at callMatcherAsStep (H:\Projects\Longitude\node_modules\playwright\lib\matchers\expect.js:13316:57)
+    at Object.toHaveText (H:\Projects\Longitude\node_modules\playwright\lib\matchers\expect.js:13308:23)
+    at H:\Projects\Longitude\scripts\verify-native-sharing.mjs:38:44
+    at check (H:\Projects\Longitude\scripts\verify-native-sharing.mjs:18:41)
+    at H:\Projects\Longitude\scripts\verify-native-sharing.mjs:37:8 {
+  matcherResult: {
+    name: 'toHaveText',
+    expected: 'Calendar file saved.',
+    message: 'expect(locator).toHaveText(expected) failed\n' +
+      '\n' +
+      "Locator:  getByRole('dialog', { name: 'Share meeting time' }).getByRole('status')\n" +
+      'Expected: "Calendar file saved."\n' +
+      'Received: "Sharing…"\n' +
+      'Timeout:  180000ms\n' +
+      '\n' +
+      'Call log:\n' +
+      `  - Expect "toHaveText" getByRole('dialog', { name: 'Share meeting time' }).getByRole('status') with timeout 180000ms\n` +
+      "  - waiting for getByRole('dialog', { name: 'Share meeting time' }).getByRole('status')\n" +
+      '    352 × locator resolved to <p role="status" class="text-caption text-ink-muted">Sharing…</p>\n' +
+      '        - unexpected value "Sharing…"\n',
+    pass: false,
+    actual: 'Sharing…',
+    log: [
+      `  - Expect "toHaveText" getByRole('dialog', { name: 'Share meeting time' }).getByRole('status') with timeout 180000ms`,
+      "  - waiting for getByRole('dialog', { name: 'Share meeting time' }).getByRole('status')",
+      '    352 × locator resolved to <p role="status" class="text-caption text-ink-muted">Sharing…</p>',
+      '        - unexpected value "Sharing…"'
+    ],
+    timeout: 180000,
+    ariaSnapshot: '- status: Sharing…'
+  }
+}

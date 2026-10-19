@@ -1,0 +1,79 @@
+[
+  {
+    "name": "clock-dark",
+    "width": 850,
+    "height": 560,
+    "changedPixels": 0,
+    "changedPercent": 0,
+    "bounds": null
+  },
+  {
+    "name": "clock-light",
+    "width": 850,
+    "height": 560,
+    "changedPixels": 0,
+    "changedPercent": 0,
+    "bounds": null
+  },
+  {
+    "name": "clock-planning",
+    "width": 850,
+    "height": 560,
+    "changedPixels": 0,
+    "changedPercent": 0,
+    "bounds": null
+  },
+  {
+    "name": "planner-dark",
+    "width": 850,
+    "height": 560,
+    "changedPixels": 1049,
+    "changedPercent": 0.2203781512605042,
+    "bounds": {
+      "minX": 524,
+      "minY": 484,
+      "maxX": 818,
+      "maxY": 508
+    }
+  },
+  {
+    "name": "settings-dark",
+    "width": 850,
+    "height": 560,
+    "changedPixels": 0,
+    "changedPercent": 0,
+    "bounds": null
+  },
+  {
+    "name": "clock-narrow",
+    "width": 380,
+    "height": 600,
+    "changedPixels": 0,
+    "changedPercent": 0,
+    "bounds": null
+  },
+  {
+    "name": "compact-live",
+    "width": 400,
+    "height": 400,
+    "changedPixels": 0,
+    "changedPercent": 0,
+    "bounds": null
+  },
+  {
+    "name": "london-fall",
+    "width": 850,
+    "height": 560,
+    "changedPixels": 0,
+    "changedPercent": 0,
+    "bounds": null
+  },
+  {
+    "name": "kathmandu",
+    "width": 850,
+    "height": 560,
+    "changedPixels": 0,
+    "changedPercent": 0,
+    "bounds": null
+  }
+]

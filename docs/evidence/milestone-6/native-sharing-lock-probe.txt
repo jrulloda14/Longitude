@@ -1,0 +1,15 @@
+PASS Actual OS clipboard: Full
+PASS Actual OS clipboard: One line
+PASS Actual OS clipboard: Local times
+PASS Actual OS clipboard: UTC
+AssertionError [ERR_ASSERTION]: Missing expected rejection.
+    at async file:///H:/Projects/Longitude/scripts/verify-native-sharing.mjs:37:7
+    at async check (file:///H:/Projects/Longitude/scripts/verify-native-sharing.mjs:18:35)
+    at async file:///H:/Projects/Longitude/scripts/verify-native-sharing.mjs:32:2 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: undefined,
+  expected: undefined,
+  operator: 'rejects',
+  diff: 'simple'
+}

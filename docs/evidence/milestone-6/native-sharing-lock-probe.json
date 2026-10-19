@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-19T18:16:50.640Z",
+  "executable": "H:\\Projects\\Longitude\\src-tauri\\target\\debug\\longitude.exe",
+  "sha256": "59e1c3ccd0bdb12074507bab6cafaf157e4e8d076852df20111b342bbf24c461",
+  "profile": "H:\\Projects\\Longitude\\performance-results\\m6-sharing-1792433806455",
+  "passed": 4,
+  "failed": 1,
+  "results": [
+    {
+      "name": "Actual OS clipboard: Full",
+      "status": "passed"
+    },
+    {
+      "name": "Actual OS clipboard: One line",
+      "status": "passed"
+    },
+    {
+      "name": "Actual OS clipboard: Local times",
+      "status": "passed"
+    },
+    {
+      "name": "Actual OS clipboard: UTC",
+      "status": "passed"
+    },
+    {
+      "name": "Occupied OS clipboard reports failure and recovers after release",
+      "status": "failed",
+      "message": "AssertionError [ERR_ASSERTION]: Missing expected rejection."
+    }
+  ],
+  "errors": [],
+  "method": "Actual Windows Tauri/WebView2, OS clipboard and native Save dialog; dialog driven through computer-use skill. Filesystem error preservation is separately tested by actual Rust filesystem tests."
+}

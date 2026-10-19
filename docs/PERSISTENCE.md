@@ -1,5 +1,7 @@
 # Persistence architecture and schema — Milestone 4
 
+Milestone 6 preserves this schema/repository unchanged. Existing meeting title/duration/weekly preferences retain their previous persistence behavior. Calendar UID, creation timestamp and recurrence time basis belong to the volatile export session; no schema bump or duplicate Mac schema is introduced. Calendar export writes a separate user-selected file and does not modify configuration storage. [Sharing boundary](ICS_EXPORT.md).
+
 Milestone 5A follow-up: the Windows Tauri host now implements this fixed-command storage contract with app-config paths, locks, synced temporary files and atomic replacement. A Rust state authority owns durable writes after hydration. The schema/repository below remains shared; see [desktop architecture](DESKTOP_ARCHITECTURE.md) and [Windows verification](MILESTONE_5A.md). Actual macOS behavior and physical power-loss guarantees remain unverified.
 
 The existing reducer remains the source of application state. `src/persistence/schema.ts` selects and validates durable fields; `ConfigurationRepository` handles migration, revisions, recovery and serialized writes. The platform supplies only asynchronous reads and compare-and-swap commits. Neither the timezone nor scheduling engine imports storage, browser or native APIs.

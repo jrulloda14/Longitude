@@ -1,0 +1,17 @@
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 1589 modules transformed.
+rendering chunks...
+computing gzip size...
+browser-test-dist/tests/browser/fixture.html                              0.38 kB │ gzip:   0.28 kB
+browser-test-dist/assets/geist-cyrillic-ext-wght-normal-DjL33-gN.woff2    7.42 kB
+browser-test-dist/assets/geist-vietnamese-wght-normal-6IgcOCM7.woff2      8.00 kB
+browser-test-dist/assets/geist-cyrillic-wght-normal-BEAKL7Jp.woff2       15.08 kB
+browser-test-dist/assets/geist-latin-ext-wght-normal-DC-KSUi6.woff2      16.51 kB
+browser-test-dist/assets/geist-latin-wght-normal-BgDaEnEv.woff2          29.40 kB
+browser-test-dist/assets/search.worker-C9L_NhDt.js                      171.90 kB
+browser-test-dist/assets/fixture-BwdPjJiU.css                            23.92 kB │ gzip:   6.01 kB
+browser-test-dist/assets/fixture-DTcVcCqq.js                            465.39 kB │ gzip: 144.90 kB
+
+✓ built in 1.83s
+Captured 9 after screenshots; 0 page errors

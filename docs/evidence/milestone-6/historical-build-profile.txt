@@ -1,0 +1,4 @@
+Native profile: 60-second warmup
+Profile trial complete: live
+Profile trial complete: live-pulse-paused-diagnostic
+Profile trial complete: planning

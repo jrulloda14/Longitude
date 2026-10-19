@@ -1,0 +1,51 @@
+    Updating crates.io index
+      Adding tauri-plugin-clipboard-manager =2.5.0 to dependencies
+      Adding tauri-plugin-dialog =2.8.3 to dependencies
+             Features:
+             - gtk3
+             - xdg-portal
+    Updating crates.io index
+     Locking 43 packages to highest compatible versions
+      Adding arboard v3.7.0
+      Adding clipboard-win v5.4.1
+      Adding crunchy v0.2.4
+      Adding downcast-rs v1.2.1
+      Adding error-code v3.4.0
+      Adding fax v0.2.7
+      Adding fixedbitset v0.5.7
+      Adding foldhash v0.1.5
+      Adding half v2.7.1
+      Adding hashbrown v0.15.5
+      Adding nom v8.0.0
+      Adding os_pipe v1.2.3
+      Adding petgraph v0.8.3
+      Adding quick-error v2.0.1
+      Adding quick-xml v0.41.0
+      Adding rfd v0.16.0
+      Adding tauri-plugin-clipboard-manager v2.5.0
+      Adding tauri-plugin-dialog v2.8.3
+      Adding tauri-plugin-fs v2.7.1
+      Adding tiff v0.11.3
+      Adding tree_magic_mini v3.2.2
+      Adding wayland-backend v0.3.17
+      Adding wayland-client v0.31.15
+      Adding wayland-protocols v0.32.13
+      Adding wayland-protocols-wlr v0.3.12
+      Adding wayland-scanner v0.31.11
+      Adding wayland-sys v0.31.11
+      Adding weezl v0.1.12
+      Adding windows-sys v0.60.2
+      Adding windows-targets v0.53.5
+      Adding windows_aarch64_gnullvm v0.53.1
+      Adding windows_aarch64_msvc v0.53.1
+      Adding windows_i686_gnu v0.53.1
+      Adding windows_i686_gnullvm v0.53.1
+      Adding windows_i686_msvc v0.53.1
+      Adding windows_x86_64_gnu v0.53.1
+      Adding windows_x86_64_gnullvm v0.53.1
+      Adding windows_x86_64_msvc v0.53.1
+      Adding wl-clipboard-rs v0.9.4
+      Adding zerocopy v0.8.63
+      Adding zerocopy-derive v0.8.63
+      Adding zune-core v0.5.3
+      Adding zune-jpeg v0.5.15

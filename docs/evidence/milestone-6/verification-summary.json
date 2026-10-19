@@ -1,0 +1,238 @@
+{
+  "status": "Implemented; shared/Windows/dual-architecture hosted macOS functional verification passed; CPU/frame acceptance remains Fail/open; physical Mac blocked",
+  "baseline": "935e67f92f55d9091b4bbea65015f723c319bd1d",
+  "testedApplicationSource": "d53821df0a8098465523a70b4b71cf50d15af3fe",
+  "windows": {
+    "typecheck": "pass, exit 0",
+    "unit": {
+      "passed": 772,
+      "failed": 0,
+      "files": 13
+    },
+    "browser": {
+      "startTime": "2026-10-19T18:51:54.056Z",
+      "duration": 159039.001,
+      "expected": 102,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "rust": {
+      "passed": 41,
+      "failed": 0,
+      "ignored": 0,
+      "format": "pass, exit 0"
+    },
+    "nativeRegression": {
+      "passed": 29,
+      "failed": 0,
+      "executableSHA256": "c95bca20b79fab46bffe6de3aec0792d8bc130064b6f4d8cb33ed09da2898e3b"
+    },
+    "nativeSharing": {
+      "passed": 13,
+      "failed": 0,
+      "executableSHA256": "c95bca20b79fab46bffe6de3aec0792d8bc130064b6f4d8cb33ed09da2898e3b",
+      "actualClipboardModes": 4,
+      "actualSaveAndCancel": true,
+      "externalOSClipboardDenial": "not verified"
+    },
+    "optimizedSmoke": {
+      "passed": 5,
+      "failed": 0,
+      "executableSHA256": "46e6eb225a684aceacc0de165a80c6f5e6c8d98e5ba95487dbc8456a80537705"
+    },
+    "frontendBuild": "pass",
+    "optimizedBuild": "pass, Rust 4m 38s",
+    "installer": {
+      "path": "src-tauri\\target\\release\\bundle\\nsis\\Longitude_0.1.0_x64-setup.exe",
+      "bytes": 2548349,
+      "sha256": "f325c733b8574862eefd60a49316b42558ce30d02610f50ea57196915d55c2b5",
+      "signed": false,
+      "publishedRelease": false
+    }
+  },
+  "macOS": {
+    "source": "d53821df0a8098465523a70b4b71cf50d15af3fe",
+    "run": 39305433436,
+    "artifacts": [
+      {
+        "architecture": "arm64",
+        "target": "aarch64-apple-darwin",
+        "artifactId": 12213099412,
+        "archiveSHA256": "6408f62c07717c1cb3af07a5304fa381e4b1ef38a535809b7c5076bd0128f2a5",
+        "unitPassed": 772,
+        "rustPassed": 41,
+        "browserPassed": 93,
+        "browserDurationMs": 126880.509,
+        "signatureIntegrity": "passed",
+        "gatekeeper": "rejected: ad-hoc development signature",
+        "physicalRuntime": "Blocked",
+        "notarized": false
+      },
+      {
+        "architecture": "intel",
+        "target": "x86_64-apple-darwin",
+        "artifactId": 12215585775,
+        "archiveSHA256": "65b6d88305b0c79d66ed188aeca6a3c13029751edd94387e688a75db4af421a9",
+        "unitPassed": 772,
+        "rustPassed": 41,
+        "browserPassed": 93,
+        "browserDurationMs": 212313.36500000002,
+        "signatureIntegrity": "passed",
+        "gatekeeper": "rejected: ad-hoc development signature",
+        "physicalRuntime": "Blocked",
+        "notarized": false
+      }
+    ]
+  },
+  "performance": {
+    "method": "60-second warmup; 120-second nominal live/planning windows; single sequential trials, same shared Windows host; no concurrent builds/tests",
+    "finalM6": {
+      "live": {
+        "mode": "main-live-widget-hidden",
+        "elapsedSeconds": 122.6079995,
+        "cpuSeconds": 23.546875,
+        "totalMachineCpuPercent": 4.801251773135732,
+        "oneCoreCpuPercent": 19.205007092542928,
+        "rendererTaskMsPerSecond": 19.393905860114778,
+        "jsHeapUsedBytes": 5904132,
+        "peakSampledPrivateBytes": 224325632,
+        "peakSampledWorkingSetBytes": 505434112,
+        "stableProcessSet": true
+      },
+      "planning": {
+        "mode": "main-planning-widget-hidden",
+        "elapsedSeconds": 122.4900753,
+        "cpuSeconds": 14.171875,
+        "totalMachineCpuPercent": 2.8924537284532144,
+        "oneCoreCpuPercent": 11.569814913812857,
+        "rendererTaskMsPerSecond": 6.976181522520464,
+        "jsHeapUsedBytes": 6784416,
+        "peakSampledPrivateBytes": 231194624,
+        "peakSampledWorkingSetBytes": 515203072,
+        "stableProcessSet": true
+      },
+      "drag": {
+        "eventToFrameMs": {
+          "count": 120,
+          "p50": 0.5,
+          "p95": 2.400000002235174,
+          "max": 3.699999999254942
+        },
+        "commitToFrameProxyMs": {
+          "count": 36,
+          "p50": 31.800000000745058,
+          "p95": 39.19999999925494,
+          "max": 45.30000000074506
+        },
+        "frameIntervalMs": {
+          "count": 253,
+          "p50": 31.29999999998836,
+          "p95": 41.899999999965075,
+          "max": 45.800000000046566
+        },
+        "longTasksMs": [],
+        "outsideMoves": 59,
+        "capturedOutsideMoves": 59
+      }
+    },
+    "approved5BRepeat": {
+      "live": {
+        "mode": "main-live-widget-hidden",
+        "elapsedSeconds": 122.5506398,
+        "cpuSeconds": 22.578125,
+        "totalMachineCpuPercent": 4.605876606773945,
+        "oneCoreCpuPercent": 18.42350642709578,
+        "rendererTaskMsPerSecond": 19.441342810517092,
+        "jsHeapUsedBytes": 5733528,
+        "peakSampledPrivateBytes": 220061696,
+        "peakSampledWorkingSetBytes": 500318208,
+        "stableProcessSet": true
+      },
+      "planning": {
+        "mode": "main-planning-widget-hidden",
+        "elapsedSeconds": 122.50468510000003,
+        "cpuSeconds": 14.125,
+        "totalMachineCpuPercent": 2.88254281631552,
+        "oneCoreCpuPercent": 11.53017126526208,
+        "rendererTaskMsPerSecond": 6.952370836305261,
+        "jsHeapUsedBytes": 7170740,
+        "peakSampledPrivateBytes": 223047680,
+        "peakSampledWorkingSetBytes": 505278464,
+        "stableProcessSet": true
+      },
+      "drag": {
+        "eventToFrameMs": {
+          "count": 120,
+          "p50": 0.5,
+          "p95": 2.5,
+          "max": 3.600000001490116
+        },
+        "commitToFrameProxyMs": {
+          "count": 36,
+          "p50": 32,
+          "p95": 42.099999997764826,
+          "max": 45.399999998509884
+        },
+        "frameIntervalMs": {
+          "count": 252,
+          "p50": 31.70000000001164,
+          "p95": 43.399999999965075,
+          "max": 46
+        },
+        "longTasksMs": [],
+        "outsideMoves": 59,
+        "capturedOutsideMoves": 59
+      }
+    },
+    "cpuAndFrameTargets": "Fail/open on both builds",
+    "privateMemoryTarget": "Pass in these sampled trials",
+    "historicalCPUResult": "exact original binary unavailable; related-build profiling retained; cause not proven"
+  },
+  "visual": {
+    "unchangedMainViews": 8,
+    "intentionalPlannerChangedPixels": 1049,
+    "comparisonMethod": "Canvas decoded RGBA; any channel difference >16. Strict Playwright perceptual assertions are separate.",
+    "supplementalSharingWidths": [
+      380,
+      850
+    ]
+  },
+  "preservation": {
+    "unchangedPaths": [
+      "src/lib/time.ts",
+      "src/lib/time-axis.ts",
+      "src/lib/time-cache.ts",
+      "src/lib/time-selection.ts",
+      "src/lib/time-validation.ts",
+      "src/lib/schedule.ts",
+      "src/persistence",
+      "src/state/store.tsx",
+      "src/desktop/NativeStoreProvider.tsx",
+      "src/desktop/state-client.ts",
+      "src-tauri/src/storage.rs",
+      "src-tauri/src/authority.rs",
+      "src/styles.css",
+      "src/fonts.css"
+    ],
+    "milestone7PlanUnchanged": true,
+    "runtimeSourceUnchangedSinceTestedSHA": true
+  },
+  "security": {
+    "productionNpmVulnerabilities": 0,
+    "inheritedHighDevelopmentNpm": 5,
+    "rustSecVulnerabilities": 0,
+    "rustSecUnmaintainedWarnings": 4,
+    "rustSecUnsoundnessWarnings": 1
+  },
+  "unverified": [
+    "Physical macOS clipboard/Save/TCC and native lifecycle",
+    "Physical Mac performance",
+    "Manual calendar-client import",
+    "Power loss/forced termination/disk-full export certification",
+    "Trusted signing, notarization, Gatekeeper distribution acceptance",
+    "Windows CPU/frame acceptance; historical cause unresolved"
+  ],
+  "releasePublished": false,
+  "milestone7Started": false
+}

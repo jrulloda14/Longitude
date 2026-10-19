@@ -1,0 +1,65 @@
+{
+  "at": "2026-10-19T19:03:40.074Z",
+  "executable": "H:\\Projects\\Longitude\\src-tauri\\target\\debug\\longitude.exe",
+  "sha256": "c95bca20b79fab46bffe6de3aec0792d8bc130064b6f4d8cb33ed09da2898e3b",
+  "profile": "H:\\Projects\\Longitude\\performance-results\\m6-sharing-1792436412555",
+  "externalClipboardDenial": "Not verified: experimental external lock fixture did not deny a direct native write on this host; retained failures are separate. Adapter/UI failures are covered by unit/browser tests.",
+  "passed": 13,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Actual OS clipboard: Full",
+      "status": "passed"
+    },
+    {
+      "name": "Actual OS clipboard: One line",
+      "status": "passed"
+    },
+    {
+      "name": "Actual OS clipboard: Local times",
+      "status": "passed"
+    },
+    {
+      "name": "Actual OS clipboard: UTC",
+      "status": "passed"
+    },
+    {
+      "name": "Quit is deferred while the native Save operation is active",
+      "status": "passed"
+    },
+    {
+      "name": "Actual native Save dialog cancellation is neutral",
+      "status": "passed"
+    },
+    {
+      "name": "Actual native Save writes an independently validated calendar",
+      "status": "passed"
+    },
+    {
+      "name": "Native filename traversal is rejected before any dialog",
+      "status": "passed"
+    },
+    {
+      "name": "Native malformed export is rejected before any dialog",
+      "status": "passed"
+    },
+    {
+      "name": "Widget is denied text clipboard command",
+      "status": "passed"
+    },
+    {
+      "name": "Widget is denied calendar Save command",
+      "status": "passed"
+    },
+    {
+      "name": "No WebView JavaScript exceptions",
+      "status": "passed"
+    },
+    {
+      "name": "Native Quit succeeds after the Save dialog closes",
+      "status": "passed"
+    }
+  ],
+  "errors": [],
+  "method": "Actual Windows Tauri/WebView2, OS clipboard and native Save dialog; dialog driven through computer-use skill. Filesystem error preservation is separately tested by actual Rust filesystem tests."
+}

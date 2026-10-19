@@ -1,0 +1,23 @@
+
+> longitude@0.1.0 test:browser
+> playwright test tests/browser/sharing.spec.ts tests/browser/interactions.spec.ts tests/browser/scheduling.spec.ts --grep share sheet fits|share title focus|planner modal retains
+
+[WebServer] (node:23952) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:18292) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:19360) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:5352) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:15156) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\browser\interactions.spec.ts:255:1 › share title focus survives live ticks and Tab remains inside the dialog (1.4s)
+  ok 2 tests\browser\scheduling.spec.ts:95:1 › planner modal retains Tab and Escape handling when pointer input leaves body focused (1.1s)
+  ok 3 tests\browser\sharing.spec.ts:65:30 › share sheet fits 380px and retains modal keyboard navigation (1.1s)
+  ok 4 tests\browser\sharing.spec.ts:65:30 › share sheet fits 850px and retains modal keyboard navigation (1.2s)
+
+  4 passed (12.8s)

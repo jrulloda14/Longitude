@@ -1,0 +1,287 @@
+{
+  "at": "2026-10-19T19:07:50.226Z",
+  "executable": "H:\\Projects\\Longitude\\performance-results\\milestone-5a-artifacts\\longitude.exe",
+  "sha256": "3cb781cc4006127a44fc8bd8c6a16904cdb64904bc64707eeceabb25c86c705d",
+  "browser": "155.0.4283.62",
+  "cores": 4,
+  "renderingConditions": {
+    "visibility": "visible",
+    "reducedMotion": false,
+    "rootClass": "lg-root relative flex h-full w-full flex-col overflow-hidden",
+    "devicePixelRatio": 1,
+    "clockTransition": "0.42s",
+    "pulseAnimations": [
+      {
+        "state": "running",
+        "timing": {
+          "delay": 0,
+          "direction": "normal",
+          "duration": 1600,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "none",
+          "iterationStart": 0,
+          "iterations": null,
+          "activeDuration": null,
+          "currentIteration": 0,
+          "endTime": null,
+          "localTime": 46.73899999851289,
+          "progress": 0.029211874999070554
+        }
+      }
+    ]
+  },
+  "warmupSeconds": 60,
+  "trials": [
+    {
+      "name": "live",
+      "seconds": 45.022516200000005,
+      "processes": [
+        {
+          "type": "browser",
+          "id": 6512,
+          "cpuSeconds": 4.076724
+        },
+        {
+          "type": "renderer",
+          "id": 25072,
+          "cpuSeconds": 0.062211000000000016
+        },
+        {
+          "type": "renderer",
+          "id": 8828,
+          "cpuSeconds": 1.6127440000000002
+        },
+        {
+          "type": "GPU",
+          "id": 10624,
+          "cpuSeconds": 2.048457
+        },
+        {
+          "type": "network.mojom.NetworkService",
+          "id": 1168,
+          "cpuSeconds": 0.0007960000000000189
+        },
+        {
+          "type": "storage.mojom.StorageService",
+          "id": 18856,
+          "cpuSeconds": 0.0002299999999999941
+        }
+      ],
+      "renderers": [
+        {
+          "label": "main",
+          "TaskDurationMsPerSecond": 19.624936022567297,
+          "ScriptDurationMsPerSecond": 4.618000448406746,
+          "LayoutDurationMsPerSecond": 1.847631074870933,
+          "RecalcStyleDurationMsPerSecond": 2.3102440462889984
+        }
+      ],
+      "estimatedBrowserTotalMachineCpuPercent": 4.331811423724914
+    },
+    {
+      "name": "live-pulse-paused-diagnostic",
+      "seconds": 45.01931839999999,
+      "processes": [
+        {
+          "type": "browser",
+          "id": 6512,
+          "cpuSeconds": 3.518431999999999
+        },
+        {
+          "type": "renderer",
+          "id": 25072,
+          "cpuSeconds": 0.07332099999999997
+        },
+        {
+          "type": "renderer",
+          "id": 8828,
+          "cpuSeconds": 1.2416289999999996
+        },
+        {
+          "type": "GPU",
+          "id": 10624,
+          "cpuSeconds": 1.3153509999999997
+        },
+        {
+          "type": "network.mojom.NetworkService",
+          "id": 1168,
+          "cpuSeconds": 0.0008619999999999739
+        },
+        {
+          "type": "storage.mojom.StorageService",
+          "id": 18856,
+          "cpuSeconds": 0.00007900000000000962
+        }
+      ],
+      "renderers": [
+        {
+          "label": "main",
+          "TaskDurationMsPerSecond": 16.489210107632374,
+          "ScriptDurationMsPerSecond": 4.954672969904407,
+          "LayoutDurationMsPerSecond": 1.3639255808901813,
+          "RecalcStyleDurationMsPerSecond": 1.4561082293062892
+        }
+      ],
+      "estimatedBrowserTotalMachineCpuPercent": 3.415019495275166
+    },
+    {
+      "name": "planning",
+      "seconds": 45.01694770000002,
+      "processes": [
+        {
+          "type": "browser",
+          "id": 6512,
+          "cpuSeconds": 2.5281719999999996
+        },
+        {
+          "type": "renderer",
+          "id": 25072,
+          "cpuSeconds": 0.054086999999999996
+        },
+        {
+          "type": "renderer",
+          "id": 8828,
+          "cpuSeconds": 0.38187499999999996
+        },
+        {
+          "type": "GPU",
+          "id": 10624,
+          "cpuSeconds": 0.33490100000000034
+        },
+        {
+          "type": "network.mojom.NetworkService",
+          "id": 1168,
+          "cpuSeconds": 0.0005219999999999947
+        },
+        {
+          "type": "storage.mojom.StorageService",
+          "id": 18856,
+          "cpuSeconds": 0.00009299999999999586
+        }
+      ],
+      "renderers": [
+        {
+          "label": "main",
+          "TaskDurationMsPerSecond": 7.014091717284506,
+          "ScriptDurationMsPerSecond": 4.5316266522441255,
+          "LayoutDurationMsPerSecond": 0.09969578634937183,
+          "RecalcStyleDurationMsPerSecond": 0.14376807692805826
+        }
+      ],
+      "estimatedBrowserTotalMachineCpuPercent": 1.8324487601810455
+    }
+  ],
+  "javascriptProfile": {
+    "durationMicros": 15097698,
+    "samples": 10246,
+    "top": [
+      {
+        "function": "(idle)",
+        "url": "",
+        "hitCount": 10047
+      },
+      {
+        "function": "(program)",
+        "url": "",
+        "hitCount": 134
+      },
+      {
+        "function": "(garbage collector)",
+        "url": "",
+        "hitCount": 7
+      },
+      {
+        "function": "$s",
+        "url": "http://tauri.localhost/assets/index-DOAClb8p.js",
+        "hitCount": 4
+      },
+      {
+        "function": "$s",
+        "url": "http://tauri.localhost/assets/index-DOAClb8p.js",
+        "hitCount": 3
+      },
+      {
+        "function": "$s",
+        "url": "http://tauri.localhost/assets/index-DOAClb8p.js",
+        "hitCount": 3
+      },
+      {
+        "function": "$s",
+        "url": "http://tauri.localhost/assets/index-DOAClb8p.js",
+        "hitCount": 3
+      },
+      {
+        "function": "$s",
+        "url": "http://tauri.localhost/assets/index-DOAClb8p.js",
+        "hitCount": 3
+      },
+      {
+        "function": "sc",
+        "url": "http://tauri.localhost/assets/index-DOAClb8p.js",
+        "hitCount": 3
+      },
+      {
+        "function": "No",
+        "url": "http://tauri.localhost/assets/index-DOAClb8p.js",
+        "hitCount": 2
+      },
+      {
+        "function": "$s",
+        "url": "http://tauri.localhost/assets/index-DOAClb8p.js",
+        "hitCount": 2
+      },
+      {
+        "function": "",
+        "url": "http://tauri.localhost/assets/index-DOAClb8p.js",
+        "hitCount": 2
+      },
+      {
+        "function": "dc",
+        "url": "http://tauri.localhost/assets/index-DOAClb8p.js",
+        "hitCount": 2
+      },
+      {
+        "function": "jl",
+        "url": "http://tauri.localhost/assets/index-DOAClb8p.js",
+        "hitCount": 1
+      },
+      {
+        "function": "$s",
+        "url": "http://tauri.localhost/assets/index-DOAClb8p.js",
+        "hitCount": 1
+      },
+      {
+        "function": "Y",
+        "url": "http://tauri.localhost/assets/index-DOAClb8p.js",
+        "hitCount": 1
+      },
+      {
+        "function": "$s",
+        "url": "http://tauri.localhost/assets/index-DOAClb8p.js",
+        "hitCount": 1
+      },
+      {
+        "function": "$s",
+        "url": "http://tauri.localhost/assets/index-DOAClb8p.js",
+        "hitCount": 1
+      },
+      {
+        "function": "Q",
+        "url": "http://tauri.localhost/assets/index-DOAClb8p.js",
+        "hitCount": 1
+      },
+      {
+        "function": "",
+        "url": "http://tauri.localhost/assets/index-DOAClb8p.js",
+        "hitCount": 1
+      }
+    ]
+  },
+  "limitations": [
+    "Diagnostic browser-process CPU excludes Rust host and may miss exited processes; separate native-performance.json measures the complete process tree",
+    "45-second ablations and 15-second V8 profile are not statistical acceptance trials",
+    "Pulse pause is temporary instrumentation, not a shipped visual/animation change",
+    "No build or regression suite should run during profiling; shared host noise remains possible"
+  ]
+}

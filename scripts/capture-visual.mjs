@@ -32,6 +32,10 @@ try {
       await page.getByRole('button', { name: 'Share this time', exact: true }).click();
       await page.evaluate(() => document.fonts.ready);
       await page.screenshot({ path: `${directory}/share-${width}.png`, animations: 'disabled' });
+      if (phase === 'after') {
+        await page.getByRole('button', { name: 'Export .ics', exact: true }).scrollIntoViewIfNeeded();
+        await page.screenshot({ path: `${directory}/share-${width}-actions.png`, animations: 'disabled' });
+      }
       await page.close();
     }
   }

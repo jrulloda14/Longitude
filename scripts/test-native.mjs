@@ -7,7 +7,7 @@ import { resolve } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 import assert from 'node:assert/strict';
 import { chromium, expect } from '@playwright/test';
-const output = globalThis.process.env.LONGITUDE_EVIDENCE_ROOT ?? 'docs/evidence/milestone-5a';
+const output = globalThis.process.env.LONGITUDE_EVIDENCE_ROOT ?? 'docs/evidence/milestone-6';
 const profile = resolve(`performance-results/native-${Date.now()}`);
 const executable = resolve('src-tauri/target/debug/longitude.exe');
 const results = [], pageErrors = [];

@@ -1,0 +1,28 @@
+PASS native offline asset startup and independent windows
+PASS native assets and IPC work with browser network offline
+PASS native caption maximize, restore and minimize
+PASS show and hide do not grow the native content size
+PASS widget opens without hiding main and shares manual selection
+PASS widget pin and opacity use shared durable settings
+PASS widget preview timeout cannot reset a newer main-window planning selection
+PASS widget expands and closes independently
+PASS stale cross-window transaction is rejected without lost edit
+PASS native preferences UI and durable time format
+PASS immediate native WebView reload does not lose the last preference
+PASS native sign-in registration can enable and disable with its original state restored
+PASS invalid shortcut reports failure and retains the owned shortcut
+PASS bare typing shortcut is rejected without replacing the working binding
+PASS equivalent shortcut aliases preserve ownership without duplicate registration
+PASS a shortcut occupied by another native process is rejected with rollback
+PASS shortcut rebind releases prior ownership
+PASS widget has no hydration/file-write capability
+PASS main cannot bypass authority with a raw file commit
+PASS native close hides with tray; reopen preserves selection
+PASS window refresh rehydrates the canonical selected instant
+Native: [1020/022732.495:ERROR:ui\gfx\win\window_impl.cc:172] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+PASS real native process quit flushes pending settings
+Error: Native debug endpoint did not start
+    at start (file:///H:/Projects/Longitude/scripts/test-native.mjs:31:21)
+    at async file:///H:/Projects/Longitude/scripts/test-native.mjs:178:5
+    at async check (file:///H:/Projects/Longitude/scripts/test-native.mjs:50:7)
+    at async file:///H:/Projects/Longitude/scripts/test-native.mjs:177:3

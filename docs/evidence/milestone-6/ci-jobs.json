@@ -1,0 +1,206 @@
+[
+  {
+    "id": 118230886901,
+    "name": "build (macos-15, aarch64-apple-darwin)",
+    "status": "in_progress",
+    "conclusion": null,
+    "runner": "GitHub Actions 1000000025",
+    "labels": [
+      "macos-15"
+    ],
+    "startedAt": "2026-10-19T18:26:17Z",
+    "completedAt": null,
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1,
+        "started_at": "2026-10-19T18:26:17Z",
+        "completed_at": "2026-10-19T18:26:19Z"
+      },
+      {
+        "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2,
+        "started_at": "2026-10-19T18:26:19Z",
+        "completed_at": "2026-10-19T18:26:23Z"
+      },
+      {
+        "name": "Run actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3,
+        "started_at": "2026-10-19T18:26:23Z",
+        "completed_at": "2026-10-19T18:26:32Z"
+      },
+      {
+        "name": "Toolchain and host evidence",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4,
+        "started_at": "2026-10-19T18:26:32Z",
+        "completed_at": "2026-10-19T18:26:42Z"
+      },
+      {
+        "name": "Run npm ci",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5,
+        "started_at": "2026-10-19T18:26:42Z",
+        "completed_at": "2026-10-19T18:26:50Z"
+      },
+      {
+        "name": "Shared checks and macOS filesystem/Rust tests",
+        "status": "in_progress",
+        "conclusion": null,
+        "number": 6,
+        "started_at": "2026-10-19T18:26:50Z",
+        "completed_at": null
+      },
+      {
+        "name": "WebKit shared browser interactions (not native WKWebView acceptance)",
+        "status": "pending",
+        "conclusion": null,
+        "number": 7,
+        "started_at": null,
+        "completed_at": null
+      },
+      {
+        "name": "Ad-hoc development application and DMG",
+        "status": "pending",
+        "conclusion": null,
+        "number": 8,
+        "started_at": null,
+        "completed_at": null
+      },
+      {
+        "name": "Retain development artifacts and evidence (no release publication)",
+        "status": "pending",
+        "conclusion": null,
+        "number": 9,
+        "started_at": null,
+        "completed_at": null
+      },
+      {
+        "name": "Post Run actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f",
+        "status": "pending",
+        "conclusion": null,
+        "number": 17,
+        "started_at": null,
+        "completed_at": null
+      },
+      {
+        "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+        "status": "pending",
+        "conclusion": null,
+        "number": 18,
+        "started_at": null,
+        "completed_at": null
+      }
+    ]
+  },
+  {
+    "id": 118230887520,
+    "name": "build (macos-15-intel, x86_64-apple-darwin)",
+    "status": "in_progress",
+    "conclusion": null,
+    "runner": "GitHub Actions 1000000026",
+    "labels": [
+      "macos-15-intel"
+    ],
+    "startedAt": "2026-10-19T18:26:10Z",
+    "completedAt": null,
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1,
+        "started_at": "2026-10-19T18:26:11Z",
+        "completed_at": "2026-10-19T18:26:13Z"
+      },
+      {
+        "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2,
+        "started_at": "2026-10-19T18:26:13Z",
+        "completed_at": "2026-10-19T18:26:19Z"
+      },
+      {
+        "name": "Run actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3,
+        "started_at": "2026-10-19T18:26:19Z",
+        "completed_at": "2026-10-19T18:26:36Z"
+      },
+      {
+        "name": "Toolchain and host evidence",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4,
+        "started_at": "2026-10-19T18:26:36Z",
+        "completed_at": "2026-10-19T18:27:01Z"
+      },
+      {
+        "name": "Run npm ci",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5,
+        "started_at": "2026-10-19T18:27:01Z",
+        "completed_at": "2026-10-19T18:27:25Z"
+      },
+      {
+        "name": "Shared checks and macOS filesystem/Rust tests",
+        "status": "in_progress",
+        "conclusion": null,
+        "number": 6,
+        "started_at": "2026-10-19T18:27:25Z",
+        "completed_at": null
+      },
+      {
+        "name": "WebKit shared browser interactions (not native WKWebView acceptance)",
+        "status": "pending",
+        "conclusion": null,
+        "number": 7,
+        "started_at": null,
+        "completed_at": null
+      },
+      {
+        "name": "Ad-hoc development application and DMG",
+        "status": "pending",
+        "conclusion": null,
+        "number": 8,
+        "started_at": null,
+        "completed_at": null
+      },
+      {
+        "name": "Retain development artifacts and evidence (no release publication)",
+        "status": "pending",
+        "conclusion": null,
+        "number": 9,
+        "started_at": null,
+        "completed_at": null
+      },
+      {
+        "name": "Post Run actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f",
+        "status": "pending",
+        "conclusion": null,
+        "number": 17,
+        "started_at": null,
+        "completed_at": null
+      },
+      {
+        "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+        "status": "pending",
+        "conclusion": null,
+        "number": 18,
+        "started_at": null,
+        "completed_at": null
+      }
+    ]
+  }
+]

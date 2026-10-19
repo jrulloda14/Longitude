@@ -6,7 +6,7 @@ import { setTimeout as delay } from 'node:timers/promises';
 import assert from 'node:assert/strict';
 import { chromium, expect } from '@playwright/test';
 const executable=resolve('src-tauri/target/release/longitude.exe'), checks=[];
-const output=process.env.LONGITUDE_EVIDENCE_ROOT ?? 'docs/evidence/milestone-5a';
+const output=process.env.LONGITUDE_EVIDENCE_ROOT ?? 'docs/evidence/milestone-6';
 const sha256=createHash('sha256').update(await readFile(executable)).digest('hex');
 const child=spawn(executable,[],{windowsHide:false,env:{...process.env,WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS:'--remote-debugging-port=9224 --remote-debugging-address=127.0.0.1'}});
 let browser;

@@ -1,0 +1,137 @@
+PASS Actual OS clipboard: Full
+PASS Actual OS clipboard: One line
+PASS Actual OS clipboard: Local times
+PASS Actual OS clipboard: UTC
+ExpectError: expect(locator).toContainText(expected) failed
+
+Locator: getByRole('dialog', { name: 'Share meeting time' }).getByRole('alert')
+Expected substring: "Could not copy"
+Timeout: 5000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toContainText" getByRole('dialog', { name: 'Share meeting time' }).getByRole('alert') with timeout 5000ms
+  - waiting for getByRole('dialog', { name: 'Share meeting time' }).getByRole('alert')
+
+    at captureRawStack (H:\Projects\Longitude\node_modules\playwright-core\lib\coreBundle.js:9282:17)
+    at callMatcherAsStep (H:\Projects\Longitude\node_modules\playwright\lib\matchers\expect.js:13316:57)
+    at Object.toContainText (H:\Projects\Longitude\node_modules\playwright\lib\matchers\expect.js:13308:23)
+    at H:\Projects\Longitude\scripts\verify-native-sharing.mjs:36:124
+    at async check (H:\Projects\Longitude\scripts\verify-native-sharing.mjs:18:35)
+    at async file:///H:/Projects/Longitude/scripts/verify-native-sharing.mjs:32:2 {
+  matcherResult: {
+    name: 'toContainText',
+    expected: 'Could not copy',
+    message: 'expect(locator).toContainText(expected) failed\n' +
+      '\n' +
+      "Locator: getByRole('dialog', { name: 'Share meeting time' }).getByRole('alert')\n" +
+      'Expected substring: "Could not copy"\n' +
+      'Timeout: 5000ms\n' +
+      'Error: element(s) not found\n' +
+      '\n' +
+      'Call log:\n' +
+      `  - Expect "toContainText" getByRole('dialog', { name: 'Share meeting time' }).getByRole('alert') with timeout 5000ms\n` +
+      "  - waiting for getByRole('dialog', { name: 'Share meeting time' }).getByRole('alert')\n",
+    pass: false,
+    actual: undefined,
+    log: [
+      `  - Expect "toContainText" getByRole('dialog', { name: 'Share meeting time' }).getByRole('alert') with timeout 5000ms`,
+      "  - waiting for getByRole('dialog', { name: 'Share meeting time' }).getByRole('alert')"
+    ],
+    timeout: 5000,
+    ariaSnapshot: '- banner:\n' +
+      '  - text: Longitude\n' +
+      '  - radiogroup "View":\n' +
+      '    - radio "Clock" [checked]\n' +
+      '    - radio "Planner"\n' +
+      '    - radio "Settings"\n' +
+      '  - button "Compact widget":\n' +
+      '    - img\n' +
+      '  - button "Minimize":\n' +
+      '    - img\n' +
+      '  - button "Maximize":\n' +
+      '    - img\n' +
+      '  - button "Close":\n' +
+      '    - img\n' +
+      '- main:\n' +
+      '  - region "Clock":\n' +
+      '    - slider "Selected time in Asia/Singapore"\n' +
+      '    - text: Selected time in Singapore\n' +
+      '    - textbox "Selected time in Singapore": 1:30\n' +
+      '    - button "Switch to AM": PM\n' +
+      '    - button "Previous day":\n' +
+      '      - img\n' +
+      '    - button "Choose planning date": In 12 days · Sun 1 Nov\n' +
+      '    - button "Next day":\n' +
+      '      - img\n' +
+      '    - text: Singapore · UTC+8 in 12d 11h\n' +
+      '    - button "Now · 2:13 AM":\n' +
+      '      - img\n' +
+      '      - text: Now · 2:13 AM\n' +
+      '  - region "Comparison":\n' +
+      '    - button "My Team 4"\n' +
+      '    - button "Timeline" [pressed]:\n' +
+      '      - img\n' +
+      '    - button "Add location":\n' +
+      '      - img\n' +
+      '    - list "Locations":\n' +
+      '      - listitem "Singapore, 1:30 PM, Sun 1 Nov, Off hours, reference":\n' +
+      '        - text: Singapore Ref Singapore · UTC+8 1:30 PM Sun 1\n' +
+      '        - button "More actions for Singapore":\n' +
+      '          - img\n' +
+      '      - listitem "Manila, 1:30 PM, Sun 1 Nov, Off hours, Same time from reference":\n' +
+      '        - text: Manila Philippines · UTC+8 · Same time 1:30 PM Sun 1\n' +
+      '        - button "More actions for Manila":\n' +
+      '          - img\n' +
+      '      - listitem "New York, 1:30 AM, Sun 1 Nov, Sleeping hours, −12h from reference":\n' +
+      '        - text: New York United States · EDT −4 · −12h DST 1:30 AM Sun 1\n' +
+      '        - button "More actions for New York":\n' +
+      '          - img\n' +
+      '      - listitem "London, 5:30 AM, Sun 1 Nov, Sleeping hours, −8h from reference":\n' +
+      '        - text: London United Kingdom · GMT · −8h 5:30 AM Sun 1\n' +
+      '        - button "More actions for London":\n' +
+      '          - img\n' +
+      '    - text: Sun 1 Nov 6 AM Noon 6 PM Singapore Manila New York London\n' +
+      '    - slider "Meeting start on the timeline": 1 3 6 9 12 3 6 9 1 3 6 9 12 3 6 9 12 3 6 9 1 3 6 9 6 9 1 3 6 9 12 3\n' +
+      '    - region "Meeting time suitability":\n' +
+      '      - button "Poor overlap · 2 locations are in sleeping hours Why"\n' +
+      '      - text: Poor overlap. 2 locations are in sleeping hours.\n' +
+      '    - button "Share this time":\n' +
+      '      - img\n' +
+      '- dialog "Share meeting time":\n' +
+      '  - heading "Share meeting time" [level=2]\n' +
+      '  - heading "Share this time" [level=3]\n' +
+      '  - text: · 2 locations are in sleeping hours Meeting title\n' +
+      '  - textbox "Meeting title":\n' +
+      '    - /placeholder: Meeting\n' +
+      '    - text: Project Sync; 團隊 🙂\n' +
+      '  - text: Duration\n' +
+      '  - combobox "Duration":\n' +
+      '    - option "15 min"\n' +
+      '    - option "30 min"\n' +
+      '    - option "45 min"\n' +
+      '    - option "1 h"\n' +
+      '    - option "1.5 h" [selected]\n' +
+      '  - text: Project Sync; 團隊 🙂 — 2026-11-01T05:30:00.000Z – 2026-11-01T07:00:00.000Z · 90 min (UTC)\n' +
+      '  - radiogroup "Summary format":\n' +
+      '    - radio "Full"\n' +
+      '    - radio "One line"\n' +
+      '    - radio "Local times"\n' +
+      '    - radio "UTC" [checked]\n' +
+      '  - radiogroup "Clock format":\n' +
+      '    - radio "12h" [checked]\n' +
+      '    - radio "24h"\n' +
+      '  - text: Weekly\n' +
+      '  - switch "Repeat weekly"\n' +
+      `  - note: "New York's clock changes during this meeting: UTC−4 → UTC−5. Duration remains 90 elapsed minutes."\n` +
+      '  - note: London uses UTC on this selected date (UTC+1 today).\n' +
+      '  - button "Copied":\n' +
+      '    - img\n' +
+      '    - text: Copied\n' +
+      '  - button "Export .ics":\n' +
+      '    - img\n' +
+      '    - text: Export .ics\n' +
+      '  - button "New event"\n' +
+      '  - status: Copied selected text.'
+  }
+}

@@ -1,5 +1,13 @@
 # Dependency review
 
+## Milestone 6 sharing dependencies
+
+[Pre-addition review](MILESTONE_6_DEPENDENCY_REVIEW.md): pinned official Rust clipboard-manager **2.5.0** and dialog **2.8.3**, plus development-only independent parser ical.js **2.2.1**. There is no new JavaScript runtime/timezone dependency. Both plugins support Windows/macOS and use Apache-2.0 OR MIT; ical.js is MPL-2.0, has no npm dependencies, and is not included in the application's runtime notices/bundle. Dialog's unnecessary default GTK feature is disabled for the approved targets. The clipboard plugin's upstream arboard image/Wayland transitive features are retained by that maintained plugin even though no image/read IPC capability is granted. This cost was reviewed rather than hidden behind a direct package count.
+
+The locked native graph now has **521 package entries including Longitude**, and [native notices](NATIVE_THIRD_PARTY_NOTICES.txt) cover 520 dependency entries. Fresh [npm production audit](evidence/milestone-6/npm-audit-production.json): **0**; [all npm](evidence/milestone-6/npm-audit-all.json): **5 high inherited development findings**. [RustSec](evidence/milestone-6/cargo-audit.json): **0 vulnerabilities**, four unmaintained and one unsoundness informational warning, with none ignored. The five warning packages/versions are unchanged: proc-macro-error 1.0.4, zbus_names 4.3.5, zvariant/zvariant_derive 5.15.1 and glib 0.18.5. They are absent from the recorded Windows/Apple Silicon/Intel normal+build target trees. Full-graph warnings remain disclosed and Linux is not an approved M6 target. The build-only cargo-audit tool is installed in ignored output and is not an application dependency.
+
+Only two main-window app permissions are added: bounded text write and dialog-selected calendar export. No frontend clipboard read, generic dialog/filesystem/shell/network permission, OAuth or external service is introduced. Existing application UNLICENSED metadata is unchanged. [ICS/export boundary](ICS_EXPORT.md) and [BUILD_ADVISORIES.md](BUILD_ADVISORIES.md) document exposure and remaining limitations.
+
 ## Milestone 5B native-verification follow-up
 
 No npm package, Rust crate, plugin version or lockfile changed. Existing Tauri APIs implement native Mac appearance; the existing shortcut plugin's parser/modifier types implement validation and semantic alias comparison. The competing Windows hotkey test uses the OS `RegisterHotKey`/`UnregisterHotKey` API in an isolated helper process, with guaranteed cleanup; it adds no application dependency or keyboard-event monitor. Official plugin/platform maintenance, licensing and compatibility reviews remain in [DESKTOP_DEPENDENCIES.md](DESKTOP_DEPENDENCIES.md).

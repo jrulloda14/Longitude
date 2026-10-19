@@ -1,0 +1,17 @@
+PASS Actual OS clipboard: Full
+PASS Actual OS clipboard: One line
+PASS Actual OS clipboard: Local times
+PASS Actual OS clipboard: UTC
+WAIT_NATIVE_CANCEL: use the actual native dialog Cancel button.
+Native: Finish or cancel the calendar Save dialog before quitting
+PASS Quit is deferred while the native Save operation is active
+PASS Actual native Save dialog cancellation is neutral
+WAIT_NATIVE_SAVE: save to H:\Projects\Longitude\performance-results\m6-sharing-1792436412555\meeting.ics
+PASS Actual native Save writes an independently validated calendar
+PASS Native filename traversal is rejected before any dialog
+PASS Native malformed export is rejected before any dialog
+PASS Widget is denied text clipboard command
+PASS Widget is denied calendar Save command
+PASS No WebView JavaScript exceptions
+Native: [1020/030339.840:ERROR:ui\gfx\win\window_impl.cc:172] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+PASS Native Quit succeeds after the Save dialog closes

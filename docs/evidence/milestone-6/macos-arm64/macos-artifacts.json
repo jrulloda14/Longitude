@@ -1,0 +1,64 @@
+{
+  "target": "aarch64-apple-darwin",
+  "host": {
+    "exitCode": 0,
+    "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t15.7.9\nBuildVersion:\t\t24G830\n",
+    "stderr": ""
+  },
+  "hardware": {
+    "exitCode": 0,
+    "stdout": "hw.model: VirtualMac2,1\nhw.memsize: 7516192768\nhw.ncpu: 3\n",
+    "stderr": ""
+  },
+  "arch": {
+    "exitCode": 0,
+    "stdout": "arm64\n",
+    "stderr": ""
+  },
+  "binary": {
+    "exitCode": 0,
+    "stdout": "/Users/runner/work/Longitude/Longitude/src-tauri/target/aarch64-apple-darwin/release/bundle/macos/Longitude.app/Contents/MacOS/longitude: Mach-O 64-bit executable arm64\n",
+    "stderr": ""
+  },
+  "signatures": {
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": "Executable=/Users/runner/work/Longitude/Longitude/src-tauri/target/aarch64-apple-darwin/release/bundle/macos/Longitude.app/Contents/MacOS/longitude\nIdentifier=app.longitude.desktop\nFormat=app bundle with Mach-O thin (arm64)\nCodeDirectory v=20500 size=54134 flags=0x10002(adhoc,runtime) hashes=1685+3 location=embedded\nVersionPlatform=1\nVersionMin=786432\nVersionSDK=984320\nHash type=sha256 size=32\nCandidateCDHash sha256=7196ea9665e644270aa6375747a7ee31e99305c6\nCandidateCDHashFull sha256=7196ea9665e644270aa6375747a7ee31e99305c6c787e3e87d7bd925686e9b69\nHash choices=sha256\nCMSDigest=7196ea9665e644270aa6375747a7ee31e99305c6c787e3e87d7bd925686e9b69\nCMSDigestType=2\nExecutable Segment base=0\nExecutable Segment limit=6684672\nExecutable Segment flags=0x1\nPage size=4096\nCDHash=7196ea9665e644270aa6375747a7ee31e99305c6\nSignature=adhoc\nInfo.plist entries=17\nTeamIdentifier=not set\nRuntime Version=15.5.0\nSealed Resources version=2 rules=13 files=3\nInternal requirements count=0 size=12\n"
+  },
+  "verification": {
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": "/Users/runner/work/Longitude/Longitude/src-tauri/target/aarch64-apple-darwin/release/bundle/macos/Longitude.app: valid on disk\n/Users/runner/work/Longitude/Longitude/src-tauri/target/aarch64-apple-darwin/release/bundle/macos/Longitude.app: satisfies its Designated Requirement\n"
+  },
+  "gatekeeper": {
+    "exitCode": 3,
+    "stdout": "",
+    "stderr": "/Users/runner/work/Longitude/Longitude/src-tauri/target/aarch64-apple-darwin/release/bundle/macos/Longitude.app: rejected\n"
+  },
+  "metadata": {
+    "exitCode": 0,
+    "stdout": "{\n  \"CFBundleDevelopmentRegion\" => \"English\"\n  \"CFBundleDisplayName\" => \"Longitude\"\n  \"CFBundleExecutable\" => \"longitude\"\n  \"CFBundleIconFile\" => \"icon.icns\"\n  \"CFBundleIdentifier\" => \"app.longitude.desktop\"\n  \"CFBundleInfoDictionaryVersion\" => \"6.0\"\n  \"CFBundleName\" => \"Longitude\"\n  \"CFBundlePackageType\" => \"APPL\"\n  \"CFBundleShortVersionString\" => \"0.1.0\"\n  \"CFBundleVersion\" => \"0.1.0\"\n  \"CSResourcesFileMapped\" => 1\n  \"LSApplicationCategoryType\" => \"public.app-category.productivity\"\n  \"LSMinimumSystemVersion\" => \"12.0\"\n  \"LSRequiresCarbon\" => 1\n  \"LSUIElement\" => 0\n  \"NSHighResolutionCapable\" => 1\n  \"NSRequiresAquaSystemAppearance\" => 0\n}\n",
+    "stderr": ""
+  },
+  "artifacts": [
+    {
+      "path": "/Users/runner/work/Longitude/Longitude/src-tauri/target/aarch64-apple-darwin/release/bundle/macos/Longitude.app/Contents/MacOS/longitude",
+      "bytes": 6970752,
+      "sha256": "f382d5cd84d00daa4966c2f07e564ec81125bc1b902d6cd9c265cf6cc38e9b2b"
+    },
+    {
+      "path": "/Users/runner/work/Longitude/Longitude/ci-results/Longitude-aarch64-apple-darwin-development.app.zip",
+      "bytes": 3175884,
+      "sha256": "7fed918eaa11d69c64097c2093807d3c3198009a8e3ff3469229d802409d0a26"
+    },
+    {
+      "path": "/Users/runner/work/Longitude/Longitude/src-tauri/target/aarch64-apple-darwin/release/bundle/dmg/Longitude_0.1.0_aarch64.dmg",
+      "bytes": 3257645,
+      "sha256": "69301d877c6fa3e23345aaf4384e14eac40b53262e17fdfbfdefce7f50cc3f07"
+    }
+  ],
+  "runtimeVerified": false,
+  "notarized": false,
+  "releaseReady": false,
+  "note": "Development artifacts only. Signature/Gatekeeper output is evidence; no credentials are configured and rejection is expected. No app launch or physical-hardware verification is implied. Hardware capture excludes serial numbers and device UUIDs."
+}

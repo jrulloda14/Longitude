@@ -1,0 +1,65 @@
+
+> longitude@0.1.0 test:browser
+> playwright test tests/browser/sharing.spec.ts
+
+[WebServer] (node:15124) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:27620) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:22544) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:15468) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 18 tests using 1 worker
+
+(node:18788) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 tests\browser\sharing.spec.ts:15:132 › copy Full equals the actual visible preview (1.3s)
+  ok  2 tests\browser\sharing.spec.ts:15:132 › copy One line equals the actual visible preview (1.4s)
+  ok  3 tests\browser\sharing.spec.ts:15:132 › copy Local times equals the actual visible preview (1.5s)
+  ok  4 tests\browser\sharing.spec.ts:15:132 › copy UTC equals the actual visible preview (1.0s)
+  ok  5 tests\browser\sharing.spec.ts:20:1 › full summary shows participant dates, offsets and entire-interval working compatibility (1.2s)
+  ok  6 tests\browser\sharing.spec.ts:25:56 › copy-error gives visible feedback without an unhandled rejection (947ms)
+  ok  7 tests\browser\sharing.spec.ts:25:56 › copy-throw gives visible feedback without an unhandled rejection (1.3s)
+  ok  8 tests\browser\sharing.spec.ts:28:56 › save-error reports filesystem failure distinctly (967ms)
+  ok  9 tests\browser\sharing.spec.ts:28:56 › save-throw reports filesystem failure distinctly (932ms)
+  ok 10 tests\browser\sharing.spec.ts:31:1 › native cancellation is neutral and does not claim save success (1.2s)
+  ok 11 tests\browser\sharing.spec.ts:34:1 › calendar session identity survives edits and closing, and explicit New event changes it (2.0s)
+  ok 12 tests\browser\sharing.spec.ts:40:1 › direct entry, timeline and suggestions feed the same summary/export instant while live ticks cannot reset planning (3.1s)
+  ok 13 tests\browser\sharing.spec.ts:55:1 › explicit recurrence basis keeps preview and independently parsed export aligned across DST (1.1s)
+  ok 14 tests\browser\sharing.spec.ts:61:1 › custom duration stays exact and 90 minutes is not mislabeled as 1.5.5 hours (1.1s)
+  ok 15 tests\browser\sharing.spec.ts:64:30 › share sheet fits 380px and retains modal keyboard navigation (1.1s)
+  ok 16 tests\browser\sharing.spec.ts:64:30 › share sheet fits 850px and retains modal keyboard navigation (789ms)
+  ok 17 tests\browser\sharing.spec.ts:68:1 › browser preview downloads an independently parsed UTC calendar and says download started (1.2s)
+  x  18 tests\browser\sharing.spec.ts:73:1 › outside-dial dragging and timeline keyboard selection reach the exported canonical instant (2.2s)
+
+
+  1) tests\browser\sharing.spec.ts:73:1 › outside-dial dragging and timeline keyboard selection reach the exported canonical instant 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1792502400000
+    Received: 1792503000000
+
+      79 |  await page.keyboard.press('Escape');const timeline=page.getByRole('slider',{name:'Meeting start on the timeline'});await timeline.focus();await timeline.press('ArrowRight');
+      80 |  await page.getByRole('button',{name:'Share this time',exact:true}).click();await page.getByRole('button',{name:'Export .ics',exact:true}).click();
+    > 81 |  expect(event((await page.evaluate(()=>window.longitudeSharing.exported.at(-1)))!.contents).startDate.toJSDate().getTime()).toBe(Date.parse('2026-10-20T13:20Z'));
+         |                                                                                                                             ^
+      82 | });
+      83 |
+        at H:\Projects\Longitude\tests\browser\sharing.spec.ts:81:125
+
+    Error Context: test-results\sharing-outside-dial-dragg-fad8c--exported-canonical-instant\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sharing-outside-dial-dragg-fad8c--exported-canonical-instant\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sharing-outside-dial-dragg-fad8c--exported-canonical-instant\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests\browser\sharing.spec.ts:73:1 › outside-dial dragging and timeline keyboard selection reach the exported canonical instant 
+  17 passed (32.3s)

@@ -1,0 +1,34 @@
+{
+  "source": "d53821df0a8098465523a70b4b71cf50d15af3fe",
+  "run": 39305433436,
+  "artifacts": [
+    {
+      "architecture": "arm64",
+      "target": "aarch64-apple-darwin",
+      "artifactId": 12213099412,
+      "archiveSHA256": "6408f62c07717c1cb3af07a5304fa381e4b1ef38a535809b7c5076bd0128f2a5",
+      "unitPassed": 772,
+      "rustPassed": 41,
+      "browserPassed": 93,
+      "browserDurationMs": 126880.509,
+      "signatureIntegrity": "passed",
+      "gatekeeper": "rejected: ad-hoc development signature",
+      "physicalRuntime": "Blocked",
+      "notarized": false
+    },
+    {
+      "architecture": "intel",
+      "target": "x86_64-apple-darwin",
+      "artifactId": 12215585775,
+      "archiveSHA256": "65b6d88305b0c79d66ed188aeca6a3c13029751edd94387e688a75db4af421a9",
+      "unitPassed": 772,
+      "rustPassed": 41,
+      "browserPassed": 93,
+      "browserDurationMs": 212313.36500000002,
+      "signatureIntegrity": "passed",
+      "gatekeeper": "rejected: ad-hoc development signature",
+      "physicalRuntime": "Blocked",
+      "notarized": false
+    }
+  ]
+}

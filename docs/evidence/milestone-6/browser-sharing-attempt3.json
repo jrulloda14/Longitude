@@ -1,0 +1,770 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "H:\\Projects\\Longitude\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/browser/sharing.spec.ts"
+    ],
+    "configFile": "H:\\Projects\\Longitude\\playwright.config.ts",
+    "rootDir": "H:/Projects/Longitude/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "H:/Projects/Longitude/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "H:/Projects/Longitude/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "H:\\Projects\\Longitude\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "H:\\Projects\\Longitude\\tests\\browser",
+        "snapshotDir": "H:\\Projects\\Longitude\\tests\\browser",
+        "testIgnore": [],
+        "testMatch": "**/*.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "browserName": "chromium",
+          "channel": "msedge",
+          "headless": true,
+          "viewport": {
+            "width": 850,
+            "height": 560
+          },
+          "timezoneId": "Asia/Singapore",
+          "baseURL": "http://127.0.0.1:4175",
+          "trace": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/milestone-6/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npx vite build --config tests/browser/vite.config.ts && npx vite preview --config tests/browser/vite.config.ts",
+      "url": "http://127.0.0.1:4175/tests/browser/fixture.html",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "sharing.spec.ts",
+      "file": "sharing.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "copy Full equals the actual visible preview",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1291,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:09:25.627Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-aa5a27b439de804bf634",
+          "file": "sharing.spec.ts",
+          "line": 15,
+          "column": 132
+        },
+        {
+          "title": "copy One line equals the actual visible preview",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1374,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:09:27.242Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-3e57f95d20239e3bc39d",
+          "file": "sharing.spec.ts",
+          "line": 15,
+          "column": 132
+        },
+        {
+          "title": "copy Local times equals the actual visible preview",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1491,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:09:28.637Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-2456ef2c5fb7fe501ac7",
+          "file": "sharing.spec.ts",
+          "line": 15,
+          "column": 132
+        },
+        {
+          "title": "copy UTC equals the actual visible preview",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1048,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:09:30.140Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-2cb7a59a401df1d5ed54",
+          "file": "sharing.spec.ts",
+          "line": 15,
+          "column": 132
+        },
+        {
+          "title": "full summary shows participant dates, offsets and entire-interval working compatibility",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1174,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:09:31.211Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-c59eed1426691c12d093",
+          "file": "sharing.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "copy-error gives visible feedback without an unhandled rejection",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 947,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:09:32.400Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-b0bf1869d2db3a789660",
+          "file": "sharing.spec.ts",
+          "line": 25,
+          "column": 56
+        },
+        {
+          "title": "copy-throw gives visible feedback without an unhandled rejection",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1345,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:09:33.362Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-f87bd14f414873cbacdc",
+          "file": "sharing.spec.ts",
+          "line": 25,
+          "column": 56
+        },
+        {
+          "title": "save-error reports filesystem failure distinctly",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 967,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:09:34.723Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-2db497bd4ddb8d896237",
+          "file": "sharing.spec.ts",
+          "line": 28,
+          "column": 56
+        },
+        {
+          "title": "save-throw reports filesystem failure distinctly",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 932,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:09:35.703Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-8f608480f1df16e7c653",
+          "file": "sharing.spec.ts",
+          "line": 28,
+          "column": 56
+        },
+        {
+          "title": "native cancellation is neutral and does not claim save success",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1236,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:09:36.648Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-439c04f2b39823ef0036",
+          "file": "sharing.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "calendar session identity survives edits and closing, and explicit New event changes it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2040,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:09:37.897Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-c93effeed8f134a6df54",
+          "file": "sharing.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "direct entry, timeline and suggestions feed the same summary/export instant while live ticks cannot reset planning",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3107,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:09:39.951Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-0e23957218ace53a63df",
+          "file": "sharing.spec.ts",
+          "line": 40,
+          "column": 1
+        },
+        {
+          "title": "explicit recurrence basis keeps preview and independently parsed export aligned across DST",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1113,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:09:43.070Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-edef4940fade57382c93",
+          "file": "sharing.spec.ts",
+          "line": 55,
+          "column": 1
+        },
+        {
+          "title": "custom duration stays exact and 90 minutes is not mislabeled as 1.5.5 hours",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1081,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:09:44.195Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-ca8bb0e103e796a4d846",
+          "file": "sharing.spec.ts",
+          "line": 61,
+          "column": 1
+        },
+        {
+          "title": "share sheet fits 380px and retains modal keyboard navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1132,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:09:45.289Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-3a1feff3e5fcd0fda926",
+          "file": "sharing.spec.ts",
+          "line": 64,
+          "column": 30
+        },
+        {
+          "title": "share sheet fits 850px and retains modal keyboard navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 789,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:09:46.434Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-d15036e2afb82210d113",
+          "file": "sharing.spec.ts",
+          "line": 64,
+          "column": 30
+        },
+        {
+          "title": "browser preview downloads an independently parsed UTC calendar and says download started",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1188,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:09:47.238Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-262084e06cf6222c1495",
+          "file": "sharing.spec.ts",
+          "line": 68,
+          "column": 1
+        },
+        {
+          "title": "outside-dial dragging and timeline keyboard selection reach the exported canonical instant",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2164,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1792502400000\u001b[39m\nReceived: \u001b[31m1792503000000\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1792502400000\u001b[39m\nReceived: \u001b[31m1792503000000\u001b[39m\n    at H:\\Projects\\Longitude\\tests\\browser\\sharing.spec.ts:81:125",
+                    "location": {
+                      "file": "H:\\Projects\\Longitude\\tests\\browser\\sharing.spec.ts",
+                      "column": 125,
+                      "line": 81
+                    },
+                    "snippet": "  79 |  await page.keyboard.press('Escape');const timeline=page.getByRole('slider',{name:'Meeting start on the timeline'});await timeline.focus();await timeline.press('ArrowRight');\n  80 |  await page.getByRole('button',{name:'Share this time',exact:true}).click();await page.getByRole('button',{name:'Export .ics',exact:true}).click();\n> 81 |  expect(event((await page.evaluate(()=>window.longitudeSharing.exported.at(-1)))!.contents).startDate.toJSDate().getTime()).toBe(Date.parse('2026-10-20T13:20Z'));\n     |                                                                                                                             ^\n  82 | });\n  83 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "H:\\Projects\\Longitude\\tests\\browser\\sharing.spec.ts",
+                        "column": 125,
+                        "line": 81
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1792502400000\u001b[39m\nReceived: \u001b[31m1792503000000\u001b[39m\n\n  79 |  await page.keyboard.press('Escape');const timeline=page.getByRole('slider',{name:'Meeting start on the timeline'});await timeline.focus();await timeline.press('ArrowRight');\n  80 |  await page.getByRole('button',{name:'Share this time',exact:true}).click();await page.getByRole('button',{name:'Export .ics',exact:true}).click();\n> 81 |  expect(event((await page.evaluate(()=>window.longitudeSharing.exported.at(-1)))!.contents).startDate.toJSDate().getTime()).toBe(Date.parse('2026-10-20T13:20Z'));\n     |                                                                                                                             ^\n  82 | });\n  83 |\n    at H:\\Projects\\Longitude\\tests\\browser\\sharing.spec.ts:81:125"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:09:48.451Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "H:\\Projects\\Longitude\\test-results\\sharing-outside-dial-dragg-fad8c--exported-canonical-instant\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "H:\\Projects\\Longitude\\test-results\\sharing-outside-dial-dragg-fad8c--exported-canonical-instant\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "H:\\Projects\\Longitude\\tests\\browser\\sharing.spec.ts",
+                    "column": 125,
+                    "line": 81
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-6c1444fdacf3af558fb6",
+          "file": "sharing.spec.ts",
+          "line": 73,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T18:09:18.957Z",
+    "duration": 32276.547000000002,
+    "expected": 17,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

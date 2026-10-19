@@ -1,0 +1,13 @@
+Native profile: 60-second warmup
+Profile trial complete: live
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.addStyleTag: Applying inline style violates the following Content Security Policy directive 'style-src 'self' 'unsafe-inline' 'nonce-15443891323138968270''. Note that 'unsafe-inline' is ignored if either a hash or nonce value is present in the source list. The action has been blocked.
+    at H:\Projects\Longitude\scripts\profile-native.mjs:28:61 {
+  log: [],
+  name: 'Error'
+}
+
+Node.js v24.15.0

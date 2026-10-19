@@ -1,0 +1,11 @@
+{
+  "parser": "ical.js 2.2.1 (independent)",
+  "uid": "a2acadda-dc94-4ecb-ba26-7d8d9df95c2d@longitude.app",
+  "summary": "Meeting; 團隊 🙂",
+  "startUTC": "2026-11-01T05:30:00.000Z",
+  "endUTC": "2026-11-01T07:00:00.000Z",
+  "elapsedSeconds": 5400,
+  "descriptionEqualsVisiblePreview": true,
+  "crlf": true,
+  "foldingWithin75Octets": true
+}

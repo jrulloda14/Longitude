@@ -51,3 +51,16 @@ All measurements below are **Blocked - not measured**. Use a 60-second warmup an
 ## Review gate
 
 Reviewer/date/decision: **not supplied**. Open defects and blocked cases remain listed in [MILESTONE_5B.md](MILESTONE_5B.md). Do not mark hardware acceptance complete from compilation, a generated DMG, policy mocks or this checklist's existence. Signing/notarization, clean installation and physical input/display/lifecycle acceptance are separate requirements. Do not begin Milestone 6 until explicitly approved.
+
+## Milestone 6 sharing follow-up
+
+M6 is approved; the current stop gate is before M7. The original twelve physical 5B areas above remain Blocked. These additional M6 outcomes are also **Implemented, awaiting native verification / Blocked**; Windows UI tests and Mac CI do not complete them.
+
+| Physical Mac case | Outcome | Evidence / next check |
+| --- | --- | --- |
+| Four copy modes, Unicode and OS pasteboard errors/denial | Blocked | Shared adapter/unit checks and actual Windows clipboard in [M6 report](MILESTONE_6.md); test real Mac pasteboard |
+| Save panel, cancel, TCC denial, existing destination and filesystem errors | Blocked | Shared Rust temporary-file checks and actual Windows picker; execute native Mac panel and verify selected bytes |
+| Focus/keyboard/IME and Quit while Save is active | Blocked | Windows guard/cancel/quit checks; physical AppKit/WKWebView behavior not executed |
+| Manual Apple Calendar import and reference-wall recurrence display | Blocked | Independently parsed UTC ICS; manual client import not performed |
+
+Record device/source/artifact hashes and actual outcomes before approving native acceptance. No account or external calendar integration is required or implemented.

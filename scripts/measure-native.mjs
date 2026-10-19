@@ -6,8 +6,8 @@ import { resolve } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 import os from 'node:os';
 import { chromium } from '@playwright/test';
-const exec=promisify(execFile), file=`${process.env.LONGITUDE_EVIDENCE_ROOT ?? 'docs/evidence/milestone-5a'}/native-performance.json`;
-const executable=resolve('src-tauri/target/release/longitude.exe');
+const exec=promisify(execFile), file=`${process.env.LONGITUDE_EVIDENCE_ROOT ?? 'docs/evidence/milestone-6'}/native-performance.json`;
+const executable=resolve(process.argv[2] ?? 'src-tauri/target/release/longitude.exe');
 const measuredExecutableSha256=createHash('sha256').update(await readFile(executable)).digest('hex');
 const started=performance.now();
 const child=spawn(executable,[],{windowsHide:false,env:{...process.env,WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS:'--remote-debugging-port=9224 --remote-debugging-address=127.0.0.1'}});
@@ -28,6 +28,7 @@ try {
   page.on('pageerror',e=>errors.push(e.message));
   const session=await page.context().newCDPSession(page);await session.send('Performance.enable');
   const metrics=async()=>Object.fromEntries((await session.send('Performance.getMetrics')).metrics.map(m=>[m.name,m.value]));
+  const renderingConditions=await page.evaluate(()=>({visibility:document.visibilityState,reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches,rootClass:document.querySelector('.lg-root')?.className,devicePixelRatio,clockTransition:document.querySelector('.lg-hand-anim')?getComputedStyle(document.querySelector('.lg-hand-anim')).transitionDuration:null,pulseAnimations:Array.from(document.querySelectorAll('.lg-pulse')).flatMap(e=>e.getAnimations().map(a=>({state:a.playState,timing:a.effect?.getComputedTiming()})))}));
   console.log('Native mounted; warming for 60 seconds');await delay(60000);
   const idle=async mode=>{
     const before=await sample(), initial=await metrics(), start=performance.now(), samples=[before];
@@ -54,7 +55,7 @@ try {
   const hardware=await ps('[pscustomobject]@{cpu=@(Get-CimInstance Win32_Processor|Select-Object Name,NumberOfCores,NumberOfLogicalProcessors);system=(Get-CimInstance Win32_ComputerSystem|Select-Object Manufacturer,Model,TotalPhysicalMemory);os=(Get-CimInstance Win32_OperatingSystem|Select-Object Caption,Version,BuildNumber);gpu=@(Get-CimInstance Win32_VideoController|Select-Object Name,DriverVersion)}|ConvertTo-Json -Depth 5 -Compress');
   const environment=await page.evaluate(()=>window.__TAURI_INTERNALS__.invoke('longitude_environment'));
   await mkdir(resolve(file,'..'),{recursive:true});
-  await writeFile(file,JSON.stringify({measuredAt:new Date().toISOString(),executable,measuredExecutableSha256,build:'Unsigned release, actual Windows/WebView2, visible main window and created hidden widget',browser:browser.version(),hardware,mountedObservedMs:mountedMs,warmupSeconds:60,nominalSecondsPerMode:120,live,planning,drag,environment,errors,limitations:['Process CPU uses last observed peaks; can miss exited subprocess work','Private memory is sampled aggregate; working sets include shared pages','Single run on a shared development host, not a statistical trial','CDP instrumentation and event/frame proxies are not physical input-to-photon latency','No mixed-monitor/high-DPI or Windows 11 performance verification']},null,2)+'\n');
+  await writeFile(file,JSON.stringify({measuredAt:new Date().toISOString(),executable,measuredExecutableSha256,build:'Unsigned release, actual Windows/WebView2, visible main window and created hidden widget',browser:browser.version(),hardware,mountedObservedMs:mountedMs,renderingConditions,warmupSeconds:60,nominalSecondsPerMode:120,live,planning,drag,environment,errors,limitations:['Process CPU uses last observed peaks; can miss exited subprocess work','Private memory is sampled aggregate; working sets include shared pages','Single run on a shared development host, not a statistical trial','CDP instrumentation and event/frame proxies are not physical input-to-photon latency','No mixed-monitor/high-DPI or Windows 11 performance verification']},null,2)+'\n');
   console.log(JSON.stringify({liveCpu:live.totalMachineCpuPercent,planningCpu:planning.totalMachineCpuPercent,livePrivateMiB:live.peakSampledPrivateBytes/1048576,planningPrivateMiB:planning.peakSampledPrivateBytes/1048576,drag},null,2));
   await page.locator('.lg-dial').press('Home');
   await page.evaluate(()=>window.__TAURI_INTERNALS__.invoke('longitude_window',{action:'quit'}));

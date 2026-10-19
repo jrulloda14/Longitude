@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-19T18:21:48.167Z",
+  "executable": "H:\\Projects\\Longitude\\src-tauri\\target\\debug\\longitude.exe",
+  "sha256": "59e1c3ccd0bdb12074507bab6cafaf157e4e8d076852df20111b342bbf24c461",
+  "profile": "H:\\Projects\\Longitude\\performance-results\\m6-sharing-1792433854547",
+  "externalClipboardDenial": "Not verified: experimental external lock fixture did not deny a direct native write on this host; retained failures are separate. Adapter/UI failures are covered by unit/browser tests.",
+  "passed": 6,
+  "failed": 1,
+  "results": [
+    {
+      "name": "Actual OS clipboard: Full",
+      "status": "passed"
+    },
+    {
+      "name": "Actual OS clipboard: One line",
+      "status": "passed"
+    },
+    {
+      "name": "Actual OS clipboard: Local times",
+      "status": "passed"
+    },
+    {
+      "name": "Actual OS clipboard: UTC",
+      "status": "passed"
+    },
+    {
+      "name": "Quit is deferred while the native Save operation is active",
+      "status": "passed"
+    },
+    {
+      "name": "Actual native Save dialog cancellation is neutral",
+      "status": "passed"
+    },
+    {
+      "name": "Actual native Save writes an independently validated calendar",
+      "status": "failed",
+      "message": "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  getByRole('dialog', { name: 'Share meeting time' }).getByRole('status')\nExpected: \"Calendar file saved.\"\nReceived: \"Sharing…\"\nTimeout:  180000ms\n\nCall log:\n  - Expect \"toHaveText\" getByRole('dialog', { name: 'Share meeting time' }).getByRole('status') with timeout 180000ms\n  - waiting for getByRole('dialog', { name: 'Share meeting time' }).getByRole('status')\n    352 × locator resolved to <p role=\"status\" class=\"text-caption text-ink-muted\">Sharing…</p>\n        - unexpected value \"Sharing…\"\n"
+    }
+  ],
+  "errors": [],
+  "method": "Actual Windows Tauri/WebView2, OS clipboard and native Save dialog; dialog driven through computer-use skill. Filesystem error preservation is separately tested by actual Rust filesystem tests."
+}

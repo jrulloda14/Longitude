@@ -1,6 +1,6 @@
-# Native architecture - Milestones 5A and 5B
+# Native architecture - Milestones 5A, 5B and 6
 
-This is the native-platform contract entry point requested for 5B. The existing [desktop architecture](DESKTOP_ARCHITECTURE.md) remains the detailed shared-state description. [5B verification](MILESTONE_5B.md), [Mac acceptance](MACOS_ACCEPTANCE.md) and [build/signing instructions](BUILD_AND_RELEASE.md) separate implementation, CI compilation and physical-device acceptance. No Milestone 6 implementation is included.
+This is the native-platform contract entry point requested for 5B. The existing [desktop architecture](DESKTOP_ARCHITECTURE.md) remains the detailed shared-state description. [5B verification](MILESTONE_5B.md), [Mac acceptance](MACOS_ACCEPTANCE.md) and [build/signing instructions](BUILD_AND_RELEASE.md) separate implementation, CI compilation and physical-device acceptance. Milestone 6 extends this boundary with [local sharing/export](ICS_EXPORT.md); no Milestone 7 implementation is included.
 
 ## Platform boundaries
 
@@ -12,7 +12,7 @@ This is the native-platform contract entry point requested for 5B. The existing 
 | Services | Official shortcut/autostart/single-instance plugins, placement, pinning, visibility and flush-before-Quit | Mac application/status menus, Dock activation/reopen, appearance and Spaces; Windows tray clicks and NSIS remain isolated |
 | Packaging | Identity `app.longitude.desktop`, shared assets and notices | Mac OS 12 target, ARM64/Intel .app/DMG/ICNS; Windows npm.cmd/current-user NSIS |
 
-OS facts come from Rust rather than the persisted design preview. Shared domain code never imports native services. Native clipboard/export dialogs remain Milestone 6. There is no server, account, synchronization or telemetry.
+OS facts come from Rust rather than the persisted design preview. Shared domain code never imports native services. Native clipboard/calendar export now use main-only M6 app commands. There is no server, account, synchronization or telemetry.
 
 ## Narrow commands and capabilities
 
@@ -21,9 +21,10 @@ OS facts come from Rust rather than the persisted design preview. Shared domain 
 | `longitude_read_configuration`, `longitude_commit_configuration`, `longitude_initialize` | Main only | Fixed keys, schema/size limits, CAS; raw commits rejected after authority initialization |
 | `longitude_snapshot`, `longitude_apply_state` | Main/widget | Bounded validated state and revision conflicts; future/unreadable data protected |
 | `longitude_window`, `longitude_environment` | Main/widget | Fixed operation names and labels, bounded widget height; no arbitrary path or window creation |
+| `longitude_copy_text`, `longitude_save_calendar` | Main only | Bounded text/calendar data; native Save returns its selected path only within Rust; no generic clipboard read or filesystem access |
 | `longitude_quit_ready` | Main/widget | Current generation and successful client flush acknowledgements |
 
-Capabilities add only those commands, event listen/unlisten and drag start. No remote origins, wildcard windows, general filesystem/shell/HTTP/notification or frontend shortcut/autostart permissions exist. Production CSP restricts scripts/assets to local resources and connections to IPC. Four permission guards complement real Windows denied-command tests; these are not a native Mac runtime certification.
+Capabilities add only those commands, event listen/unlisten and drag start. No remote origins, wildcard windows, general filesystem/shell/HTTP/notification or frontend shortcut/autostart permissions exist. Production CSP restricts scripts/assets to local resources and connections to IPC. Five permission guards complement real Windows denied-command tests; these are not a native Mac runtime certification.
 
 ## Native behavior
 
@@ -44,3 +45,5 @@ Quit waits for both clients using generation-tagged flush acknowledgements. Fail
 Tauri 2's build-script allowlist inspects direct dependency features. A named Cargo feature alone does not prepare a fresh Mac checkout: invoke the official CLI (`tauri build --debug --no-bundle`) before direct Cargo tests. The first real Mac CI run exposed this failure; the corrected workflow performs that preparation. The allowlist and capabilities stay enabled.
 
 CI records architecture, source, tests, signatures, hashes and Gatekeeper results. Ad-hoc packages are not trusted Developer ID/notarized releases. Hosted builds and Playwright WebKit cannot replace native WKWebView input, physical performance or [Mac acceptance](MACOS_ACCEPTANCE.md). Application metadata remains `UNLICENSED`; this phase does not select an application license.
+
+M6 Save operations serialize with a guard; Quit is deferred until the owned native dialog/write finishes or is cancelled. The ordinary configuration schema, CAS, recovery and directory resolution are unchanged. Export is a separate user-selected destination, never a frontend-supplied path. The debug test root can set only the picker's initial directory, not bypass selection. Native Mac clipboard/Save/TCC behavior still requires physical acceptance.

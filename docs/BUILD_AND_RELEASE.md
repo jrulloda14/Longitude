@@ -1,5 +1,11 @@
 # Windows development and packaging — Milestone 5A
 
+## Milestone 6 local sharing and development verification
+
+The existing build commands now include native text clipboard and user-selected calendar Save services. They add no installer, updater, release publishing or signing credential. [ICS_EXPORT.md](ICS_EXPORT.md) specifies both platform adapters, atomic destination replacement, input limits and cancellation/error semantics. A browser preview initiates a local Blob download; the desktop uses a real OS Save dialog. No general frontend filesystem or clipboard-read permission is needed.
+
+For actual Windows sharing verification, build the debug executable, then run `node scripts/verify-native-sharing.mjs`. It uses the established isolated `LONGITUDE_TEST_ROOT` and awaits actual native Cancel/Save actions. Debug picker tests start in that test root; the initial-directory override is absent in release builds and never bypasses a user Save/Cancel action. The file is independently parsed and compared with the preview. All native harnesses use the same debug port, so run them sequentially. The [M6 report](MILESTONE_6.md) distinguishes final Windows checks, Mac CI and unexecuted physical Mac cases. Milestone 7 remains unstarted.
+
 Requires Node 24/npm 11, stable Rust >=1.90 targeting `x86_64-pc-windows-msvc`, Visual Studio C++ build tools/Windows SDK and installed WebView2. Use the existing repository root, not the empty `longitude-ui` folder.
 
 ```powershell

@@ -1,5 +1,7 @@
 # Shared desktop architecture — Milestones 5A/5B
 
+Milestone 6 adds bounded main-only native clipboard and dialog-selected calendar export through the existing Platform port; [specification](ICS_EXPORT.md) and [report](MILESTONE_6.md) document current verification. No schema/state-engine rewrite or Milestone 7 work is included.
+
 Verification follow-up: [NATIVE_ARCHITECTURE.md](NATIVE_ARCHITECTURE.md) is the current platform-contract entry point. Native Mac appearance now follows saved theme preferences, shortcut ownership uses parsed chord equivalence, and normal typing/standard Mac app/input-source chords are protected before registration. Windows native conflict testing now uses an independent process rather than the earlier alias-only case. Actual CI results and the physical-hardware boundary are recorded in [MILESTONE_5B.md](MILESTONE_5B.md); original unverified-build wording below is historical where superseded there.
 
 The Tauri 2 application embeds the existing Vite/React frontend. `main` and `widget` use WebView2 on Windows and system WKWebView on macOS, running the same entry/component tree. The platform adapter derives its label/OS from native APIs; it does not select macOS chrome from a saved Windows preview preference. No second frontend or timezone/scheduling implementation exists. Actual hosted Mac compilation/test/package outcomes are recorded in the current 5B report. Physical Mac runtime acceptance remains Blocked; implementation descriptions below are not physical-device results.

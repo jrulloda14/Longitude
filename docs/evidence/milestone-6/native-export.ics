@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Longitude//Timezone Planner//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:a2acadda-dc94-4ecb-ba26-7d8d9df95c2d@longitude.app
+DTSTAMP:20261019T190333Z
+CREATED:20261019T190013Z
+DTSTART:20261101T053000Z
+DTEND:20261101T070000Z
+SUMMARY:Meeting\; 團隊 🙂
+DESCRIPTION:Meeting\; 團隊 🙂 — Sunday\, November 1\, 2026\n1:30 PM 
+ · Asia/Singapore · Duration: 90 min\n\nSingapore — 1:30 PM – 3:00 PM
+ \nSunday\, November 1\, 2026\nAsia/Singapore · UTC+8 · UTC+8 · Singapor
+ e Standard Time\nOutside working hours (0/90 working minutes)\n\nManila 
+ — 1:30 PM – 3:00 PM\nSunday\, November 1\, 2026\nAsia/Manila · UTC+8 
+ · UTC+8 · Philippine Standard Time\nOutside working hours (0/90 working 
+ minutes)\n\nNew York — 1:30 AM – 2:00 AM\nSunday\, November 1\, 2026\n
+ America/New_York · EDT · UTC−4 → UTC−5 · Eastern Daylight Time\nO
+ utside working hours (0/90 working minutes)\n\nLondon — 5:30 AM – 7:00
+  AM\nSunday\, November 1\, 2026\nEurope/London · GMT · UTC · Greenwich 
+ Mean Time\nOutside working hours (0/90 working minutes)\n\nConfigured hour
+ s only\; calendar availability is not checked.
+END:VEVENT
+END:VCALENDAR
