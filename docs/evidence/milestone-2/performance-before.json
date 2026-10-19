@@ -1,0 +1,734 @@
+{
+  "measuredAtUtc": "2026-10-19T03:44:04.546Z",
+  "site": "milestone-1-saved-production-frontend",
+  "cpuMethod": "Per-process peak across snapshots minus initial CPU, including exited processes last observed; still a lower bound between samples",
+  "hardware": {
+    "cpu": [
+      {
+        "Name": "Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz",
+        "NumberOfCores": 4,
+        "NumberOfLogicalProcessors": 4
+      }
+    ],
+    "system": {
+      "Manufacturer": "MSI",
+      "Model": "MS-7A70",
+      "TotalPhysicalMemory": 17067753472
+    },
+    "os": {
+      "Caption": "Microsoft Windows 10 Pro",
+      "Version": "10.0.19045",
+      "BuildNumber": "19045"
+    },
+    "gpu": [
+      {
+        "Name": "Intel(R) HD Graphics 530",
+        "DriverVersion": "31.0.101.2111"
+      }
+    ]
+  },
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/155.0.4283.62",
+    "revision": "@aa3a7406ba8c53a83536df539f07124d73c899bd",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+    "jsVersion": "15.5.9.7"
+  },
+  "node": "v24.15.0",
+  "timezone": "Asia/Singapore",
+  "appSize": [
+    850,
+    560
+  ],
+  "headless": true,
+  "fonts": [
+    "Geist"
+  ],
+  "firstMounted": {
+    "observedAfterNavigationMs": 478.09999999403954,
+    "paint": []
+  },
+  "live": {
+    "mode": "live",
+    "elapsedSeconds": 22.649498499999996,
+    "cpuSeconds": 7.578125,
+    "oneCoreCpuPercent": 33.458246327175864,
+    "totalMachineCpuPercent": 8.364561581793966,
+    "rendererTaskMsPerSecond": 22.8477906475501,
+    "jsHeapUsedBytes": 5254072,
+    "peakSampledPrivateBytes": 378810368,
+    "peakSampledWorkingSetBytes": 744521728,
+    "samples": [
+      {
+        "processes": [
+          {
+            "Id": 4380,
+            "CPU": 0.046875,
+            "PrivateMemorySize64": 7897088,
+            "WorkingSet64": 19062784
+          },
+          {
+            "Id": 5700,
+            "CPU": 1,
+            "PrivateMemorySize64": 57114624,
+            "WorkingSet64": 99848192
+          },
+          {
+            "Id": 7600,
+            "CPU": 0.0625,
+            "PrivateMemorySize64": 20504576,
+            "WorkingSet64": 43524096
+          },
+          {
+            "Id": 7644,
+            "CPU": 1.6875,
+            "PrivateMemorySize64": 69705728,
+            "WorkingSet64": 91414528
+          },
+          {
+            "Id": 7968,
+            "CPU": 0.015625,
+            "PrivateMemorySize64": 2416640,
+            "WorkingSet64": 8863744
+          },
+          {
+            "Id": 9240,
+            "CPU": 0.296875,
+            "PrivateMemorySize64": 12619776,
+            "WorkingSet64": 39772160
+          },
+          {
+            "Id": 10348,
+            "CPU": 0.046875,
+            "PrivateMemorySize64": 20488192,
+            "WorkingSet64": 43515904
+          },
+          {
+            "Id": 13556,
+            "CPU": 0.125,
+            "PrivateMemorySize64": 21917696,
+            "WorkingSet64": 46440448
+          },
+          {
+            "Id": 15336,
+            "CPU": 0.09375,
+            "PrivateMemorySize64": 25645056,
+            "WorkingSet64": 44351488
+          },
+          {
+            "Id": 18900,
+            "CPU": 0.09375,
+            "PrivateMemorySize64": 23339008,
+            "WorkingSet64": 35143680
+          },
+          {
+            "Id": 20700,
+            "CPU": 1.90625,
+            "PrivateMemorySize64": 55451648,
+            "WorkingSet64": 151863296
+          },
+          {
+            "Id": 22656,
+            "CPU": 0.015625,
+            "PrivateMemorySize64": 8318976,
+            "WorkingSet64": 19787776
+          },
+          {
+            "Id": 22664,
+            "CPU": 0.0625,
+            "PrivateMemorySize64": 21098496,
+            "WorkingSet64": 45400064
+          },
+          {
+            "Id": 23168,
+            "CPU": 0.0625,
+            "PrivateMemorySize64": 26443776,
+            "WorkingSet64": 49643520
+          }
+        ],
+        "privateBytes": 372961280,
+        "workingSetBytes": 738631680
+      },
+      {
+        "processes": [
+          {
+            "Id": 4380,
+            "CPU": 0.046875,
+            "PrivateMemorySize64": 7897088,
+            "WorkingSet64": 19066880
+          },
+          {
+            "Id": 5700,
+            "CPU": 1.578125,
+            "PrivateMemorySize64": 62894080,
+            "WorkingSet64": 105402368
+          },
+          {
+            "Id": 7600,
+            "CPU": 0.0625,
+            "PrivateMemorySize64": 20504576,
+            "WorkingSet64": 43606016
+          },
+          {
+            "Id": 7644,
+            "CPU": 2.53125,
+            "PrivateMemorySize64": 69066752,
+            "WorkingSet64": 90681344
+          },
+          {
+            "Id": 7968,
+            "CPU": 0.015625,
+            "PrivateMemorySize64": 2416640,
+            "WorkingSet64": 8863744
+          },
+          {
+            "Id": 9240,
+            "CPU": 0.296875,
+            "PrivateMemorySize64": 12644352,
+            "WorkingSet64": 39825408
+          },
+          {
+            "Id": 10348,
+            "CPU": 0.046875,
+            "PrivateMemorySize64": 20488192,
+            "WorkingSet64": 43536384
+          },
+          {
+            "Id": 13556,
+            "CPU": 0.125,
+            "PrivateMemorySize64": 21917696,
+            "WorkingSet64": 46456832
+          },
+          {
+            "Id": 15336,
+            "CPU": 0.09375,
+            "PrivateMemorySize64": 25645056,
+            "WorkingSet64": 44371968
+          },
+          {
+            "Id": 18900,
+            "CPU": 0.09375,
+            "PrivateMemorySize64": 23339008,
+            "WorkingSet64": 35160064
+          },
+          {
+            "Id": 20700,
+            "CPU": 1.953125,
+            "PrivateMemorySize64": 56135680,
+            "WorkingSet64": 152645632
+          },
+          {
+            "Id": 22656,
+            "CPU": 0.015625,
+            "PrivateMemorySize64": 8318976,
+            "WorkingSet64": 19787776
+          },
+          {
+            "Id": 22664,
+            "CPU": 0.0625,
+            "PrivateMemorySize64": 21098496,
+            "WorkingSet64": 45436928
+          },
+          {
+            "Id": 23168,
+            "CPU": 0.0625,
+            "PrivateMemorySize64": 26443776,
+            "WorkingSet64": 49680384
+          }
+        ],
+        "privateBytes": 378810368,
+        "workingSetBytes": 744521728
+      },
+      {
+        "processes": [
+          {
+            "Id": 4380,
+            "CPU": 0.046875,
+            "PrivateMemorySize64": 7938048,
+            "WorkingSet64": 19136512
+          },
+          {
+            "Id": 5700,
+            "CPU": 2.40625,
+            "PrivateMemorySize64": 65712128,
+            "WorkingSet64": 108011520
+          },
+          {
+            "Id": 7644,
+            "CPU": 3.734375,
+            "PrivateMemorySize64": 60608512,
+            "WorkingSet64": 82501632
+          },
+          {
+            "Id": 7968,
+            "CPU": 0.015625,
+            "PrivateMemorySize64": 2416640,
+            "WorkingSet64": 8863744
+          },
+          {
+            "Id": 9240,
+            "CPU": 0.296875,
+            "PrivateMemorySize64": 12709888,
+            "WorkingSet64": 39964672
+          },
+          {
+            "Id": 15336,
+            "CPU": 0.09375,
+            "PrivateMemorySize64": 24723456,
+            "WorkingSet64": 43597824
+          },
+          {
+            "Id": 18900,
+            "CPU": 0.09375,
+            "PrivateMemorySize64": 22867968,
+            "WorkingSet64": 34717696
+          },
+          {
+            "Id": 20700,
+            "CPU": 2.015625,
+            "PrivateMemorySize64": 56152064,
+            "WorkingSet64": 151216128
+          },
+          {
+            "Id": 22656,
+            "CPU": 0.015625,
+            "PrivateMemorySize64": 8318976,
+            "WorkingSet64": 19795968
+          }
+        ],
+        "privateBytes": 261447680,
+        "workingSetBytes": 507805696
+      },
+      {
+        "processes": [
+          {
+            "Id": 4380,
+            "CPU": 0.046875,
+            "PrivateMemorySize64": 7938048,
+            "WorkingSet64": 19136512
+          },
+          {
+            "Id": 5700,
+            "CPU": 3.234375,
+            "PrivateMemorySize64": 67522560,
+            "WorkingSet64": 110186496
+          },
+          {
+            "Id": 7644,
+            "CPU": 5.03125,
+            "PrivateMemorySize64": 60661760,
+            "WorkingSet64": 82563072
+          },
+          {
+            "Id": 7968,
+            "CPU": 0.015625,
+            "PrivateMemorySize64": 2416640,
+            "WorkingSet64": 8863744
+          },
+          {
+            "Id": 9240,
+            "CPU": 0.296875,
+            "PrivateMemorySize64": 12709888,
+            "WorkingSet64": 39964672
+          },
+          {
+            "Id": 15336,
+            "CPU": 0.09375,
+            "PrivateMemorySize64": 24723456,
+            "WorkingSet64": 43601920
+          },
+          {
+            "Id": 18900,
+            "CPU": 0.09375,
+            "PrivateMemorySize64": 22867968,
+            "WorkingSet64": 34717696
+          },
+          {
+            "Id": 20700,
+            "CPU": 2.015625,
+            "PrivateMemorySize64": 56152064,
+            "WorkingSet64": 151252992
+          },
+          {
+            "Id": 22656,
+            "CPU": 0.015625,
+            "PrivateMemorySize64": 8318976,
+            "WorkingSet64": 19795968
+          }
+        ],
+        "privateBytes": 263311360,
+        "workingSetBytes": 510083072
+      },
+      {
+        "processes": [
+          {
+            "Id": 4380,
+            "CPU": 0.046875,
+            "PrivateMemorySize64": 7938048,
+            "WorkingSet64": 19136512
+          },
+          {
+            "Id": 5700,
+            "CPU": 3.859375,
+            "PrivateMemorySize64": 69455872,
+            "WorkingSet64": 112226304
+          },
+          {
+            "Id": 7644,
+            "CPU": 6.28125,
+            "PrivateMemorySize64": 60669952,
+            "WorkingSet64": 82575360
+          },
+          {
+            "Id": 7968,
+            "CPU": 0.015625,
+            "PrivateMemorySize64": 2416640,
+            "WorkingSet64": 8863744
+          },
+          {
+            "Id": 9240,
+            "CPU": 0.296875,
+            "PrivateMemorySize64": 12709888,
+            "WorkingSet64": 39964672
+          },
+          {
+            "Id": 15336,
+            "CPU": 0.09375,
+            "PrivateMemorySize64": 24723456,
+            "WorkingSet64": 43601920
+          },
+          {
+            "Id": 18900,
+            "CPU": 0.09375,
+            "PrivateMemorySize64": 22867968,
+            "WorkingSet64": 34717696
+          },
+          {
+            "Id": 20700,
+            "CPU": 2.03125,
+            "PrivateMemorySize64": 56188928,
+            "WorkingSet64": 151457792
+          },
+          {
+            "Id": 22656,
+            "CPU": 0.015625,
+            "PrivateMemorySize64": 8318976,
+            "WorkingSet64": 19795968
+          }
+        ],
+        "privateBytes": 265289728,
+        "workingSetBytes": 512339968
+      }
+    ],
+    "stableProcessSet": false
+  },
+  "planning": {
+    "mode": "planning",
+    "elapsedSeconds": 22.385570699999995,
+    "cpuSeconds": 1.1875,
+    "oneCoreCpuPercent": 5.304756425084129,
+    "totalMachineCpuPercent": 1.3261891062710323,
+    "rendererTaskMsPerSecond": 14.314533423979228,
+    "jsHeapUsedBytes": 7937292,
+    "peakSampledPrivateBytes": 268734464,
+    "peakSampledWorkingSetBytes": 516751360,
+    "samples": [
+      {
+        "processes": [
+          {
+            "Id": 4380,
+            "CPU": 0.046875,
+            "PrivateMemorySize64": 7938048,
+            "WorkingSet64": 19136512
+          },
+          {
+            "Id": 5700,
+            "CPU": 3.984375,
+            "PrivateMemorySize64": 70983680,
+            "WorkingSet64": 114458624
+          },
+          {
+            "Id": 7644,
+            "CPU": 6.4375,
+            "PrivateMemorySize64": 62574592,
+            "WorkingSet64": 84631552
+          },
+          {
+            "Id": 7968,
+            "CPU": 0.015625,
+            "PrivateMemorySize64": 2416640,
+            "WorkingSet64": 8863744
+          },
+          {
+            "Id": 9240,
+            "CPU": 0.296875,
+            "PrivateMemorySize64": 12709888,
+            "WorkingSet64": 39968768
+          },
+          {
+            "Id": 15336,
+            "CPU": 0.09375,
+            "PrivateMemorySize64": 24723456,
+            "WorkingSet64": 43601920
+          },
+          {
+            "Id": 18900,
+            "CPU": 0.09375,
+            "PrivateMemorySize64": 22867968,
+            "WorkingSet64": 34717696
+          },
+          {
+            "Id": 20700,
+            "CPU": 2.03125,
+            "PrivateMemorySize64": 56201216,
+            "WorkingSet64": 151576576
+          },
+          {
+            "Id": 22656,
+            "CPU": 0.015625,
+            "PrivateMemorySize64": 8318976,
+            "WorkingSet64": 19795968
+          }
+        ],
+        "privateBytes": 268734464,
+        "workingSetBytes": 516751360
+      },
+      {
+        "processes": [
+          {
+            "Id": 4380,
+            "CPU": 0.046875,
+            "PrivateMemorySize64": 7872512,
+            "WorkingSet64": 19173376
+          },
+          {
+            "Id": 5700,
+            "CPU": 4.3125,
+            "PrivateMemorySize64": 59641856,
+            "WorkingSet64": 104226816
+          },
+          {
+            "Id": 7644,
+            "CPU": 6.515625,
+            "PrivateMemorySize64": 62611456,
+            "WorkingSet64": 84697088
+          },
+          {
+            "Id": 7968,
+            "CPU": 0.015625,
+            "PrivateMemorySize64": 3231744,
+            "WorkingSet64": 16011264
+          },
+          {
+            "Id": 9240,
+            "CPU": 0.296875,
+            "PrivateMemorySize64": 12685312,
+            "WorkingSet64": 39981056
+          },
+          {
+            "Id": 18900,
+            "CPU": 0.09375,
+            "PrivateMemorySize64": 22867968,
+            "WorkingSet64": 34717696
+          },
+          {
+            "Id": 20700,
+            "CPU": 2.109375,
+            "PrivateMemorySize64": 55980032,
+            "WorkingSet64": 151445504
+          }
+        ],
+        "privateBytes": 224890880,
+        "workingSetBytes": 450252800
+      },
+      {
+        "processes": [
+          {
+            "Id": 4380,
+            "CPU": 0.046875,
+            "PrivateMemorySize64": 7872512,
+            "WorkingSet64": 19173376
+          },
+          {
+            "Id": 5700,
+            "CPU": 4.609375,
+            "PrivateMemorySize64": 60272640,
+            "WorkingSet64": 105381888
+          },
+          {
+            "Id": 7644,
+            "CPU": 6.59375,
+            "PrivateMemorySize64": 60289024,
+            "WorkingSet64": 82489344
+          },
+          {
+            "Id": 7968,
+            "CPU": 0.015625,
+            "PrivateMemorySize64": 3231744,
+            "WorkingSet64": 16011264
+          },
+          {
+            "Id": 9240,
+            "CPU": 0.296875,
+            "PrivateMemorySize64": 12685312,
+            "WorkingSet64": 39981056
+          },
+          {
+            "Id": 18900,
+            "CPU": 0.09375,
+            "PrivateMemorySize64": 22867968,
+            "WorkingSet64": 34717696
+          },
+          {
+            "Id": 20700,
+            "CPU": 2.109375,
+            "PrivateMemorySize64": 55980032,
+            "WorkingSet64": 151445504
+          }
+        ],
+        "privateBytes": 223199232,
+        "workingSetBytes": 449200128
+      },
+      {
+        "processes": [
+          {
+            "Id": 4380,
+            "CPU": 0.046875,
+            "PrivateMemorySize64": 7872512,
+            "WorkingSet64": 19173376
+          },
+          {
+            "Id": 5700,
+            "CPU": 4.71875,
+            "PrivateMemorySize64": 64720896,
+            "WorkingSet64": 110153728
+          },
+          {
+            "Id": 7644,
+            "CPU": 6.609375,
+            "PrivateMemorySize64": 60256256,
+            "WorkingSet64": 82468864
+          },
+          {
+            "Id": 7968,
+            "CPU": 0.015625,
+            "PrivateMemorySize64": 3231744,
+            "WorkingSet64": 16011264
+          },
+          {
+            "Id": 9240,
+            "CPU": 0.296875,
+            "PrivateMemorySize64": 12685312,
+            "WorkingSet64": 39981056
+          },
+          {
+            "Id": 18900,
+            "CPU": 0.09375,
+            "PrivateMemorySize64": 22867968,
+            "WorkingSet64": 34717696
+          },
+          {
+            "Id": 20700,
+            "CPU": 2.109375,
+            "PrivateMemorySize64": 55980032,
+            "WorkingSet64": 151445504
+          }
+        ],
+        "privateBytes": 227614720,
+        "workingSetBytes": 453951488
+      },
+      {
+        "processes": [
+          {
+            "Id": 4380,
+            "CPU": 0.046875,
+            "PrivateMemorySize64": 7872512,
+            "WorkingSet64": 19173376
+          },
+          {
+            "Id": 5700,
+            "CPU": 4.875,
+            "PrivateMemorySize64": 65183744,
+            "WorkingSet64": 110837760
+          },
+          {
+            "Id": 7644,
+            "CPU": 6.65625,
+            "PrivateMemorySize64": 60256256,
+            "WorkingSet64": 82493440
+          },
+          {
+            "Id": 7968,
+            "CPU": 0.015625,
+            "PrivateMemorySize64": 3231744,
+            "WorkingSet64": 16011264
+          },
+          {
+            "Id": 9240,
+            "CPU": 0.296875,
+            "PrivateMemorySize64": 12685312,
+            "WorkingSet64": 39981056
+          },
+          {
+            "Id": 18900,
+            "CPU": 0.09375,
+            "PrivateMemorySize64": 22867968,
+            "WorkingSet64": 34717696
+          },
+          {
+            "Id": 20700,
+            "CPU": 2.109375,
+            "PrivateMemorySize64": 55980032,
+            "WorkingSet64": 151445504
+          }
+        ],
+        "privateBytes": 228077568,
+        "workingSetBytes": 454660096
+      }
+    ],
+    "stableProcessSet": false
+  },
+  "drag": {
+    "eventToNextAnimationFrameMs": {
+      "count": 120,
+      "p50": 0.29999999701976776,
+      "p95": 0.4000000059604645,
+      "max": 0.6000000089406967
+    },
+    "eventToCommitAndFrameMs": {
+      "count": 36,
+      "p50": 16.799999997019768,
+      "p95": 22,
+      "max": 27.599999994039536
+    },
+    "frameIntervalMs": {
+      "count": 265,
+      "p50": 16.69999999999709,
+      "p95": 16.80000000000291,
+      "max": 16.900000000001455
+    },
+    "longTasksMs": [],
+    "outsideMoves": 59,
+    "capturedOutsideMoves": 59,
+    "changedFrames": 0,
+    "mutations": 36,
+    "initialValue": "705",
+    "finalValue": "885"
+  },
+  "browserTests": {
+    "checks": 428,
+    "failures": [],
+    "runtimeZones": 418
+  },
+  "pageErrors": [],
+  "blockedExternalRequests": [],
+  "limitations": [
+    "Headless Edge frontend, not Tauri/WebView2 or native window measurements",
+    "CPU excludes measurement process and loopback asset server; working sets include shared pages",
+    "Process-set changes mean CPU totals can undercount exited processes; treat as lower-bound estimates",
+    "Event to animation frame is a proxy, not input-to-photon latency",
+    "Legacy prototype font requests blocked, so font rendering differs",
+    "Disposable browser profile is retained in OS temp for inspection"
+  ],
+  "profile": "C:\\Users\\jrull\\AppData\\Local\\Temp\\longitude-perf-t6xBDm"
+}

@@ -1,0 +1,15 @@
+node_modules/
+dist/
+prototype-dist/
+performance-results/
+*.tsbuildinfo
+src-tauri/target/
+browser-test-dist/
+test-results/
+playwright-report/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db

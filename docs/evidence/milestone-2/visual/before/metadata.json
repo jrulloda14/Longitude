@@ -1,0 +1,87 @@
+{
+  "browser": "155.0.4283.62",
+  "phase": "before",
+  "scenarios": [
+    {
+      "name": "clock-dark",
+      "width": 850,
+      "height": 560,
+      "options": {
+        "now": 1792501200000
+      }
+    },
+    {
+      "name": "clock-light",
+      "width": 850,
+      "height": 560,
+      "options": {
+        "now": 1792501200000,
+        "theme": "light"
+      }
+    },
+    {
+      "name": "clock-planning",
+      "width": 850,
+      "height": 560,
+      "options": {
+        "now": 1792501200000,
+        "selected": 1792508400000
+      }
+    },
+    {
+      "name": "planner-dark",
+      "width": 850,
+      "height": 560,
+      "options": {
+        "now": 1792501200000,
+        "view": "planner"
+      }
+    },
+    {
+      "name": "settings-dark",
+      "width": 850,
+      "height": 560,
+      "options": {
+        "now": 1792501200000,
+        "view": "settings"
+      }
+    },
+    {
+      "name": "clock-narrow",
+      "width": 380,
+      "height": 600,
+      "options": {
+        "now": 1792501200000
+      }
+    },
+    {
+      "name": "compact-live",
+      "width": 400,
+      "height": 400,
+      "options": {
+        "now": 1792501200000,
+        "mode": "compact"
+      }
+    },
+    {
+      "name": "london-fall",
+      "width": 850,
+      "height": 560,
+      "options": {
+        "now": 1792501200000,
+        "zone": "Europe/London",
+        "selected": 1792931400000
+      }
+    },
+    {
+      "name": "kathmandu",
+      "width": 850,
+      "height": 560,
+      "options": {
+        "now": 1792501200000,
+        "zone": "Asia/Kathmandu"
+      }
+    }
+  ],
+  "errors": []
+}

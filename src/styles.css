@@ -1,0 +1,72 @@
+@import './tokens.fallback.css';
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base (scoped to the app root so the bundle never restyles a host page) ── */
+.lg-root {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--ink);
+  background: var(--ground);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'cv11', 'ss01';
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+}
+:where(.lg-root) *, :where(.lg-root) *::before, :where(.lg-root) *::after { box-sizing: border-box; border: 0 solid var(--line); }
+:where(.lg-root) :where(button, input, select, textarea) { font: inherit; color: inherit; margin: 0; letter-spacing: inherit; }
+:where(.lg-root) :where(button) { background: none; padding: 0; cursor: default; text-align: inherit; }
+:where(.lg-root) :where(input, textarea) { user-select: text; -webkit-user-select: text; }
+:where(.lg-root) :where(h1, h2, h3, p, ul, ol, pre, figure) { margin: 0; padding: 0; }
+:where(.lg-root) :where(ul, ol) { list-style: none; }
+:where(.lg-root) :where(svg) { display: block; }
+:where(.lg-root) :where(svg.inline, span > svg) { display: inline-block; }
+
+.tnum { font-variant-numeric: tabular-nums; font-feature-settings: 'tnum', 'cv11'; }
+
+/* Focus: one ring everywhere, keyboard only. */
+:where(.lg-root) :focus { outline: none; }
+.lg-root :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--radius-md); }
+.lg-root .focus-inset:focus-visible { outline-offset: -2px; }
+.lg-root .lg-no-ring:focus-visible { outline: none; }
+.lg-root svg.lg-dial:focus-visible { outline: none; }
+.lg-root svg.lg-dial:focus-visible .lg-dial-focus { opacity: 1; }
+
+/* Scrollbars that belong on a desktop app */
+.lg-root .lg-scroll { overflow: auto; scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
+.lg-root .lg-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.lg-root .lg-scroll::-webkit-scrollbar-thumb { background: var(--line); border-radius: 8px; border: 2px solid var(--ground); }
+
+/* Clock hands: transition only when not being dragged */
+.lg-hand { transform-box: view-box; transform-origin: 100px 100px; }
+.lg-hand-anim { transition: transform var(--dur-hand) var(--ease-hand); }
+.lg-reduced .lg-hand-anim { transition: none; }
+
+@keyframes lg-flip { 0% { transform: translateY(40%); opacity: 0; } 100% { transform: none; opacity: 1; } }
+.lg-flip { animation: lg-flip var(--dur-base) var(--ease-out); transform-box: fill-box; }
+@keyframes lg-in { from { opacity: 0; transform: translateY(4px) scale(0.985); } to { opacity: 1; transform: none; } }
+.lg-pop-in { animation: lg-in var(--dur-base) var(--ease-out); }
+@keyframes lg-row-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.lg-row-in { animation: lg-row-in var(--dur-base) var(--ease-out); }
+@keyframes lg-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+.lg-pulse { animation: lg-pulse 1.6s ease-in-out infinite; }
+@keyframes lg-shimmer { from { background-position: -160px 0; } to { background-position: 160px 0; } }
+.lg-skeleton { background: linear-gradient(90deg, var(--field), var(--line), var(--field)); background-size: 320px 100%; animation: lg-shimmer 1.2s linear infinite; border-radius: var(--radius-sm); }
+.lg-reduced *, .lg-reduced *::before, .lg-reduced *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+@media (prefers-reduced-motion: reduce) {
+  .lg-root:not(.lg-motion-on) *, .lg-root:not(.lg-motion-on) *::before { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* Range input, styled as a hairline instrument scale */
+.lg-range { -webkit-appearance: none; appearance: none; background: transparent; height: 16px; }
+.lg-range::-webkit-slider-runnable-track { height: 2px; background: var(--control-border); border-radius: 2px; }
+.lg-range::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; border-radius: 50%; background: var(--ink); margin-top: -5px; }
+.lg-range::-moz-range-track { height: 2px; background: var(--control-border); }
+.lg-range::-moz-range-thumb { width: 12px; height: 12px; border: 0; border-radius: 50%; background: var(--ink); }
+
+.lg-select { appearance: none; -webkit-appearance: none; background: var(--field); border: 1px solid transparent; border-radius: var(--radius-md); padding: 3px 22px 3px 8px; height: 26px;
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink-muted) 50%), linear-gradient(135deg, var(--ink-muted) 50%, transparent 50%);
+  background-position: calc(100% - 11px) 11px, calc(100% - 7px) 11px; background-size: 4px 4px; background-repeat: no-repeat; }
+.lg-select:hover { border-color: var(--control-border); }

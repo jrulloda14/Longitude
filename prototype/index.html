@@ -1,0 +1,16 @@
+<!doctype html><html data-theme="dark"><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="bundle.css">
+<style>body{margin:0;padding:24px;background:#2a2926;display:flex;flex-direction:column;gap:24px;font-family:sans-serif}</style>
+<script src="lib/react.production.min.js"></script><script src="lib/react-dom.production.min.js"></script><script src="bundle.js"></script>
+</head><body><div id="a"></div><div id="b"></div>
+<script>
+const L=window.Longitude,h=React.createElement;
+const q=new URLSearchParams(location.search);
+const view=q.get('view')||'clock', theme=q.get('theme')||'dark';
+const init={view, selected: q.get('sel')? +q.get('sel') : null, onboarded: q.get('onb')!=='0', coach: q.get('coach')==='1', mode: q.get('mode')||'full'};
+if(q.get('tl')) init.settings={showTimeline:true};
+if(q.get('empty')) init.groups=[{id:'g',name:'Family',locations:[],referenceId:null}];
+ReactDOM.createRoot(document.getElementById('a')).render(h(L.PrototypeWindow,{theme, initial:init, openLayer:q.get('layer')||null, width:+(q.get('w')||850), height:+(q.get('h')||560)}));
+window.onerror=(m)=>{document.body.insertAdjacentHTML('beforeend','<pre style="color:red">'+m+'</pre>')};
+</script></body></html>

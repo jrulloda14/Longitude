@@ -1,0 +1,80 @@
+/* Token fallbacks generated from tokens.json (gen_fallback.py). Zero specificity
+   via :where(), so a generated tokens.css or the design-system page always wins. */
+:where(:root), :where([data-theme="dark"]) {
+  color-scheme: dark;
+  --ground: #0e0e0d;
+  --surface: #161614;
+  --dial-face: #131311;
+  --field: #1d1d1a;
+  --line: #272723;
+  --control-border: #6a675f;
+  --ink: #ece8df;
+  --ink-muted: #aaa59b;
+  --ink-faint: #8a867e;
+  --accent: #ff7a3d;
+  --on-accent: #1a0c04;
+  --accent-soft: #ff7a3d24;
+  --focus: #ffa070;
+  --work: #8fcaa3;
+  --work-band: #25412f;
+  --edge: #d9bf7a;
+  --edge-band: #3b3521;
+  --off-band: #272622;
+  --sleep: #93a0c0;
+  --sleep-band: #1b2232;
+  --sky-day: #5b4e34;
+  --sky-twilight: #3e3229;
+  --sky-night: #1a2030;
+  --danger: #ff8b7b;
+  --win-close: #c42b1c;
+  --shadow-popover: 0 12px 32px rgba(0,0,0,0.55), 0 0 0 1px #2e2d29;
+  --shadow-window: 0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px #2e2d29;
+}
+:where([data-theme="light"]) {
+  color-scheme: light;
+  --ground: #f5f3ee;
+  --surface: #fcfbf8;
+  --dial-face: #fdfcf9;
+  --field: #ecebe5;
+  --line: #e2dfd7;
+  --control-border: #8c877d;
+  --ink: #1b1a17;
+  --ink-muted: #56524a;
+  --ink-faint: #6b675f;
+  --accent: #b5440e;
+  --on-accent: #ffffff;
+  --accent-soft: #b5440e1a;
+  --focus: #a63f0d;
+  --work: #2d7549;
+  --work-band: #cfe6d6;
+  --edge: #7f5d0c;
+  --edge-band: #f0e3bf;
+  --off-band: #e5e2d9;
+  --sleep: #4a5a82;
+  --sleep-band: #d5dcea;
+  --sky-day: #efdcab;
+  --sky-twilight: #dfc3a3;
+  --sky-night: #c7cfdf;
+  --danger: #b42318;
+  --win-close: #c42b1c;
+  --shadow-popover: 0 12px 32px rgba(28,26,20,0.14), 0 0 0 1px #dedad0;
+  --shadow-window: 0 24px 64px rgba(28,26,20,0.18), 0 0 0 1px #d6d2c7;
+}
+:where(:root) {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-hand: 420ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-hand: cubic-bezier(0.34, 1.32, 0.5, 1);
+  --font-sans: "Geist", "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono", "Cascadia Mono", Consolas, ui-monospace, monospace;
+}
