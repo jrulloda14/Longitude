@@ -34,6 +34,7 @@ export function TimeReadout({ value, now, zone, placeLabel, live, hour12, onChan
   const [dateOpen, setDateOpen] = useState(false);
   const [dateDraft, setDateDraft] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
+  const selectAfterClick = useRef(false);
   const dateButtonRef = useRef<HTMLButtonElement>(null);
   const closeDate = () => { setDateOpen(false); dateButtonRef.current?.focus(); };
 
@@ -101,6 +102,18 @@ export function TimeReadout({ value, now, zone, placeLabel, live, hour12, onChan
           value={draft ?? time}
           aria-invalid={!!error}
           aria-describedby={error ? 'lg-time-err' : undefined}
+          onPointerDown={(e) => {
+            if (!e.isPrimary || e.button !== 0) return;
+            selectAfterClick.current = document.activeElement !== e.currentTarget;
+            // WebKit queues native caret placement after the click. On first
+            // focus, own that default and focus explicitly; later edits stay native.
+            if (selectAfterClick.current) { e.preventDefault(); e.currentTarget.focus(); }
+          }}
+          onClick={(e) => {
+            // WebKit's pointer default can collapse the selection made during
+            // focus. Select after the first click, but allow later caret edits.
+            if (selectAfterClick.current) { e.preventDefault(); e.currentTarget.select(); selectAfterClick.current = false; }
+          }}
           onFocus={(e) => {
             // Commit the editable AM/PM text before selecting it; a deferred
             // value change can append a fast first keystroke to the old time.

@@ -351,6 +351,14 @@ test('OS reduced-motion preference suppresses easing while planning survives inp
   await expect(page.getByRole('button', { name: /Now ·/ })).toBeVisible();
 });
 
+test('first pointer focus selects the readout while later clicks retain caret editing', async ({ page }) => {
+  await mount(page);
+  const input = page.locator('#lg-time-input'); await input.click();
+  expect(await input.evaluate((el: HTMLInputElement) => [el.selectionStart, el.selectionEnd])).toEqual([0, (await input.inputValue()).length]);
+  await input.click();
+  expect(await input.evaluate((el: HTMLInputElement) => el.selectionStart === el.selectionEnd)).toBe(true);
+});
+
 test('mouse-focus direct entry replaces the old time and modal close restores the editable field', async ({ page }) => {
   await mount(page);
   const input = page.locator('#lg-time-input');

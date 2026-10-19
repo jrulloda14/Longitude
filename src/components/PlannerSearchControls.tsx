@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { SearchOptions } from '../lib/schedule';
 import { Instant, MS, formatShortDate, resolveWall, wallTime } from '../lib/time';
 import { localDayBounds } from '../lib/time-axis';
@@ -15,6 +15,7 @@ export function PlannerSearchControls({ locations, zone, at, durationMin, hour12
   request: SearchRequest | null; onSearch(request: SearchRequest): void; onClear(): void;
 }) {
   const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const [from, setFrom] = useState(''), [to, setTo] = useState('');
   const [ids, setIds] = useState<string[]>([]);
   const [preferred, setPreferred] = useState(false), [start, setStart] = useState(540), [end, setEnd] = useState(1020);
@@ -46,9 +47,9 @@ export function PlannerSearchControls({ locations, zone, at, durationMin, hour12
     } catch (e) { setError((e as Error).message); }
   };
   return <>
-    <button onClick={show} className="text-caption text-ink-muted underline decoration-line-strong underline-offset-2">Search options</button>
+    <button ref={triggerRef} onClick={show} className="text-caption text-ink-muted underline decoration-line-strong underline-offset-2">Search options</button>
     {request && <span className="text-caption text-ink-faint">{formatShortDate(zone, request.from)}–{formatShortDate(zone, request.to - 1)} · {request.options.participantIds?.length ?? locations.length} locations <button className="underline" onClick={onClear}>Clear filters</button></span>}
-    <Dialog open={open} onClose={() => setOpen(false)} title="Recommendation search" width={420} className="lg-scroll max-h-[calc(100vh-80px)] !overflow-y-auto">
+    <Dialog open={open} onClose={() => setOpen(false)} returnFocusRef={triggerRef} title="Recommendation search" width={420} className="lg-scroll max-h-[calc(100vh-80px)] !overflow-y-auto">
       <form onSubmit={e => { e.preventDefault(); submit(); }} className="p-4">
         <h3 className="text-title font-semibold">Recommendation search</h3>
         <p className="mt-1 text-caption text-ink-muted">Configured hours only, not calendar availability. Timeline and meeting suitability still compare the whole group.</p>

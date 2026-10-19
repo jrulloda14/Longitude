@@ -92,6 +92,15 @@ test('search validates ranges and empty subsets without fabricating recommendati
   await dialog.getByRole('button', { name: 'Search', exact: true }).click(); await expect(dialog.getByRole('alert')).toHaveText(/at least one/);
   await page.keyboard.press('Escape'); await expect(page.getByRole('button', { name: 'Search options' })).toBeFocused();
 });
+test('planner modal retains Tab and Escape handling when pointer input leaves body focused', async ({ page }) => {
+  await mount(page, { view: 'planner' }); const trigger = page.getByRole('button', { name: 'Search options' }); await trigger.click();
+  const dialog = page.getByRole('dialog', { name: 'Recommendation search' });
+  await page.evaluate(() => (document.activeElement as HTMLElement)?.blur());
+  await page.keyboard.press('Tab'); await expect(dialog.getByLabel('Search from date')).toBeFocused();
+  await page.evaluate(() => (document.activeElement as HTMLElement)?.blur());
+  await page.keyboard.press('Escape'); await expect(dialog).not.toBeVisible(); await expect(trigger).toBeFocused();
+});
+
 test('no feasible minimum returns explicit empty state and filters survive live ticks', async ({ page }) => {
   const now = stamp('2026-10-20T13:00Z'); await page.clock.install({ time: new Date(now) });
   await mount(page, { view: 'planner', realtime: true }); await page.getByRole('button', { name: 'Search options' }).click();

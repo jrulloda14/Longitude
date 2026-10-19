@@ -310,7 +310,7 @@ export function ContextMenu({ at, items, onClose, container, label }: {
 // ── Dialog ─────────────────────────────────────────────────────────────────
 
 /** Modal inside the window (not a browser-level overlay). Traps focus; Esc closes. */
-export function Dialog({ open, onClose, title, children, width = 440, className, describedBy }: {
+export function Dialog({ open, onClose, title, children, width = 440, className, describedBy, returnFocusRef }: {
   open: boolean;
   onClose(): void;
   title: string;
@@ -318,6 +318,7 @@ export function Dialog({ open, onClose, title, children, width = 440, className,
   width?: number;
   className?: string;
   describedBy?: string;
+  returnFocusRef?: React.RefObject<HTMLElement>;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const titleId = useId();
@@ -325,23 +326,29 @@ export function Dialog({ open, onClose, title, children, width = 440, className,
   close.current = onClose;
   useEffect(() => {
     if (!open) return;
-    const prev = document.activeElement as HTMLElement | null;
+    // Safari does not focus buttons on pointer click. Callers can identify the
+    // invoker explicitly instead of restoring to document.body after closing.
+    const prev = returnFocusRef?.current ?? document.activeElement as HTMLElement | null;
     const el = ref.current;
     const first = el?.querySelector<HTMLElement>('[data-autofocus], input, button, [tabindex="0"]');
     first?.focus();
     const key = (e: KeyboardEvent) => {
+      // Safari pointer clicks can leave focus on body. Handle the active modal
+      // at document level while allowing a later modal to own its own keys.
+      const modals = document.querySelectorAll('[role="dialog"][aria-modal="true"]');
+      if (modals[modals.length - 1] !== el) return;
       if (e.key === 'Escape') { e.preventDefault(); close.current(); }
       if (e.key === 'Tab' && el) {
         const f = Array.from(el.querySelectorAll<HTMLElement>('button:not([disabled]), input, select, textarea, [tabindex="0"]'));
         if (!f.length) return;
         const i = f.indexOf(document.activeElement as HTMLElement);
         if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
-        else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+        else if (!e.shiftKey && (i < 0 || i === f.length - 1)) { e.preventDefault(); f[0].focus(); }
       }
     };
-    el?.addEventListener('keydown', key);
+    document.addEventListener('keydown', key);
     return () => {
-      el?.removeEventListener('keydown', key);
+      document.removeEventListener('keydown', key);
       // Restore outside React's cleanup phase: the readout commits its editable
       // value synchronously on focus, and another dialog may already own focus.
       queueMicrotask(() => {
