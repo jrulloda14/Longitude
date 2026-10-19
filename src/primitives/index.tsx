@@ -338,12 +338,16 @@ export function Dialog({ open, onClose, title, children, width = 440, className,
       const modals = document.querySelectorAll('[role="dialog"][aria-modal="true"]');
       if (modals[modals.length - 1] !== el) return;
       if (e.key === 'Escape') { e.preventDefault(); close.current(); }
-      if (e.key === 'Tab' && el) {
-        const f = Array.from(el.querySelectorAll<HTMLElement>('button:not([disabled]), input, select, textarea, [tabindex="0"]'));
+      if (e.key === 'Tab' && el && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        // Safari may skip ordinary buttons under its native keyboard preference.
+        // A modal owns a deterministic tab sequence, including explicit actions,
+        // while inactive radio stops, hidden controls and disabled fields are skipped.
+        const f = Array.from(el.querySelectorAll<HTMLElement>('button, input, select, textarea, [tabindex]'))
+          .filter(node => node.tabIndex >= 0 && !node.matches(':disabled, [aria-disabled="true"]') && node.getClientRects().length > 0);
         if (!f.length) return;
         const i = f.indexOf(document.activeElement as HTMLElement);
-        if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
-        else if (!e.shiftKey && (i < 0 || i === f.length - 1)) { e.preventDefault(); f[0].focus(); }
+        const next = i < 0 ? (e.shiftKey ? f.length - 1 : 0) : (i + (e.shiftKey ? -1 : 1) + f.length) % f.length;
+        e.preventDefault(); f[next].focus();
       }
     };
     document.addEventListener('keydown', key);
