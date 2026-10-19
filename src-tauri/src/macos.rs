@@ -7,6 +7,15 @@ use tauri::{
     AppHandle,
 };
 
+pub fn preferred_theme(value: &str) -> Result<Option<tauri::Theme>, String> {
+    match value {
+        "system" => Ok(None),
+        "dark" => Ok(Some(tauri::Theme::Dark)),
+        "light" => Ok(Some(tauri::Theme::Light)),
+        _ => Err("Invalid native appearance preference".into()),
+    }
+}
+
 pub fn install_menu(app: &AppHandle, state: &Value) -> tauri::Result<()> {
     let app_menu = Submenu::with_items(
         app,
@@ -102,6 +111,19 @@ pub fn template_icon() -> tauri::image::Image<'static> {
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn native_appearance_follows_system_or_explicit_preference() {
+        assert_eq!(super::preferred_theme("system").unwrap(), None);
+        assert_eq!(
+            super::preferred_theme("dark").unwrap(),
+            Some(tauri::Theme::Dark)
+        );
+        assert_eq!(
+            super::preferred_theme("light").unwrap(),
+            Some(tauri::Theme::Light)
+        );
+        assert!(super::preferred_theme("invalid").is_err());
+    }
     #[test]
     fn platform_overrides_merge_and_deserialize_with_tauris_parser() {
         use tauri::utils::{config::parse::read_from, platform::Target};

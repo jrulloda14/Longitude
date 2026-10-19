@@ -113,9 +113,29 @@ try {
   await check('invalid shortcut reports failure and retains the owned shortcut',async()=>{
     await assert.rejects(()=>settings({globalShortcut:'Not+A+Shortcut'}));assert.equal((await environment()).shortcut,'Ctrl+Alt+T');assert.equal((await snapshot(main)).state.settings.globalShortcut,'Ctrl+Alt+T');
   });
-  await check('native occupied-shortcut registration is rejected with rollback',async()=>{
-    let message='';try{await settings({globalShortcut:'Control+Alt+T'});}catch(error){message=String(error);}
-    assert.match(message,/Could not register/);assert.equal((await environment()).shortcut,'Ctrl+Alt+T');assert.equal((await snapshot(main)).state.settings.globalShortcut,'Ctrl+Alt+T');
+  await check('bare typing shortcut is rejected without replacing the working binding',async()=>{
+    await assert.rejects(()=>settings({globalShortcut:'T'}),/Invalid global shortcut/);
+    assert.equal((await environment()).shortcut,'Ctrl+Alt+T');
+    assert.equal((await snapshot(main)).state.settings.globalShortcut,'Ctrl+Alt+T');
+  });
+  await check('equivalent shortcut aliases preserve ownership without duplicate registration',async()=>{
+    await settings({globalShortcut:'Control+Alt+T'});
+    assert.equal((await environment()).shortcut,'Control+Alt+T');
+    await settings({globalShortcut:'Ctrl+Alt+T'});
+  });
+  await check('a shortcut occupied by another native process is rejected with rollback',async()=>{
+    // Actual competing OS registration, not an alias of our own binding.
+    const script = `Add-Type -TypeDefinition 'using System; using System.Runtime.InteropServices; public static class LongitudeHotkeyFixture { [DllImport("user32.dll", SetLastError=true)] public static extern bool RegisterHotKey(IntPtr window,int id,uint modifiers,uint key); [DllImport("user32.dll")] public static extern bool UnregisterHotKey(IntPtr window,int id); }'; if (-not [LongitudeHotkeyFixture]::RegisterHotKey([IntPtr]::Zero,941,16391,74)) { exit 2 }; try { [Console]::Out.WriteLine("READY"); [Console]::Out.Flush(); [Console]::ReadLine() | Out-Null } finally { [LongitudeHotkeyFixture]::UnregisterHotKey([IntPtr]::Zero,941) | Out-Null }`;
+    const fixture=spawn(`${globalThis.process.env.SystemRoot}/System32/WindowsPowerShell/v1.0/powershell.exe`,['-NoProfile','-NonInteractive','-EncodedCommand',Buffer.from(script,'utf16le').toString('base64')],{windowsHide:true});
+    const exited=new Promise(resolve=>fixture.once('exit',resolve));
+    try {
+      await Promise.race([new Promise((resolve,reject)=>{fixture.stdout.on('data',data=>{if(data.toString().includes('READY'))resolve();});fixture.once('error',reject);fixture.once('exit',code=>reject(Error(`Hotkey fixture exited ${code}`)));}),delay(15000).then(()=>{throw Error('Competing hotkey fixture did not become ready');})]);
+      await assert.rejects(()=>settings({globalShortcut:'Ctrl+Alt+Shift+J'}),/Could not register/);
+      assert.equal((await environment()).shortcut,'Ctrl+Alt+T');
+      assert.equal((await snapshot(main)).state.settings.globalShortcut,'Ctrl+Alt+T');
+    } finally {
+      fixture.stdin.end('\n');await Promise.race([exited,delay(3000)]);if(fixture.exitCode===null)fixture.kill();
+    }
   });
   await check('shortcut rebind releases prior ownership',async()=>{
     await settings({globalShortcut:'Ctrl+Alt+Shift+L'});assert.equal((await environment()).shortcut,'Ctrl+Alt+Shift+L');await settings({globalShortcut:'Ctrl+Alt+T'});

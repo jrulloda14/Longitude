@@ -50,6 +50,10 @@ jobs:
           npm run typecheck 2>&1 | tee ci-results/typecheck.txt
           npm test -- --reporter=json --outputFile=ci-results/unit-results.json
           npm run desktop:frontend 2>&1 | tee ci-results/frontend-build.txt
+          # Tauri 2's build-script allowlist inspects direct dependency features,
+          # not just resolved named Cargo features. Let the official CLI prepare
+          # the host-specific manifest before invoking Cargo tests directly.
+          npm exec tauri build -- --debug --no-bundle --target '${{ matrix.target }}' 2>&1 | tee ci-results/debug-build.txt
           cargo fmt --manifest-path src-tauri/Cargo.toml --check
           cargo test --manifest-path src-tauri/Cargo.toml --locked --target '${{ matrix.target }}' --features macos-transparency 2>&1 | tee ci-results/rust-tests.txt
       - name: WebKit shared browser interactions (not native WKWebView acceptance)

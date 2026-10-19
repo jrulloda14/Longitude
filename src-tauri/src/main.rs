@@ -3,6 +3,7 @@ mod authority;
 mod lifecycle;
 mod macos;
 mod placement;
+mod shortcuts;
 mod storage;
 use authority::{Authority, Reply, Snapshot};
 use serde_json::{json, Value};
@@ -20,7 +21,7 @@ use tauri::{
     AppHandle, Emitter, Manager, WebviewWindow,
 };
 use tauri_plugin_autostart::ManagerExt as AutostartExt;
-use tauri_plugin_global_shortcut::{GlobalShortcutExt, Shortcut, ShortcutState};
+use tauri_plugin_global_shortcut::{GlobalShortcutExt, ShortcutState};
 
 struct Host {
     authority: Mutex<Authority>,
@@ -206,7 +207,9 @@ fn apply(
         "trayIcon",
     ]
     .iter()
-    .any(|key| current.state["settings"][*key] != state["settings"][*key]);
+    .any(|key| current.state["settings"][*key] != state["settings"][*key])
+        || (cfg!(target_os = "macos")
+            && current.state["settings"]["theme"] != state["settings"]["theme"]);
     let groups_changed = current.state["groups"] != state["groups"];
     if changed {
         if let Err(error) = configure(app, &state["settings"]) {
@@ -246,8 +249,8 @@ fn configure(app: &AppHandle, settings: &Value) -> Result<(), String> {
     let next = settings["globalShortcut"]
         .as_str()
         .ok_or("Missing shortcut")?;
-    let parsed: Shortcut = next.parse().map_err(|e| format!("Invalid shortcut: {e}"))?;
-    let changed = owned.as_deref() != Some(next);
+    let parsed = shortcuts::parse(next, cfg!(target_os = "macos"))?;
+    let changed = !shortcuts::same_owned(owned.as_deref(), &parsed);
     if changed {
         app.global_shortcut().register(parsed).map_err(|e| {
             format!(
@@ -288,8 +291,12 @@ fn configure(app: &AppHandle, settings: &Value) -> Result<(), String> {
                 return Err(format!("Could not release previous shortcut: {e}"));
             }
         }
-        *owned = Some(next.into());
     }
+    *owned = Some(next.into());
+    #[cfg(target_os = "macos")]
+    app.set_theme(macos::preferred_theme(
+        settings["theme"].as_str().ok_or("Missing theme")?,
+    )?);
     if let Some(widget) = app.get_webview_window("widget") {
         widget
             .set_always_on_top(settings["widgetPinned"].as_bool().unwrap_or(true))
