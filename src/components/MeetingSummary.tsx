@@ -7,13 +7,15 @@ import { SaveResult } from '../platform';
 import { Button, Segmented, Switch, cx } from '../primitives';
 import { DstNotice } from './DstNotice';
 export interface MeetingSummaryProps {
-  input: SummaryInput; weekly: boolean; now?: number; session?: ExportSession; onNewEvent?(): void;
+  input: SummaryInput; weekly: boolean; basis?: RecurrenceBasis; onBasis?(basis: RecurrenceBasis): void; now?: number; session?: ExportSession; onNewEvent?(): void;
   onTitle(title: string): void; onDuration(min: number): void; onWeekly(on: boolean): void; onHour12(on: boolean): void;
   onCopy(text: string): Promise<boolean>; onExport(filename: string, ics: string): Promise<SaveResult>;
 }
 const DURATIONS = [15, 30, 45, 60, 90], WEEKS = 12;
-export function MeetingSummary({ input, weekly, now = input.start, session, onNewEvent, onTitle, onDuration, onWeekly, onHour12, onCopy, onExport }: MeetingSummaryProps) {
-  const [mode, setMode] = useState('full'), [basis, setBasis] = useState<RecurrenceBasis>('utc');
+export function MeetingSummary({ input, weekly, basis: controlledBasis, onBasis, now = input.start, session, onNewEvent, onTitle, onDuration, onWeekly, onHour12, onCopy, onExport }: MeetingSummaryProps) {
+  const [mode, setMode] = useState('full'), [localBasis, setLocalBasis] = useState<RecurrenceBasis>('utc');
+  const basis = controlledBasis ?? localBasis;
+  const changeBasis = onBasis ?? setLocalBasis;
   const [localSession, setSession] = useState(createExportSession), [busy, setBusy] = useState(false);
   const [feedback, setFeedback] = useState<{ error?: boolean; text: string; kind?: 'copy' | 'ics' } | null>(null);
   const inFlight = useRef(false), mounted = useRef(true);
@@ -51,7 +53,7 @@ export function MeetingSummary({ input, weekly, now = input.start, session, onNe
       <label className="ml-auto flex items-center gap-2 text-label text-ink-muted"><Repeat size={12} aria-hidden /> Weekly <Switch checked={weekly} onChange={onWeekly} label="Repeat weekly" /></label>
     </div>
     {weekly && <label className="flex flex-wrap items-center gap-2 text-caption text-ink-muted">12 occurrences, repeat by
-      <select aria-label="Recurrence time basis" className="lg-select text-caption" value={basis} onChange={e => setBasis(e.target.value as RecurrenceBasis)}><option value="utc">Fixed UTC</option><option value="reference">{input.reference.zone} wall time</option></select>
+      <select aria-label="Recurrence time basis" className="lg-select text-caption" value={basis} onChange={e => changeBasis(e.target.value as RecurrenceBasis)}><option value="utc">Fixed UTC</option><option value="reference">{input.reference.zone} wall time</option></select>
     </label>}
     {data.shifts.length > 0 && <DstNotice>Repeats at {basis === 'utc' ? 'fixed UTC' : `${input.reference.zone} wall time`}; local meeting times change: {data.shifts.map((s,i) => <span key={`${s.place}-${i}`}>{i ? '; ' : ''}<b className="font-medium">{s.place}</b> {s.before} → {s.after} from {s.date}</span>)}.</DstNotice>}
     {data.notes.map((note,i) => <DstNotice key={i} tone="quiet">{note}</DstNotice>)}

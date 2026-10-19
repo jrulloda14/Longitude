@@ -34,8 +34,9 @@ test('native cancellation is neutral and does not claim save success',async({pag
 test('calendar session identity survives edits and closing, and explicit New event changes it',async({page})=>{
  const dialog=await open(page);const exportFile=async()=>{await dialog.getByRole('button',{name:/Export .ics|Saved/,exact:true}).click();return (await page.evaluate(()=>window.longitudeSharing.exported.at(-1)))!;};
  const first=event((await exportFile()).contents);await dialog.getByLabel('Meeting title').fill('Release; Review, 日本語 🙂');const edited=await exportFile();expect(event(edited.contents).uid).toBe(first.uid);expect(event(edited.contents).summary).toBe('Release; Review, 日本語 🙂');expect(edited.name).toBe('release-review.ics');
- await page.keyboard.press('Escape');await page.getByRole('button',{name:'Share this time',exact:true}).click();expect(event((await exportFile()).contents).uid).toBe(first.uid);
- await dialog.getByRole('button',{name:'New event',exact:true}).click();expect(event((await exportFile()).contents).uid).not.toBe(first.uid);
+ await dialog.getByRole('switch',{name:'Repeat weekly'}).click();await dialog.getByLabel('Recurrence time basis').selectOption('reference');
+ await page.keyboard.press('Escape');await page.getByRole('button',{name:'Share this time',exact:true}).click();await expect(dialog.getByLabel('Recurrence time basis')).toHaveValue('reference');expect(event((await exportFile()).contents).uid).toBe(first.uid);
+ await dialog.getByRole('button',{name:'New event',exact:true}).click();expect(event((await exportFile()).contents).uid).not.toBe(first.uid);await expect(dialog.getByLabel('Recurrence time basis')).toHaveValue('utc');
 });
 test('direct entry, timeline and suggestions feed the same summary/export instant while live ticks cannot reset planning',async({page})=>{
  await open(page,{realtime:true});await page.keyboard.press('Escape');await page.locator('#lg-time-input').fill('10:30 PM');await page.locator('#lg-time-input').press('Enter');

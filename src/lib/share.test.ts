@@ -93,6 +93,11 @@ describe('bounded explicit weekly recurrence', () => {
     expect(new Date(occ[1]).toISOString()).toBe('2027-03-14T07:30:00.000Z');expect(new Date(occ[2]).toISOString()).toBe('2027-03-21T06:30:00.000Z');
     expect(meetingDstNotes(s,s.start).join(' ')).toContain('nonexistent wall time');
   });
+  it('explains a whole skipped civil date without assuming a one-hour gap', () => {
+    const p={label:'Apia',zone:'Pacific/Apia'},s=input({start:Date.parse('2011-12-23T20:00Z'),reference:p,places:[p],recurrence:{basis:'reference',count:2}});
+    expect(weeklyOccurrences(s)[1]).toBe(Date.parse('2011-12-30T20:00Z'));
+    expect(meetingDstNotes(s,s.start).join(' ')).toContain('nonexistent wall time; shifted forward 1440 minutes');
+  });
   it('reference recurrence folds choose earlier while preserving the explicit original instant', () => {
     const start=resolveWall('America/New_York',2026,10,25,1,30).instant,s=input({start,recurrence:{basis:'reference',count:2}});
     expect(weeklyOccurrences(s)[1]).toBe(Date.parse('2026-11-01T05:30Z'));expect(meetingDstNotes(s,start).join(' ')).toContain('ambiguous wall time; earlier');

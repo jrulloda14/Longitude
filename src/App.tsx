@@ -8,7 +8,7 @@ import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useSta
 import { City } from './lib/cities';
 import { commonWorkingRanges, evaluate } from './lib/schedule';
 import { useSchedulingSearch } from './scheduling/use-search';
-import { SummaryInput, createExportSession } from './lib/share';
+import { SummaryInput, RecurrenceBasis, createExportSession } from './lib/share';
 import { Instant, MS, dayNumber, formatTimeString, systemZone } from './lib/time';
 import { localDayBounds } from './lib/time-axis';
 import { Button, Dialog, IconButton, Segmented, cx } from './primitives';
@@ -87,6 +87,7 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
   const fmt = useMemo(() => ({ hour12: s.hour12 }), [s.hour12]);
   const [rootRef, width] = useElementWidth<HTMLDivElement>(state.mode);
   const [layer, setLayer] = useState<null | 'search' | 'share'>(openLayer);
+  const [recurrenceBasis, setRecurrenceBasis] = useState<RecurrenceBasis>('utc');
   const [exportSession, setExportSession] = useState(createExportSession);
   const [toast, setToast] = useState<string | null>(null);
   const [draggingDial, setDraggingDial] = useState(false);
@@ -328,7 +329,9 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
             input={summary}
             now={now}
             session={exportSession}
-            onNewEvent={() => setExportSession(createExportSession())}
+            basis={recurrenceBasis}
+            onBasis={setRecurrenceBasis}
+            onNewEvent={() => { setExportSession(createExportSession()); setRecurrenceBasis('utc'); }}
             weekly={state.meeting.weekly}
             onTitle={(title) => dispatch({ type: 'meeting', patch: { title } })}
             onDuration={(d) => dispatch({ type: 'meeting', patch: { durationMin: d } })}

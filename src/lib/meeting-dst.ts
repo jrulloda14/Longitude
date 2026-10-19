@@ -1,6 +1,7 @@
 /** Contextual explanations built on the established IANA engine, not UI arithmetic. */
 import { Instant, MS, TimeFormat, formatDiff, formatOffset, formatShortDate, formatTimeString, nextTransition, offsetMinutes, resolveWall, wallTime } from './time';
 import { SummaryInput, weeklyOccurrences } from './share';
+import { civilUtc } from './time-validation';
 export function describeTransition(zone: string, place: string, from: Instant, fmt: TimeFormat, horizonDays = 30): string | null {
   const t = nextTransition(zone, from, horizonDays); if (!t) return null;
   const announced = t.at + t.from * MS.MIN;
@@ -33,8 +34,10 @@ export function meetingDstNotes(s: SummaryInput, today: Instant): string[] {
   }
   if (s.recurrence?.basis === 'reference') {
     const original = wallTime(s.reference.zone, s.start);
-    weeklyOccurrences(s).slice(1).forEach((at, i) => {
-      const w = wallTime(s.reference.zone, at), r = resolveWall(s.reference.zone, w.year, w.month, w.day, original.hour, original.minute);
+    weeklyOccurrences(s).slice(1).forEach((_, i) => {
+      // Classify the requested calendar date, including a wholly skipped date,
+      // rather than the shifted occurrence's resulting date.
+      const w = wallTime('UTC', civilUtc(original.year, original.month, original.day) + (i + 1) * 7 * MS.DAY), r = resolveWall(s.reference.zone, w.year, w.month, w.day, original.hour, original.minute);
       if (r.kind !== 'ok') notes.push(`Occurrence ${i + 2} in ${s.reference.zone}: ${r.kind === 'ambiguous' ? 'ambiguous wall time; earlier occurrence selected' : `nonexistent wall time; shifted forward ${r.gapMinutes} minutes`}.`);
     });
   }

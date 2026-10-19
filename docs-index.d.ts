@@ -154,6 +154,7 @@ interface MeetingOverlapIndicatorProps {
 interface MeetingSummaryProps {
   input: SummaryInput;
   weekly: boolean;
+  basis?: 'utc' | 'reference'; onBasis?(basis: 'utc' | 'reference'): void;
   onTitle(title: string): void;
   onDuration(min: number): void;
   onWeekly(on: boolean): void;
