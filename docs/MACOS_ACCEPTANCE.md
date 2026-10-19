@@ -2,6 +2,8 @@
 
 Status: **not executed**. A Windows host cannot supply these results. CI runs on hosted Macs/VMs do not complete this physical-device matrix. Use a normal user account with a backed-up configuration; use isolated debug configuration for destructive recovery cases. Do not modify production preferences to simulate corruption.
 
+[Download the printable three-page checklist](../output/pdf/Longitude-Milestone-5B-Mac-Acceptance-Checklist.pdf). The implementation and PDF are included in source checkpoint `a8c18e9`; record the exact revision and executable hash actually tested below. A GitHub push or successful build does not fill in any acceptance result.
+
 Record device/model, CPU architecture, RAM, macOS build, system WKWebView/Safari/WebKit version, displays/scales, toolchain, source revision, executable hash, app path and signature/notarization status. Attach screenshots/videos and exact counts. Test Apple Silicon and Intel separately; a configured target is not a verified target. Minimum macOS 12 compatibility remains provisional until tested.
 
 | Area | Required actual checks | Current status |

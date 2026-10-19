@@ -10,6 +10,10 @@ Milestone 5B is authorized for joint review with 5A. The same frontend now has m
 
 See the [Milestone 5A Windows report](docs/MILESTONE_5A.md), [desktop architecture](docs/DESKTOP_ARCHITECTURE.md), [build instructions](docs/BUILD_AND_RELEASE.md) and [dependency review](docs/DESKTOP_DEPENDENCIES.md). Browser persistence remains origin/profile-specific; native persistence uses Tauri application directories and the same schema. Browser site data does not automatically migrate into native files.
 
+Implementation checkpoint: [`a8c18e9`](https://github.com/jrulloda14/Longitude/commit/a8c18e9), covering persistence and desktop integration through 5B. Recorded Windows/shared results: **692 unit, 81 browser, 26 Rust, 27 native integration and 5 release smoke checks passed**; all nine browser visual comparisons show zero changed pixels. These are the recorded 5B results, not a macOS runtime verification or a new test run for this documentation update.
+
+Download the [printable three-page Mac acceptance checklist](output/pdf/Longitude-Milestone-5B-Mac-Acceptance-Checklist.pdf), or use the [editable Markdown checklist](docs/MACOS_ACCEPTANCE.md). Every Mac acceptance outcome remains unexecuted. The [macOS development workflow](.github/workflows/macos-development.yml) supports manual dispatch and pull requests; pushing `main` alone does not run it. No GitHub release or release-ready Mac installer is provided by this source checkpoint.
+
 - [Implementation audit](docs/IMPLEMENTATION_AUDIT.md): actual structure, functional inventory, defects, architecture, dependency proposals and audit check results.
 - [Implementation plan](docs/IMPLEMENTATION_PLAN.md): milestones, intended files, tests and completion gates.
 - [Milestone 1 report](docs/MILESTONE_1.md): changes, files, exact checks and remaining issues.
