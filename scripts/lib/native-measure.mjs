@@ -1,6 +1,6 @@
 // Shared native measurement helpers for the M7 harnesses (Windows host,
 // WebView2 process tree). Measurement only; nothing here changes the app.
-import { execFile } from 'node:child_process';
+import { execFile, spawn } from 'node:child_process';
 import { promisify } from 'node:util';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
@@ -100,3 +100,13 @@ export async function waitNoInstance() {
 }
 
 export const stats = values => { const v = values.filter(x => typeof x === 'number').sort((a, b) => a - b); if (!v.length) return null; const q = p => v[Math.min(v.length - 1, Math.floor((v.length - 1) * p + .5))]; return { n: v.length, median: q(.5), q1: q(.25), q3: q(.75), min: v[0], max: v.at(-1) }; };
+
+// Keeps the display on for the run, the same request a video player makes. A
+// zero-distance relative mouse move wakes a display already blanked by idle.
+// Both end with this helper process.
+export function keepDisplayOn() {
+  const script = `Add-Type -Namespace M71 -Name P -MemberDefinition '[DllImport("kernel32.dll")] public static extern uint SetThreadExecutionState(uint f); [DllImport("user32.dll")] public static extern void mouse_event(uint f, int x, int y, uint d, System.UIntPtr e);';
+[M71.P]::mouse_event(1,0,0,0,[System.UIntPtr]::Zero);while($true){[void][M71.P]::SetThreadExecutionState([uint32]2147483651);Start-Sleep -Seconds 30}`;
+  return spawn(`${process.env.SystemRoot}/System32/WindowsPowerShell/v1.0/powershell.exe`, ['-NoProfile', '-NonInteractive', '-Command', script], { windowsHide: true, stdio: 'ignore' });
+}
+

@@ -8,11 +8,13 @@
 // observer: attached (CDP client + Performance domain held open, as in M6),
 //           detached (debug port open, no client during windows),
 //           noport (no remote debugging at all; live window only).
+// --display=on keeps the display awake (see M7.1: a sleeping display hides most
+// compositing cost); --display=leave keeps the power settings' behaviour.
 import { spawn } from 'node:child_process';
 import { writeFile, mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
-import { port, cores, sampleEvery, exec, ps, sha, hostState, attach, frameProbe, conditions, idleWindow as measureWindow, drag, waitNoInstance, stats } from './lib/native-measure.mjs';
+import { port, cores, sampleEvery, exec, ps, sha, hostState, keepDisplayOn, attach, frameProbe, conditions, idleWindow as measureWindow, drag, waitNoInstance, stats } from './lib/native-measure.mjs';
 
 const arg = (name, fallback) => { const hit = process.argv.slice(2).filter(a => a.startsWith(`--${name}=`)).map(a => a.slice(name.length + 3)); return hit.length ? hit : fallback; };
 const rounds = Number(arg('rounds', ['5'])[0]), warmup = Number(arg('warmup', ['60'])[0]), windowSeconds = Number(arg('window', ['120'])[0]);
@@ -20,6 +22,7 @@ const out = resolve(arg('out', [`${process.env.LONGITUDE_EVIDENCE_ROOT ?? 'docs/
 const exes = Object.fromEntries(arg('exe', ['m6=src-tauri/target/release/longitude.exe']).map(e => { const [label, path] = e.split('='); return [label, resolve(path)]; }));
 const configs = arg('configs', [Object.keys(exes).map(l => `${l}:attached,${l}:detached,${l}:noport`).join(',')])[0].split(',').map(c => { const [exe, observer] = c.split(':'); return { exe, observer }; });
 for (const c of configs) if (!exes[c.exe] || !['attached', 'detached', 'noport'].includes(c.observer)) throw Error(`Bad config ${c.exe}:${c.observer}`);
+const display = arg('display', ['leave'])[0];
 const idleWindow = (rootPid, mode, metrics) => measureWindow(rootPid, mode, metrics, windowSeconds);
 
 async function trial(round, { exe, observer }) {
@@ -84,8 +87,10 @@ await mkdir(out, { recursive: true });
 const hashes = Object.fromEntries(await Promise.all(Object.entries(exes).map(async ([l, p]) => [l, await sha(p)])));
 const hardware = await ps('[pscustomobject]@{cpu=@(Get-CimInstance Win32_Processor|Select-Object Name,NumberOfCores,NumberOfLogicalProcessors);system=(Get-CimInstance Win32_ComputerSystem|Select-Object Manufacturer,Model,TotalPhysicalMemory);os=(Get-CimInstance Win32_OperatingSystem|Select-Object Caption,Version,BuildNumber)}|ConvertTo-Json -Depth 5 -Compress');
 const trials = [], file = resolve(out, `trials-${new Date().toISOString().replace(/[:.]/g, '-')}.json`);
-const save = () => writeFile(file, JSON.stringify({ method: { rounds, warmupSeconds: warmup, windowSeconds, sampleEverySeconds: sampleEvery, order: 'configs rotated by one position each round', configs }, executables: Object.fromEntries(Object.entries(exes).map(([l, p]) => [l, { path: p, sha256: hashes[l] }])), hardware, cores, summary: summarize(trials), trials,
+const save = () => writeFile(file, JSON.stringify({ method: { rounds, display, warmupSeconds: warmup, windowSeconds, sampleEverySeconds: sampleEvery, order: 'configs rotated by one position each round', configs }, executables: Object.fromEntries(Object.entries(exes).map(([l, p]) => [l, { path: p, sha256: hashes[l] }])), hardware, cores, summary: summarize(trials), trials,
   limitations: ['Process CPU is last observed per process minus its first sample; work between samples by processes that exit is missed', 'Machine busy percent is from Node os.cpus() and includes the sampler', 'noport trials cannot verify mount or enter planning mode', 'Frame probes are rAF intervals, not input-to-photon latency', 'Shared desktop: user input and other applications are recorded, not prevented'] }, null, 2) + '\n');
+const keeper = display === 'on' ? keepDisplayOn() : null;
+process.on('exit', () => keeper?.kill());
 console.log(`M7.0 trials: ${rounds} rounds x ${configs.length} configs -> ${file}`);
 for (let round = 0; round < rounds; round++) for (let i = 0; i < configs.length; i++) {
   const config = configs[(i + round) % configs.length];

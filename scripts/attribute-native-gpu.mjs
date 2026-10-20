@@ -10,21 +10,12 @@ import { spawn } from 'node:child_process';
 import { writeFile, mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
-import { port, cores, exec, sha, hostState, attach, frameProbe, conditions, idleWindow, waitNoInstance, stats } from './lib/native-measure.mjs';
+import { port, cores, exec, sha, keepDisplayOn, hostState, attach, frameProbe, conditions, idleWindow, waitNoInstance, stats } from './lib/native-measure.mjs';
 
 const arg = (name, fallback) => process.argv.slice(2).find(a => a.startsWith(`--${name}=`))?.slice(name.length + 3) ?? fallback;
 const launches = Number(arg('launches', '10')), warmup = Number(arg('warmup', '60')), windowSeconds = Number(arg('window', '60'));
 const executable = resolve(arg('exe', 'src-tauri/target/release/longitude.exe')), display = arg('display', 'on'), flags = arg('flags', '');
 const out = resolve(arg('out', `${process.env.LONGITUDE_EVIDENCE_ROOT ?? 'docs/evidence/milestone-7'}/gpu-attribution`));
-
-// Keeps the display on for the run, the same request a video player makes. A
-// zero-distance relative mouse move wakes a display already blanked by idle.
-// Both end with this helper process.
-function keepDisplayOn() {
-  const script = `Add-Type -Namespace M71 -Name P -MemberDefinition '[DllImport("kernel32.dll")] public static extern uint SetThreadExecutionState(uint f); [DllImport("user32.dll")] public static extern void mouse_event(uint f, int x, int y, uint d, System.UIntPtr e);';
-[M71.P]::mouse_event(1,0,0,0,[System.UIntPtr]::Zero);while($true){[void][M71.P]::SetThreadExecutionState([uint32]2147483651);Start-Sleep -Seconds 30}`;
-  return spawn(`${process.env.SystemRoot}/System32/WindowsPowerShell/v1.0/powershell.exe`, ['-NoProfile', '-NonInteractive', '-Command', script], { windowsHide: true, stdio: 'ignore' });
-}
 
 const toggles = {
   pausePulse: () => document.querySelectorAll('.lg-pulse').forEach(e => e.getAnimations().forEach(a => a.pause())),
