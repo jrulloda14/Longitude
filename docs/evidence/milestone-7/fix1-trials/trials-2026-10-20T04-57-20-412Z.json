@@ -1,0 +1,2591 @@
+{
+  "method": {
+    "rounds": 3,
+    "display": "on",
+    "warmupSeconds": 60,
+    "windowSeconds": 120,
+    "sampleEverySeconds": 30,
+    "order": "configs rotated by one position each round",
+    "configs": [
+      {
+        "exe": "m6",
+        "observer": "attached"
+      },
+      {
+        "exe": "fix1",
+        "observer": "attached"
+      }
+    ]
+  },
+  "executables": {
+    "m6": {
+      "path": "H:\\Projects\\Longitude\\performance-results\\m6-final\\longitude.exe",
+      "sha256": "46e6eb225a684aceacc0de165a80c6f5e6c8d98e5ba95487dbc8456a80537705"
+    },
+    "fix1": {
+      "path": "H:\\Projects\\Longitude\\performance-results\\m7-fix1\\longitude.exe",
+      "sha256": "73d5844312ebe351deee010b8bef565cdf8cdf3bc9b6cad0681336934b8a156d"
+    }
+  },
+  "hardware": {
+    "cpu": [
+      {
+        "Name": "Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz",
+        "NumberOfCores": 4,
+        "NumberOfLogicalProcessors": 4
+      }
+    ],
+    "system": {
+      "Manufacturer": "MSI",
+      "Model": "MS-7A70",
+      "TotalPhysicalMemory": 17067753472
+    },
+    "os": {
+      "Caption": "Microsoft Windows 10 Pro",
+      "Version": "10.0.19045",
+      "BuildNumber": "19045"
+    }
+  },
+  "cores": 4,
+  "summary": {
+    "m6:attached": {
+      "live": {
+        "cpuPercent": {
+          "n": 3,
+          "median": 2.3112982173788916,
+          "q1": 2.3112982173788916,
+          "q3": 3.266982036503426,
+          "min": 2.2054179311473736,
+          "max": 3.266982036503426
+        },
+        "privateMiB": {
+          "n": 3,
+          "median": 208.97265625,
+          "q1": 208.97265625,
+          "q3": 216.48828125,
+          "min": 206.83984375,
+          "max": 216.48828125
+        },
+        "otherLoadPercent": {
+          "n": 3,
+          "median": 36.71071746231402,
+          "q1": 36.71071746231402,
+          "q3": 58.812421661705045,
+          "min": 36.53377212844632,
+          "max": 58.812421661705045
+        },
+        "rendererTaskMsPerSecond": {
+          "n": 3,
+          "median": 16.705065105438088,
+          "q1": 16.705065105438088,
+          "q3": 17.330097136687584,
+          "min": 15.202237882099137,
+          "max": 17.330097136687584
+        },
+        "byRole": {
+          "host": {
+            "n": 3,
+            "median": 0.006067174501093188,
+            "q1": 0.006067174501093188,
+            "q3": 0.036333442481965815,
+            "min": 0.0030173605971003806,
+            "max": 0.036333442481965815
+          },
+          "browser": {
+            "n": 3,
+            "median": 0.03336945975601253,
+            "q1": 0.03336945975601253,
+            "q3": 0.03922568776230495,
+            "min": 0.012111147493988606,
+            "max": 0.03922568776230495
+          },
+          "crashpad-handler": {
+            "n": 3,
+            "median": 0,
+            "q1": 0,
+            "q3": 0,
+            "min": 0,
+            "max": 0
+          },
+          "gpu-process": {
+            "n": 3,
+            "median": 1.3034997779473645,
+            "q1": 1.3034997779473645,
+            "q3": 1.8863112221887253,
+            "min": 1.1891662022142648,
+            "max": 1.8863112221887253
+          },
+          "utility:network": {
+            "n": 3,
+            "median": 0,
+            "q1": 0,
+            "q3": 0.003033587250546594,
+            "min": 0,
+            "max": 0.003033587250546594
+          },
+          "utility:storage": {
+            "n": 3,
+            "median": 0,
+            "q1": 0,
+            "q3": 0,
+            "min": 0,
+            "max": 0
+          },
+          "renderer": {
+            "n": 3,
+            "median": 0.9737815074254567,
+            "q1": 0.9737815074254567,
+            "q3": 1.3322262243387466,
+            "min": 0.965555391072122,
+            "max": 1.3322262243387466
+          }
+        }
+      },
+      "planning": {
+        "cpuPercent": {
+          "n": 3,
+          "median": 0.31961315212000774,
+          "q1": 0.31961315212000774,
+          "q3": 5.505305475459873,
+          "min": 0.2511983586061474,
+          "max": 5.505305475459873
+        },
+        "privateMiB": {
+          "n": 3,
+          "median": 221.23828125,
+          "q1": 221.23828125,
+          "q3": 337.359375,
+          "min": 211.1796875,
+          "max": 337.359375
+        },
+        "otherLoadPercent": {
+          "n": 3,
+          "median": 30.702510005650264,
+          "q1": 30.702510005650264,
+          "q3": 64.25539361073798,
+          "min": 12.352815346729145,
+          "max": 64.25539361073798
+        },
+        "rendererTaskMsPerSecond": {
+          "n": 3,
+          "median": 6.040014293013091,
+          "q1": 6.040014293013091,
+          "q3": 113.41682991499934,
+          "min": 5.981235032622423,
+          "max": 113.41682991499934
+        },
+        "byRole": {
+          "host": {
+            "n": 3,
+            "median": 0.002987038804859886,
+            "q1": 0.002987038804859886,
+            "q3": 0.18774969168234992,
+            "min": 0,
+            "max": 0.18774969168234992
+          },
+          "browser": {
+            "n": 3,
+            "median": 0.023896310438879086,
+            "q1": 0.023896310438879086,
+            "q3": 0.596559504216499,
+            "min": 0.003063394617148139,
+            "max": 0.596559504216499
+          },
+          "crashpad-handler": {
+            "n": 3,
+            "median": 0,
+            "q1": 0,
+            "q3": 0,
+            "min": 0,
+            "max": 0
+          },
+          "gpu-process": {
+            "n": 3,
+            "median": 0.0836370865360768,
+            "q1": 0.0836370865360768,
+            "q3": 1.1416392542620308,
+            "min": 0.07658486542870348,
+            "max": 1.1416392542620308
+          },
+          "utility:network": {
+            "n": 3,
+            "median": 0,
+            "q1": 0,
+            "q3": 0.021197545835104026,
+            "min": 0,
+            "max": 0.021197545835104026
+          },
+          "utility:storage": {
+            "n": 3,
+            "median": 0,
+            "q1": 0,
+            "q3": 0,
+            "min": 0,
+            "max": 0
+          },
+          "renderer": {
+            "n": 3,
+            "median": 0.20909271634019197,
+            "q1": 0.20909271634019197,
+            "q3": 3.5581594794638898,
+            "min": 0.1715500985602958,
+            "max": 3.5581594794638898
+          }
+        }
+      },
+      "dragFrameP95": {
+        "n": 3,
+        "median": 16.900000000023283,
+        "q1": 16.900000000023283,
+        "q3": 16.900000000023283,
+        "min": 16.899999999965075,
+        "max": 16.900000000023283
+      },
+      "commitProxyP95": {
+        "n": 3,
+        "median": 25.30000000447035,
+        "q1": 25.30000000447035,
+        "q3": 25.399999998509884,
+        "min": 24.80000000447035,
+        "max": 25.399999998509884
+      },
+      "idleFrameP50": {
+        "n": 3,
+        "median": 16.70000000001164,
+        "q1": 16.70000000001164,
+        "q3": 16.70000000001164,
+        "min": 16.70000000001164,
+        "max": 16.70000000001164
+      }
+    },
+    "fix1:attached": {
+      "live": {
+        "cpuPercent": {
+          "n": 3,
+          "median": 1.5916122914081372,
+          "q1": 1.5916122914081372,
+          "q3": 1.8731250400319852,
+          "min": 1.5613232033632818,
+          "max": 1.8731250400319852
+        },
+        "privateMiB": {
+          "n": 3,
+          "median": 206.17578125,
+          "q1": 206.17578125,
+          "q3": 215.265625,
+          "min": 201.125,
+          "max": 215.265625
+        },
+        "otherLoadPercent": {
+          "n": 3,
+          "median": 24.826654880776935,
+          "q1": 24.826654880776935,
+          "q3": 29.422596384885125,
+          "min": 13.095098820426767,
+          "max": 29.422596384885125
+        },
+        "rendererTaskMsPerSecond": {
+          "n": 3,
+          "median": 7.881919181681501,
+          "q1": 7.881919181681501,
+          "q3": 8.174883774711681,
+          "min": 7.69348061102619,
+          "max": 8.174883774711681
+        },
+        "byRole": {
+          "host": {
+            "n": 3,
+            "median": 0,
+            "q1": 0,
+            "q3": 0,
+            "min": 0,
+            "max": 0
+          },
+          "browser": {
+            "n": 3,
+            "median": 0.009181985490352868,
+            "q1": 0.009181985490352868,
+            "q3": 0.024300750246899327,
+            "min": 0.0030490656923527534,
+            "max": 0.024300750246899327
+          },
+          "crashpad-handler": {
+            "n": 3,
+            "median": 0,
+            "q1": 0,
+            "q3": 0,
+            "min": 0,
+            "max": 0
+          },
+          "utility:network": {
+            "n": 3,
+            "median": 0,
+            "q1": 0,
+            "q3": 0,
+            "min": 0,
+            "max": 0
+          },
+          "gpu-process": {
+            "n": 3,
+            "median": 1.000093547091703,
+            "q1": 1.000093547091703,
+            "q3": 1.2671139976686958,
+            "min": 0.9598796347525234,
+            "max": 1.2671139976686958
+          },
+          "utility:storage": {
+            "n": 3,
+            "median": 0,
+            "q1": 0,
+            "q3": 0,
+            "min": 0,
+            "max": 0
+          },
+          "renderer": {
+            "n": 3,
+            "median": 0.5884696786240814,
+            "q1": 0.5884696786240814,
+            "q3": 0.5968290568729364,
+            "min": 0.5771428183638591,
+            "max": 0.5968290568729364
+          }
+        }
+      },
+      "planning": {
+        "cpuPercent": {
+          "n": 3,
+          "median": 0.5996829740266125,
+          "q1": 0.5996829740266125,
+          "q3": 0.6657123590073899,
+          "min": 0.24577097382809757,
+          "max": 0.6657123590073899
+        },
+        "privateMiB": {
+          "n": 3,
+          "median": 212.1953125,
+          "q1": 212.1953125,
+          "q3": 221.75,
+          "min": 210.47265625,
+          "max": 221.75
+        },
+        "otherLoadPercent": {
+          "n": 3,
+          "median": 44.45148990607769,
+          "q1": 44.45148990607769,
+          "q3": 53.536559325911945,
+          "min": 12.68510266537618,
+          "max": 53.536559325911945
+        },
+        "rendererTaskMsPerSecond": {
+          "n": 3,
+          "median": 8.277198295172086,
+          "q1": 8.277198295172086,
+          "q3": 8.3021755080177,
+          "min": 5.963434096991935,
+          "max": 8.3021755080177
+        },
+        "byRole": {
+          "host": {
+            "n": 3,
+            "median": 0.10848536213546758,
+            "q1": 0.10848536213546758,
+            "q3": 0.17169956770778833,
+            "min": 0,
+            "max": 0.17169956770778833
+          },
+          "browser": {
+            "n": 3,
+            "median": 0.13555229029562238,
+            "q1": 0.13555229029562238,
+            "q3": 0.14464714951395677,
+            "min": 0,
+            "max": 0.14464714951395677
+          },
+          "crashpad-handler": {
+            "n": 3,
+            "median": 0,
+            "q1": 0,
+            "q3": 0,
+            "min": 0,
+            "max": 0
+          },
+          "utility:network": {
+            "n": 3,
+            "median": 0,
+            "q1": 0,
+            "q3": 0,
+            "min": 0,
+            "max": 0
+          },
+          "gpu-process": {
+            "n": 3,
+            "median": 0.07373129214842927,
+            "q1": 0.07373129214842927,
+            "q3": 0.08735592041273442,
+            "min": 0.06931009247543762,
+            "max": 0.08735592041273442
+          },
+          "utility:storage": {
+            "n": 3,
+            "median": 0,
+            "q1": 0,
+            "q3": 0,
+            "min": 0,
+            "max": 0
+          },
+          "renderer": {
+            "n": 3,
+            "median": 0.2711045805912447,
+            "q1": 0.2711045805912447,
+            "q3": 0.27724036990175044,
+            "min": 0.1720396816796683,
+            "max": 0.27724036990175044
+          }
+        }
+      },
+      "dragFrameP95": {
+        "n": 3,
+        "median": 16.900000000023283,
+        "q1": 16.900000000023283,
+        "q3": 17,
+        "min": 16.800000000046566,
+        "max": 17
+      },
+      "commitProxyP95": {
+        "n": 3,
+        "median": 25.299999997019768,
+        "q1": 25.299999997019768,
+        "q3": 25.5,
+        "min": 23.400000005960464,
+        "max": 25.5
+      },
+      "idleFrameP50": {
+        "n": 3,
+        "median": 16.70000000001164,
+        "q1": 16.70000000001164,
+        "q3": 16.70000000001164,
+        "min": 16.70000000001164,
+        "max": 16.70000000001164
+      }
+    }
+  },
+  "trials": [
+    {
+      "round": 0,
+      "exe": "m6",
+      "observer": "attached",
+      "executable": "H:\\Projects\\Longitude\\performance-results\\m6-final\\longitude.exe",
+      "startedAt": "2026-10-20T04:57:21.001Z",
+      "errors": [],
+      "conditionsAtMount": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-pulse",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 3.063,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 22308,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "frameProbeBeforeLive": {
+        "frames": 180,
+        "p50": 16.69999999999709,
+        "p95": 16.900000000001455,
+        "max": 17
+      },
+      "live": {
+        "mode": "live",
+        "elapsedSeconds": 129.0133739,
+        "totalMachineCpuPercent": 3.266982036503426,
+        "cpuByRolePercent": {
+          "host": 0.036333442481965815,
+          "browser": 0.012111147493988606,
+          "crashpad-handler": 0,
+          "gpu-process": 1.8863112221887253,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 1.3322262243387466
+        },
+        "machineBusyPercent": 39.97769949881745,
+        "otherLoadPercent": 36.71071746231402,
+        "topOtherProcesses": [
+          {
+            "name": "explorer",
+            "pct": 1.5865603217125073
+          },
+          {
+            "name": "other-app",
+            "pct": 1.241392618133832
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 1.0385308976095229
+          },
+          {
+            "name": "other-app",
+            "pct": 0.9083360620491454
+          },
+          {
+            "name": "other-app",
+            "pct": 0.7963079477297509
+          },
+          {
+            "name": "other-app",
+            "pct": 0.7236410627658192
+          },
+          {
+            "name": "other-app",
+            "pct": 0.6933631940308477
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 0.6751964727898647
+          }
+        ],
+        "rendererTaskMsPerSecond": 15.202237882099137,
+        "peakSampledPrivateMiB": 206.83984375,
+        "stableProcessSet": true,
+        "processes": [
+          {
+            "id": 22308,
+            "role": "host",
+            "cpuSeconds": 0.1875,
+            "privateMiB": 5.5,
+            "newInWindow": false
+          },
+          {
+            "id": 644,
+            "role": "browser",
+            "cpuSeconds": 0.0625,
+            "privateMiB": 39.30859375,
+            "newInWindow": false
+          },
+          {
+            "id": 22168,
+            "role": "crashpad-handler",
+            "cpuSeconds": 0,
+            "privateMiB": 2.69140625,
+            "newInWindow": false
+          },
+          {
+            "id": 564,
+            "role": "gpu-process",
+            "cpuSeconds": 9.734375,
+            "privateMiB": 59.57421875,
+            "newInWindow": false
+          },
+          {
+            "id": 19468,
+            "role": "utility:network",
+            "cpuSeconds": 0,
+            "privateMiB": 10.46875,
+            "newInWindow": false
+          },
+          {
+            "id": 12156,
+            "role": "utility:storage",
+            "cpuSeconds": 0,
+            "privateMiB": 7.25390625,
+            "newInWindow": false
+          },
+          {
+            "id": 1168,
+            "role": "renderer",
+            "cpuSeconds": 6.828125,
+            "privateMiB": 50.54296875,
+            "newInWindow": false
+          },
+          {
+            "id": 21376,
+            "role": "renderer",
+            "cpuSeconds": 0.046875,
+            "privateMiB": 31.3125,
+            "newInWindow": false
+          }
+        ]
+      },
+      "conditionsPlanning": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition"
+        ],
+        "live": false
+      },
+      "planning": {
+        "mode": "planning",
+        "elapsedSeconds": 128.9948856,
+        "totalMachineCpuPercent": 5.505305475459873,
+        "cpuByRolePercent": {
+          "host": 0.18774969168234992,
+          "browser": 0.596559504216499,
+          "crashpad-handler": 0,
+          "gpu-process": 1.1416392542620308,
+          "utility:network": 0.021197545835104026,
+          "utility:storage": 0,
+          "renderer": 3.5581594794638898
+        },
+        "machineBusyPercent": 36.20781548111014,
+        "otherLoadPercent": 30.702510005650264,
+        "topOtherProcesses": [
+          {
+            "name": "other-app",
+            "pct": 3.088785250258015
+          },
+          {
+            "name": "other-app",
+            "pct": 1.8351018251532913
+          },
+          {
+            "name": "other-app",
+            "pct": 1.2082601126009294
+          },
+          {
+            "name": "other-app",
+            "pct": 1.1810061250986528
+          },
+          {
+            "name": "other-app",
+            "pct": 0.7812809750652625
+          },
+          {
+            "name": "other-app",
+            "pct": 0.7025472333920191
+          },
+          {
+            "name": "other-app",
+            "pct": 0.6783214667233288
+          },
+          {
+            "name": "other-app",
+            "pct": 0.6268417125523619
+          }
+        ],
+        "rendererTaskMsPerSecond": 113.41682991499934,
+        "peakSampledPrivateMiB": 337.359375,
+        "stableProcessSet": true,
+        "processes": [
+          {
+            "id": 22308,
+            "role": "host",
+            "cpuSeconds": 0.96875,
+            "privateMiB": 5.57421875,
+            "newInWindow": false
+          },
+          {
+            "id": 644,
+            "role": "browser",
+            "cpuSeconds": 3.078125,
+            "privateMiB": 40.61328125,
+            "newInWindow": false
+          },
+          {
+            "id": 22168,
+            "role": "crashpad-handler",
+            "cpuSeconds": 0,
+            "privateMiB": 2.74609375,
+            "newInWindow": false
+          },
+          {
+            "id": 564,
+            "role": "gpu-process",
+            "cpuSeconds": 5.890625,
+            "privateMiB": 62.27734375,
+            "newInWindow": false
+          },
+          {
+            "id": 19468,
+            "role": "utility:network",
+            "cpuSeconds": 0.109375,
+            "privateMiB": 10.57421875,
+            "newInWindow": false
+          },
+          {
+            "id": 12156,
+            "role": "utility:storage",
+            "cpuSeconds": 0,
+            "privateMiB": 7.3203125,
+            "newInWindow": false
+          },
+          {
+            "id": 1168,
+            "role": "renderer",
+            "cpuSeconds": 16.921875,
+            "privateMiB": 74.890625,
+            "newInWindow": false
+          },
+          {
+            "id": 21376,
+            "role": "renderer",
+            "cpuSeconds": 1.4375,
+            "privateMiB": 47.1640625,
+            "newInWindow": false
+          }
+        ]
+      },
+      "frameProbeAfterPlanning": {
+        "frames": 180,
+        "p50": 16.70000000001164,
+        "p95": 16.900000000023283,
+        "max": 17
+      },
+      "drag": {
+        "eventToFrameMs": {
+          "count": 120,
+          "p50": 0.5,
+          "p95": 1.8999999985098839,
+          "max": 2.2000000029802322
+        },
+        "commitToFrameProxyMs": {
+          "count": 37,
+          "p50": 18.19999999552965,
+          "p95": 24.80000000447035,
+          "max": 25.5
+        },
+        "frameIntervalMs": {
+          "count": 308,
+          "p50": 16.70000000001164,
+          "p95": 16.900000000023283,
+          "max": 17.099999999976717
+        },
+        "longTasksMs": [],
+        "outsideMoves": 59,
+        "capturedOutsideMoves": 59
+      },
+      "hostAfter": {
+        "userIdleSeconds": 32.563,
+        "foregroundProcess": "claude",
+        "foregroundPid": 9480,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "finishedAt": "2026-10-20T05:03:03.504Z"
+    },
+    {
+      "round": 0,
+      "exe": "fix1",
+      "observer": "attached",
+      "executable": "H:\\Projects\\Longitude\\performance-results\\m7-fix1\\longitude.exe",
+      "startedAt": "2026-10-20T05:03:03.895Z",
+      "errors": [],
+      "conditionsAtMount": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-pulse",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 38.219,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 23624,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "frameProbeBeforeLive": {
+        "frames": 180,
+        "p50": 16.69999999999709,
+        "p95": 16.900000000001455,
+        "max": 17
+      },
+      "live": {
+        "mode": "live",
+        "elapsedSeconds": 128.11301540000002,
+        "totalMachineCpuPercent": 1.5916122914081372,
+        "cpuByRolePercent": {
+          "host": 0,
+          "browser": 0.0030490656923527534,
+          "crashpad-handler": 0,
+          "utility:network": 0,
+          "gpu-process": 1.000093547091703,
+          "utility:storage": 0,
+          "renderer": 0.5884696786240814
+        },
+        "machineBusyPercent": 26.41826717218507,
+        "otherLoadPercent": 24.826654880776935,
+        "topOtherProcesses": [
+          {
+            "name": "other-app",
+            "pct": 1.8965188606434127
+          },
+          {
+            "name": "other-app",
+            "pct": 1.7288202475640109
+          },
+          {
+            "name": "other-app",
+            "pct": 1.347687036019917
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 0.4908995764687933
+          },
+          {
+            "name": "other-app",
+            "pct": 0.4848014450840878
+          },
+          {
+            "name": "other-app",
+            "pct": 0.4207710655446799
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 0.36893694877468314
+          },
+          {
+            "name": "other-app",
+            "pct": 0.34454442323586115
+          }
+        ],
+        "rendererTaskMsPerSecond": 7.69348061102619,
+        "peakSampledPrivateMiB": 201.125,
+        "stableProcessSet": true,
+        "processes": [
+          {
+            "id": 23624,
+            "role": "host",
+            "cpuSeconds": 0,
+            "privateMiB": 5.95703125,
+            "newInWindow": false
+          },
+          {
+            "id": 12860,
+            "role": "browser",
+            "cpuSeconds": 0.015625,
+            "privateMiB": 39.546875,
+            "newInWindow": false
+          },
+          {
+            "id": 11864,
+            "role": "crashpad-handler",
+            "cpuSeconds": 0,
+            "privateMiB": 2.69921875,
+            "newInWindow": false
+          },
+          {
+            "id": 20568,
+            "role": "utility:network",
+            "cpuSeconds": 0,
+            "privateMiB": 10.53515625,
+            "newInWindow": false
+          },
+          {
+            "id": 18764,
+            "role": "gpu-process",
+            "cpuSeconds": 5.125,
+            "privateMiB": 55.69921875,
+            "newInWindow": false
+          },
+          {
+            "id": 24924,
+            "role": "utility:storage",
+            "cpuSeconds": 0,
+            "privateMiB": 7.23828125,
+            "newInWindow": false
+          },
+          {
+            "id": 20188,
+            "role": "renderer",
+            "cpuSeconds": 2.984375,
+            "privateMiB": 46.984375,
+            "newInWindow": false
+          },
+          {
+            "id": 20696,
+            "role": "renderer",
+            "cpuSeconds": 0.03125,
+            "privateMiB": 31.53125,
+            "newInWindow": false
+          }
+        ]
+      },
+      "conditionsPlanning": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition"
+        ],
+        "live": false
+      },
+      "planning": {
+        "mode": "planning",
+        "elapsedSeconds": 129.67781630000007,
+        "totalMachineCpuPercent": 0.6657123590073899,
+        "cpuByRolePercent": {
+          "host": 0.17169956770778833,
+          "browser": 0.13555229029562238,
+          "crashpad-handler": 0,
+          "utility:network": 0,
+          "gpu-process": 0.08735592041273442,
+          "utility:storage": 0,
+          "renderer": 0.2711045805912447
+        },
+        "machineBusyPercent": 54.20227168491933,
+        "otherLoadPercent": 53.536559325911945,
+        "topOtherProcesses": [
+          {
+            "name": "other-app",
+            "pct": 5.4642634354724215
+          },
+          {
+            "name": "other-app",
+            "pct": 4.0002987002797
+          },
+          {
+            "name": "other-app",
+            "pct": 2.5785057887345055
+          },
+          {
+            "name": "other-app",
+            "pct": 2.054370266258099
+          },
+          {
+            "name": "other-app",
+            "pct": 1.39468245348607
+          },
+          {
+            "name": "other-app",
+            "pct": 1.0392342255997715
+          },
+          {
+            "name": "other-app",
+            "pct": 0.7681296450085268
+          },
+          {
+            "name": "other-app",
+            "pct": 0.7139087288902778
+          }
+        ],
+        "rendererTaskMsPerSecond": 8.277198295172086,
+        "peakSampledPrivateMiB": 212.1953125,
+        "stableProcessSet": true,
+        "processes": [
+          {
+            "id": 23624,
+            "role": "host",
+            "cpuSeconds": 0.890625,
+            "privateMiB": 5.140625,
+            "newInWindow": false
+          },
+          {
+            "id": 12860,
+            "role": "browser",
+            "cpuSeconds": 0.703125,
+            "privateMiB": 40.10546875,
+            "newInWindow": false
+          },
+          {
+            "id": 11864,
+            "role": "crashpad-handler",
+            "cpuSeconds": 0,
+            "privateMiB": 2.72265625,
+            "newInWindow": false
+          },
+          {
+            "id": 20568,
+            "role": "utility:network",
+            "cpuSeconds": 0,
+            "privateMiB": 10.6171875,
+            "newInWindow": false
+          },
+          {
+            "id": 18764,
+            "role": "gpu-process",
+            "cpuSeconds": 0.453125,
+            "privateMiB": 62.4140625,
+            "newInWindow": false
+          },
+          {
+            "id": 24924,
+            "role": "utility:storage",
+            "cpuSeconds": 0,
+            "privateMiB": 7.34375,
+            "newInWindow": false
+          },
+          {
+            "id": 20188,
+            "role": "renderer",
+            "cpuSeconds": 1.390625,
+            "privateMiB": 47.8984375,
+            "newInWindow": false
+          },
+          {
+            "id": 20696,
+            "role": "renderer",
+            "cpuSeconds": 0.015625,
+            "privateMiB": 31.22265625,
+            "newInWindow": false
+          }
+        ]
+      },
+      "frameProbeAfterPlanning": {
+        "frames": 180,
+        "p50": 16.70000000001164,
+        "p95": 17,
+        "max": 17.400000000023283
+      },
+      "drag": {
+        "eventToFrameMs": {
+          "count": 120,
+          "p50": 0.4000000059604645,
+          "p95": 1.8999999985098839,
+          "max": 2.100000001490116
+        },
+        "commitToFrameProxyMs": {
+          "count": 36,
+          "p50": 19.5,
+          "p95": 25.299999997019768,
+          "max": 25.600000001490116
+        },
+        "frameIntervalMs": {
+          "count": 318,
+          "p50": 16.699999999953434,
+          "p95": 17,
+          "max": 17.600000000034925
+        },
+        "longTasksMs": [],
+        "outsideMoves": 59,
+        "capturedOutsideMoves": 59
+      },
+      "hostAfter": {
+        "userIdleSeconds": 59.672,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 23624,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "finishedAt": "2026-10-20T05:08:45.847Z"
+    },
+    {
+      "round": 1,
+      "exe": "fix1",
+      "observer": "attached",
+      "executable": "H:\\Projects\\Longitude\\performance-results\\m7-fix1\\longitude.exe",
+      "startedAt": "2026-10-20T05:08:46.318Z",
+      "errors": [],
+      "conditionsAtMount": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-pulse",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 0.89,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 20956,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "frameProbeBeforeLive": {
+        "frames": 180,
+        "p50": 16.69999999999709,
+        "p95": 17.09999999999127,
+        "max": 17.200000000004366
+      },
+      "live": {
+        "mode": "live",
+        "elapsedSeconds": 128.59685269999994,
+        "totalMachineCpuPercent": 1.5613232033632818,
+        "cpuByRolePercent": {
+          "host": 0,
+          "browser": 0.024300750246899327,
+          "crashpad-handler": 0,
+          "gpu-process": 0.9598796347525234,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 0.5771428183638591
+        },
+        "machineBusyPercent": 30.98391958824841,
+        "otherLoadPercent": 29.422596384885125,
+        "topOtherProcesses": [
+          {
+            "name": "other-app",
+            "pct": 1.9106464881624596
+          },
+          {
+            "name": "other-app",
+            "pct": 1.3547668262646375
+          },
+          {
+            "name": "other-app",
+            "pct": 1.023669104150634
+          },
+          {
+            "name": "other-app",
+            "pct": 0.6257443188576577
+          },
+          {
+            "name": "other-app",
+            "pct": 0.525503724089198
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 0.4769022235953993
+          },
+          {
+            "name": "other-app",
+            "pct": 0.45563906712936236
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 0.34021050345659054
+          }
+        ],
+        "rendererTaskMsPerSecond": 7.881919181681501,
+        "peakSampledPrivateMiB": 215.265625,
+        "stableProcessSet": true,
+        "processes": [
+          {
+            "id": 20956,
+            "role": "host",
+            "cpuSeconds": 0,
+            "privateMiB": 5.48046875,
+            "newInWindow": false
+          },
+          {
+            "id": 22444,
+            "role": "browser",
+            "cpuSeconds": 0.125,
+            "privateMiB": 39.39453125,
+            "newInWindow": false
+          },
+          {
+            "id": 19516,
+            "role": "crashpad-handler",
+            "cpuSeconds": 0,
+            "privateMiB": 2.70703125,
+            "newInWindow": false
+          },
+          {
+            "id": 21376,
+            "role": "gpu-process",
+            "cpuSeconds": 4.9375,
+            "privateMiB": 60.296875,
+            "newInWindow": false
+          },
+          {
+            "id": 27628,
+            "role": "utility:network",
+            "cpuSeconds": 0,
+            "privateMiB": 10.51171875,
+            "newInWindow": false
+          },
+          {
+            "id": 20820,
+            "role": "utility:storage",
+            "cpuSeconds": 0,
+            "privateMiB": 7.26953125,
+            "newInWindow": false
+          },
+          {
+            "id": 7476,
+            "role": "renderer",
+            "cpuSeconds": 2.84375,
+            "privateMiB": 52.4609375,
+            "newInWindow": false
+          },
+          {
+            "id": 3700,
+            "role": "renderer",
+            "cpuSeconds": 0.125,
+            "privateMiB": 37.14453125,
+            "newInWindow": false
+          }
+        ]
+      },
+      "conditionsPlanning": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition"
+        ],
+        "live": false
+      },
+      "planning": {
+        "mode": "planning",
+        "elapsedSeconds": 129.6257829,
+        "totalMachineCpuPercent": 0.5996829740266125,
+        "cpuByRolePercent": {
+          "host": 0.10848536213546758,
+          "browser": 0.14464714951395677,
+          "crashpad-handler": 0,
+          "gpu-process": 0.06931009247543762,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 0.27724036990175044
+        },
+        "machineBusyPercent": 45.0511728801043,
+        "otherLoadPercent": 44.45148990607769,
+        "topOtherProcesses": [
+          {
+            "name": "other-app",
+            "pct": 2.9833474587253583
+          },
+          {
+            "name": "other-app",
+            "pct": 1.5308489990227092
+          },
+          {
+            "name": "other-app",
+            "pct": 1.3892153317902933
+          },
+          {
+            "name": "other-app",
+            "pct": 0.7021413715989985
+          },
+          {
+            "name": "other-app",
+            "pct": 0.656939137375887
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 0.5122919878619302
+          },
+          {
+            "name": "other-app",
+            "pct": 0.47613020048344107
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 0.3646313560664327
+          }
+        ],
+        "rendererTaskMsPerSecond": 8.3021755080177,
+        "peakSampledPrivateMiB": 221.75,
+        "stableProcessSet": true,
+        "processes": [
+          {
+            "id": 20956,
+            "role": "host",
+            "cpuSeconds": 0.5625,
+            "privateMiB": 5.05078125,
+            "newInWindow": false
+          },
+          {
+            "id": 22444,
+            "role": "browser",
+            "cpuSeconds": 0.75,
+            "privateMiB": 39.50390625,
+            "newInWindow": false
+          },
+          {
+            "id": 19516,
+            "role": "crashpad-handler",
+            "cpuSeconds": 0,
+            "privateMiB": 2.73828125,
+            "newInWindow": false
+          },
+          {
+            "id": 21376,
+            "role": "gpu-process",
+            "cpuSeconds": 0.359375,
+            "privateMiB": 56.50390625,
+            "newInWindow": false
+          },
+          {
+            "id": 27628,
+            "role": "utility:network",
+            "cpuSeconds": 0,
+            "privateMiB": 10.59765625,
+            "newInWindow": false
+          },
+          {
+            "id": 20820,
+            "role": "utility:storage",
+            "cpuSeconds": 0,
+            "privateMiB": 7.37109375,
+            "newInWindow": false
+          },
+          {
+            "id": 7476,
+            "role": "renderer",
+            "cpuSeconds": 1.390625,
+            "privateMiB": 56.13671875,
+            "newInWindow": false
+          },
+          {
+            "id": 3700,
+            "role": "renderer",
+            "cpuSeconds": 0.046875,
+            "privateMiB": 37.09375,
+            "newInWindow": false
+          }
+        ]
+      },
+      "frameProbeAfterPlanning": {
+        "frames": 180,
+        "p50": 16.70000000001164,
+        "p95": 16.800000000046566,
+        "max": 17.20000000001164
+      },
+      "drag": {
+        "eventToFrameMs": {
+          "count": 79,
+          "p50": 0.5,
+          "p95": 1.5,
+          "max": 2.3000000044703484
+        },
+        "commitToFrameProxyMs": {
+          "count": 1,
+          "p50": 23.400000005960464,
+          "p95": 23.400000005960464,
+          "max": 23.400000005960464
+        },
+        "frameIntervalMs": {
+          "count": 291,
+          "p50": 16.70000000001164,
+          "p95": 16.900000000023283,
+          "max": 17
+        },
+        "longTasksMs": [],
+        "outsideMoves": 18,
+        "capturedOutsideMoves": 0
+      },
+      "hostAfter": {
+        "userIdleSeconds": 0.86,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 20956,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "finishedAt": "2026-10-20T05:14:28.598Z"
+    },
+    {
+      "round": 1,
+      "exe": "m6",
+      "observer": "attached",
+      "executable": "H:\\Projects\\Longitude\\performance-results\\m6-final\\longitude.exe",
+      "startedAt": "2026-10-20T05:14:29.101Z",
+      "errors": [],
+      "conditionsAtMount": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "lg-flip",
+          "lg-flip",
+          "lg-pulse",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 0.625,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 4140,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "frameProbeBeforeLive": {
+        "frames": 180,
+        "p50": 16.69999999999709,
+        "p95": 16.900000000001455,
+        "max": 17
+      },
+      "live": {
+        "mode": "live",
+        "elapsedSeconds": 129.4591705,
+        "totalMachineCpuPercent": 2.3112982173788916,
+        "cpuByRolePercent": {
+          "host": 0.0030173605971003806,
+          "browser": 0.03922568776230495,
+          "crashpad-handler": 0,
+          "gpu-process": 1.3034997779473645,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 0.965555391072122
+        },
+        "machineBusyPercent": 61.123719879083936,
+        "otherLoadPercent": 58.812421661705045,
+        "topOtherProcesses": [
+          {
+            "name": "other-app",
+            "pct": 2.821232158288856
+          },
+          {
+            "name": "other-app",
+            "pct": 1.6836872131820124
+          },
+          {
+            "name": "other-app",
+            "pct": 1.164701190480747
+          },
+          {
+            "name": "other-app",
+            "pct": 0.6547672495707826
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 0.5491596286722693
+          },
+          {
+            "name": "other-app",
+            "pct": 0.5401075468809682
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 0.3288923050839415
+          },
+          {
+            "name": "other-app",
+            "pct": 0.32285758388974073
+          }
+        ],
+        "rendererTaskMsPerSecond": 17.330097136687584,
+        "peakSampledPrivateMiB": 216.48828125,
+        "stableProcessSet": true,
+        "processes": [
+          {
+            "id": 4140,
+            "role": "host",
+            "cpuSeconds": 0.015625,
+            "privateMiB": 5.4296875,
+            "newInWindow": false
+          },
+          {
+            "id": 22612,
+            "role": "browser",
+            "cpuSeconds": 0.203125,
+            "privateMiB": 40.2421875,
+            "newInWindow": false
+          },
+          {
+            "id": 25312,
+            "role": "crashpad-handler",
+            "cpuSeconds": 0,
+            "privateMiB": 2.69921875,
+            "newInWindow": false
+          },
+          {
+            "id": 6140,
+            "role": "gpu-process",
+            "cpuSeconds": 6.75,
+            "privateMiB": 62.52734375,
+            "newInWindow": false
+          },
+          {
+            "id": 21700,
+            "role": "utility:network",
+            "cpuSeconds": 0,
+            "privateMiB": 10.5546875,
+            "newInWindow": false
+          },
+          {
+            "id": 15568,
+            "role": "utility:storage",
+            "cpuSeconds": 0,
+            "privateMiB": 7.23828125,
+            "newInWindow": false
+          },
+          {
+            "id": 19612,
+            "role": "renderer",
+            "cpuSeconds": 4.921875,
+            "privateMiB": 55.6484375,
+            "newInWindow": false
+          },
+          {
+            "id": 17204,
+            "role": "renderer",
+            "cpuSeconds": 0.078125,
+            "privateMiB": 32.1484375,
+            "newInWindow": false
+          }
+        ]
+      },
+      "conditionsPlanning": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition"
+        ],
+        "live": false
+      },
+      "planning": {
+        "mode": "planning",
+        "elapsedSeconds": 130.7733262,
+        "totalMachineCpuPercent": 0.31961315212000774,
+        "cpuByRolePercent": {
+          "host": 0.002987038804859886,
+          "browser": 0.023896310438879086,
+          "crashpad-handler": 0,
+          "gpu-process": 0.0836370865360768,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 0.20909271634019197
+        },
+        "machineBusyPercent": 64.575006762858,
+        "otherLoadPercent": 64.25539361073798,
+        "topOtherProcesses": [
+          {
+            "name": "other-app",
+            "pct": 2.3866440050830486
+          },
+          {
+            "name": "other-app",
+            "pct": 1.5024805188445225
+          },
+          {
+            "name": "other-app",
+            "pct": 0.5914336833622574
+          },
+          {
+            "name": "other-app",
+            "pct": 0.5197447520456201
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 0.5107836356310405
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 0.32857426853458743
+          },
+          {
+            "name": "other-app",
+            "pct": 0.313639074510288
+          },
+          {
+            "name": "other-app",
+            "pct": 0.2300019879742112
+          }
+        ],
+        "rendererTaskMsPerSecond": 5.981235032622423,
+        "peakSampledPrivateMiB": 221.23828125,
+        "stableProcessSet": true,
+        "processes": [
+          {
+            "id": 4140,
+            "role": "host",
+            "cpuSeconds": 0.015625,
+            "privateMiB": 5.0703125,
+            "newInWindow": false
+          },
+          {
+            "id": 22612,
+            "role": "browser",
+            "cpuSeconds": 0.125,
+            "privateMiB": 40.65625,
+            "newInWindow": false
+          },
+          {
+            "id": 25312,
+            "role": "crashpad-handler",
+            "cpuSeconds": 0,
+            "privateMiB": 2.7265625,
+            "newInWindow": false
+          },
+          {
+            "id": 6140,
+            "role": "gpu-process",
+            "cpuSeconds": 0.4375,
+            "privateMiB": 62.99609375,
+            "newInWindow": false
+          },
+          {
+            "id": 21700,
+            "role": "utility:network",
+            "cpuSeconds": 0,
+            "privateMiB": 10.59375,
+            "newInWindow": false
+          },
+          {
+            "id": 15568,
+            "role": "utility:storage",
+            "cpuSeconds": 0,
+            "privateMiB": 7.34375,
+            "newInWindow": false
+          },
+          {
+            "id": 19612,
+            "role": "renderer",
+            "cpuSeconds": 0.96875,
+            "privateMiB": 57.43359375,
+            "newInWindow": false
+          },
+          {
+            "id": 17204,
+            "role": "renderer",
+            "cpuSeconds": 0.125,
+            "privateMiB": 32.390625,
+            "newInWindow": false
+          }
+        ]
+      },
+      "frameProbeAfterPlanning": {
+        "frames": 180,
+        "p50": 16.70000000001164,
+        "p95": 16.79999999998836,
+        "max": 16.900000000023283
+      },
+      "drag": {
+        "eventToFrameMs": {
+          "count": 120,
+          "p50": 0.5,
+          "p95": 2,
+          "max": 3.399999998509884
+        },
+        "commitToFrameProxyMs": {
+          "count": 36,
+          "p50": 18.80000000447035,
+          "p95": 25.30000000447035,
+          "max": 25.5
+        },
+        "frameIntervalMs": {
+          "count": 309,
+          "p50": 16.70000000001164,
+          "p95": 16.900000000023283,
+          "max": 17
+        },
+        "longTasksMs": [],
+        "outsideMoves": 59,
+        "capturedOutsideMoves": 59
+      },
+      "hostAfter": {
+        "userIdleSeconds": 36.875,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 4140,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "finishedAt": "2026-10-20T05:20:14.853Z"
+    },
+    {
+      "round": 2,
+      "exe": "m6",
+      "observer": "attached",
+      "executable": "H:\\Projects\\Longitude\\performance-results\\m6-final\\longitude.exe",
+      "startedAt": "2026-10-20T05:20:15.449Z",
+      "errors": [],
+      "conditionsAtMount": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-pulse",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 42.609,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 272,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "frameProbeBeforeLive": {
+        "frames": 180,
+        "p50": 16.69999999999709,
+        "p95": 16.89999999999418,
+        "max": 16.90000000000873
+      },
+      "live": {
+        "mode": "live",
+        "elapsedSeconds": 128.7666936000001,
+        "totalMachineCpuPercent": 2.2054179311473736,
+        "cpuByRolePercent": {
+          "host": 0.006067174501093188,
+          "browser": 0.03336945975601253,
+          "crashpad-handler": 0,
+          "gpu-process": 1.1891662022142648,
+          "utility:network": 0.003033587250546594,
+          "utility:storage": 0,
+          "renderer": 0.9737815074254567
+        },
+        "machineBusyPercent": 38.739190059593696,
+        "otherLoadPercent": 36.53377212844632,
+        "topOtherProcesses": [
+          {
+            "name": "other-app",
+            "pct": 3.0517887740498733
+          },
+          {
+            "name": "other-app",
+            "pct": 1.3529799137437808
+          },
+          {
+            "name": "other-app",
+            "pct": 0.9009754134123382
+          },
+          {
+            "name": "other-app",
+            "pct": 0.8433372556519529
+          },
+          {
+            "name": "other-app",
+            "pct": 0.7614303998871951
+          },
+          {
+            "name": "other-app",
+            "pct": 0.7007586548762631
+          },
+          {
+            "name": "other-app",
+            "pct": 0.6522212588675177
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 0.5642472286016664
+          }
+        ],
+        "rendererTaskMsPerSecond": 16.705065105438088,
+        "peakSampledPrivateMiB": 208.97265625,
+        "stableProcessSet": true,
+        "processes": [
+          {
+            "id": 272,
+            "role": "host",
+            "cpuSeconds": 0.03125,
+            "privateMiB": 5.01953125,
+            "newInWindow": false
+          },
+          {
+            "id": 264,
+            "role": "browser",
+            "cpuSeconds": 0.171875,
+            "privateMiB": 39.3515625,
+            "newInWindow": false
+          },
+          {
+            "id": 26132,
+            "role": "crashpad-handler",
+            "cpuSeconds": 0,
+            "privateMiB": 2.6875,
+            "newInWindow": false
+          },
+          {
+            "id": 15720,
+            "role": "gpu-process",
+            "cpuSeconds": 6.125,
+            "privateMiB": 60.85546875,
+            "newInWindow": false
+          },
+          {
+            "id": 3272,
+            "role": "utility:network",
+            "cpuSeconds": 0.015625,
+            "privateMiB": 10.5546875,
+            "newInWindow": false
+          },
+          {
+            "id": 25508,
+            "role": "utility:storage",
+            "cpuSeconds": 0,
+            "privateMiB": 7.234375,
+            "newInWindow": false
+          },
+          {
+            "id": 1252,
+            "role": "renderer",
+            "cpuSeconds": 4.9375,
+            "privateMiB": 51.74609375,
+            "newInWindow": false
+          },
+          {
+            "id": 27356,
+            "role": "renderer",
+            "cpuSeconds": 0.078125,
+            "privateMiB": 31.5234375,
+            "newInWindow": false
+          }
+        ]
+      },
+      "conditionsPlanning": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition"
+        ],
+        "live": false
+      },
+      "planning": {
+        "mode": "planning",
+        "elapsedSeconds": 127.51377110000001,
+        "totalMachineCpuPercent": 0.2511983586061474,
+        "cpuByRolePercent": {
+          "host": 0,
+          "browser": 0.003063394617148139,
+          "crashpad-handler": 0,
+          "gpu-process": 0.07658486542870348,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 0.1715500985602958
+        },
+        "machineBusyPercent": 12.604013705335293,
+        "otherLoadPercent": 12.352815346729145,
+        "topOtherProcesses": [
+          {
+            "name": "other-app",
+            "pct": 0.5391574526180726
+          },
+          {
+            "name": "other-app",
+            "pct": 0.4104948786978506
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 0.3921145109949618
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 0.31552964556625834
+          },
+          {
+            "name": "other-app",
+            "pct": 0.21443762320036974
+          },
+          {
+            "name": "other-app",
+            "pct": 0.17461349317744393
+          },
+          {
+            "name": "other-app",
+            "pct": 0.11334560083448116
+          },
+          {
+            "name": "other-app",
+            "pct": 0.07964826004585161
+          }
+        ],
+        "rendererTaskMsPerSecond": 6.040014293013091,
+        "peakSampledPrivateMiB": 211.1796875,
+        "stableProcessSet": true,
+        "processes": [
+          {
+            "id": 272,
+            "role": "host",
+            "cpuSeconds": 0,
+            "privateMiB": 5.23046875,
+            "newInWindow": false
+          },
+          {
+            "id": 264,
+            "role": "browser",
+            "cpuSeconds": 0.015625,
+            "privateMiB": 39.5390625,
+            "newInWindow": false
+          },
+          {
+            "id": 26132,
+            "role": "crashpad-handler",
+            "cpuSeconds": 0,
+            "privateMiB": 2.71484375,
+            "newInWindow": false
+          },
+          {
+            "id": 15720,
+            "role": "gpu-process",
+            "cpuSeconds": 0.390625,
+            "privateMiB": 57.49609375,
+            "newInWindow": false
+          },
+          {
+            "id": 3272,
+            "role": "utility:network",
+            "cpuSeconds": 0,
+            "privateMiB": 10.53125,
+            "newInWindow": false
+          },
+          {
+            "id": 25508,
+            "role": "utility:storage",
+            "cpuSeconds": 0,
+            "privateMiB": 7.3359375,
+            "newInWindow": false
+          },
+          {
+            "id": 1252,
+            "role": "renderer",
+            "cpuSeconds": 0.859375,
+            "privateMiB": 54,
+            "newInWindow": false
+          },
+          {
+            "id": 27356,
+            "role": "renderer",
+            "cpuSeconds": 0.015625,
+            "privateMiB": 30.8515625,
+            "newInWindow": false
+          }
+        ]
+      },
+      "frameProbeAfterPlanning": {
+        "frames": 180,
+        "p50": 16.70000000001164,
+        "p95": 16.800000000046566,
+        "max": 16.900000000023283
+      },
+      "drag": {
+        "eventToFrameMs": {
+          "count": 120,
+          "p50": 0.3999999985098839,
+          "p95": 1.7000000029802322,
+          "max": 2.100000001490116
+        },
+        "commitToFrameProxyMs": {
+          "count": 36,
+          "p50": 17.899999998509884,
+          "p95": 25.399999998509884,
+          "max": 26.30000000447035
+        },
+        "frameIntervalMs": {
+          "count": 299,
+          "p50": 16.70000000001164,
+          "p95": 16.899999999965075,
+          "max": 17
+        },
+        "longTasksMs": [],
+        "outsideMoves": 59,
+        "capturedOutsideMoves": 59
+      },
+      "hostAfter": {
+        "userIdleSeconds": 378.234,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 272,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "finishedAt": "2026-10-20T05:25:55.651Z"
+    },
+    {
+      "round": 2,
+      "exe": "fix1",
+      "observer": "attached",
+      "executable": "H:\\Projects\\Longitude\\performance-results\\m7-fix1\\longitude.exe",
+      "startedAt": "2026-10-20T05:25:56.304Z",
+      "errors": [],
+      "conditionsAtMount": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-pulse",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 382.891,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 25408,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "frameProbeBeforeLive": {
+        "frames": 180,
+        "p50": 16.69999999999709,
+        "p95": 16.89999999999418,
+        "max": 16.900000000001455
+      },
+      "live": {
+        "mode": "live",
+        "elapsedSeconds": 127.62762490000017,
+        "totalMachineCpuPercent": 1.8731250400319852,
+        "cpuByRolePercent": {
+          "host": 0,
+          "browser": 0.009181985490352868,
+          "crashpad-handler": 0,
+          "gpu-process": 1.2671139976686958,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 0.5968290568729364
+        },
+        "machineBusyPercent": 14.968223860458751,
+        "otherLoadPercent": 13.095098820426767,
+        "topOtherProcesses": [
+          {
+            "name": "other-app",
+            "pct": 0.7070128827571709
+          },
+          {
+            "name": "other-app",
+            "pct": 0.44379596536705523
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 0.4101286852357614
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 0.29382353569129177
+          },
+          {
+            "name": "other-app",
+            "pct": 0.2754595647105861
+          },
+          {
+            "name": "other-app",
+            "pct": 0.20812500444799834
+          },
+          {
+            "name": "other-app",
+            "pct": 0.12548713503482253
+          },
+          {
+            "name": "other-app",
+            "pct": 0.11018382588423442
+          }
+        ],
+        "rendererTaskMsPerSecond": 8.174883774711681,
+        "peakSampledPrivateMiB": 206.17578125,
+        "stableProcessSet": true,
+        "processes": [
+          {
+            "id": 25408,
+            "role": "host",
+            "cpuSeconds": 0,
+            "privateMiB": 5.6953125,
+            "newInWindow": false
+          },
+          {
+            "id": 23492,
+            "role": "browser",
+            "cpuSeconds": 0.046875,
+            "privateMiB": 40.24609375,
+            "newInWindow": false
+          },
+          {
+            "id": 6656,
+            "role": "crashpad-handler",
+            "cpuSeconds": 0,
+            "privateMiB": 2.6875,
+            "newInWindow": false
+          },
+          {
+            "id": 26176,
+            "role": "gpu-process",
+            "cpuSeconds": 6.46875,
+            "privateMiB": 56.3828125,
+            "newInWindow": false
+          },
+          {
+            "id": 4352,
+            "role": "utility:network",
+            "cpuSeconds": 0,
+            "privateMiB": 10.5859375,
+            "newInWindow": false
+          },
+          {
+            "id": 23456,
+            "role": "utility:storage",
+            "cpuSeconds": 0,
+            "privateMiB": 7.23046875,
+            "newInWindow": false
+          },
+          {
+            "id": 20956,
+            "role": "renderer",
+            "cpuSeconds": 2.96875,
+            "privateMiB": 46.953125,
+            "newInWindow": false
+          },
+          {
+            "id": 27288,
+            "role": "renderer",
+            "cpuSeconds": 0.078125,
+            "privateMiB": 30.23828125,
+            "newInWindow": false
+          }
+        ]
+      },
+      "conditionsPlanning": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition",
+          "CSSTransition"
+        ],
+        "live": false
+      },
+      "planning": {
+        "mode": "planning",
+        "elapsedSeconds": 127.15089789999998,
+        "totalMachineCpuPercent": 0.24577097382809757,
+        "cpuByRolePercent": {
+          "host": 0,
+          "browser": 0,
+          "crashpad-handler": 0,
+          "gpu-process": 0.07373129214842927,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 0.1720396816796683
+        },
+        "machineBusyPercent": 12.930873639204277,
+        "otherLoadPercent": 12.68510266537618,
+        "topOtherProcesses": [
+          {
+            "name": "other-app",
+            "pct": 0.5806339256688805
+          },
+          {
+            "name": "other-app",
+            "pct": 0.5499125539403683
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 0.3778728722607
+          },
+          {
+            "name": "msedgewebview2",
+            "pct": 0.2519152481738
+          },
+          {
+            "name": "other-app",
+            "pct": 0.2519152481738
+          },
+          {
+            "name": "other-app",
+            "pct": 0.20890532775388293
+          },
+          {
+            "name": "other-app",
+            "pct": 0.08909197801268537
+          },
+          {
+            "name": "other-app",
+            "pct": 0.08909197801268537
+          }
+        ],
+        "rendererTaskMsPerSecond": 5.963434096991935,
+        "peakSampledPrivateMiB": 210.47265625,
+        "stableProcessSet": true,
+        "processes": [
+          {
+            "id": 25408,
+            "role": "host",
+            "cpuSeconds": 0,
+            "privateMiB": 5.26171875,
+            "newInWindow": false
+          },
+          {
+            "id": 23492,
+            "role": "browser",
+            "cpuSeconds": 0,
+            "privateMiB": 40.1953125,
+            "newInWindow": false
+          },
+          {
+            "id": 6656,
+            "role": "crashpad-handler",
+            "cpuSeconds": 0,
+            "privateMiB": 2.71484375,
+            "newInWindow": false
+          },
+          {
+            "id": 26176,
+            "role": "gpu-process",
+            "cpuSeconds": 0.375,
+            "privateMiB": 61.12890625,
+            "newInWindow": false
+          },
+          {
+            "id": 4352,
+            "role": "utility:network",
+            "cpuSeconds": 0,
+            "privateMiB": 10.5703125,
+            "newInWindow": false
+          },
+          {
+            "id": 23456,
+            "role": "utility:storage",
+            "cpuSeconds": 0,
+            "privateMiB": 7.3359375,
+            "newInWindow": false
+          },
+          {
+            "id": 20956,
+            "role": "renderer",
+            "cpuSeconds": 0.765625,
+            "privateMiB": 48.05078125,
+            "newInWindow": false
+          },
+          {
+            "id": 27288,
+            "role": "renderer",
+            "cpuSeconds": 0.109375,
+            "privateMiB": 31.7734375,
+            "newInWindow": false
+          }
+        ]
+      },
+      "frameProbeAfterPlanning": {
+        "frames": 180,
+        "p50": 16.70000000001164,
+        "p95": 16.79999999998836,
+        "max": 16.800000000046566
+      },
+      "drag": {
+        "eventToFrameMs": {
+          "count": 120,
+          "p50": 0.3999999985098839,
+          "p95": 1.6999999955296516,
+          "max": 2
+        },
+        "commitToFrameProxyMs": {
+          "count": 36,
+          "p50": 18,
+          "p95": 25.5,
+          "max": 26.899999998509884
+        },
+        "frameIntervalMs": {
+          "count": 299,
+          "p50": 16.70000000001164,
+          "p95": 16.800000000046566,
+          "max": 16.900000000023283
+        },
+        "longTasksMs": [],
+        "outsideMoves": 59,
+        "capturedOutsideMoves": 59
+      },
+      "hostAfter": {
+        "userIdleSeconds": 715.734,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 25408,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "finishedAt": "2026-10-20T05:31:33.071Z"
+    }
+  ],
+  "limitations": [
+    "Process CPU is last observed per process minus its first sample; work between samples by processes that exit is missed",
+    "Machine busy percent is from Node os.cpus() and includes the sampler",
+    "noport trials cannot verify mount or enter planning mode",
+    "Frame probes are rAF intervals, not input-to-photon latency",
+    "Shared desktop: user input and other applications are recorded, not prevented"
+  ]
+}
