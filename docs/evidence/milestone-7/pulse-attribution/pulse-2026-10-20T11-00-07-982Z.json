@@ -1,0 +1,1613 @@
+{
+  "method": {
+    "rounds": 3,
+    "warmupSeconds": 60,
+    "windowSeconds": 90,
+    "variants": [
+      "shipped",
+      "paused",
+      "stepped",
+      "js10",
+      "layer"
+    ],
+    "order": "variants rotated by one position each round",
+    "display": "on",
+    "cores": 4
+  },
+  "executable": "H:\\Projects\\Longitude\\performance-results\\m7-fix12\\longitude.exe",
+  "sha256": "adb3da206163b8db05192228d78b4f3df089e315d4ca575c549fdfb2e6c6b42f",
+  "summary": {
+    "shipped": {
+      "n": 3,
+      "cpu": {
+        "n": 3,
+        "median": 3.5223667365511213,
+        "q1": 3.5223667365511213,
+        "q3": 7.892744797302534,
+        "min": 3.4140742634413934,
+        "max": 7.892744797302534
+      },
+      "gpu": {
+        "n": 3,
+        "median": 2.3278604242716323,
+        "q1": 2.3278604242716323,
+        "q3": 6.181901512217297,
+        "min": 2.2774075337276116,
+        "max": 6.181901512217297
+      },
+      "renderer": {
+        "n": 3,
+        "median": 1.18227587222202,
+        "q1": 1.18227587222202,
+        "q3": 1.706760126886942,
+        "min": 1.1285185811136824,
+        "max": 1.706760126886942
+      },
+      "rendererTaskMsPerSecond": {
+        "n": 3,
+        "median": 7.638808019407318,
+        "q1": 7.638808019407318,
+        "q3": 7.742504174764662,
+        "min": 7.573371679328941,
+        "max": 7.742504174764662
+      }
+    },
+    "paused": {
+      "n": 3,
+      "cpu": {
+        "n": 3,
+        "median": 0.4913808440223846,
+        "q1": 0.4913808440223846,
+        "q3": 0.4954371787821844,
+        "min": 0.4540881447475919,
+        "max": 0.4954371787821844
+      },
+      "gpu": {
+        "n": 3,
+        "median": 0.134999178168203,
+        "q1": 0.134999178168203,
+        "q3": 0.15150909357356857,
+        "min": 0.13102470843826364,
+        "max": 0.15150909357356857
+      },
+      "renderer": {
+        "n": 3,
+        "median": 0.33168206971510955,
+        "q1": 0.33168206971510955,
+        "q3": 0.3562234260665293,
+        "min": 0.31499808239247373,
+        "max": 0.3562234260665293
+      },
+      "rendererTaskMsPerSecond": {
+        "n": 3,
+        "median": 6.348524474994176,
+        "q1": 6.348524474994176,
+        "q3": 6.912020758193104,
+        "min": 6.302788775451792,
+        "max": 6.912020758193104
+      }
+    },
+    "stepped": {
+      "n": 3,
+      "cpu": {
+        "n": 3,
+        "median": 3.341292254795556,
+        "q1": 3.341292254795556,
+        "q3": 3.578401635196672,
+        "min": 3.203632147472922,
+        "max": 3.578401635196672
+      },
+      "gpu": {
+        "n": 3,
+        "median": 2.2229284288587623,
+        "q1": 2.2229284288587623,
+        "q3": 2.347431472689017,
+        "min": 2.1783915190578873,
+        "max": 2.347431472689017
+      },
+      "renderer": {
+        "n": 3,
+        "median": 1.1588060148371844,
+        "q1": 1.1588060148371844,
+        "q3": 1.222790958770063,
+        "min": 0.9725311876257086,
+        "max": 1.222790958770063
+      },
+      "rendererTaskMsPerSecond": {
+        "n": 3,
+        "median": 7.184818507261476,
+        "q1": 7.184818507261476,
+        "q3": 7.352311104501164,
+        "min": 6.959007652364317,
+        "max": 7.352311104501164
+      }
+    },
+    "js10": {
+      "n": 3,
+      "cpu": {
+        "n": 3,
+        "median": 2.484711296152616,
+        "q1": 2.484711296152616,
+        "q3": 2.551392756633122,
+        "min": 2.1687087958398203,
+        "max": 2.551392756633122
+      },
+      "gpu": {
+        "n": 3,
+        "median": 1.526848951342547,
+        "q1": 1.526848951342547,
+        "q3": 1.6559520295455359,
+        "min": 1.3886271009143858,
+        "max": 1.6559520295455359
+      },
+      "renderer": {
+        "n": 3,
+        "median": 0.8872631862009417,
+        "q1": 0.8872631862009417,
+        "q3": 0.9496754871621202,
+        "min": 0.7719133002141734,
+        "max": 0.9496754871621202
+      },
+      "rendererTaskMsPerSecond": {
+        "n": 3,
+        "median": 13.294394387048978,
+        "q1": 13.294394387048978,
+        "q3": 13.387830772483023,
+        "min": 13.226139249931196,
+        "max": 13.387830772483023
+      }
+    },
+    "layer": {
+      "n": 3,
+      "cpu": {
+        "n": 3,
+        "median": 3.5447942298115667,
+        "q1": 3.5447942298115667,
+        "q3": 8.265780193780309,
+        "min": 3.247808637250621,
+        "max": 8.265780193780309
+      },
+      "gpu": {
+        "n": 3,
+        "median": 2.3509304292291247,
+        "q1": 2.3509304292291247,
+        "q3": 6.501542523961587,
+        "min": 2.1420848424077588,
+        "max": 6.501542523961587
+      },
+      "renderer": {
+        "n": 3,
+        "median": 1.1897752259229133,
+        "q1": 1.1897752259229133,
+        "q3": 1.7397343688490174,
+        "min": 1.09756347163369,
+        "max": 1.7397343688490174
+      },
+      "rendererTaskMsPerSecond": {
+        "n": 3,
+        "median": 7.558605783110596,
+        "q1": 7.558605783110596,
+        "q3": 7.718411734870507,
+        "min": 7.490875847822414,
+        "max": 7.718411734870507
+      }
+    }
+  },
+  "results": [
+    {
+      "round": 0,
+      "variant": "shipped",
+      "startedAt": "2026-10-20T11:00:08.429Z",
+      "errors": [],
+      "pulse": [
+        {
+          "animations": [
+            "running"
+          ],
+          "timing": "ease-in-out",
+          "willChange": "auto"
+        }
+      ],
+      "conditions": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-pulse",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 1.016,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 13556,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "live": {
+        "cpuPercent": 3.4140742634413934,
+        "cpuByRolePercent": {
+          "tcubeobserver64.exe": 0,
+          "tdepend.exe": 0,
+          "tdepend64.exe": 0,
+          "host": 0,
+          "browser": 0.00814814860009879,
+          "crashpad-handler": 0,
+          "gpu-process": 2.2774075337276116,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 1.1285185811136824
+        },
+        "rendererTaskMsPerSecond": 7.573371679328941,
+        "styleRecalcsPerSecond": 3.5982224218036256,
+        "otherLoadPercent": 19.82052030869641,
+        "stableProcessSet": true
+      },
+      "hostAfter": {
+        "userIdleSeconds": 161.672,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 13556,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      }
+    },
+    {
+      "round": 0,
+      "variant": "paused",
+      "startedAt": "2026-10-20T11:02:53.754Z",
+      "errors": [],
+      "pulse": [
+        {
+          "animations": [
+            "paused"
+          ],
+          "timing": "ease-in-out",
+          "willChange": "auto"
+        }
+      ],
+      "conditions": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 0.75,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 24188,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "live": {
+        "cpuPercent": 0.4540881447475919,
+        "cpuByRolePercent": {
+          "host": 0,
+          "browser": 0.004090884186915243,
+          "crashpad-handler": 0,
+          "utility:network": 0,
+          "gpu-process": 0.134999178168203,
+          "utility:storage": 0,
+          "renderer": 0.31499808239247373
+        },
+        "rendererTaskMsPerSecond": 6.912020758193104,
+        "styleRecalcsPerSecond": 1.015848361294793,
+        "otherLoadPercent": 17.95991458909958,
+        "stableProcessSet": true
+      },
+      "hostAfter": {
+        "userIdleSeconds": 160.36,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 24188,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      }
+    },
+    {
+      "round": 0,
+      "variant": "stepped",
+      "startedAt": "2026-10-20T11:05:37.666Z",
+      "errors": [],
+      "pulse": [
+        {
+          "animations": [
+            "running"
+          ],
+          "timing": "steps(8, jump-none)",
+          "willChange": "auto"
+        }
+      ],
+      "conditions": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-pulse",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 0.859,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 18916,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "live": {
+        "cpuPercent": 3.578401635196672,
+        "cpuByRolePercent": {
+          "host": 0,
+          "browser": 0.008179203737592393,
+          "crashpad-handler": 0,
+          "gpu-process": 2.347431472689017,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 1.222790958770063
+        },
+        "rendererTaskMsPerSecond": 7.352311104501164,
+        "styleRecalcsPerSecond": 3.6224057513049197,
+        "otherLoadPercent": 17.737800182415363,
+        "stableProcessSet": true
+      },
+      "hostAfter": {
+        "userIdleSeconds": 160.547,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 18916,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      }
+    },
+    {
+      "round": 0,
+      "variant": "js10",
+      "startedAt": "2026-10-20T11:08:21.941Z",
+      "errors": [],
+      "pulse": [
+        {
+          "animations": [],
+          "timing": "ease",
+          "willChange": "auto"
+        }
+      ],
+      "conditions": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": null,
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 0.812,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 3840,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "live": {
+        "cpuPercent": 2.484711296152616,
+        "cpuByRolePercent": {
+          "host": 0,
+          "browser": 0.008186857647949313,
+          "crashpad-handler": 0,
+          "utility:network": 0,
+          "gpu-process": 1.526848951342547,
+          "utility:storage": 0,
+          "renderer": 0.9496754871621202
+        },
+        "rendererTaskMsPerSecond": 13.387830772483023,
+        "styleRecalcsPerSecond": 11.223199412420753,
+        "otherLoadPercent": 17.923324021629057,
+        "stableProcessSet": true
+      },
+      "hostAfter": {
+        "userIdleSeconds": 160.625,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 3840,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      }
+    },
+    {
+      "round": 0,
+      "variant": "layer",
+      "startedAt": "2026-10-20T11:11:06.036Z",
+      "errors": [],
+      "pulse": [
+        {
+          "animations": [
+            "running"
+          ],
+          "timing": "ease-in-out",
+          "willChange": "opacity"
+        }
+      ],
+      "conditions": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": null,
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-pulse",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 0.812,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 25012,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "live": {
+        "cpuPercent": 3.5447942298115667,
+        "cpuByRolePercent": {
+          "host": 0,
+          "browser": 0.004088574659528913,
+          "crashpad-handler": 0,
+          "gpu-process": 2.3509304292291247,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 1.1897752259229133
+        },
+        "rendererTaskMsPerSecond": 7.490875847822414,
+        "styleRecalcsPerSecond": 3.307493356572509,
+        "otherLoadPercent": 20.128345771229718,
+        "stableProcessSet": true
+      },
+      "hostAfter": {
+        "userIdleSeconds": 160.531,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 25012,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      }
+    },
+    {
+      "round": 1,
+      "variant": "paused",
+      "startedAt": "2026-10-20T11:13:50.127Z",
+      "errors": [],
+      "pulse": [
+        {
+          "animations": [
+            "paused"
+          ],
+          "timing": "ease-in-out",
+          "willChange": "auto"
+        }
+      ],
+      "conditions": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 0.75,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 24940,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "live": {
+        "cpuPercent": 0.4913808440223846,
+        "cpuByRolePercent": {
+          "host": 0,
+          "browser": 0.00818968073370641,
+          "crashpad-handler": 0,
+          "gpu-process": 0.15150909357356857,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 0.33168206971510955
+        },
+        "rendererTaskMsPerSecond": 6.302788775451792,
+        "styleRecalcsPerSecond": 1.016830759896988,
+        "otherLoadPercent": 16.88824023350732,
+        "stableProcessSet": true
+      },
+      "hostAfter": {
+        "userIdleSeconds": 160.172,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 24940,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      }
+    },
+    {
+      "round": 1,
+      "variant": "stepped",
+      "startedAt": "2026-10-20T11:16:33.782Z",
+      "errors": [],
+      "pulse": [
+        {
+          "animations": [
+            "running"
+          ],
+          "timing": "steps(8, jump-none)",
+          "willChange": "auto"
+        }
+      ],
+      "conditions": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-pulse",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 0.766,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 24528,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "live": {
+        "cpuPercent": 3.341292254795556,
+        "cpuByRolePercent": {
+          "host": 0,
+          "browser": 0.00409472090048475,
+          "crashpad-handler": 0,
+          "gpu-process": 2.1783915190578873,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 1.1588060148371844
+        },
+        "rendererTaskMsPerSecond": 6.959007652364317,
+        "styleRecalcsPerSecond": 3.6164574993081313,
+        "otherLoadPercent": 17.3477678183151,
+        "stableProcessSet": true
+      },
+      "hostAfter": {
+        "userIdleSeconds": 160.25,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 24528,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      }
+    },
+    {
+      "round": 1,
+      "variant": "js10",
+      "startedAt": "2026-10-20T11:19:17.497Z",
+      "errors": [],
+      "pulse": [
+        {
+          "animations": [],
+          "timing": "ease",
+          "willChange": "auto"
+        }
+      ],
+      "conditions": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 0.891,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 4412,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "live": {
+        "cpuPercent": 2.1687087958398203,
+        "cpuByRolePercent": {
+          "adobe crash processor.exe": 0,
+          "host": 0,
+          "browser": 0.008168394711261094,
+          "crashpad-handler": 0,
+          "gpu-process": 1.3886271009143858,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 0.7719133002141734
+        },
+        "rendererTaskMsPerSecond": 13.226139249931196,
+        "styleRecalcsPerSecond": 10.298712051957986,
+        "otherLoadPercent": 18.74748521865109,
+        "stableProcessSet": true
+      },
+      "hostAfter": {
+        "userIdleSeconds": 160.688,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 4412,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      }
+    },
+    {
+      "round": 1,
+      "variant": "layer",
+      "startedAt": "2026-10-20T11:22:01.735Z",
+      "errors": [],
+      "pulse": [
+        {
+          "animations": [
+            "running"
+          ],
+          "timing": "ease-in-out",
+          "willChange": "opacity"
+        }
+      ],
+      "conditions": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-pulse",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 0.766,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 9876,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "live": {
+        "cpuPercent": 8.265780193780309,
+        "cpuByRolePercent": {
+          "host": 0.00816776698990149,
+          "browser": 0.012251650484852236,
+          "crashpad-handler": 0,
+          "gpu-process": 6.501542523961587,
+          "utility:network": 0.004083883494950745,
+          "utility:storage": 0,
+          "renderer": 1.7397343688490174
+        },
+        "rendererTaskMsPerSecond": 7.718411734870507,
+        "styleRecalcsPerSecond": 3.5546121940051285,
+        "otherLoadPercent": 24.105545676717746,
+        "stableProcessSet": true
+      },
+      "hostAfter": {
+        "userIdleSeconds": 160.812,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 9876,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      }
+    },
+    {
+      "round": 1,
+      "variant": "shipped",
+      "startedAt": "2026-10-20T11:24:46.026Z",
+      "errors": [],
+      "pulse": [
+        {
+          "animations": [
+            "running"
+          ],
+          "timing": "ease-in-out",
+          "willChange": "auto"
+        }
+      ],
+      "conditions": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": null,
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-pulse",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 0.719,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 13172,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "live": {
+        "cpuPercent": 7.892744797302534,
+        "cpuByRolePercent": {
+          "host": 0,
+          "browser": 0.00408315819829412,
+          "crashpad-handler": 0,
+          "gpu-process": 6.181901512217297,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 1.706760126886942
+        },
+        "rendererTaskMsPerSecond": 7.742504174764662,
+        "styleRecalcsPerSecond": 3.459904930906505,
+        "otherLoadPercent": 24.105696052434364,
+        "stableProcessSet": true
+      },
+      "hostAfter": {
+        "userIdleSeconds": 160.578,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 13172,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      }
+    },
+    {
+      "round": 2,
+      "variant": "stepped",
+      "startedAt": "2026-10-20T11:27:30.198Z",
+      "errors": [],
+      "pulse": [
+        {
+          "animations": [
+            "running"
+          ],
+          "timing": "steps(8, jump-none)",
+          "willChange": "auto"
+        }
+      ],
+      "conditions": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": null,
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-pulse",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 0.734,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 17876,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "live": {
+        "cpuPercent": 3.203632147472922,
+        "cpuByRolePercent": {
+          "host": 0,
+          "browser": 0.008172530988451332,
+          "crashpad-handler": 0,
+          "gpu-process": 2.2229284288587623,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 0.9725311876257086
+        },
+        "rendererTaskMsPerSecond": 7.184818507261476,
+        "styleRecalcsPerSecond": 3.629911363830544,
+        "otherLoadPercent": 21.029196395090565,
+        "stableProcessSet": true
+      },
+      "hostAfter": {
+        "userIdleSeconds": 160.484,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 17876,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      }
+    },
+    {
+      "round": 2,
+      "variant": "js10",
+      "startedAt": "2026-10-20T11:30:14.038Z",
+      "errors": [],
+      "pulse": [
+        {
+          "animations": [],
+          "timing": "ease",
+          "willChange": "auto"
+        }
+      ],
+      "conditions": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": null,
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 0.797,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 26944,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "live": {
+        "cpuPercent": 2.551392756633122,
+        "cpuByRolePercent": {
+          "host": 0,
+          "browser": 0.008177540886644623,
+          "crashpad-handler": 0,
+          "gpu-process": 1.6559520295455359,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 0.8872631862009417
+        },
+        "rendererTaskMsPerSecond": 13.294394387048978,
+        "styleRecalcsPerSecond": 11.21042725068338,
+        "otherLoadPercent": 17.37952009128122,
+        "stableProcessSet": true
+      },
+      "hostAfter": {
+        "userIdleSeconds": 160.422,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 26944,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      }
+    },
+    {
+      "round": 2,
+      "variant": "layer",
+      "startedAt": "2026-10-20T11:32:58.117Z",
+      "errors": [],
+      "pulse": [
+        {
+          "animations": [
+            "running"
+          ],
+          "timing": "ease-in-out",
+          "willChange": "opacity"
+        }
+      ],
+      "conditions": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": null,
+        "runningAnimations": [
+          "lg-pulse"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 1.047,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 2236,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "live": {
+        "cpuPercent": 3.247808637250621,
+        "cpuByRolePercent": {
+          "host": 0,
+          "browser": 0.008160323209172414,
+          "crashpad-handler": 0,
+          "gpu-process": 2.1420848424077588,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 1.09756347163369
+        },
+        "rendererTaskMsPerSecond": 7.558605783110596,
+        "styleRecalcsPerSecond": 3.4991465920931315,
+        "otherLoadPercent": 19.389612246358652,
+        "stableProcessSet": true
+      },
+      "hostAfter": {
+        "userIdleSeconds": 161.203,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 2236,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      }
+    },
+    {
+      "round": 2,
+      "variant": "shipped",
+      "startedAt": "2026-10-20T11:35:42.726Z",
+      "errors": [],
+      "pulse": [
+        {
+          "animations": [
+            "running"
+          ],
+          "timing": "ease-in-out",
+          "willChange": "auto"
+        }
+      ],
+      "conditions": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-pulse",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 0.765,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 7788,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "live": {
+        "cpuPercent": 3.5223667365511213,
+        "cpuByRolePercent": {
+          "host": 0,
+          "browser": 0.012230440057469172,
+          "crashpad-handler": 0,
+          "gpu-process": 2.3278604242716323,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 1.18227587222202
+        },
+        "rendererTaskMsPerSecond": 7.638808019407318,
+        "styleRecalcsPerSecond": 3.5275850576423085,
+        "otherLoadPercent": 20.119492461497835,
+        "stableProcessSet": true
+      },
+      "hostAfter": {
+        "userIdleSeconds": 160.968,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 7788,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      }
+    },
+    {
+      "round": 2,
+      "variant": "paused",
+      "startedAt": "2026-10-20T11:38:27.390Z",
+      "errors": [],
+      "pulse": [
+        {
+          "animations": [
+            "paused"
+          ],
+          "timing": "ease-in-out",
+          "willChange": "auto"
+        }
+      ],
+      "conditions": {
+        "visibility": "visible",
+        "focused": true,
+        "reducedMotion": false,
+        "devicePixelRatio": 1,
+        "clockTransition": "0.42s",
+        "runningAnimations": [
+          "lg-flip",
+          "lg-flip",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in",
+          "lg-row-in"
+        ],
+        "live": true
+      },
+      "hostBefore": {
+        "userIdleSeconds": 0.75,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 27016,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      },
+      "live": {
+        "cpuPercent": 0.4954371787821844,
+        "cpuByRolePercent": {
+          "host": 0,
+          "browser": 0.008189044277391477,
+          "crashpad-handler": 0,
+          "gpu-process": 0.13102470843826364,
+          "utility:network": 0,
+          "utility:storage": 0,
+          "renderer": 0.3562234260665293
+        },
+        "rendererTaskMsPerSecond": 6.348524474994176,
+        "styleRecalcsPerSecond": 1.0167517374809258,
+        "otherLoadPercent": 16.786174152460912,
+        "stableProcessSet": true
+      },
+      "hostAfter": {
+        "userIdleSeconds": 160.265,
+        "foregroundProcess": "longitude",
+        "foregroundPid": 27016,
+        "video": [
+          {
+            "Name": "Intel(R) HD Graphics 530",
+            "DriverVersion": "31.0.101.2111",
+            "CurrentRefreshRate": 59,
+            "CurrentHorizontalResolution": 1920,
+            "CurrentVerticalResolution": 1080
+          }
+        ],
+        "powerScheme": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+        "displayTimeoutAc": "    Current AC Power Setting Index: 0x00000384",
+        "battery": 0,
+        "session": null,
+        "otherWebView2Hosts": 2,
+        "webView2Runtime": "155.0.4283.62",
+        "edgeProcesses": 0,
+        "displayTimeoutAcSeconds": 900,
+        "displayLikelyOff": false
+      }
+    }
+  ],
+  "limitations": [
+    "Variants are runtime diagnostics, not shipped changes",
+    "One live window per launch; whole-machine CPU includes outside load (see otherLoadPercent and hostBefore.userIdleSeconds)",
+    "GPU-process CPU is not GPU hardware utilization"
+  ]
+}
