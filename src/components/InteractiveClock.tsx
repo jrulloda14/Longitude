@@ -69,6 +69,20 @@ function arc(a0: number, a1: number, r: number): string {
   return `M${x0.toFixed(2)} ${y0.toFixed(2)}A${r} ${r} 0 0 1 ${x1.toFixed(2)} ${y1.toFixed(2)}`;
 }
 
+/**
+ * Live ticks move the minute hand 0.1° a second. Easing those sub-pixel steps
+ * re-ran style and layout on every frame and was most of the idle CPU (M7.1),
+ * so only visible jumps ease. The decision is made when the time changes and
+ * held across unrelated re-renders, so a glide in flight is never cut short.
+ */
+const TICK_MAX_MS = 5000;
+function useEaseJumps(value: Instant): boolean {
+  const ref = useRef<{ value: Instant; ease: boolean } | null>(null);
+  if (ref.current === null) ref.current = { value, ease: true };
+  else if (value !== ref.current.value) ref.current = { value, ease: Math.abs(value - ref.current.value) > TICK_MAX_MS };
+  return ref.current.ease;
+}
+
 /** Keeps a hand's rotation unwrapped so CSS transitions take the short way round. */
 function useUnwrapped(target: number): number {
   const ref = useRef<number | null>(null);
@@ -94,6 +108,7 @@ export function InteractiveClock({
   const hourMod = norm((local % 720) * 0.5);
   const minuteDeg = useUnwrapped(minuteMod);
   const hourDeg = useUnwrapped(hourMod);
+  const easeJump = useEaseJumps(value);
 
   const nowOff = offsetMinutes(zone, now);
   const nowLocal = now / MS.MIN + nowOff;
@@ -235,7 +250,7 @@ export function InteractiveClock({
 
   const timeText = formatTimeString(zone, value, { hour12 });
   const dayText = formatShortDate(zone, value);
-  const anim = !dragging && !reducedMotion;
+  const anim = !dragging && !reducedMotion && easeJump;
   const accentMinute = !live;
   const dragDelta = dragOrigin !== null ? Math.round((value - dragOrigin) / MS.MIN) : 0;
 
@@ -394,12 +409,13 @@ export function MiniClock({ zone, at, size = 24, state }: { zone: string; at: In
   const h = norm((local % 720) * 0.5);
   const mDeg = useUnwrapped(m);
   const hDeg = useUnwrapped(h);
+  const ease = useEaseJumps(at);
   const ring = state === 'work' ? 'var(--work)' : state === 'edge' ? 'var(--edge)' : state === 'sleep' ? 'var(--sleep)' : 'var(--control-border)';
   return (
     <svg width={size} height={size} viewBox="0 0 200 200" aria-hidden className="shrink-0">
       <circle cx={C} cy={C} r={92} fill="var(--dial-face)" stroke={ring} strokeWidth={12} />
-      <ClockHand angle={hDeg} length={46} width={18} />
-      <ClockHand angle={mDeg} length={68} width={12} />
+      <ClockHand angle={hDeg} length={46} width={18} animate={ease} />
+      <ClockHand angle={mDeg} length={68} width={12} animate={ease} />
     </svg>
   );
 }

@@ -285,6 +285,60 @@ test('reduced motion keeps the dial keyboard-accessible without hand easing', as
   expect(await page.locator('.lg-dial').evaluate(el => getComputedStyle(el.querySelector('.lg-dial-focus')!).opacity)).toBe('1');
 });
 
+test('live ticks move hands without easing while visible jumps still glide (M7.1 idle CPU)', async ({ page }) => {
+  await page.clock.install({ time: new Date(now) });
+  await mount(page, { realtime: true });
+  const easing = page.locator('.lg-hand-anim');
+  await page.clock.runFor(1100);
+  await expect(page.locator('.lg-dial .lg-hand')).toHaveCount(2);
+  await expect(easing).toHaveCount(0);
+  await page.locator('.lg-dial').press('ArrowRight');
+  await expect(page.locator('.lg-dial .lg-hand-anim')).toHaveCount(2);
+  expect(await page.locator('.lg-dial .lg-hand-anim').first().evaluate(el => getComputedStyle(el).transitionDuration)).toBe('0.42s');
+  await expect(page.locator('[role=listitem] .lg-hand-anim').first()).toBeAttached();
+  // Unrelated re-renders (hover, the next tick while planning) keep a glide in flight.
+  await page.locator('.lg-dial').hover(); await page.clock.runFor(1000);
+  await expect(page.locator('.lg-dial .lg-hand-anim')).toHaveCount(2);
+  await page.locator('.lg-dial').press('Home');
+  await expect(page.locator('.lg-dial .lg-hand-anim')).toHaveCount(2);
+  await page.clock.runFor(1000);
+  await expect(easing).toHaveCount(0);
+});
+
+test('planning ticks reach only exact-clock readers; store readers update once a minute (M7.1 planning CPU)', async ({ page }) => {
+  await page.clock.install({ time: new Date(now + 10_000) });
+  await page.goto('/tests/browser/fixture.html');
+  await page.evaluate(() => window.longitudeTest.mountContextProbe());
+  const count = async (label: string) => Number(await page.getByLabel(label).textContent());
+  let store = await count('Store renders'), exact = await count('Exact renders');
+  await page.clock.runFor(3000);
+  expect(await count('Store renders')).toBeGreaterThanOrEqual(store + 3);
+  expect(await count('Exact renders')).toBeGreaterThanOrEqual(exact + 3);
+  await page.getByRole('button', { name: 'Plan' }).click();
+  store = await count('Store renders'); exact = await count('Exact renders');
+  await page.clock.runFor(10_000);
+  expect(await count('Store renders')).toBe(store);
+  expect(await count('Exact renders')).toBeGreaterThanOrEqual(exact + 10);
+  expect(await count('Store now') % minute).toBe(0);
+  await page.clock.runFor(40_000);
+  expect(await count('Store renders')).toBe(store + 1);
+  await page.getByRole('button', { name: 'Live' }).click();
+  await page.clock.runFor(1000);
+  expect(await count('Store now')).toBe(await count('Exact now'));
+});
+
+test('planning keeps ghost hands and the timeline now line moving every second', async ({ page }) => {
+  await page.clock.install({ time: new Date(now) });
+  await mount(page, { realtime: true });
+  await page.locator('.lg-dial').press('ArrowRight');
+  const ghost = page.locator('.lg-dial line.lg-hand').nth(1);
+  const nowLine = page.locator('[style*="repeating-linear-gradient"]').first();
+  const ghostBefore = await ghost.getAttribute('style'), lineBefore = await nowLine.getAttribute('style');
+  await page.clock.runFor(2000);
+  expect(await ghost.getAttribute('style')).not.toBe(ghostBefore);
+  expect(await nowLine.getAttribute('style')).not.toBe(lineBefore);
+});
+
 test('fractional DST timeline splits Lord Howe at 02:30 and typing a gap updates every row', async ({ page }) => {
   await mount(page, { zone: 'Australia/Lord_Howe', selected: Date.parse('2026-10-03T14:30Z') });
   await expect(page.getByRole('slider', { name: 'Meeting start on the timeline' })).toHaveAttribute('aria-valuemax', '1409');

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { StoreCtx, useNow, type AppState, type StoreProviderProps } from '../state/store';
+import React, { useEffect, useMemo, useState } from 'react';
+import { NowCtx, StoreCtx, containerNow, useNow, type AppState, type StoreProviderProps } from '../state/store';
 import { nativeInitialState } from './defaults';
 import { ConfigurationRepository, type PersistenceStatus } from '../persistence/repository';
 import { durable } from '../persistence/schema';
@@ -13,6 +13,9 @@ export function NativeStoreProvider(props: StoreProviderProps & { platform: Plat
   const [client, setClient] = useState<DesktopStateClient | null>(null);
   const [attempt, retry] = useState(0);
   const now = useNow(props.fixedNow, true);
+  const scopedNow = containerNow(now, state.selected === null);
+  // Memoized so per-second ticks reach only NowCtx readers while planning.
+  const value = useMemo(() => client && { state, dispatch: (action: Parameters<typeof client.dispatch>[0]) => client.dispatch(action), platform: props.platform, now: scopedNow, persistence: status, retryPersistence: () => client.retry(), discardPending: () => client.discard() }, [client, state, props.platform, scopedNow, status]);
   useEffect(() => {
     let active = true; let unlisten = () => {}; let unerror = () => {}; let unquit = () => {}; let timer: ReturnType<typeof setTimeout>;
     const error = (message: string) => { if (active) setStatus({ phase: message ? 'error' : 'saved', message }); };
@@ -44,8 +47,8 @@ export function NativeStoreProvider(props: StoreProviderProps & { platform: Plat
     void connect().catch(e => error(String(e)));
     return () => { active = false; connection.stop(); clearTimeout(timer); unlisten(); unerror(); unquit(); };
   }, [port, props.platform, attempt]);
-  if (!client) return <div className="lg-root flex h-full items-center justify-center p-6" role={status.phase === 'error' ? 'alert' : 'status'}>
+  if (!value) return <div className="lg-root flex h-full items-center justify-center p-6" role={status.phase === 'error' ? 'alert' : 'status'}>
     {status.message || 'Loading desktop configuration…'} {status.phase === 'error' && <button className="ml-3 underline" onClick={() => retry(n => n + 1)}>Retry</button>}
   </div>;
-  return <StoreCtx.Provider value={{ state, dispatch: action => client.dispatch(action), platform: props.platform, now, persistence: status, retryPersistence: () => client.retry(), discardPending: () => client.discard() }}>{props.children}</StoreCtx.Provider>;
+  return <NowCtx.Provider value={now}><StoreCtx.Provider value={value}>{props.children}</StoreCtx.Provider></NowCtx.Provider>;
 }

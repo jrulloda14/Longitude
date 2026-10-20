@@ -218,12 +218,26 @@ export interface Ctx {
   state: AppState;
   dispatch: React.Dispatch<Action>;
   platform: Platform;
+  /**
+   * Wall clock for the container: per second while live, minute-aligned while
+   * planning, so a fixed selection does not re-render every row each second
+   * (M7.1). Displays whose output changes within a minute read <WithNow>.
+   */
   now: Instant;
   persistence: PersistenceStatus;
   retryPersistence(): void;
   discardPending?(): void;
 }
 export const StoreCtx = createContext<Ctx | null>(null);
+
+/** Exact per-second wall clock, for the few displays that show seconds-sensitive "now". */
+export const NowCtx = createContext<Instant>(0);
+export function WithNow({ children }: { children(now: Instant): React.ReactNode }) {
+  return <>{children(useContext(NowCtx))}</>;
+}
+/** Minute boundaries cover every offset transition, so offset and HH:MM results are unchanged. */
+export const containerNow = (now: Instant, live: boolean): Instant => live ? now : Math.floor(now / MS_PER_MINUTE) * MS_PER_MINUTE;
+const MS_PER_MINUTE = 60_000;
 
 export function StoreProvider(props: StoreProviderProps) {
   if (props.platform?.desktop) return <NativeStoreProvider {...props} platform={props.platform} />;
@@ -274,12 +288,13 @@ function BrowserStoreProvider(props: StoreProviderProps) {
     return () => { document.removeEventListener('visibilitychange', flush); window.removeEventListener('pagehide', flush); };
   }, [persist, repo]);
   const retryPersistence = useCallback(() => { if (!repo.canSave && persistence.phase === 'error') void hydrate(); else void repo.retry(); }, [repo, persistence.phase, hydrate]);
-  const value = useMemo(() => ({ state, dispatch, platform, now, persistence, retryPersistence }), [state, dispatch, platform, now, persistence, retryPersistence]);
+  const scopedNow = containerNow(now, state.selected === null);
+  const value = useMemo(() => ({ state, dispatch, platform, now: scopedNow, persistence, retryPersistence }), [state, dispatch, platform, scopedNow, persistence, retryPersistence]);
   if (persist && !hydrated) return <div className="lg-root flex h-full flex-col items-center justify-center gap-3 p-6" role={persistence.phase === 'error' ? 'alert' : 'status'}>
     {persistence.phase === 'error' ? <><p>{persistence.message}</p><p className="text-caption text-ink-muted">Saved settings have not been replaced. Retry loading, or use temporary settings without saving this session.</p>
       <div className="flex gap-3"><button className="underline" onClick={() => void hydrate()}>Retry</button><button className="underline" onClick={() => { ready.current = true; queued.current = []; setInMemory(true); setHydrated(true); setPersistence({ phase: 'blocked', message: 'Saving is disabled for this session. Existing saved configuration is unchanged.' }); }}>Continue without saving</button></div></> : 'Loading saved configuration…'}
   </div>;
-  return <StoreCtx.Provider value={value}>{props.children}</StoreCtx.Provider>;
+  return <NowCtx.Provider value={now}><StoreCtx.Provider value={value}>{props.children}</StoreCtx.Provider></NowCtx.Provider>;
 }
 
 export function useStore(): Ctx {

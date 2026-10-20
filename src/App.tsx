@@ -14,6 +14,7 @@ import { localDayBounds } from './lib/time-axis';
 import { Button, Dialog, IconButton, Segmented, cx } from './primitives';
 import {
   AppState, Group, Location, StoreProvider, activeGroup, locationFromCity, referenceOf, toParticipants, uid, useStore,
+  WithNow,
 } from './state/store';
 import { Platform } from './platform';
 import { CompactWidget } from './components/CompactWidget';
@@ -168,11 +169,11 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
         {platform.kind === 'web-prototype' && (
           <p className="absolute bottom-4 left-4 max-w-[260px] text-caption text-ink-faint">Prototype backdrop. In the desktop build this is its own 264 px always-on-top window; the main window hides.</p>
         )}
-        <CompactWidget
+        <WithNow>{exactNow => <CompactWidget
           title={group.name}
           locations={group.locations.filter(l => l.favorite !== false)}
           referenceZone={refZone}
-          now={now}
+          now={exactNow}
           value={at}
           live={live}
           onChange={select}
@@ -186,7 +187,7 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
           onExpand={() => dispatch({ type: 'mode', mode: 'full' })}
           onClose={() => { if (platform.desktop) void platform.desktop.control('hide-widget').catch(error => notify(String(error))); else dispatch({ type: 'mode', mode: 'full' }); }}
           onOpacity={(v) => dispatch({ type: 'settings', patch: { widgetOpacity: v } })}
-        />
+        />}</WithNow>
         {storageNotice}
       </div>
     );
@@ -211,10 +212,10 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
 
   const dial = (size: number) => (
     <div className="relative">
-      <InteractiveClock
-        value={at} now={now} zone={refZone} coords={coords} live={live} step={s.step} hour12={s.hour12} size={size} reducedMotion={reduced}
+      <WithNow>{exactNow => <InteractiveClock
+        value={at} now={exactNow} zone={refZone} coords={coords} live={live} step={s.step} hour12={s.hour12} size={size} reducedMotion={reduced}
         onChange={(v) => select(v)} onReset={reset} onDragChange={setDraggingDial}
-      />
+      />}</WithNow>
       {state.coach && (
         <div role="status" className="lg-pop-in pointer-events-none absolute -bottom-2 left-1/2 w-max -translate-x-1/2 translate-y-full rounded-md bg-surface px-2.5 py-1.5 text-caption text-ink shadow-pop">
           Drag a hand, scroll, or use arrow keys · double-click for now
@@ -246,7 +247,7 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
           <section aria-label="Clock" className={cx('flex shrink-0 flex-col items-center justify-center gap-4 px-6', stacked ? 'border-b border-line py-5' : 'border-r border-line', narrow ? 'w-[268px] px-3' : 'w-[340px]', stacked && 'w-full')}>
             {dial(dialSize)}
             <div className={cx(state.coach && 'mt-6')}>
-              <TimeReadout value={at} now={now} zone={refZone} placeLabel={refLabel} live={live} hour12={s.hour12} onChange={(v) => select(v)} onReset={reset} compact={narrow} />
+              <WithNow>{exactNow => <TimeReadout value={at} now={exactNow} zone={refZone} placeLabel={refLabel} live={live} hour12={s.hour12} onChange={(v) => select(v)} onReset={reset} compact={narrow} />}</WithNow>
             </div>
           </section>
 
@@ -273,9 +274,9 @@ function Shell({ openLayer }: { openLayer: 'search' | 'share' | null }) {
                 />
                 {s.showTimeline && (
                   <div className="lg-row-in px-1 pb-3 pt-2">
-                    <TimezoneTimeline locations={group.locations} referenceZone={refZone} at={at} now={now} hour12={s.hour12} durationMin={state.meeting.durationMin}
+                    <WithNow>{exactNow => <TimezoneTimeline locations={group.locations} referenceZone={refZone} at={at} now={exactNow} hour12={s.hour12} durationMin={state.meeting.durationMin}
                       overlap={overlap}
-                      onChange={(v) => select(v)} labelWidth={92} rowHeight={22} showTimes={false} />
+                      onChange={(v) => select(v)} labelWidth={92} rowHeight={22} showTimes={false} />}</WithNow>
                   </div>
                 )}
               </div>
@@ -397,8 +398,8 @@ function PlannerView(p: {
     <main className="lg-scroll flex min-h-0 flex-1 flex-col">
       <div className="flex shrink-0 gap-5 px-4 pb-2 pt-3">
         <div className="flex shrink-0 flex-col items-center gap-1">
-          <InteractiveClock value={p.at} now={p.now} zone={p.refZone} coords={p.coords} live={p.live} step={p.step} hour12={p.fmt.hour12} size={136} reducedMotion={p.reduced}
-            onChange={(v) => p.onSelect(v)} onReset={p.onReset} />
+          <WithNow>{exactNow => <InteractiveClock value={p.at} now={exactNow} zone={p.refZone} coords={p.coords} live={p.live} step={p.step} hour12={p.fmt.hour12} size={136} reducedMotion={p.reduced}
+            onChange={(v) => p.onSelect(v)} onReset={p.onReset} />}</WithNow>
         </div>
         <div className="flex min-w-0 flex-1 flex-col gap-2">
           <div className="flex flex-wrap items-center gap-2">
@@ -434,7 +435,7 @@ function PlannerView(p: {
           </span>
           <span className="text-caption text-ink-faint">· drag the tracks to move the meeting</span>
         </div>
-        <TimezoneTimeline locations={p.group.locations} referenceZone={p.refZone} at={p.at} now={p.now} hour12={p.fmt.hour12} durationMin={p.durationMin} overlap={overlap} onChange={(v) => p.onSelect(v)} />
+        <WithNow>{exactNow => <TimezoneTimeline locations={p.group.locations} referenceZone={p.refZone} at={p.at} now={exactNow} hour12={p.fmt.hour12} durationMin={p.durationMin} overlap={overlap} onChange={(v) => p.onSelect(v)} />}</WithNow>
         <Legend />
       </div>
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import '../../src/fonts.css';
 import '../../src/styles.css';
@@ -6,7 +6,7 @@ import { LongitudeApp } from '../../src/App';
 import { InteractiveClock } from '../../src/components/InteractiveClock';
 import { TimeReadout } from '../../src/components/TimeReadout';
 import { CITIES, cityFromZone } from '../../src/lib/cities';
-import { DEFAULT_SETTINGS, StoreProvider, locationFromCity, useStore } from '../../src/state/store';
+import { DEFAULT_SETTINGS, NowCtx, StoreProvider, locationFromCity, useStore } from '../../src/state/store';
 import type { WorkingHours, SleepHours } from '../../src/lib/schedule';
 import { webPlatform } from '../../src/platform';
 import { TitleBar } from '../../src/components/WindowChrome';
@@ -38,7 +38,9 @@ function initial(options: Options) {
   };
 }
 function ClockHarness({ options }: { options: Options }) {
-  const { state, dispatch, now } = useStore();
+  const { state, dispatch } = useStore();
+  // Same contract as App: seconds-sensitive displays read the exact clock.
+  const now = useContext(NowCtx);
   const zone = options.zone ?? 'Asia/Manila';
   const at = state.selected ?? now;
   const select = (value: number) => dispatch({ type: 'select', at: value });
@@ -51,6 +53,18 @@ function ClockHarness({ options }: { options: Options }) {
     <output aria-label="Authoritative selected instant">{at}</output>
     <output aria-label="Clock mode">{state.selected === null ? 'live' : 'planning'}</output>
   </div>;
+}
+// Counts renders of a store reader and an exact-clock reader independently, so
+// tests can assert which ticks reach which consumers (M7.1 planning CPU).
+function StoreProbe() {
+  const { state, dispatch, now } = useStore(); const renders = useRef(0); renders.current++;
+  return <><output aria-label="Store renders">{renders.current}</output><output aria-label="Store now">{now}</output>
+    <button onClick={() => dispatch({ type: 'select', at: (state.selected ?? now) + 5 * 60_000 })}>Plan</button>
+    <button onClick={() => dispatch({ type: 'select', at: null })}>Live</button></>;
+}
+function ExactProbe() {
+  const now = useContext(NowCtx); const renders = useRef(0); renders.current++;
+  return <><output aria-label="Exact renders">{renders.current}</output><output aria-label="Exact now">{now}</output></>;
 }
 window.longitudeTest = {
   mountWidgetChrome(nativeMac = true) {
@@ -90,10 +104,13 @@ window.longitudeTest = {
       <ClockHarness options={options} />
     </StoreProvider>);
   },
+  mountContextProbe(options = {}) {
+    root.render(<StoreProvider key={++sequence} initial={initial(options)}><StoreProbe /><ExactProbe /></StoreProvider>);
+  },
   search(input: SearchInput) { return runSchedulingSearch(input).promise; },
   storageFailure(reads: boolean, writes: boolean) { lastOptions.failReads = reads; lastOptions.failWrites = writes; },
 };
 window.longitudeTest.mount({ persist: new URLSearchParams(location.search).has('persist') });
 declare global {
-  interface Window { longitudeSharing: { copied: string[]; exported: { name: string; contents: string }[] }; longitudeTest: { mountWidgetChrome(nativeMac?: boolean): void; mountChrome(nativeMac?: boolean): void; mount(options?: Options): void; mountClock(options?: Options): void; search(input: SearchInput): Promise<import('../../src/lib/schedule').Suggestion[]>; storageFailure(reads: boolean, writes: boolean): void } }
+  interface Window { longitudeSharing: { copied: string[]; exported: { name: string; contents: string }[] }; longitudeTest: { mountWidgetChrome(nativeMac?: boolean): void; mountChrome(nativeMac?: boolean): void; mount(options?: Options): void; mountClock(options?: Options): void; mountContextProbe(options?: Options): void; search(input: SearchInput): Promise<import('../../src/lib/schedule').Suggestion[]>; storageFailure(reads: boolean, writes: boolean): void } }
 }
