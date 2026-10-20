@@ -1,5 +1,7 @@
 # M7.0: measurement foundation results
 
+> **Superseded conclusion (M7.1):** all 20 trials below ran with the display asleep. With the display on, the same executable measures about 6% live CPU, so the M6 high result *does* reproduce. See [M7_1_REPORT.md](M7_1_REPORT.md). The harness, native suite results and the M6-vs-5B and observer comparisons below remain valid.
+
 October 20, 2026. Approved scope: measurement harness, native suite reruns and controlled baselines. **No application code was changed.** Source under test: app source identical to `d53821d`; repository HEAD `51076d8`.
 
 ## Fresh baseline (this host)
