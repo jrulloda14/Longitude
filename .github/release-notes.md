@@ -25,3 +25,4 @@ See the [changelog](https://github.com/{{REPO}}/blob/{{TAG}}/CHANGELOG.md).
 - No account, no telemetry and no internet connection needed. Everything stays on your computer.
 - The Mac build is a **preview**: it passes automated tests but hasn't been checked on real Mac hardware yet. Please [report problems](https://github.com/{{REPO}}/issues/new/choose).
 - Verify your download with `SHA256SUMS.txt` below.
+- Longitude is free. If it helps you, you can [buy me a coffee](https://buymeacoffee.com/longitude) ☕

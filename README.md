@@ -12,6 +12,7 @@
 [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://react.dev)
 [![Rust](https://img.shields.io/badge/Rust-stable-B7410E?logo=rust&logoColor=white)](https://www.rust-lang.org)
 [![User guide](https://img.shields.io/badge/Docs-User%20guide-5b5bd6)](docs/USER_GUIDE.md)
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a-coffee-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/longitude)
 
 **Longitude** is a free, open-source desktop app that answers *"what time is it for them?"* at a glance. Add the cities your teammates and clients work in, then drag one clock to plan. Everyone's time, date and availability updates instantly.
 
@@ -66,9 +67,13 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full test suite and project conve
 
 ## Project status
 
-Longitude is an early preview (v0.x). Windows is the primary tested platform. The macOS build compiles and passes automated tests in CI but hasn't yet been checked on real Mac hardware. Known issues and engineering records live in the [project status page](docs/PROJECT_STATUS.md) and the [changelog](CHANGELOG.md).
+Longitude is an early preview (v0.x). Windows is the primary tested platform. The macOS build compiles and passes automated tests in CI but hasn't yet been checked on real Mac hardware. Known issues and engineering records live in the [project status page](docs/PROJECT_STATUS.md) and the [changelog](CHANGELOG.md). What's next is on the [roadmap](ROADMAP.md).
 
 Built with [Tauri 2](https://tauri.app), React, TypeScript and Rust. Time zone data comes from your operating system's IANA database.
+
+## Support
+
+Longitude is free and open source. If it saves you from a 3 AM meeting, you can [buy me a coffee](https://buymeacoffee.com/longitude) ☕. Feedback and bug reports help just as much.
 
 ## License
 
