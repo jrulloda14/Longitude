@@ -4,6 +4,9 @@ version = "0.1.0"
 edition = "2021"
 rust-version = "1.90"
 publish = false
+license = "MIT"
+description = "Local-first desktop time zone comparison and meeting planner"
+repository = "https://github.com/jrulloda14/Longitude"
 
 [build-dependencies]
 tauri-build = { version = "=2.7.3", features = [] }

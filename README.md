@@ -1,55 +1,73 @@
+<div align="center">
+
+<img src="longitude-app-icon.svg" width="88" alt="Longitude icon">
+
 # Longitude
 
-Longitude is a local-first timezone comparison and meeting-planning desktop utility in development. Milestone 5A adds a Tauri 2 Windows application around the existing Claude Design frontend, with native persistence, independent main/widget windows and shared planning state. Windows artifacts are development builds; see the report for verification and packaging limitations.
+**A desktop clock for working with teammates and clients across time zones.**
 
-The intended Instrument design, existing components, styling and animations will be preserved. Current source uses React 18.3.1 in its bundled browser preview, Tailwind 3 token styles, a shared selected instant and Intl-based timezone calculations.
+Drag the clock to any time and see every city follow: their local time, their date, who's working and who's asleep.
 
-## Current status
+[![Download](https://img.shields.io/github/v/release/jrulloda14/Longitude?label=download&color=f26b3a)](https://github.com/jrulloda14/Longitude/releases/latest)
+![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-2d2d2d)
+![macOS](https://img.shields.io/badge/macOS-preview-2d2d2d)
+[![License: MIT](https://img.shields.io/badge/license-MIT-2d2d2d)](LICENSE)
 
-Milestone 6 adds local meeting summaries, four copy formats, native clipboard/Save dialogs, independently validated UTC ICS and contextual offset explanations in the existing interface. See the [M6 report](docs/MILESTONE_6.md) and [sharing specification](docs/ICS_EXPORT.md) for exact Windows/shared and Apple Silicon/Intel CI results. Windows CPU/frame targets remain open after failing on both M6 and repeated approved 5B. Physical Mac acceptance/performance and trusted distribution remain unverified. Stop before Milestone 7.
+<img src="docs/assets/longitude-preview.gif" width="760" alt="Longitude: dragging the clock past midnight while every city's time and date update">
 
-See the [Milestone 5A Windows report](docs/MILESTONE_5A.md), [desktop architecture](docs/DESKTOP_ARCHITECTURE.md), [build instructions](docs/BUILD_AND_RELEASE.md) and [dependency review](docs/DESKTOP_DEPENDENCIES.md). Browser persistence remains origin/profile-specific; native persistence uses Tauri application directories and the same schema. Browser site data does not automatically migrate into native files.
+</div>
 
-Current M6 application checkpoint: [`d53821d`](https://github.com/jrulloda14/Longitude/commit/d53821df0a8098465523a70b4b71cf50d15af3fe). The [M6 report](docs/MILESTONE_6.md) contains exact results, failures and artifact provenance. The [5B report](docs/MILESTONE_5B.md) remains historical. See the [native architecture](docs/NATIVE_ARCHITECTURE.md) for shared platform boundaries. The eight unchanged main views retain zero changed pixels; the planner's contextual DST wording and the share sheet have documented M6 changes.
+## What it does
 
-Download the [printable three-page Mac acceptance checklist](output/pdf/Longitude-Milestone-5B-Mac-Acceptance-Checklist.pdf), or use the authoritative [editable Markdown checklist](docs/MACOS_ACCEPTANCE.md). Every physical Mac acceptance outcome remains unexecuted and Blocked. The [macOS development workflow](.github/workflows/macos-development.yml) supports manual dispatch and pull requests; [the final-source run](https://github.com/jrulloda14/Longitude/actions/runs/39305433436) retains test logs and development artifacts for 14 days. Pushing `main` alone does not run it. No GitHub release was published.
+- **See everyone's time at once.** Add the cities your teammates and clients work in. Each row shows their local time, date, offset and whether it's today, tomorrow or yesterday for them.
+- **Drag the clock to plan.** Turn the hands, scroll or use the arrow keys, and every city updates instantly, even across midnight and daylight-saving changes.
+- **Know who's available.** Working hours, early/late edges and sleeping hours are shaded for every person, on the rows and on a 24-hour timeline.
+- **Find a meeting time.** The planner suggests times that fall inside everyone's working hours and explains why.
+- **Send the right time to everyone.** Copy a summary with each person's local time, or export an `.ics` file for any calendar.
+- **Catch clock changes.** Daylight-saving notices warn you when a city's offset is about to change or differs on the date you picked.
+- **Keep it handy.** A compact always-on-top widget, a tray/menu-bar icon and a global shortcut (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> on Windows, <kbd>⌥</kbd><kbd>⌘</kbd><kbd>T</kbd> on Mac).
 
-- [Implementation audit](docs/IMPLEMENTATION_AUDIT.md): actual structure, functional inventory, defects, architecture, dependency proposals and audit check results.
-- [Implementation plan](docs/IMPLEMENTATION_PLAN.md): milestones, intended files, tests and completion gates.
-- [Milestone 1 report](docs/MILESTONE_1.md): changes, files, exact checks and remaining issues.
-- [Milestone 2 report](docs/MILESTONE_2.md): integration, exact results, modified files, visual evidence and performance.
-- [Milestone 3 report](docs/MILESTONE_3.md) and [scheduling algorithm](docs/SCHEDULING_ENGINE.md): exact coverage, filters, scoring, tests, measurements and limits.
-- [Milestone 3 before/after gallery](docs/evidence/milestone-3/visual/index.html) and [development advisories](docs/BUILD_ADVISORIES.md).
-- [Timezone engine](docs/TIMEZONE_ENGINE.md), [architecture](docs/ARCHITECTURE.md), [testing](docs/TESTING.md), [performance](docs/PERFORMANCE.md), [dependency review](docs/DEPENDENCIES.md) and [macOS readiness](docs/MACOS_READINESS.md).
-- [Design specification](DESIGN.md) and [design directions](DIRECTIONS.md).
-- [Original implementation handoff](HANDOFF.md) and [source setup notes](SETUP.md). These describe proposed native work and contain stale export paths; use the audit for verified current status.
+**Private by design:** no account, no sign-up, no telemetry and no internet connection needed. Everything stays on your computer.
 
-## Development and builds
+## Download
 
-Requires Node 24 and npm 11:
+Get the latest version from the **[Releases page](https://github.com/jrulloda14/Longitude/releases/latest)**.
 
-```powershell
-npm ci --ignore-scripts
-npm run dev
-npm test
-npm run test:browser
-npm run build
-npm run preview
-npm run desktop:dev
-npm run desktop:test
-npm run desktop:build
+| Platform | File | Notes |
+| --- | --- | --- |
+| Windows 10 / 11 (64-bit) | `Longitude_<version>_x64-setup.exe` | Installs for your user account; no admin rights needed |
+| macOS 12+ (Apple Silicon and Intel) | `Longitude_<version>_universal.dmg` | **Preview**: not yet signed by Apple or tested on Mac hardware |
+
+Longitude isn't code-signed yet, so Windows and macOS will show a warning the first time you open it. The **[installation guide](docs/INSTALL.md)** walks through it step by step.
+
+## Using Longitude
+
+1. **Add your people.** Click **+** (or <kbd>Ctrl</kbd>+<kbd>K</kbd>) and search for a city, country, time zone or abbreviation such as `EST` or `+5:30`.
+2. **Pick your reference.** The ⚓ **REF** city is the one the big clock shows. Right-click a row (or use its ⋯ menu) and choose **Set as reference**. **Working hours…** sets that person's hours and an optional label such as "Client A".
+3. **Plan a time.** Drag the clock hands or the orange marker on the timeline. Double-click the dial or press <kbd>Home</kbd> to jump back to now.
+4. **Share it.** Click the share icon (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd>) to copy the time for everyone or export a calendar file.
+
+The **[user guide](docs/USER_GUIDE.md)** covers the planner, widget, groups, settings and every keyboard shortcut.
+
+## Build from source
+
+Requires Node.js 24, npm 11 and stable Rust, plus the [Tauri 2 prerequisites](https://v2.tauri.app/start/prerequisites/) for your platform.
+
+```bash
+npm ci
+npm run desktop:dev      # run the desktop app in development
+npm run desktop:build    # build the installer / app bundle
+npm test                 # unit tests
 ```
 
-The dev/preview servers bind to loopback. `dist/` contains the production frontend and third-party notices, including locally bundled Geist. `npm run typecheck` checks strict types; `npm run build:prototype` checks the preserved design export pipeline into `prototype-dist/`. No backend service is required for the future desktop runtime. Browser persistence now uses validated asynchronous hydration and serialized conditional writes.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full test suite and project conventions, and [docs/BUILD_AND_RELEASE.md](docs/BUILD_AND_RELEASE.md) for packaging details.
 
-## Original prototype reference
+## Project status
 
-The prebuilt preview is `prototype/index.html`; it loads local JS/CSS and bundled React/ReactDOM, but currently requests Geist from Google Fonts. Editable source lives in root `src/`. `longitude-ui/` is empty, and `longitude-ui.zip` duplicates the exported root files.
+Longitude is an early preview (v0.x). Windows is the primary tested platform. The macOS build compiles and passes automated tests in CI but hasn't yet been checked on real Mac hardware. Known issues and engineering records live in the [project status page](docs/PROJECT_STATUS.md) and the [changelog](CHANGELOG.md).
 
-The root manifest/lockfile now build the existing source. Do not scaffold a replacement frontend from the original setup example; those setup notes describe the earlier design export.
+Built with [Tauri 2](https://tauri.app), React, TypeScript and Rust. Time zone data comes from your operating system's IANA database.
 
-## Verification baseline
+## License
 
-Milestone 5A retains shared timezone/scheduling/persistence regressions and adds native Windows executable, filesystem, state/window and shortcut checks. Exact counts, visual comparisons, measured hardware and remaining acceptance items are in the Windows report. Native keyboard/window/API behavior and generated unsigned packaging are verified separately from physical tray/monitor, installer and full accessibility certification. Both original scheduling defects remain fixed. Release idle CPU exceeds the provisional targets and remains an open performance issue.
-
-Production dependencies have zero known npm audit advisories; five high development-only findings remain in Tailwind 3's unpatched brace-pattern chain. See the dependency review for exposure and the compatible fix applied to two other findings. The project has no selected open-source license; runtime third-party notices ship with the build.
+[MIT](LICENSE) © 2026 Longitude contributors. Third-party notices ship with the app.

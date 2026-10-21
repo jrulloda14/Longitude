@@ -51,7 +51,7 @@ Milestone 1 added no browser automation package. Milestone 2 adds only `@playwri
 
 Primary references checked: [polyfill maintainers](https://github.com/js-temporal/temporal-polyfill), [Temporal ZonedDateTime documentation](https://tc39.es/proposal-temporal/docs/zoneddatetime.html), [Vite guide](https://vite.dev/guide/), [Vitest guide](https://vitest.dev/guide/), and npm package metadata (version, license, repository, engines, last modification and dependency list). Registry versions and installed sources take precedence over stale web search snippets.
 
-The project itself has no selected open-source license; package metadata is explicitly UNLICENSED pending the owner's decision.
+Longitude is licensed under the MIT License (chosen by the owner on October 21, 2026). Every bundled dependency is MIT-compatible: permissive licenses (MIT, Apache-2.0, BSD, ISC, Zlib, Unicode-3.0, BSL-1.0), MPL-2.0 file-level copyleft in five upstream crates, OFL-1.1 for the Geist font, and `r-efi`, which is triple-licensed and used under MIT. Notices ship with the application.
 
 ## Resolved security findings and decisions
 

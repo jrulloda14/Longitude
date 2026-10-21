@@ -19,5 +19,12 @@
       "devCsp": "default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src ipc: http://ipc.localhost http://127.0.0.1:5173 ws://127.0.0.1:5173; worker-src 'self' blob:; object-src 'none'"
     }
   },
-  "bundle": { "active": true, "targets": ["nsis"], "icon": ["icons/icon.png", "icons/icon.ico"], "resources": ["../docs/THIRD_PARTY_NOTICES.txt", "../docs/NATIVE_THIRD_PARTY_NOTICES.txt"] }
+  "bundle": {
+    "active": true, "targets": ["nsis"], "icon": ["icons/icon.png", "icons/icon.ico"],
+    "resources": ["../LICENSE", "../docs/THIRD_PARTY_NOTICES.txt", "../docs/NATIVE_THIRD_PARTY_NOTICES.txt"],
+    "publisher": "Longitude", "copyright": "Copyright (c) 2026 Longitude contributors. MIT License.", "license": "MIT",
+    "category": "Productivity", "homepage": "https://github.com/jrulloda14/Longitude",
+    "shortDescription": "Compare time zones and plan meetings across teams",
+    "longDescription": "Longitude is a local-first desktop clock for comparing time zones and planning meetings with teammates and clients around the world. No account, no telemetry and no network connection required."
+  }
 }

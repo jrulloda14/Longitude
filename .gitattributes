@@ -10,3 +10,8 @@
 docs/evidence/** -text -whitespace
 docs/NATIVE_THIRD_PARTY_NOTICES.txt -text -whitespace
 docs/THIRD_PARTY_NOTICES.txt -text -whitespace
+*.gif binary
+
+# Keep GitHub language statistics focused on application source.
+docs/** linguist-documentation
+prototype/** linguist-vendored

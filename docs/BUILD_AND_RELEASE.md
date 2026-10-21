@@ -1,4 +1,16 @@
-# Windows development and packaging — Milestone 5A
+# Building and releasing Longitude
+
+## Publishing a release
+
+1. Update the version in `package.json`, `package-lock.json` (root entry), `src-tauri/Cargo.toml` and `src-tauri/tauri.conf.json`, and add a section to `CHANGELOG.md`.
+2. Commit, push `main` and wait for **Windows CI** to pass.
+3. Tag and push: `git tag v0.1.0 && git push origin v0.1.0`.
+4. The **Release (draft)** workflow checks that the tag matches every version field, builds the Windows NSIS installer and the macOS universal DMG (ad-hoc signed), and attaches both plus `SHA256SUMS.txt` to a **draft** release. The notes come from `.github/release-notes.md`.
+5. Review the draft on GitHub, ideally installing both files on real machines, then click **Publish release**. Nothing is published automatically.
+
+A release on a private repository is only downloadable by people with access to it. Make the repository public before announcing downloads. Signing stays off until credentials exist: Windows remains unsigned, and macOS needs a Developer ID certificate plus notarization (see the signing section below).
+
+## Engineering history: Windows development and packaging — Milestone 5A
 
 ## Milestone 6 local sharing and development verification
 

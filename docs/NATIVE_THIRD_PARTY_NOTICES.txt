@@ -1,6 +1,6 @@
 Longitude native third-party notices
 Generated from the pinned Cargo graph, including platform-specific/build packages.
-Application code has no selected open-source license.
+Longitude application code is licensed under the MIT License (see LICENSE).
 
 
 ========================================================================

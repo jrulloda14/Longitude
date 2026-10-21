@@ -16,3 +16,4 @@ ci-results/
 *.log
 .DS_Store
 Thumbs.db
+output/preview/

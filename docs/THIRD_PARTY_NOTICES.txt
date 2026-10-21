@@ -1,5 +1,5 @@
 Longitude third-party runtime notices
-Generated from the pinned npm lockfile. Project license not selected.
+Generated from the pinned npm lockfile. Longitude itself is licensed under the MIT License (see LICENSE).
 
 
 ========================================================================

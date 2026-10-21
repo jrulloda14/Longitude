@@ -2,7 +2,7 @@ import { readFile, writeFile, readdir, mkdir, copyFile } from 'node:fs/promises'
 import { resolve } from 'node:path';
 
 const lock = JSON.parse(await readFile('package-lock.json', 'utf8'));
-const sections = ['Longitude third-party runtime notices\nGenerated from the pinned npm lockfile. Project license not selected.\n'];
+const sections = ['Longitude third-party runtime notices\nGenerated from the pinned npm lockfile. Longitude itself is licensed under the MIT License (see LICENSE).\n'];
 for (const [directory, dependency] of Object.entries(lock.packages)) {
   if (!directory || dependency.dev) continue;
   const metadata = JSON.parse(await readFile(resolve(directory, 'package.json'), 'utf8'));
