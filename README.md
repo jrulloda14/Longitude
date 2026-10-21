@@ -1,21 +1,23 @@
-<div align="center">
+# <img src="longitude-app-icon.svg" width="44" align="top" alt=""> Longitude: A Time Zone Clock for Remote Teams, VAs &amp; Freelancers
 
-<img src="longitude-app-icon.svg" width="88" alt="Longitude icon">
+> The desktop clock for working with teammates and clients across time zones. Drag the clock and every city follows, with their local time, date, working hours and the best time to meet.
 
-# Longitude
+[![Download](https://img.shields.io/badge/Download-v0.1.0-f26b3a)](https://github.com/jrulloda14/Longitude/releases/latest)
+[![License](https://img.shields.io/badge/License-MIT-e8b923)](LICENSE)
+[![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D6?logo=windows&logoColor=white)](docs/INSTALL.md#windows-10-and-11)
+[![macOS](https://img.shields.io/badge/macOS-12%2B%20preview-1d1d1f?logo=apple&logoColor=white)](docs/INSTALL.md#macos-12-and-later-preview)
+![Offline](https://img.shields.io/badge/Works-offline-2ea44f)
+![Privacy](https://img.shields.io/badge/No-account%20%C2%B7%20no%20tracking-2ea44f)
+[![Tauri](https://img.shields.io/badge/Built%20with-Tauri%202-24C8DB?logo=tauri&logoColor=white)](https://tauri.app)
+[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://react.dev)
+[![Rust](https://img.shields.io/badge/Rust-stable-B7410E?logo=rust&logoColor=white)](https://www.rust-lang.org)
+[![User guide](https://img.shields.io/badge/Docs-User%20guide-5b5bd6)](docs/USER_GUIDE.md)
 
-**A desktop clock for working with teammates and clients across time zones.**
+**Longitude** is a free, open-source desktop app that answers *"what time is it for them?"* at a glance. Add the cities your teammates and clients work in, then drag one clock to plan. Everyone's time, date and availability updates instantly.
 
-Drag the clock to any time and see every city follow: their local time, their date, who's working and who's asleep.
+**Welcome to the v0.1.0 preview!** Windows is ready to try, and a Mac preview is included. Feedback shapes what comes next.
 
-[![Download](https://img.shields.io/github/v/release/jrulloda14/Longitude?label=download&color=f26b3a)](https://github.com/jrulloda14/Longitude/releases/latest)
-![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-2d2d2d)
-![macOS](https://img.shields.io/badge/macOS-preview-2d2d2d)
-[![License: MIT](https://img.shields.io/badge/license-MIT-2d2d2d)](LICENSE)
-
-<img src="docs/assets/longitude-preview.gif" width="760" alt="Longitude: dragging the clock past midnight while every city's time and date update">
-
-</div>
+<p align="center"><img src="docs/assets/longitude-preview.gif" width="760" alt="Longitude: dragging the clock past midnight while every city's time and date update"></p>
 
 ## What it does
 
